@@ -1,0 +1,149 @@
+Astrogator Log File; DriverMCS: Mission_Control_Sequence
+-------------------------------------------------------------
+
+
+----------------------------------------------
+Initial control parameters:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+  2420.719102570869      0.000000000000   2420.719102570869
+
+
+Homotopy step   1 of   1
+
+Intermediate Goals Desired:
+  4.223800e+007 
+
+
+---Running one step of the differential corrector...
+
+--------------------------------------------------------
+
+<<< Targeting Finished >>>
+    [Goals met]
+
+
+--------------------------------------------------------
+
+---Done. (running one step of the differential corrector.)
+
+Params from single diff corr
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+  2420.719102570869      0.000000000000   2420.719102570869
+
+
+Intermediate constraints desired :
+ 42238000.000000000000 
+
+
+Constraints (unscaled) :
+ 42238028.404881507000 
+
+Differences (unscaled) :
+      28.404881507158
+
+Tolerances (unscaled) :
+     100.000000000000
+
+
+----------------------------------------------
+Final Params from Homotopy Diff Corr
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+  2420.719102570869      0.000000000000   2420.719102570869
+
+
+Intermediate constraints desired :
+ 42238000.000000000000 
+
+
+Constraints (unscaled) :
+ 42238028.404881507000 
+
+Differences (unscaled) :
+      28.404881507158
+
+Tolerances (unscaled) :
+     100.000000000000
+
+
+----------------------------------------------
+
+*********** Done Targeting************************
+
+----------------------------------------------
+Initial control parameters:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+  1476.941840887856      0.000000000000   1476.941840887856
+
+
+Homotopy step   1 of   1
+
+Intermediate Goals Desired:
+  0.000000e+000 
+
+
+---Running one step of the differential corrector...
+
+--------------------------------------------------------
+
+<<< Targeting Finished >>>
+    [Goals met]
+
+
+--------------------------------------------------------
+
+---Done. (running one step of the differential corrector.)
+
+Params from single diff corr
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+  1476.941840887856      0.000000000000   1476.941840887856
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.008124303994 
+
+Differences (unscaled) :
+       0.008124303994
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+----------------------------------------------
+Final Params from Homotopy Diff Corr
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+  1476.941840887856      0.000000000000   1476.941840887856
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.008124303994 
+
+Differences (unscaled) :
+       0.008124303994
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+----------------------------------------------
+
+*********** Done Targeting************************

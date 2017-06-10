@@ -1,0 +1,1 @@
+a=input('What is the best major?','s')

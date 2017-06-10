@@ -1,0 +1,947 @@
+Astrogator Log File; DriverMCS: Mission_Control_Sequence
+-------------------------------------------------------------
+
+
+----------------------------------------------
+Initial control parameters:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+  2420.719102570869      0.000000000000   2420.719102570869
+
+
+Homotopy step   1 of   1
+
+Intermediate Goals Desired:
+  4.223800e+007 
+
+
+---Running one step of the differential corrector...
+
+--------------------------------------------------------
+
+<<< Targeting Finished >>>
+    [Goals met]
+
+
+--------------------------------------------------------
+
+---Done. (running one step of the differential corrector.)
+
+Params from single diff corr
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+  2420.719102570869      0.000000000000   2420.719102570869
+
+
+Intermediate constraints desired :
+ 42238000.000000000000 
+
+
+Constraints (unscaled) :
+ 42238028.404881380000 
+
+Differences (unscaled) :
+      28.404881380498
+
+Tolerances (unscaled) :
+     100.000000000000
+
+
+----------------------------------------------
+Final Params from Homotopy Diff Corr
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+  2420.719102570869      0.000000000000   2420.719102570869
+
+
+Intermediate constraints desired :
+ 42238000.000000000000 
+
+
+Constraints (unscaled) :
+ 42238028.404881380000 
+
+Differences (unscaled) :
+      28.404881380498
+
+Tolerances (unscaled) :
+     100.000000000000
+
+
+----------------------------------------------
+
+*********** Done Targeting************************
+
+----------------------------------------------
+Initial control parameters:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+     0.000000000000      0.000000000000      0.000000000000
+
+
+Homotopy step   1 of   1
+
+Intermediate Goals Desired:
+  0.000000e+000 
+
+
+---Running one step of the differential corrector...
+
+-------------------------------------------------------------
+Count =   1
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.726184310305 
+
+Differences (unscaled) :
+       0.726184310305
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+Performing one Newton-Raphson Step...
+
+Partial derivative matrix (scaled) :
+
+   -0.000340687029747
+
+Newton Step Done...
+
+DC step (scaled) :
+    2131.529077709060
+
+DC step (unscaled) :
+    2131.529077709060
+
+Limit-bounded step (scaled):
+  1.000000e+002
+
+Limit-bounded step (unscaled):
+  1.000000e+002 
+
+Line search step:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+   100.000000000000    100.000000000000    100.000000000000
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.691057008644 
+
+Differences (unscaled) :
+       0.691057008644
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+-------------------------------------------------------------
+Count =   2
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.691057008644 
+
+Differences (unscaled) :
+       0.691057008644
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+Performing one Newton-Raphson Step...
+
+Partial derivative matrix (scaled) :
+
+   -0.000361880196627
+
+Newton Step Done...
+
+DC step (scaled) :
+    1909.629250471232
+
+DC step (unscaled) :
+    1909.629250471232
+
+Limit-bounded step (scaled):
+  1.000000e+002
+
+Limit-bounded step (unscaled):
+  1.000000e+002 
+
+Line search step:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+   200.000000000000    100.000000000000    200.000000000000
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.653810390296 
+
+Differences (unscaled) :
+       0.653810390296
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+-------------------------------------------------------------
+Count =   3
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.653810390296 
+
+Differences (unscaled) :
+       0.653810390296
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+Performing one Newton-Raphson Step...
+
+Partial derivative matrix (scaled) :
+
+   -0.000383073363506
+
+Newton Step Done...
+
+DC step (scaled) :
+    1706.749809782056
+
+DC step (unscaled) :
+    1706.749809782056
+
+Limit-bounded step (scaled):
+  1.000000e+002
+
+Limit-bounded step (unscaled):
+  1.000000e+002 
+
+Line search step:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+   300.000000000000    100.000000000000    300.000000000000
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.614444455260 
+
+Differences (unscaled) :
+       0.614444455260
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+-------------------------------------------------------------
+Count =   4
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.614444455260 
+
+Differences (unscaled) :
+       0.614444455260
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+Performing one Newton-Raphson Step...
+
+Partial derivative matrix (scaled) :
+
+   -0.000404266530383
+
+Newton Step Done...
+
+DC step (scaled) :
+    1519.899395772656
+
+DC step (unscaled) :
+    1519.899395772656
+
+Limit-bounded step (scaled):
+  1.000000e+002
+
+Limit-bounded step (unscaled):
+  1.000000e+002 
+
+Line search step:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+   400.000000000000    100.000000000000    400.000000000000
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.572959203536 
+
+Differences (unscaled) :
+       0.572959203536
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+-------------------------------------------------------------
+Count =   5
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.572959203536 
+
+Differences (unscaled) :
+       0.572959203536
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+Performing one Newton-Raphson Step...
+
+Partial derivative matrix (scaled) :
+
+   -0.000425459697264
+
+Newton Step Done...
+
+DC step (scaled) :
+    1346.682675750689
+
+DC step (unscaled) :
+    1346.682675750689
+
+Limit-bounded step (scaled):
+  1.000000e+002
+
+Limit-bounded step (unscaled):
+  1.000000e+002 
+
+Line search step:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+   500.000000000000    100.000000000000    500.000000000000
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.529354635124 
+
+Differences (unscaled) :
+       0.529354635124
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+-------------------------------------------------------------
+Count =   6
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.529354635124 
+
+Differences (unscaled) :
+       0.529354635124
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+Performing one Newton-Raphson Step...
+
+Partial derivative matrix (scaled) :
+
+   -0.000446652864142
+
+Newton Step Done...
+
+DC step (scaled) :
+    1185.158940244182
+
+DC step (unscaled) :
+    1185.158940244182
+
+Limit-bounded step (scaled):
+  1.000000e+002
+
+Limit-bounded step (unscaled):
+  1.000000e+002 
+
+Line search step:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+   600.000000000000    100.000000000000    600.000000000000
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.483630750024 
+
+Differences (unscaled) :
+       0.483630750024
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+-------------------------------------------------------------
+Count =   7
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.483630750024 
+
+Differences (unscaled) :
+       0.483630750024
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+Performing one Newton-Raphson Step...
+
+Partial derivative matrix (scaled) :
+
+    -0.00046784603102
+
+Newton Step Done...
+
+DC step (scaled) :
+    1033.739132015952
+
+DC step (unscaled) :
+    1033.739132015952
+
+Limit-bounded step (scaled):
+  1.000000e+002
+
+Limit-bounded step (unscaled):
+  1.000000e+002 
+
+Line search step:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+   700.000000000000    100.000000000000    700.000000000000
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.435787548236 
+
+Differences (unscaled) :
+       0.435787548236
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+-------------------------------------------------------------
+Count =   8
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.435787548236 
+
+Differences (unscaled) :
+       0.435787548236
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+Performing one Newton-Raphson Step...
+
+Partial derivative matrix (scaled) :
+
+     -0.0004890391979
+
+Newton Step Done...
+
+DC step (scaled) :
+     891.109649508001
+
+DC step (unscaled) :
+     891.109649508001
+
+Limit-bounded step (scaled):
+  1.000000e+002
+
+Limit-bounded step (unscaled):
+  1.000000e+002 
+
+Line search step:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+   800.000000000000    100.000000000000    800.000000000000
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.385825029761 
+
+Differences (unscaled) :
+       0.385825029761
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+-------------------------------------------------------------
+Count =   9
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.385825029761 
+
+Differences (unscaled) :
+       0.385825029761
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+Performing one Newton-Raphson Step...
+
+Partial derivative matrix (scaled) :
+
+   -0.000510232364777
+
+Newton Step Done...
+
+DC step (scaled) :
+     756.175139790451
+
+DC step (unscaled) :
+     756.175139790451
+
+Limit-bounded step (scaled):
+  1.000000e+002
+
+Limit-bounded step (unscaled):
+  1.000000e+002 
+
+Line search step:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+   900.000000000000    100.000000000000    900.000000000000
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.333743194598 
+
+Differences (unscaled) :
+       0.333743194598
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+-------------------------------------------------------------
+Count =  10
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.333743194598 
+
+Differences (unscaled) :
+       0.333743194598
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+Performing one Newton-Raphson Step...
+
+Partial derivative matrix (scaled) :
+
+   -0.000531425531659
+
+Newton Step Done...
+
+DC step (scaled) :
+     628.014979927635
+
+DC step (unscaled) :
+     628.014979927635
+
+Limit-bounded step (scaled):
+  1.000000e+002
+
+Limit-bounded step (unscaled):
+  1.000000e+002 
+
+Line search step:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+  1000.000000000000    100.000000000000   1000.000000000000
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.279542042746 
+
+Differences (unscaled) :
+       0.279542042746
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+-------------------------------------------------------------
+Count =  11
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.279542042746 
+
+Differences (unscaled) :
+       0.279542042746
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+Performing one Newton-Raphson Step...
+
+Partial derivative matrix (scaled) :
+
+   -0.000552618698534
+
+Newton Step Done...
+
+DC step (scaled) :
+     505.849772162933
+
+DC step (unscaled) :
+     505.849772162933
+
+Limit-bounded step (scaled):
+  1.000000e+002
+
+Limit-bounded step (unscaled):
+  1.000000e+002 
+
+Line search step:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+  1100.000000000000    100.000000000000   1100.000000000000
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.223221574207 
+
+Differences (unscaled) :
+       0.223221574207
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+-------------------------------------------------------------
+Count =  12
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.223221574207 
+
+Differences (unscaled) :
+       0.223221574207
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+Performing one Newton-Raphson Step...
+
+Partial derivative matrix (scaled) :
+
+   -0.000573811865412
+
+Newton Step Done...
+
+DC step (scaled) :
+     389.015263821835
+
+DC step (unscaled) :
+     389.015263821835
+
+Limit-bounded step (scaled):
+  1.000000e+002
+
+Limit-bounded step (unscaled):
+  1.000000e+002 
+
+Line search step:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+  1200.000000000000    100.000000000000   1200.000000000000
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.164781788980 
+
+Differences (unscaled) :
+       0.164781788980
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+-------------------------------------------------------------
+Count =  13
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.164781788980 
+
+Differences (unscaled) :
+       0.164781788980
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+Performing one Newton-Raphson Step...
+
+Partial derivative matrix (scaled) :
+
+   -0.000595005032291
+
+Newton Step Done...
+
+DC step (scaled) :
+     276.941840887984
+
+DC step (unscaled) :
+     276.941840887984
+
+Limit-bounded step (scaled):
+  1.000000e+002
+
+Limit-bounded step (unscaled):
+  1.000000e+002 
+
+Line search step:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+  1300.000000000000    100.000000000000   1300.000000000000
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.104222687065 
+
+Differences (unscaled) :
+       0.104222687065
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+-------------------------------------------------------------
+Count =  14
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.104222687065 
+
+Differences (unscaled) :
+       0.104222687065
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+Performing one Newton-Raphson Step...
+
+Partial derivative matrix (scaled) :
+
+   -0.000616198199173
+
+Newton Step Done...
+
+DC step (scaled) :
+     169.138253252469
+
+DC step (unscaled) :
+     169.138253252469
+
+Limit-bounded step (scaled):
+  1.000000e+002
+
+Limit-bounded step (unscaled):
+  1.000000e+002 
+
+Line search step:
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+  1400.000000000000    100.000000000000   1400.000000000000
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.041544268463 
+
+Differences (unscaled) :
+       0.041544268463
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+--------------------------------------------------------
+
+<<< Targeting Finished >>>
+    [Goals met]
+
+
+--------------------------------------------------------
+
+---Done. (running one step of the differential corrector.)
+
+Params from single diff corr
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+  1400.000000000000    100.000000000000   1400.000000000000
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.041544268463 
+
+Differences (unscaled) :
+       0.041544268463
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+----------------------------------------------
+Final Params from Homotopy Diff Corr
+
+Unscaled Controls:
+Control         Last Update          Total Correction
+  1400.000000000000    100.000000000000   1400.000000000000
+
+
+Intermediate constraints desired :
+     0.000000000000 
+
+
+Constraints (unscaled) :
+     0.041544268463 
+
+Differences (unscaled) :
+       0.041544268463
+
+Tolerances (unscaled) :
+       0.100000000000
+
+
+----------------------------------------------
+
+*********** Done Targeting************************

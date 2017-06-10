@@ -1,0 +1,24 @@
+******************  CASE  1   *******************
+R (km)   = -4525.4103 I     -2600.2562 J     6147.2236 K     Mag=  8064.0578
+V (km\s)   =   4.6461 I       2.6696 J       4.5560 K     Mag=    7.0335
+   
+Radius of Perigee          (km) =   8061.9974
+Radius of Apogee          (km) =   8079.4661
+Energy          (km^2/sec^2) =   -24.6942
+Period          (hours) =     2.0044
+Semimajor Axis         (km) =   8070.7317
+Eccentricity          =     0.0011
+   
+Inclination          (deg) =    90.0000
+Right Ascension of the Ascending Node          (deg) =   209.8812
+Argument of Perigee          (deg) =      9.4539
+True Anomaly          (deg) =    40.2134
+   
+Time of Flight          (minutes) =   300.0000
+Future True Anomaly          (deg) =   218.0948
+   
+RPQW (km)   = -6357.0035 P     -4983.5891 Q       0.0000 W     Mag=  8077.6020
+VPQW (km\s)   =   4.3358 P      -5.5231 Q       0.0000 Q     Mag=    7.0217
+RIJK (km)   = 4727.2866 I     2716.2522 J     -5960.0662 K     Mag=  8077.6020
+VIJK (km\s)   =  -4.4950 I      -2.5828 J      -4.7359 K     Mag=    7.0217
+   

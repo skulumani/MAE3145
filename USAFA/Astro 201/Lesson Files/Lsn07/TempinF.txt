@@ -1,0 +1,5 @@
+Temperature #1: 59.0000
+Temperature #2: 71.6000
+Temperature #3: 87.8000
+Temperature #4: 77.0000
+Temperature #5: 62.6000
