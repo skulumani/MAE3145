@@ -1,0 +1,166 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,text={6.5in,8.7in},centering]{geometry}
+\usepackage{amssymb,amsmath,times,url,subfigure,graphicx,theorem,alltt}
+%\usepackage[pdftex,urlcolor=blue,pdfpagemode=none,pdfstartview=FitH]{hyperref}
+
+%% url smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+%\usepackage[all,import]{xy}
+
+\newcommand{\norm}[1]{\ensuremath{\left\| #1 \right\|}}
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
+\newcommand{\bracket}[1]{\ensuremath{\left[ #1 \right]}}
+\newcommand{\braces}[1]{\ensuremath{\left\{ #1 \right\}}}
+\newcommand{\parenth}[1]{\ensuremath{\left( #1 \right)}}
+\newcommand{\ip}[1]{\ensuremath{\langle #1 \rangle}}
+\newcommand{\refeqn}[1]{(\ref{eqn:#1})}
+\newcommand{\reffig}[1]{Fig. \ref{fig:#1}}
+\newcommand{\tr}[1]{\mbox{tr}\ensuremath{\negthickspace\bracket{#1}}}
+\newcommand{\deriv}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
+\newcommand{\SO}{\ensuremath{\mathrm{SO(3)}}}
+\newcommand{\T}{\ensuremath{\mathrm{T}}}
+\newcommand{\so}{\ensuremath{\mathfrak{so}(3)}}
+\newcommand{\SE}{\ensuremath{\mathrm{SE(3)}}}
+\newcommand{\se}{\ensuremath{\mathfrak{se}(3)}}
+\renewcommand{\Re}{\ensuremath{\mathbb{R}}}
+\renewcommand{\S}{\ensuremath{\mathbb{S}}}
+\newcommand{\aSE}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&1\end{bmatrix}}}
+\newcommand{\ase}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&0\end{bmatrix}}}
+\newcommand{\D}{\ensuremath{\mathbf{D}}}
+\newcommand{\pair}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+\newcommand{\met}[1]{\ensuremath{\langle\!\langle #1 \rangle\!\rangle}}
+\newcommand{\Ad}{\ensuremath{\mathrm{Ad}}}
+\newcommand{\ad}{\ensuremath{\mathrm{ad}}}
+\newcommand{\g}{\ensuremath{\mathfrak{g}}}
+
+\renewcommand{\baselinestretch}{1.2}
+\date{}
+
+\renewcommand{\thesubsection}{\arabic{subsection}. }
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection} }
+
+\theoremstyle{plain}\theorembodyfont{\normalfont}
+\newtheorem{prob}{Problem}[section]
+%\renewcommand{\theprob}{\arabic{section}.\arabic{prob}}
+\renewcommand{\theprob}{\arabic{prob}}
+
+\newenvironment{subprob}%
+{\renewcommand{\theenumi}{\alph{enumi}}\renewcommand{\labelenumi}{(\theenumi)}\begin{enumerate}}%
+{\end{enumerate}}%
+
+\newenvironment{matlab}
+{\begin{alltt}\small\renewcommand{\baselinestretch}{1.2}\selectfont}%
+{\end{alltt}}
+
+
+\begin{document}
+
+\pagestyle{empty}
+\section*{MAE3145: Homework 3}
+\vspace*{-0.4cm}
+\noindent{Due date: October 19, 2016}%\\%\vspace*{0.5cm}
+
+
+\begin{prob}
+Consider Asteroid 5 discussed at Question 3 of HW\#2. Its specific energy and specific angular momentum are given by $\mathcal{E}=10\,\mathrm{km^2/s^3}$, and $h=8\times 10^4\,\mathrm{km^2/s}$. We want to determine the time after periapsis passage $t$ when the true anomaly is $\theta=100^\circ$.
+\begin{subprob}
+\item Compute the semi-major axis $a$, and the eccentricity $e$.
+\item Compute the maximum true anomaly $\theta_\infty$. Is $\theta < \theta_\infty$?
+\item Compute the hyperbolic eccentric anomaly $F$, and the hyperbolic mean anomaly $M_e$.
+\item Show that the time after the periapsis passage is given by $t=0.6979\,\mathrm{hrs}$.
+\end{subprob}
+\end{prob}
+
+\begin{prob}
+An Earth-orbiting satellite has a period of $T=15.743$ hours and a periapsis radius $r_p=12756\,\mathrm{km}$. We want to determine the location of this satellite at time $t=1$ hour after periapsis passage.
+\begin{subprob}
+\item Compute the semi-major axis $a$, and the eccentricity $e$.
+\item Compute the mean anomaly $M_e$.
+\item Write a Matlab program to compute the eccentric anomaly $E$.
+\item Show that the true anomaly is given by $\theta=84.2850^\circ$.
+\end{subprob}
+(Hint: if you want to verify your code, check that your code gives $\theta=\pi$ when $t=T/2$.)
+\end{prob}
+
+\begin{prob} We observed the position and the velocity of a spacecraft orbiting the Earth as follows:
+\begin{align*}
+\vec r_0 = [6000,6000,6000]\,\mathrm{km},\quad \vec v_0 = [-5,-5,0]\,\mathrm{km/s}.
+\end{align*}
+Assume that $\mu = 398600 \,\mathrm{km^3/s^2}$.
+
+\begin{subprob}
+\item Using the Matlab \texttt{rv2oe.m} posted to Blackboard, find the orbital elements $(h,e,\theta,\Omega,\omega,i)$.
+\item Write a Matlab function \texttt{oe2rv.m} that computes the position and the velocity vector for  given orbital elements. The first few lines of this file are as follows:
+\begin{matlab}
+1: function [r_vec, v_vec]=oe2rv(h,e,theta,Omega,i,omega)
+2: xhat=[1;0;0];
+3: yhat=[0;1;0];
+4: zhat=[0;0;1];
+5: mu=398600;
+6: N_hat=
+\end{matlab}
+
+(Hint: if you want to verify your code, check that your code returns $\vec r_0,\vec v_0$ when the orbital elements are equal to your answer to (a).)
+
+\item Evaluate the function \texttt{oe2rv.m} for varying \texttt{theta=linspace(0,2*pi,200)}. The other five orbital elements $(h,e,\Omega,\omega,i)$ are fixed at your solution of (a). Plot the position and the velocity vector in a three-dimensional space. The structure of the Matlab file is as follows:
+\begin{matlab}
+ 1: h=
+ 2: e=
+ 3: Omega=
+ 4: omega=
+ 5: i=
+ 6: theta=linspace(0,2*pi,200);
+ 7: for k=1:200
+ 8:      [r_vec_theta(:,k),v_vec_theta(:,k)]=oe2rv(h,e,theta(k),
+ 9: end
+10: plot3(r_vec_theta(1,:),
+11: figure;
+12: plot3(v_vec_theta(1,:),
+\end{matlab}
+\item Check that $\vec r_0$ and $\vec v_0$ are on your curves at (c).
+\end{subprob}
+\end{prob}
+
+%\clearpage\newpage
+%\begin{prob}
+%In a sun-synchronous orbit, the average precession rate of $\Omega$ is the same as the orbital angular rate of the Earth around the Sun:
+%\begin{align}
+%\dot{\overline \Omega} = -\frac{3}{2} \frac{\sqrt{\mu} J_2 R_E^2}{(1-e^2)^2 a^{7/2}}\cos i = 2\pi \,(\mathrm{rad/year}).
+%\end{align}
+%Assume that $\mu = 398600 \,\mathrm{km^3/s^2}$, $R_E=6378\,\mathrm{km}$, $J_2 = 0.00108$. In this problem, we consider circular sun-synchronous orbits, i.e. $e=0$.
+%\begin{subprob}
+%\item Find the maximum orbital radius $a_M$ for circular sun-synchronous orbits. (Note that the orbital radius $a$ is a function of the inclination $i$.)
+%\item Show that the inclination $i$ and the orbital radius $a$ of circular sun-synchronous orbits has the following relation:
+%\begin{align}
+%\cos i = - \parenth{\frac{a}{a_M}}^{7/2}\label{eqn:i}
+%\end{align}
+%\item Using \refeqn{i}, plot a curve showing the inclination as a function of the orbital radius when $R_E\leq a \leq a_M$.
+%\item Find the maximum and the minimum orbit period that a circular sun-synchronous orbit can have.
+%\end{subprob}
+%\end{prob}
+
+
+\begin{prob} A satellite satisfies the following condition at the current time.
+\begin{itemize}
+\item $\vec r = [-6634.2, -1261.8, -5230.9]\,\mathrm{km}$
+\item $\vec e = [-0.40907, -0.48751, -0.63640]$
+\item It is flying toward its periapsis.
+\end{itemize}
+\begin{subprob}
+\item What is the type of orbit.
+\item Find the direction of the specific angular momentum $\hat h = \frac{\vec h}{h}$.
+\item Find the inclination $i$. %See Exercise 4.5 at page 188. Is the given solution correct?
+\item Find the direction of the node vector $\hat N = \frac{\vec N}{N}$.
+\item Find the longitude of the ascending node $\Omega$.
+\item Find the argument of periapsis $\omega$.
+\item Find the true anomaly $\theta$.
+\end{subprob}
+\end{prob}
+
+\end{document}
+

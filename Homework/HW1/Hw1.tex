@@ -1,0 +1,264 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,text={6.5in,8.7in},centering]{geometry}
+\usepackage{amssymb,amsmath,times,url,subfigure,graphicx,theorem,alltt}
+%\usepackage[pdftex,urlcolor=blue,pdfpagemode=none,pdfstartview=FitH]{hyperref}
+
+%% url smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+%\usepackage[all,import]{xy}
+
+\newcommand{\norm}[1]{\ensuremath{\left\| #1 \right\|}}
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
+\newcommand{\bracket}[1]{\ensuremath{\left[ #1 \right]}}
+\newcommand{\braces}[1]{\ensuremath{\left\{ #1 \right\}}}
+\newcommand{\parenth}[1]{\ensuremath{\left( #1 \right)}}
+\newcommand{\ip}[1]{\ensuremath{\langle #1 \rangle}}
+\newcommand{\refeqn}[1]{(\ref{eqn:#1})}
+\newcommand{\reffig}[1]{Fig. \ref{fig:#1}}
+\newcommand{\tr}[1]{\mbox{tr}\ensuremath{\negthickspace\bracket{#1}}}
+\newcommand{\deriv}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
+\newcommand{\SO}{\ensuremath{\mathrm{SO(3)}}}
+\newcommand{\T}{\ensuremath{\mathrm{T}}}
+\newcommand{\so}{\ensuremath{\mathfrak{so}(3)}}
+\newcommand{\SE}{\ensuremath{\mathrm{SE(3)}}}
+\newcommand{\se}{\ensuremath{\mathfrak{se}(3)}}
+\renewcommand{\Re}{\ensuremath{\mathbb{R}}}
+\renewcommand{\S}{\ensuremath{\mathbb{S}}}
+\newcommand{\aSE}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&1\end{bmatrix}}}
+\newcommand{\ase}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&0\end{bmatrix}}}
+\newcommand{\D}{\ensuremath{\mathbf{D}}}
+\newcommand{\pair}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+\newcommand{\met}[1]{\ensuremath{\langle\!\langle #1 \rangle\!\rangle}}
+\newcommand{\Ad}{\ensuremath{\mathrm{Ad}}}
+\newcommand{\ad}{\ensuremath{\mathrm{ad}}}
+\newcommand{\g}{\ensuremath{\mathfrak{g}}}
+
+\renewcommand{\baselinestretch}{1.2}
+\date{}
+
+\renewcommand{\thesubsection}{\arabic{subsection}. }
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection} }
+
+\theoremstyle{plain}\theorembodyfont{\normalfont}
+\newtheorem{prob}{Problem}[section]
+%\renewcommand{\theprob}{\arabic{section}.\arabic{prob}}
+\renewcommand{\theprob}{\arabic{prob}}
+
+\newenvironment{subprob}%
+{\renewcommand{\theenumi}{\alph{enumi}}\renewcommand{\labelenumi}{(\theenumi)}\begin{enumerate}}%
+{\end{enumerate}}%
+
+\newenvironment{matlab}
+{\begin{alltt}\small\renewcommand{\baselinestretch}{1.2}\selectfont}%
+{\end{alltt}}
+
+
+\begin{document}
+
+\pagestyle{empty}
+\section*{MAE3145: Homework 1}
+\vspace*{-0.4cm}
+\noindent{Due date: September 21, 2016}%\\%\vspace*{0.5cm}
+
+\begin{prob}
+The motion of two point masses acting under their mutual gravity is described, with respect to an inertial frame, by the following set of ordinary differential equations.
+\begin{align}
+m_1\ddot{{R}}_1 & = G \frac{m_1 m_2}{r^2} \hat u_r,\\
+m_2\ddot{{R}}_2 & = -G \frac{m_1 m_2}{r^2} \hat u_r,
+\end{align}
+where $ r= R_2 - R_1$, $r=\norm{ r}$, $\hat u_r = \frac{ r}{r}$. Suppose that the units are normalized such that $m_1=2\,\mathrm{kg}$, $m_2=1\,\mathrm{kg}$, $G=1\,\mathrm{m^3/kg s^2}$.
+
+The initial conditions are given by
+\begin{align*}
+ R_1(0)&=[0,0,0]^T\,(\mathrm{m}), \qquad  V_1(0)=[0,0,0]^T\,(\mathrm{m/s}),\\
+ R_2(0)&=[1,0,0]^T\,(\mathrm{m}), \qquad  V_2(0)=[1,1,0]^T\,(\mathrm{m/s}).
+\end{align*}
+We wish to compute the resulting trajectories of $m_1$ and $m_2$ using Matlab. 
+
+
+First, we rewrite the equations of motion as the standard form of $\dot x = f(t,x)$. Let the state vector be $x=[R_1^T,\,V_1^T,\, R_2^T,\, V_2^T]\in\Re^{12}$. The equations of motion can be rewritten as
+\begin{align}
+\begin{bmatrix} \dot R_1 \\ \dot V_1 \\ \dot R_2 \\ \dot V_2\end{bmatrix}
+=
+\begin{bmatrix}
+V_1 \\
+G\frac{m_2}{r^2} \hat u_r\\
+V_2 \\
+-G\frac{m_1}{r^2} \hat u_r
+\end{bmatrix}.
+\end{align}
+
+
+\begin{subprob}
+
+\item Write a Matlab m-file function, namely \texttt{eomTBI.m} that returns $\dot x$ for given $(t,x)$. The first few lines and the last line of \texttt{eomTBI.m} are given as follows:
+\begin{matlab}
+function X_dot = eomTBI(t,X)
+R1=X(1:3);
+V1=X(4:6);
+.
+.
+.
+X_dot = [R1_dot; V1_dot; R2_dot; V2_dot];
+\end{matlab}
+\textbf{Upload} your \texttt{eomTBI.m} file to Blackboard.
+
+(You may verify the Matlab function \texttt{eomTBI.m} by checking its output when $t=0$. Type the following Matlab commands
+\begin{matlab}
+R10=[0 0 0]';
+R20=[1 0 0]';
+V10=[0 0 0]';
+V20=[1 1 0]';
+X0=[R10; V10; R20; V20];
+eomTBI(0,X0)
+\end{matlab}
+And, check that the results are given by
+\begin{matlab}
+ans =
+     0
+     0
+     0
+     1
+     0
+     0
+     1
+     1
+     0
+    -2
+     0
+     0
+\end{matlab}
+If the output of \texttt{eomTBI} is different from above, go back to part (b) and fix your code. You don't have to submit anything for this verification. )
+
+\item Write a Matlab script \texttt{m}-file, entitled \texttt{simTBI.m} to obtain $R_1(t), R_2(t)$ using \texttt{ode45}, and plot the trajectories of $m_1$, $m_2$ together on a single $xy$ plane (The $x$ axis is for the $x$-component of $R_1,R_2$, and the $y$ axis is for their $y$ components. There is no need to plot the $z$-components, as they are identical to zero). The simulation time is $0\leq t \leq 10$ seconds.
+
+\textbf{Upload} your \texttt{simTBI.m} and the plot saved as \texttt{R1R2.PNG}.
+
+
+\item The position of the mass center of two point masses is given by
+\begin{align*}
+ R_G = \frac{m_1  R_1 + m_2  R_2}{m_1+m_2}.
+\end{align*}
+Compute the trajectory of the mass center using the results of (d) and plot it on the $xy$ plane.
+
+\textbf{Upload} your plot saved as \texttt{RG.PNG}.
+
+%\item Since the acceleration of the mass center is zero, the position of the mass center can also be obtained by the following equation.
+%\begin{align*}
+% R_G (t) =  R_G (0) +  V_G(0) t.
+%\end{align*}
+%Compute $R_G(10)$ by hands using the above equation, and check that it is consistent with your solution of (e).
+\item The relative position of $m_2$ from $m_1$ is given by
+\begin{align*}
+ r =  R_2 - R_1.
+\end{align*}
+Compute the trajectory of the relative motion, and plot it on the $xy$ plane.
+
+\textbf{Upload} your plot saved as \texttt{r.PNG}.
+\end{subprob}
+\end{prob}
+
+\end{document}
+
+
+
+
+\begin{prob}
+The relative motion of two point masses acting under their mutual gravitational potential is described by the following ordinary differential equation.
+\begin{align}
+\ddot{ r} = -\mu \frac{ r}{r^3},
+\end{align}
+where $\mu=G(m_1+m_2)$.
+\begin{subprob}
+\item Write a Matlab code to solve this equation for $ r(t)$, and plot the relative trajectories on the $xy$ plane for the following initial conditions. The properties of two masses and the simulation time are the same as Problem 1.
+\begin{align*}
+ r(0)=  R_2(0)- R_1(0) = [1,0,0]^T\,(\mathrm{m}), \qquad 
+ v(0)=  V_2(0)- V_1(0) = [1,1,0]^T\,(\mathrm{m/s}).
+\end{align*}
+\item Check that your solution of \textbf{Problem 2}.(b) is consistent with \textbf{Problem 1}.(d).
+\end{subprob}
+\end{prob}
+
+
+\clearpage\newpage
+\section*{MATLAB: Initial Value Problem for Ordinary Differential Equations}
+
+Consider an ordinary differential equation
+\begin{align}
+\dot x = f(t,x),\label{eqn:f}
+\end{align}
+where $x\in\Re^n$, $f:\Re\times\Re^n\rightarrow\Re^n$. An initial value problem is to find the solution $x(t)$ satisfying the ordinary differential equation and an initial condition $x(0)=x_0$. Matlab provides several solvers for initial value problems. Here, we show an example for a pendulum. 
+
+\paragraph{Pendulum Model} A pendulum is a point mass connected to a frictionless pivot point by a massless link acting under gravity. The motion of a pendulum is described by the following differential equation.
+\begin{align}
+\ddot \theta = - \frac{g}{l} \sin\theta,\label{eqn:ddottheta}
+\end{align}
+where $\theta$ is the angle of the link from the hanging position, $l$ is the length of the link, and $g$ is the gravitational acceleration.
+
+We will solve an initial value problem of this pendulum model using the Matlab \texttt{ode45} function. The initial conditions and the properties of the pendulum is given by
+\begin{align*}
+\theta(0)=\frac{\pi}{4},\quad \dot\theta(0)=0,\quad l=9.81\,\mathrm{m},\quad g=9.81\,\mathrm{m/s^2}.
+\end{align*}
+
+\paragraph{Step 1. Standard First-Order Form} The first step is to rewrite the differential equation \refeqn{ddottheta} into the standard first-order form \refeqn{f}. Define
+\begin{align}
+x_1=\theta,\quad x_2=\dot\theta.
+\end{align}
+Then, \refeqn{ddottheta} can be written as two-dimensional first-order differential equations of a state vector $x=[x_1,x_2]^T\in\Re^2$.
+\begin{align}
+\dot x_1 & = \dot\theta = x_2,\\
+\dot x_2 & = \ddot\theta = -\frac{g}{l}\sin\theta = -\frac{g}{l}\sin x_1.
+\end{align}
+These equations can be rewritten as
+\begin{align}
+\dot x = \begin{bmatrix} \dot x_1 \\ \dot x_2 \end{bmatrix}
+=\begin{bmatrix} x_2 \\ -\frac{g}{l} \sin x_1\end{bmatrix}=f(t,x),
+\end{align}
+which has the same form as \refeqn{f}.
+
+\paragraph{Step 2. Matlab Function for $f$} The next step is writing a Matlab function m-file for $f(t,x)$: the input of this function is a time $t$ and a state vector $x$, and the output is $\dot x$. The following Matlab m-file function represent the equation of motion for a pendulum. Note that it should be saved as \texttt{eomPend.m}.
+
+\begin{alltt}
+\footnotesize\renewcommand{\baselinestretch}{1.2}\selectfont
+function dotX=eomPend(t,X)
+g=9.81;
+l=9.81;
+
+theta=X(1);
+dottheta=X(2);
+
+ddottheta=-g/l*theta;
+
+dotX=[dottheta; ddottheta];
+\end{alltt}
+
+\paragraph{Step 3. Use \texttt{ode45} Function} The Matlab function \texttt{eomPend.m} is integrated by the Matlab initial value problem solver \texttt{ode45}. The syntax is as follows
+
+\begin{alltt}
+[t,X] = ode45(@odefun,tspan,X0);
+\end{alltt}
+where \texttt{@odefun} is the handle of the differential equation, \texttt{tspan=[t0 tf]} specifies the simulation time for the initial time \texttt{t0} and the terminal time \texttt{tf}. The initial condition is specified by \texttt{X0}. Then, it returns the column vector \texttt{t} of time points, and the solution array \texttt{X}, where each row in \texttt{X} corresponds to the solution at a time returned in the corresponding row of \texttt{t}.
+
+For our initial value problem for the pendulum, use the following Matlab script m-file.
+\begin{alltt}\footnotesize\renewcommand{\baselinestretch}{1.2}\selectfont
+clear all;
+close all;
+
+theta0=pi/4;
+dottheta0=0;
+X0=[theta0; dottheta0];
+
+[t,X]=ode45(@eomPend,[0 10],X0);
+
+theta=X(:,1);
+dottheta=X(:,2);
+
+plot(theta,dottheta);
+\end{alltt}
+\end{document}
+

@@ -1,0 +1,239 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,text={6.5in,8.7in},centering]{geometry}
+\usepackage{amssymb,amsmath,times,url,subfigure,graphicx,theorem,alltt,eepic,tikz}
+%\usepackage[pdftex,urlcolor=blue,pdfpagemode=none,pdfstartview=FitH]{hyperref}
+
+%% url smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+%\usepackage[all,import]{xy}
+
+\newcommand{\norm}[1]{\ensuremath{\left\| #1 \right\|}}
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
+\newcommand{\bracket}[1]{\ensuremath{\left[ #1 \right]}}
+\newcommand{\braces}[1]{\ensuremath{\left\{ #1 \right\}}}
+\newcommand{\parenth}[1]{\ensuremath{\left( #1 \right)}}
+\newcommand{\ip}[1]{\ensuremath{\langle #1 \rangle}}
+\newcommand{\refeqn}[1]{(\ref{eqn:#1})}
+\newcommand{\reffig}[1]{Fig. \ref{fig:#1}}
+\newcommand{\tr}[1]{\mbox{tr}\ensuremath{\negthickspace\bracket{#1}}}
+\newcommand{\deriv}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
+\newcommand{\SO}{\ensuremath{\mathrm{SO(3)}}}
+\newcommand{\T}{\ensuremath{\mathrm{T}}}
+\newcommand{\so}{\ensuremath{\mathfrak{so}(3)}}
+\newcommand{\SE}{\ensuremath{\mathrm{SE(3)}}}
+\newcommand{\se}{\ensuremath{\mathfrak{se}(3)}}
+\renewcommand{\Re}{\ensuremath{\mathbb{R}}}
+\renewcommand{\S}{\ensuremath{\mathbb{S}}}
+\newcommand{\aSE}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&1\end{bmatrix}}}
+\newcommand{\ase}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&0\end{bmatrix}}}
+\newcommand{\D}{\ensuremath{\mathbf{D}}}
+\newcommand{\pair}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+\newcommand{\met}[1]{\ensuremath{\langle\!\langle #1 \rangle\!\rangle}}
+\newcommand{\Ad}{\ensuremath{\mathrm{Ad}}}
+\newcommand{\ad}{\ensuremath{\mathrm{ad}}}
+\newcommand{\g}{\ensuremath{\mathfrak{g}}}
+
+\renewcommand{\baselinestretch}{1.2}
+\date{}
+
+\renewcommand{\thesubsection}{\arabic{subsection}. }
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection} }
+
+\theoremstyle{plain}\theorembodyfont{\normalfont}
+\newtheorem{prob}{Problem}[section]
+%\renewcommand{\theprob}{\arabic{section}.\arabic{prob}}
+\renewcommand{\theprob}{\arabic{prob}}
+
+\newenvironment{subprob}%
+{\renewcommand{\theenumi}{\alph{enumi}}\renewcommand{\labelenumi}{(\theenumi)}\begin{enumerate}}%
+{\end{enumerate}}%
+
+\newenvironment{matlab}
+{\begin{alltt}\small\renewcommand{\baselinestretch}{1.2}\selectfont}%
+{\end{alltt}}
+
+\newcommand*\circled[1]{%
+  \tikz[baseline=(C.base)]\node[draw,circle,inner sep=0.5pt](C) {#1};\!
+}
+
+\begin{document}
+
+\pagestyle{empty}
+\section*{MAE3145: Homework 6}
+\vspace*{-0.4cm}
+\noindent{Due date: December 7, 2016}%\\%\vspace*{0.5cm}
+\vspace*{0.2cm}
+
+%Make it clear that $\phi_0$ is different from the classroom notation.
+
+%Make it clear that there is no rocket firing at the arrival.
+
+%There were many errors in computing $v_\infty$ for P3 and P4.
+
+\noindent We wish to design a spacecraft mission to explore the Mars. Suppose that
+\begin{gather*}
+R_{E}=149.6\times 10^6\,\mathrm{km},\quad
+R_{M}=227.9\times 10^6\,\mathrm{km},\\
+\mu_E=398600\,\mathrm{km^3/s^2},\quad
+\mu_M=42830\,\mathrm{km^3/s^2},\quad
+\mu_S=1.3271\times 10^{11}\,\mathrm{km^3/s^2},\\
+m_E=5.974\times 10^{24}\,\mathrm{kg},\quad
+m_M=6.419\times 10^{23}\,\mathrm{kg},\quad
+m_S=1.989\times 10^{30}\,\mathrm{kg}.
+\end{gather*}
+
+\begin{prob}
+The orbits \circled{1}, \circled{2} of the Earth and the Mars around the Sun, and the Hohmann transfer orbit  \circled{3} from the Earth to the Mars are shown as follows.
+
+\centerline{
+\setlength{\unitlength}{1.35em}\centering\footnotesize
+\begin{picture}(10,10)(-5,-5)
+\put(0,0){\vector(1,0){4.8}}
+\put(0,0){\vector(0,1){4.8}}
+\put(0,0){\circle{8}}
+\put(2.625,0){\circle*{0.15}}
+\put(-4,0){\circle*{0.15}}
+\put(0,0){\circle*{0.8}}
+\put(-4.55,-0.55){$A$}
+\put(2.7,-0.55){$D$}
+\put(5.0,-0.4){$\hat x$}
+\put(0.3,4.5){$\hat y$}
+\put(0,0){\circle{5.25}}
+\put(-0.656,0){\ellipse{6.625}{6.48}}
+\put(1.0,-1.9){\circled{1}}
+\put(1.5,-3.0){\circled{3}}
+\put(1.9,-4.1){\circled{2}}
+\end{picture}}
+\vspace*{-0.3cm}
+\noindent The location of the Earth at departure, and the location of the Mars at arrival are denoted by the point $D$, and $A$, respectively.
+
+\begin{subprob}
+\item Find the velocity $V_{D_1}$ and $V_{D_3}$ with respect to the Sun.
+\item Find the velocity $V_{A_3}$ and $V_{A_2}$ with respect to the Sun.
+\item Find the travel time $t_{DA}$.
+\end{subprob}
+\end{prob}
+
+
+\begin{prob}
+In this problem, we determine the possible launch date after December 1, 2016 as follows. On August 27, 2003, the true anomalies of the Mars and the Earth were as follows:
+\begin{align*}
+\theta_M(0) = 358.13^\circ,\quad \theta_E(0)=230.81^\circ.
+\end{align*}
+The time duration between those two dates is $4845$ days~\footnote{http://www.timeanddate.com}.
+
+The relative phase between the Mars and the Earth at $t$, namely $\phi(t)=\theta_M(t)-\theta_E(t)$ can be written as
+\begin{align*}
+\phi(t) = \phi(0) + (n_M - n_E) t,
+\end{align*}
+where $t$ represents time since August 27, 2003, i.e., $t=0$ on August 27, 2003.
+
+\begin{subprob}
+\item Find $\phi(0)$, $n_M-n_E$ in the above equation.
+\item Show that the initial phase angle for the Hohmann transfer from the Earth to the Mars is $\phi_0=44.3292^\circ$ from Rendezvous conditions.
+\item The launch date can be determined from the following equation:
+\begin{align*}
+\phi_0 = \phi(0) + (n_M - n_E) t_d + 2\pi k,
+\end{align*}
+where $k$ is an integer, and $t_d$ denotes the time at which the spacecraft exits the sphere of influence of the Earth, measured from August 27, 2003.  Find the earliest possible time $t_d$ after December 1, 2016, i.e., choose the integer $k$ such that $t_d$ is greater than $4845$ days.
+
+\item The departure date can be found by adding $t_d$ to August 27, 2003. Convert $t_d$ into days, and find the departure date by using the following web site for date calculation: 
+
+\url{http://www.timeanddate.com/date/dateadd.html}.
+
+%What is the corresponding wait time after December 1, 2011 in months (assume that $1\,\mathrm{month}=\frac{365.24}{12}\times 24 \times 3600\,\mathrm{sec}$).
+\end{subprob}
+\end{prob}
+
+
+\begin{prob}
+In this problem, we design a departure hyperbolic orbit. Suppose that the spacecraft is on a circular orbit around the Earth with an orbital radius of $r=9000\,\mathrm{km}$.
+\begin{subprob}
+\item Find the radius of the sphere of influence of the Earth, $r_{SOI_E}$. %What is the ratio of $r_{SOI_E}$ to the  orbital radius of the Earth $R_E$.
+\item Using your answers to Problem 1, find the hyperbolic excess speed $v_\infty$ required for the Hohmann transfer.
+\item Find the specific angular momentum $h$, and the eccentricity $e$ of the departure hyperbolic orbit.
+\item Show that the required velocity change $\Delta v$ of the spacecraft at the initial circular parking orbit is $\Delta v = 3.2061\,\mathrm{km/s}$.  
+
+\item Find the location of the rocket firing at the initial circular parking orbit. Answer in terms of the angle measured from the line connecting the Earth and the Sun counterclockwise.
+%\item Using the orbital equation $r=\frac{h^2}{\mu}\frac{1}{1+e\cos\theta}$, find the true anomaly $\theta_{SOI}$, when the spacecraft arrives at the surface of the SOI (the answer should be slightly less than $\theta_\infty$).
+%\item Find the travel time from the initial circular orbit to the surface of the sphere of influence.
+\end{subprob}
+\end{prob}
+
+\begin{prob} 
+In this problem, we design an arrival hyperbolic orbit. Suppose that the arrival hyperbolic orbit is tangent to the surface of the Mars at the periapsis, i.e. the periapsis radius is equal to the radius of the Mars $r_{M}=3396\,\mathrm{km}$.
+\begin{subprob}
+\item Find the radius of the sphere of influence of the Mars, $r_{SOI_M}$. %What is the ratio of $r_{SOI_M}$ to the  orbital radius of the Mars $R_M$.
+\item Using your answers to Problem 1, find the hyperbolic excess speed $v_\infty$ resulting from the Hohmann transfer.
+\item Find the specific angular momentum $h$, and the eccentricity $e$ of the arrival hyperbolic orbit.
+\item Show that the velocity of the spacecraft at the surface of the Mars is $v_p=5.6776\,\mathrm{km/s}$. Ignore the atmospheric drag. 
+\item Find the location of the arrival point on the surface of the Mars. Answer in terms of the angle measured from the line connecting the Mars and the Sun counterclockwise.
+\item Find the aiming radius $\Delta$ of the arrival hyperbolic orbit at the surface of the sphere of influence.
+\end{subprob}
+\end{prob}
+
+%\begin{prob}
+%What is the total velocity change required for the complete travel from the Earth to the Mars.
+%\end{prob}
+
+\end{document}
+
+\clearpage\newpage
+
+\begin{prob}
+We discussed the following phasing maneuver in class. Consider an initial elliptic orbit $\circled{1}$ with the periapsis $A$ and the apoapsis $C$. There are chaser $A$ and target $B$ on the orbit. The initial true anomalies of the chaser and the target are given by $\theta_A=0$ and $\theta_B=90^\circ$, respectively. We designed a phasing orbit $\circled{2}$ of the chaser such that the chaser catches the target at the point $A$. 
+
+\centerline{
+\setlength{\unitlength}{1.2em}\centering\footnotesize
+\begin{picture}(10,11)(-5,-4)
+\put(0,0){\vector(1,0){5}}
+\put(0,0){\vector(0,1){5.5}}
+\put(0,0){\circle*{0.8}}
+\put(3.4,0){\circle*{0.15}}\put(3.6,-0.6){$A$}
+\put(0,4.5){\circle*{0.15}}\put(0.2,4.6){$B$}
+\put(-6.8,0){\circle*{0.15}}\put(-7.5,-0.6){$C$}
+\put(-5.7,0){\circle*{0.15}}\put(-6.4,-0.6){$D$}
+\put(-1.7,0){\ellipse{10.2}{9.6}}
+\put(-1.15,0){\ellipse{9.1}{6.8}}
+\put(1.0,-2.1){\circled{2}}
+\put(2.2,-3.9){\circled{1}}
+\end{picture}}
+\begin{align*}
+r_A = 6800\,\mathrm{km},\quad r_C=13600\,\mathrm{km},\quad\theta_A=0,\quad\theta_B=90^\circ.
+\end{align*}
+
+We wish to simulate the resulting maneuver in STK according to the following steps.
+
+\begin{enumerate}
+\item Create a new scenario.
+\item Insert the chaser satellite to the point $A$ of Orbit \circled{1}.
+\begin{align*}
+a_1 = \frac{1}{2}(r_A+r_C),\quad e_1=\frac{r_C-r_A}{r_C+r_A},\quad i_1=0,\quad \omega_1=0,\quad\Omega_1=0,\quad \theta_A=0.
+\end{align*}
+\item Insert the target satellite to the point $B$ of Orbit \circled{1}.
+\begin{align*}
+a_1 = \frac{1}{2}(r_A+r_C),\quad e_1=\frac{r_C-r_A}{r_C+r_A},\quad i_1=0,\quad \omega_1=0,\quad\Omega_1=0,\quad \theta_B=90^\circ.
+\end{align*}
+\item Take a snap shot of the resulting orbit at the 3D graphics window, and save it as a jpg file.
+\item Double-click the chaser satellite at the left object browser, and change ``Propagator'' to ``Astrogator'' at the pull down menu.
+\item Describe the phasing maneuver of the chaser as follows:
+\begin{itemize}
+\item First impulse $\Delta v_A = -0.2485\,\mathrm{km/s}$ to transfer the chaser to Orbit \circled{2}
+\item Propagate until periapsis of Orbit \circled{2}
+\item Second impulse $\Delta v_A = +0.2485\,\mathrm{km/s}$ to transfer the chaser to Orbit \circled{1}
+\item Propagate until periapsis of Orbit \circled{1}
+\end{itemize}
+\item Simulate the resulting maneuver at the 3D graphics window, and make it sure that the chaser catches the target.
+\item Take a snap shot of the resulting orbit at the 3D graphics window, and save it as a jpg file.
+\item Upload two jpg files from Step 4 and 8 to Blackboard.
+\end{enumerate}
+
+\end{prob}
+
+\end{document}
+

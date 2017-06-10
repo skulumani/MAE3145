@@ -1,0 +1,474 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,text={6.5in,8.7in},centering]{geometry}
+\usepackage{amssymb,amsmath,times,url,subfigure,graphicx,theorem,alltt,eepic,tikz}
+%\usepackage[pdftex,urlcolor=blue,pdfpagemode=none,pdfstartview=FitH]{hyperref}
+
+%% url smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+%\usepackage[all,import]{xy}
+
+\newcommand{\norm}[1]{\ensuremath{\left\| #1 \right\|}}
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
+\newcommand{\bracket}[1]{\ensuremath{\left[ #1 \right]}}
+\newcommand{\braces}[1]{\ensuremath{\left\{ #1 \right\}}}
+\newcommand{\parenth}[1]{\ensuremath{\left( #1 \right)}}
+\newcommand{\ip}[1]{\ensuremath{\langle #1 \rangle}}
+\newcommand{\refeqn}[1]{(\ref{eqn:#1})}
+\newcommand{\reffig}[1]{Fig. \ref{fig:#1}}
+\newcommand{\tr}[1]{\mbox{tr}\ensuremath{\negthickspace\bracket{#1}}}
+\newcommand{\deriv}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
+\newcommand{\SO}{\ensuremath{\mathrm{SO(3)}}}
+\newcommand{\T}{\ensuremath{\mathrm{T}}}
+\newcommand{\so}{\ensuremath{\mathfrak{so}(3)}}
+\newcommand{\SE}{\ensuremath{\mathrm{SE(3)}}}
+\newcommand{\se}{\ensuremath{\mathfrak{se}(3)}}
+\renewcommand{\Re}{\ensuremath{\mathbb{R}}}
+\renewcommand{\S}{\ensuremath{\mathbb{S}}}
+\newcommand{\aSE}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&1\end{bmatrix}}}
+\newcommand{\ase}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&0\end{bmatrix}}}
+\newcommand{\D}{\ensuremath{\mathbf{D}}}
+\newcommand{\pair}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+\newcommand{\met}[1]{\ensuremath{\langle\!\langle #1 \rangle\!\rangle}}
+\newcommand{\Ad}{\ensuremath{\mathrm{Ad}}}
+\newcommand{\ad}{\ensuremath{\mathrm{ad}}}
+\newcommand{\g}{\ensuremath{\mathfrak{g}}}
+
+\renewcommand{\baselinestretch}{1.2}
+\date{}
+
+\renewcommand{\thesubsection}{\arabic{subsection}. }
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection} }
+
+\theoremstyle{plain}\theorembodyfont{\normalfont}
+\newtheorem{prob}{Problem}[section]
+%\renewcommand{\theprob}{\arabic{section}.\arabic{prob}}
+\renewcommand{\theprob}{\arabic{prob}}
+
+\newenvironment{subprob}%
+{\renewcommand{\theenumi}{\alph{enumi}}\renewcommand{\labelenumi}{(\theenumi)}\begin{enumerate}}%
+{\end{enumerate}}%
+
+\newenvironment{matlab}
+{\begin{alltt}\small\renewcommand{\baselinestretch}{1.2}\selectfont}%
+{\end{alltt}}
+
+\newcommand*\circled[1]{%
+  \tikz[baseline=(C.base)]\node[draw,circle,inner sep=0.5pt](C) {#1};\!
+}
+
+\begin{document}
+
+\pagestyle{empty}
+\section*{MAE3145: Solution 5}
+
+Every quantity is expressed in the units of $\mathrm{km}$, $\mathrm{sec}$, $\mathrm{rad}$ if not specified.
+
+\begin{prob}
+\begin{matlab}
+clear all;
+close all;
+mu=398600;
+
+rA=7000;
+thetaA=210*pi/180;
+vA=sqrt(mu/rA);
+h1=rA*vA;
+e1=0;
+rB=6378;
+thetaB=0*pi/180;
+
+% (a)
+vA1_vec=mu/h1*[-sin(thetaA) (e1+cos(thetaA))]
+
+% (b)
+e2=(rB-rA)/(rA*cos(thetaA)-rB*cos(thetaB))
+h2=sqrt(mu*rA*rB)*sqrt((cos(thetaA)-cos(thetaB))/(rA*cos(thetaA)-rB*cos(thetaB)))
+
+% (c)
+vA2_vec=mu/h2*[-sin(thetaA) (e2+cos(thetaA))]
+
+% (d)
+delvA_vec=vA2_vec-vA1_vec
+
+% (e)
+vB3_vec=mu/h2*[-sin(thetaB) (e2+cos(thetaB))]
+
+>> prob1
+vA1_vec =
+    3.7730   -6.5351
+e2 =
+    0.0500
+h2 =
+   5.1666e+04
+vA2_vec =
+    3.8575   -6.2956
+delvA_vec =
+    0.0844    0.2395
+vB3_vec =
+         0    8.1007
+\end{matlab}
+
+
+\end{prob}
+
+\newpage
+\begin{prob}
+\begin{matlab}
+clear all;
+close all;
+mu=398600;
+
+ra=13000;
+rp=8000;
+
+% (a) Position and Velocity at P
+e1=(ra-rp)/(ra+rp);
+h1=sqrt(rp*mu*(1+e1));
+
+rP_vec=[rp 0]
+vP1_vec=[0 h1/rp]
+
+% (b) Position and Velocity at D
+
+thetaD=pi/2;
+rD=h1^2/mu/(1+e1*cos(thetaD));
+
+rD_vec=rD*[cos(thetaD) sin(thetaD)]
+vD1_vec=mu/h1*[-sin(thetaD) (e1+cos(thetaD))]
+
+% (c) Time at D
+ED=2*atan(sqrt((1-e1)/(1+e1))*tan(thetaD/2));
+MeD=ED-e1*sin(ED);
+a1=1/2*(ra+rp);
+T1=2*pi/sqrt(mu)*a1^(3/2);
+tD=MeD/2/pi*T1
+
+% Time at C
+thetaC=30*pi/180;
+EC=2*atan(sqrt((1-e1)/(1+e1))*tan(thetaC/2));
+MeC=EC-e1*sin(EC);
+tC=MeC/2/pi*T1
+
+tPD=tD-tC
+
+% (d) Lambert Problem
+[vP2_vec vD2_vec a e h]=LambertProb(rP_vec,rD_vec,tPD,mu)
+
+% (e)
+delvP=vP2_vec-vP1_vec
+delvD=vD1_vec-vD2_vec
+
+% (f)
+delV=norm(delvP)+norm(delvD)
+
+>> prob2
+rP_vec =
+        8000           0
+vP1_vec =
+         0    7.8542
+rD_vec =
+   1.0e+03 *
+    0.0000    9.9048
+vD1_vec =
+   -6.3438    1.5104
+tD =
+   1.8731e+03
+tC =
+  542.7857
+tPD =
+   1.3304e+03
+vP2_vec =
+   -2.5294    9.5746
+vD2_vec =
+   -7.7333    4.3707
+delvP =
+   -2.5294    1.7204
+delvD =
+    1.3896   -2.8603
+delV =
+    6.2390
+\end{matlab}
+\end{prob}
+
+
+\begin{prob}
+
+\begin{matlab}
+clear all;
+close all;
+
+RE=149.6e6;
+RM=227.9e6;
+
+muE=398600;
+muM=42830;
+muS=132.71e9;
+
+mE=5.974e24;
+mM=6.419e23;
+mS=1.989e30;
+
+% (a)
+VA3=sqrt(2*muS/(RE+RM)*RE/RM)
+VA2=sqrt(muS/RM)
+
+% (b)
+VD1=sqrt(muS/RE)
+VD3=sqrt(2*muS/(RE+RM)*RM/RE)
+
+% (c)
+a3=1/2*(RE+RM);
+T3=2*pi/sqrt(muS)*a3^(3/2);
+tDA=T3/2
+
+>> prob1
+VA3 =
+   21.4833
+VA2 =
+   24.1312
+VD1 =
+   29.7842
+VD3 =
+   32.7276
+tDA =
+   2.2363e+07
+\end{matlab}
+\end{prob}
+
+\begin{prob}
+
+\begin{matlab}
+clear all;
+close all;
+
+RE=149.6e6;
+RM=227.9e6;
+
+muE=398600;
+muM=42830;
+muS=132.71e9;
+
+mE=5.974e24;
+mM=6.419e23;
+mS=1.989e30;
+
+thetaM=358.13*pi/180;
+thetaE=230.81*pi/180;
+
+TM=2*pi/sqrt(muS)*RM^(3/2);
+TE=2*pi/sqrt(muS)*RE^(3/2);
+
+nM=2*pi/TM
+nE=2*pi/TE
+
+% (a)
+phi_t0=thetaM-thetaE
+disp(nM-nE)
+
+% (b)
+a3=1/2*(RE+RM);
+T3=2*pi/sqrt(muS)*a3^(3/2);
+tDA=T3/2;
+phi_0=pi-nM*tDA
+disp(phi_0*180/pi);
+
+% (c)
+for k=1:6;
+    td(k)=(phi_0-2*pi*k-phi_t0)/(nM-nE)/3600/24;
+end
+disp('td_k');
+disp(td);
+
+k=6
+td=td(6)
+
+% (d)
+disp('Saturday, December 17, 2016');
+
+>> prob2
+nM =
+   1.0589e-07
+nE =
+   1.9909e-07
+phi_t0 =
+    2.2222    
+  -9.3207e-08
+phi_0 =
+    0.7737
+   44.3292
+td_k
+   1.0e+03 *
+    0.9601    1.7403    2.5205    3.3007    4.0810    4.8612
+k =
+     6
+td =
+   4.8612e+03
+Saturday, December 17, 2016
+\end{matlab}
+\end{prob}
+
+\begin{prob}
+\begin{matlab}
+clear all;
+close all;
+
+RE=149.6e6;
+RM=227.9e6;
+
+muE=398600;
+muM=42830;
+muS=132.71e9;
+
+mE=5.974e24;
+mM=6.419e23;
+mS=1.989e30;
+
+disp('(a)');
+rSOI_E=(mE/mS)^(2/5)*RE
+
+disp('(b)');
+VD1=sqrt(muS/RE);
+VD3=sqrt(2*muS/(RE+RM)*RM/RE);
+v_inf=VD3-VD1
+
+disp('(c)');
+rp=9000;
+h=rp*sqrt(v_inf^2+2*muE/rp)
+e=1+rp*v_inf^2/muE
+
+disp('(d)');
+vp=h/rp;
+vc=sqrt(muE/rp);
+delv=vp-vc
+
+disp('(e)');
+
+beta=acos(1/e)
+beta*180/pi
+angle=beta+pi/2
+angle*180/pi
+
+clear all;
+close all;
+
+RE=149.6e6;
+RM=227.9e6;
+
+muE=398600;
+muM=42830;
+muS=132.71e9;
+
+mE=5.974e24;
+mM=6.419e23;
+mS=1.989e30;
+
+disp('(a)');
+rSOI_E=(mE/mS)^(2/5)*RE
+
+disp('(b)');
+VD1=sqrt(muS/RE);
+VD3=sqrt(2*muS/(RE+RM)*RM/RE);
+v_inf=VD3-VD1
+
+disp('(c)');
+rp=9000;
+h=rp*sqrt(v_inf^2+2*muE/rp)
+e=1+rp*v_inf^2/muE
+
+disp('(d)');
+vp=h/rp;
+vc=sqrt(muE/rp);
+delv=vp-vc
+
+disp('(e)');
+
+beta=acos(1/e)
+beta*180/pi
+angle=beta+pi/2
+angle*180/pi
+\end{matlab}
+\end{prob}
+
+\begin{prob}
+\begin{matlab}
+
+clear all;
+close all;
+
+RE=149.6e6;
+RM=227.9e6;
+
+muE=398600;
+muM=42830;
+muS=132.71e9;
+
+mE=5.974e24;
+mM=6.419e23;
+mS=1.989e30;
+
+disp('(a)');
+rSOI_M=(mM/mS)^(2/5)*RM
+rSOI_M/RM
+
+disp('(b)');
+VA2=sqrt(muS/RM);
+VA3=sqrt(2*muS/(RE+RM)*RE/RM);
+v_inf=VA2-VA3
+
+disp('(c)');
+rp=3396;
+
+h=rp*sqrt(v_inf^2+2*muM/rp)
+e=1+rp*v_inf^2/muM
+
+disp('(d)');
+vp=h/rp
+
+disp('(e)');
+beta=acos(1/e)
+beta*180/pi
+angle=pi/2-beta
+angle*180/pi
+
+disp('(f)');
+Delta=h^2/muM/sqrt(e^2-1)
+
+>> prob4
+(a)
+rSOI_M =
+   5.7713e+05
+ans =
+    0.0025
+(b)
+v_inf =
+    2.6479
+(c)
+h =
+   1.9281e+04
+e =
+    1.5559
+(d)
+vp =
+    5.6776
+(e)
+beta =
+    0.8728
+ans =
+   50.0064
+angle =
+    0.6980
+ans =
+   39.9936
+(f)
+Delta =
+   7.2817e+03
+\end{matlab}
+\end{prob}
+
+\end{document}
+

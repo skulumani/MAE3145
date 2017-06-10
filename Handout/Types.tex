@@ -1,0 +1,126 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,text={6.5in,8.7in},centering]{geometry}
+\usepackage{amssymb,amsmath,times,url,subfigure,graphicx,theorem,alltt}
+%\usepackage[pdftex,urlcolor=blue,pdfpagemode=none,pdfstartview=FitH]{hyperref}
+
+%% url smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+%\usepackage[all,import]{xy}
+
+\newcommand{\norm}[1]{\ensuremath{\left\| #1 \right\|}}
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
+\newcommand{\bracket}[1]{\ensuremath{\left[ #1 \right]}}
+\newcommand{\braces}[1]{\ensuremath{\left\{ #1 \right\}}}
+\newcommand{\parenth}[1]{\ensuremath{\left( #1 \right)}}
+\newcommand{\ip}[1]{\ensuremath{\langle #1 \rangle}}
+\newcommand{\refeqn}[1]{(\ref{eqn:#1})}
+\newcommand{\reffig}[1]{Fig. \ref{fig:#1}}
+\newcommand{\tr}[1]{\mbox{tr}\ensuremath{\negthickspace\bracket{#1}}}
+\newcommand{\deriv}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
+\newcommand{\SO}{\ensuremath{\mathrm{SO(3)}}}
+\newcommand{\T}{\ensuremath{\mathrm{T}}}
+\newcommand{\so}{\ensuremath{\mathfrak{so}(3)}}
+\newcommand{\SE}{\ensuremath{\mathrm{SE(3)}}}
+\newcommand{\se}{\ensuremath{\mathfrak{se}(3)}}
+\renewcommand{\Re}{\ensuremath{\mathbb{R}}}
+\renewcommand{\S}{\ensuremath{\mathbb{S}}}
+\newcommand{\aSE}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&1\end{bmatrix}}}
+\newcommand{\ase}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&0\end{bmatrix}}}
+\newcommand{\D}{\ensuremath{\mathbf{D}}}
+\newcommand{\pair}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+\newcommand{\met}[1]{\ensuremath{\langle\!\langle #1 \rangle\!\rangle}}
+\newcommand{\Ad}{\ensuremath{\mathrm{Ad}}}
+\newcommand{\ad}{\ensuremath{\mathrm{ad}}}
+\newcommand{\g}{\ensuremath{\mathfrak{g}}}
+
+\renewcommand{\baselinestretch}{1.2}
+\date{}
+
+\renewcommand{\thesubsection}{\arabic{subsection}. }
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection} }
+
+\theoremstyle{plain}\theorembodyfont{\normalfont}
+\newtheorem{prob}{Problem}[section]
+%\renewcommand{\theprob}{\arabic{section}.\arabic{prob}}
+\renewcommand{\theprob}{\arabic{prob}}
+
+\newenvironment{subprob}%
+{\renewcommand{\theenumi}{\alph{enumi}}\renewcommand{\labelenumi}{(\theenumi)}\begin{enumerate}}%
+{\end{enumerate}}%
+
+
+\begin{document}
+
+
+\section*{Summary of Orbital Properties}
+\pagestyle{empty}
+\subsection*{Any Type of Orbit}
+
+\begin{alignat*}{3}
+\vec h & = \vec r \times \vec v,&\qquad 
+\vec r & = r \hat u_r&\qquad
+\vec v & = v_r \hat u_r + v_\theta \hat u_\theta,\\
+h & = rv\cos\gamma = rv_\theta = r^2\dot\theta, &
+r & = \frac{h^2/\mu}{1+e \cos\theta}, &
+v_r & = \frac{\mu}{h}e\sin\theta = \dot r,\\
+\vec e & = \frac{\vec v\times\vec h}{\mu}- \frac{\vec r}{r}, &
+r_p & = \frac{h^2/\mu}{1+e}, &
+v_\theta & = \frac{\mu}{h}(1+e\cos\theta) = r\dot\theta,\\
+&&
+\mathcal{E} & = \frac{1}{2} v^2 - \frac{\mu}{r} = -\frac{1}{2}\frac{\mu^2}{h^2}(1-e^2),&
+\tan \gamma & = \frac{v_r}{v_\theta} = \frac{e\sin\theta}{1+e\cos\theta}.
+\end{alignat*}
+
+\subsection*{Circular Orbits: ($e=0$)}
+
+\begin{alignat*}{3}
+v & = \sqrt{\frac{\mu}{r}},&\qquad
+\mathcal{E} & = -\frac{\mu}{2r},&\qquad
+T & = \frac{2\pi}{\sqrt{\mu}} r^{3/2}.
+\end{alignat*}
+
+\subsection*{Elliptic Orbits: ($0<e<1$)}
+
+\begin{alignat*}{3}
+r & = \frac{a(1-e^2)}{1+e\cos\theta},&\qquad
+a & = \frac{h^2/\mu}{1-e^2} =\frac{1}{2}(r_a+r_p),&\qquad
+T & = \frac{2\pi}{\sqrt{\mu}} a^{3/2},\\
+r_p & = \frac{h^2/\mu}{1+e} = a(1-e),&
+b & = a \sqrt{1-e^2},&
+e & = \frac{r_a-r_p}{r_a+r_p},\\
+r_a & = \frac{h^2/\mu}{1-e} = a (1+e),&
+\mathcal{E} & = -\frac{\mu}{2a},&
+h & = \sqrt{\mu a(1-e^2)}.
+\end{alignat*}
+
+\subsection*{Parabolic Orbits: ($e=1$)}
+\begin{alignat*}{2}
+v & = \sqrt{\frac{2\mu}{r}},&\qquad
+\mathcal{E} & = 0.
+\end{alignat*}
+
+\subsection*{Hyperbolic Orbits: ($e>1$)}
+
+\begin{align*}
+r & = \frac{a(e^2-1)}{1+e\cos\theta},&\qquad
+a & = \frac{h^2/\mu}{e^2-1},&\qquad
+\theta_\infty & = \cos^{-1} (-1/e),\\
+r_p & = a(e-1),&
+b & = a \sqrt{e^2-1},&
+\beta & = \cos^{-1} (1/e),\\
+&&
+\mathcal{E} & = \frac{\mu}{2a},&
+h & = \sqrt{\mu a(e^2-1)}.
+\end{align*}
+
+
+
+
+
+\end{document}
+

@@ -1,0 +1,265 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,text={6.5in,8.7in},centering]{geometry}
+\usepackage{amssymb,amsmath,times,url,subfigure,graphicx,theorem,alltt}
+%\usepackage[pdftex,urlcolor=blue,pdfpagemode=none,pdfstartview=FitH]{hyperref}
+
+%% url smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+%\usepackage[all,import]{xy}
+
+\newcommand{\norm}[1]{\ensuremath{\left\| #1 \right\|}}
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
+\newcommand{\bracket}[1]{\ensuremath{\left[ #1 \right]}}
+\newcommand{\braces}[1]{\ensuremath{\left\{ #1 \right\}}}
+\newcommand{\parenth}[1]{\ensuremath{\left( #1 \right)}}
+\newcommand{\ip}[1]{\ensuremath{\langle #1 \rangle}}
+\newcommand{\refeqn}[1]{(\ref{eqn:#1})}
+\newcommand{\reffig}[1]{Fig. \ref{fig:#1}}
+\newcommand{\tr}[1]{\mbox{tr}\ensuremath{\negthickspace\bracket{#1}}}
+\newcommand{\deriv}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
+\newcommand{\SO}{\ensuremath{\mathrm{SO(3)}}}
+\newcommand{\T}{\ensuremath{\mathrm{T}}}
+\newcommand{\so}{\ensuremath{\mathfrak{so}(3)}}
+\newcommand{\SE}{\ensuremath{\mathrm{SE(3)}}}
+\newcommand{\se}{\ensuremath{\mathfrak{se}(3)}}
+\renewcommand{\Re}{\ensuremath{\mathbb{R}}}
+\renewcommand{\S}{\ensuremath{\mathbb{S}}}
+\newcommand{\aSE}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&1\end{bmatrix}}}
+\newcommand{\ase}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&0\end{bmatrix}}}
+\newcommand{\D}{\ensuremath{\mathbf{D}}}
+\newcommand{\pair}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+\newcommand{\met}[1]{\ensuremath{\langle\!\langle #1 \rangle\!\rangle}}
+\newcommand{\Ad}{\ensuremath{\mathrm{Ad}}}
+\newcommand{\ad}{\ensuremath{\mathrm{ad}}}
+\newcommand{\g}{\ensuremath{\mathfrak{g}}}
+
+\renewcommand{\baselinestretch}{1.2}
+\date{}
+
+\renewcommand{\thesubsection}{\arabic{subsection}. }
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection} }
+
+\theoremstyle{plain}\theorembodyfont{\normalfont}
+\newtheorem{prob}{Problem}[section]
+%\renewcommand{\theprob}{\arabic{section}.\arabic{prob}}
+\renewcommand{\theprob}{\arabic{prob}}
+
+\newenvironment{subprob}%
+{\renewcommand{\theenumi}{\alph{enumi}}\renewcommand{\labelenumi}{(\theenumi)}\begin{enumerate}}%
+{\end{enumerate}}%
+
+
+\begin{document}
+
+
+
+\setcounter{page}{1}
+\pagestyle{plain}
+\section*{MAE3145: Homework 2}
+\vspace*{-0.4cm}
+\noindent{Due date: October 5, 2016}%\\%\vspace*{0.5cm}
+
+%\begin{prob}
+%Consider a spacecraft moving in a potential field specified as $U(\norm{\vec r})$. The equation of motion is given by
+%\begin{align}
+%\ddot{\vec r} = -\deriv{U}{\vec r}.
+%\end{align}
+%\begin{subprob}
+%\item Show that the specific angular momentum $\vec h = \vec r \times \dot {\vec r}$ is still preserved.
+%\item Show that the energy $\mathcal{E}=\frac{1}{2}\dot{\vec r}\cdot \dot{\vec r} + U(\norm{\vec r})$ is preserved.
+%\end{subprob}
+%\end{prob}
+
+\begin{prob}
+The relative motion of the two-body problem is described by
+\begin{align}
+\ddot{\vec r} = -\frac{\mu}{r^3}\vec r.
+\end{align}
+The specific angular momentum $\vec h$ and the eccentricity $\vec e$ are defined as follows:
+\begin{align*}
+\vec h = \vec r \times \vec v,\quad \vec e = \frac{\vec v\times\vec h}{\mu}- \frac{\vec r}{r}.
+\end{align*}
+In class, we found that $\vec h$ is fixed, i.e. $\dot{\vec h}=0$. Here, we wish to show $\vec e$ is fixed according to the following steps:
+\begin{subprob}
+\item Using (1), show that $\dfrac{d}{dt}(\vec v\times\vec h) = -\dfrac{\mu}{r^3} \vec r\times \vec h$.
+\item Using the definition of $\vec h$, show that $\dfrac{1}{r^3}\vec r \times \vec h = \dfrac{\vec r \dot r - \dot{\vec r} r}{r^2}$.\\
+(Hint: $\vec a\times (\vec b \times \vec c) = (\vec a \cdot \vec c)\vec b - (\vec a \cdot \vec b)\vec c$,\; $\vec r \cdot \vec r = r^2$, and $\vec r \cdot \dot{\vec r} = r\dot r$).
+\item Show that $\dfrac{d}{dt}\dfrac{\vec r}{r} = -\dfrac{\vec r \dot r - \dot{\vec r} r}{r^2}$.
+\item By combining the results of parts (a), (b), and (c), show that $\dfrac{d}{dt}\vec e=0$, i.e, the eccentricity vector is fixed.
+\end{subprob}
+\end{prob}
+
+\begin{prob}
+A satellite is on an elliptic orbit around the Earth with a perigee radius of $r_p=7000\,\mathrm{km}$ and an apogee radius of $r_a=70000\,\mathrm{km}$. Assume that the gravitational parameter and the radius of the Earth are $\mu=398600\,\mathrm{km^3/s^2}$, and $R_E=6378\,\mathrm{km}$, respectively. Determine the following parameters (specify units in $\mathrm{km},\,\mathrm{sec},\,\mathrm{degree}$). 
+\begin{subprob}
+\item eccentricity $e$
+\item period $T$ 
+\item specific energy $\mathcal{E}$
+\item true anomaly $\theta$ at which the altitude is $1000\,\mathrm{km}$.
+\item velocity $v_r,v_\theta$ at the point found in part (d).
+\end{subprob}
+\end{prob}
+
+%\begin{prob}
+%Consider an elliptic orbit with the distance to the periapsis $r_p$ and the distance to the apoapsis $r_a$. Using the properties summarized at the third page, show that the velocity at the periapsis and the velocity at the apoapsis are given by
+%\begin{align*}
+%v_p = \sqrt{\frac{2\mu}{r_a+r_p}\frac{r_a}{r_p}}
+%,\quad
+%v_a = \sqrt{\frac{2\mu}{r_a+r_p}\frac{r_p}{r_a}}.
+%\end{align*}
+%
+%\end{prob}
+
+\clearpage\newpage
+\begin{prob}
+The specific energy and angular momentum of several asteroids heading toward the Earth have been measured as follows:
+
+\begin{center}
+\begin{tabular}{c|c|c}\hline
+Asteroid & $\mathcal{E}$ $(\mathrm{km^2/s^2})$ & $h$ $(\mathrm{km^2/s})$\\ \hline
+1 & $1$ & $1\times 10^5$\\
+2 & $100$ & $1\times 10^5$\\
+3 & $0$ & $7\times 10^4$\\
+4 & $0$ & $8\times 10^4$\\
+5 & $10$ & $8\times 10^4$\\\hline
+\end{tabular}
+\end{center}
+%
+We wish to determine whether any asteroid is likely to hit the Earth. The trajectory of an asteroid is assumed to be the solution of the two-body problem of the asteroid and the Earth, where $\mu_E=398600\,\mathrm{km^3/s^2}$.
+
+\begin{subprob}
+\item Using the fact that $\mathcal{E}$ and $h$ are conserved, show that the distance at the periapsis $r_p$ satisfies the following quadratic equation:
+\begin{gather}
+2\mathcal{E}\, r_p^2 + 2\mu_E\, r_p -h^2=0. 
+\end{gather}
+(Hint: at the periapsis, $h=rv$ since $\vec r$ is perpendicular to $\vec v$.)
+\item Calculate $r_p$ for all asteroids, and determine which asteroid will hit the surface of the Earth: an asteroid will hit the Earth if $r_p < R_E=6378\,\mathrm{km}$.\\
+(Hint: In Matlab, the quadratic equation $ax^2+bx+c=0$ can be solved by the command \texttt{roots([a b c])}.)
+\item For each asteroid that hits the surface of the Earth, calculate its impact velocity at the surface of the Earth.\\
+(Note: the impact velocity is not same as the velocity at the periapsis.)
+\item For each asteroid that does not hit the surface of the Earth, calculate its velocity when it is closest to the Earth.
+\end{subprob}
+\end{prob}
+
+\end{document}
+
+
+\begin{prob}
+Consider Asteroid 5 discussed above. Its specific energy and specific angular momentum are given by $\mathcal{E}=10\,\mathrm{km^2/s^3}$, and $h=8\times 10^4\,\mathrm{km^2/s}$. We want to determine the time after periapsis passage $t$ when the true anomaly is $\theta=100^\circ$.
+\begin{subprob}
+\item Compute the semi-major axis $a$, and the eccentricity $e$.
+\item Compute the maximum true anomaly $\theta_\infty$. Is $\theta < \theta_\infty$?
+\item Compute the hyperbolic eccentric anomaly $F$, and the hyperbolic mean anomaly $M_e$.
+\item Show that the time after the periapsis passage is given by $t=0.6979\,\mathrm{hrs}$.
+\end{subprob}
+\end{prob}
+
+\begin{prob}
+An Earth-orbiting satellite has a period of $T=15.743$ hours and a periapsis radius $r_p=12756\,\mathrm{km}$. We want to determine the location of this satellite at time $t=1$ hour after periapsis passage.
+\begin{subprob}
+\item Compute the semi-major axis $a$, and the eccentricity $e$.
+\item Compute the mean anomaly $M_e$.
+\item Write a Matlab program to compute the eccentric anomaly $E$.
+\item Show that the true anomaly is given by $\theta=84.2850^\circ$.
+\end{subprob}
+(Hint: if you want to verify your code, check that your code gives $\theta=\pi$ when $t=T/2$.)
+\end{prob}
+
+
+\end{document}
+
+
+%\begin{prob}
+%For the Asteroid 5 in Problem 2, we want to determine the time after periapsis passage $t$ when the true anomaly is $\theta=100^\circ$.
+%\begin{subprob}
+%\item Compute the semi-major axis $a$, and the eccentricity $e$.
+%\item Compute the maximum true anomaly $\theta_\infty$. Is $\theta < \theta_\infty$?
+%\item Compute the hyperbolic eccentric anomaly $F$, and the hyperbolic mean anomaly $M_e$.
+%\item Compute the time after the periapsis passage $t$.
+%\end{subprob}
+%\end{prob}
+%
+%\clearpage\newpage
+%
+%\begin{prob}
+%An Earth-orbiting satellite has a period of $T=15.743$ hours and a periapsis radius $r_p=12756\,\mathrm{km}$. We want to determine the location of this satellite at time $t=1$ hour after periapsis passage.
+%\begin{subprob}
+%\item Compute the semi-major axis $a$, and the eccentricity $e$.
+%\item Compute the mean anomaly $M_e$.
+%\item Write a Matlab program to compute the eccentric anomaly $E$.
+%\item Compute the true anomaly $\theta$.
+%\end{subprob}
+%(Hint: if you want to verify your code, check that your code gives $\theta=\pi$ when $t=T/2$.)
+%\end{prob}
+
+\clearpage\newpage
+\section*{Summary of Orbital Properties}
+\pagestyle{empty}
+\subsection*{Any Type of Orbit}
+
+\begin{alignat*}{3}
+\vec h & = \vec r \times \vec v,&\qquad 
+\vec r & = r \hat u_r&\qquad
+\vec v & = v_r \hat u_r + v_\theta \hat u_\theta,\\
+h & = rv\cos\gamma = rv_\theta = r^2\dot\theta, &
+r & = \frac{h^2/\mu}{1+e \cos\theta}, &
+v_r & = \frac{\mu}{h}e\sin\theta = \dot r,\\
+\vec e & = \frac{\vec v\times\vec h}{\mu}- \frac{\vec r}{r}, &
+r_p & = \frac{h^2/\mu}{1+e}, &
+v_\theta & = \frac{\mu}{h}(1+e\cos\theta) = r\dot\theta,\\
+&&
+\mathcal{E} & = \frac{1}{2} v^2 - \frac{\mu}{r} = -\frac{1}{2}\frac{\mu^2}{h^2}(1-e^2),&
+\gamma & = \frac{v_r}{v_\theta} = \frac{e\sin\theta}{1+e\cos\theta}.
+\end{alignat*}
+
+\subsection*{Circular Orbits: ($e=0$)}
+
+\begin{alignat*}{3}
+v & = \sqrt{\frac{\mu}{r}},&\qquad
+\mathcal{E} & = -\frac{\mu}{2r},&\qquad
+T & = \frac{2\pi}{\sqrt{\mu}} r^{3/2}.
+\end{alignat*}
+
+\subsection*{Elliptic Orbits: ($0<e<1$)}
+
+\begin{alignat*}{3}
+r & = \frac{a(1-e^2)}{1+e\cos\theta},&\qquad
+a & = \frac{h^2/\mu}{1-e^2} =\frac{1}{2}(r_a+r_p),&\qquad
+T & = \frac{2\pi}{\sqrt{\mu}} a^{3/2},\\
+r_p & = \frac{h^2/\mu}{1+e} = a(1-e),&
+b & = a \sqrt{1-e^2},&
+e & = \frac{r_a-r_p}{r_a+r_p},\\
+r_a & = \frac{h^2/\mu}{1-e} = a (1+e),&
+\mathcal{E} & = -\frac{\mu}{2a}.
+\end{alignat*}
+
+\subsection*{Parabolic Orbits: ($e=1$)}
+\begin{alignat*}{2}
+v & = \sqrt{\frac{2\mu}{r}},&\qquad
+\mathcal{E} & = 0.
+\end{alignat*}
+
+\subsection*{Hyperbolic Orbits: ($e>1$)}
+
+\begin{align*}
+r & = \frac{a(e^2-1)}{1+e\cos\theta},&\qquad
+a & = \frac{h^2/\mu}{e^2-1},&\qquad
+\theta_\infty & = \cos^{-1} (-1/e),\\
+r_p & = a(e-1),&
+b & = a \sqrt{e^2-1},&
+\beta & = \cos^{-1} (1/e),\\
+&&
+\mathcal{E} & = \frac{\mu}{2a}.
+\end{align*}
+
+
+
+
+
+\end{document}
+

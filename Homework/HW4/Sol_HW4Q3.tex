@@ -1,0 +1,162 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,text={6.5in,8.7in},centering]{geometry}
+\usepackage{amssymb,amsmath,times,url,subfigure,graphicx,theorem,alltt,eepic,epic,color,tikz}
+%\usepackage[pdftex,urlcolor=blue,pdfpagemode=none,pdfstartview=FitH]{hyperref}
+
+%% url smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+%\usepackage[all,import]{xy}
+
+\newcommand{\norm}[1]{\ensuremath{\left\| #1 \right\|}}
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
+\newcommand{\bracket}[1]{\ensuremath{\left[ #1 \right]}}
+\newcommand{\braces}[1]{\ensuremath{\left\{ #1 \right\}}}
+\newcommand{\parenth}[1]{\ensuremath{\left( #1 \right)}}
+\newcommand{\ip}[1]{\ensuremath{\langle #1 \rangle}}
+\newcommand{\refeqn}[1]{(\ref{eqn:#1})}
+\newcommand{\reffig}[1]{Fig. \ref{fig:#1}}
+\newcommand{\tr}[1]{\mbox{tr}\ensuremath{\negthickspace\bracket{#1}}}
+\newcommand{\deriv}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
+\newcommand{\SO}{\ensuremath{\mathrm{SO(3)}}}
+\newcommand{\T}{\ensuremath{\mathrm{T}}}
+\newcommand{\so}{\ensuremath{\mathfrak{so}(3)}}
+\newcommand{\SE}{\ensuremath{\mathrm{SE(3)}}}
+\newcommand{\se}{\ensuremath{\mathfrak{se}(3)}}
+\renewcommand{\Re}{\ensuremath{\mathbb{R}}}
+\renewcommand{\S}{\ensuremath{\mathbb{S}}}
+\newcommand{\aSE}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&1\end{bmatrix}}}
+\newcommand{\ase}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&0\end{bmatrix}}}
+\newcommand{\D}{\ensuremath{\mathbf{D}}}
+\newcommand{\pair}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+\newcommand{\met}[1]{\ensuremath{\langle\!\langle #1 \rangle\!\rangle}}
+\newcommand{\Ad}{\ensuremath{\mathrm{Ad}}}
+\newcommand{\ad}{\ensuremath{\mathrm{ad}}}
+\newcommand{\g}{\ensuremath{\mathfrak{g}}}
+
+\renewcommand{\baselinestretch}{1.2}
+\date{}
+
+\renewcommand{\thesubsection}{\arabic{subsection}. }
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection} }
+
+\theoremstyle{plain}\theorembodyfont{\normalfont}
+\newtheorem{prob}{Problem}[section]
+%\renewcommand{\theprob}{\arabic{section}.\arabic{prob}}
+\renewcommand{\theprob}{\arabic{prob}}
+
+\newenvironment{subprob}%
+{\renewcommand{\theenumi}{\alph{enumi}}\renewcommand{\labelenumi}{(\theenumi)}\begin{enumerate}}%
+{\end{enumerate}}%
+
+\newenvironment{matlab}
+{\begin{alltt}\small\renewcommand{\baselinestretch}{1.2}\selectfont}%
+{\end{alltt}}
+
+\newcommand*\circled[1]{%
+  \tikz[baseline=(C.base)]\node[draw,circle,inner sep=0.5pt](C) {#1};\!
+}
+
+\begin{document}
+
+\pagestyle{empty}
+\section*{MAE3145: Solution for Homework 4, Question 3}
+%\vspace*{-0.4cm}
+%\noindent{Due date: November 19, 2012}%\\%\vspace*{0.5cm}
+
+
+\paragraph{Code}
+\begin{matlab}
+clear all;
+close all;
+
+mu=398600;
+
+rA=7000;
+rB=14000;
+vA1=12;
+
+%% a
+
+E1=1/2*vA1^2-mu/rA;
+h1=vA1*rA;
+
+e1=sqrt(2*E1*h1^2/mu^2+1);
+a1=h1^2/mu/(e1^2-1);
+
+vA2=sqrt(2*mu/(rA+rB)*rB/rA);
+delVA=vA2-vA1
+
+%% b
+
+a2=1/2*(rA+rB);
+T2=2*pi/sqrt(mu)*a2^(3/2);
+t1=T2/2
+
+%% c
+
+T4=2*pi/sqrt(mu)*rB^(3/2);
+thetaC=t1/T4*2*pi
+
+t2=T4
+
+%% d
+T3=t2-t1
+a3=(T3*sqrt(mu)/2/pi)^(2/3)
+% check T3=2*pi/sqrt(mu)*a3^(3/2)
+
+rC=2*a3-rB
+
+%% e
+
+vB3=sqrt(2*mu/(rB+rC)*rC/rB)
+vB2=sqrt(2*mu/(rA+rB)*rA/rB)
+delVB1=vB3-vB2
+
+%% f
+
+vB4=sqrt(mu/rB)
+delVB2=vB4-vB3
+
+%% g
+
+delVT=abs(delVA)+abs(delVB1)+abs(delVB2)
+\end{matlab}
+
+\paragraph{Results}
+\begin{matlab}
+>> prob2
+delVA =
+   -3.2866
+t1 =
+   5.3538e+03
+thetaC =
+    2.0405
+t2 =
+   1.6486e+04
+T3 =
+   1.1132e+04
+a3 =
+   1.0775e+04
+rC =
+   7.5508e+03
+vB3 =
+    4.4667
+vB2 =
+    4.3567
+delVB1 =
+    0.1100
+vB4 =
+    5.3359
+delVB2 =
+    0.8692
+delVT =
+    4.2657
+\end{matlab}
+
+\end{document}
+

@@ -1,0 +1,194 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,text={6.5in,8.7in},centering]{geometry}
+\usepackage{amssymb,amsmath,times,url,subfigure,graphicx,theorem,alltt,eepic,tikz}
+%\usepackage[pdftex,urlcolor=blue,pdfpagemode=none,pdfstartview=FitH]{hyperref}
+
+%% url smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+%\usepackage[all,import]{xy}
+
+\newcommand{\norm}[1]{\ensuremath{\left\| #1 \right\|}}
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
+\newcommand{\bracket}[1]{\ensuremath{\left[ #1 \right]}}
+\newcommand{\braces}[1]{\ensuremath{\left\{ #1 \right\}}}
+\newcommand{\parenth}[1]{\ensuremath{\left( #1 \right)}}
+\newcommand{\ip}[1]{\ensuremath{\langle #1 \rangle}}
+\newcommand{\refeqn}[1]{(\ref{eqn:#1})}
+\newcommand{\reffig}[1]{Fig. \ref{fig:#1}}
+\newcommand{\tr}[1]{\mbox{tr}\ensuremath{\negthickspace\bracket{#1}}}
+\newcommand{\deriv}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
+\newcommand{\SO}{\ensuremath{\mathrm{SO(3)}}}
+\newcommand{\T}{\ensuremath{\mathrm{T}}}
+\newcommand{\so}{\ensuremath{\mathfrak{so}(3)}}
+\newcommand{\SE}{\ensuremath{\mathrm{SE(3)}}}
+\newcommand{\se}{\ensuremath{\mathfrak{se}(3)}}
+\renewcommand{\Re}{\ensuremath{\mathbb{R}}}
+\renewcommand{\S}{\ensuremath{\mathbb{S}}}
+\newcommand{\aSE}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&1\end{bmatrix}}}
+\newcommand{\ase}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&0\end{bmatrix}}}
+\newcommand{\D}{\ensuremath{\mathbf{D}}}
+\newcommand{\pair}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+\newcommand{\met}[1]{\ensuremath{\langle\!\langle #1 \rangle\!\rangle}}
+\newcommand{\Ad}{\ensuremath{\mathrm{Ad}}}
+\newcommand{\ad}{\ensuremath{\mathrm{ad}}}
+\newcommand{\g}{\ensuremath{\mathfrak{g}}}
+
+\renewcommand{\baselinestretch}{1.2}
+\date{}
+
+\renewcommand{\thesubsection}{\arabic{subsection}. }
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection} }
+
+\theoremstyle{plain}\theorembodyfont{\normalfont}
+\newtheorem{prob}{Problem}[section]
+%\renewcommand{\theprob}{\arabic{section}.\arabic{prob}}
+\renewcommand{\theprob}{\arabic{prob}}
+
+\newenvironment{subprob}%
+{\renewcommand{\theenumi}{\alph{enumi}}\renewcommand{\labelenumi}{(\theenumi)}\begin{enumerate}}%
+{\end{enumerate}}%
+
+\newenvironment{matlab}
+{\begin{alltt}\small\renewcommand{\baselinestretch}{1.2}\selectfont}%
+{\end{alltt}}
+
+\newcommand*\circled[1]{%
+  \tikz[baseline=(C.base)]\node[draw,circle,inner sep=0.5pt](C) {#1};\!
+}
+
+\renewcommand\emph[1]{\textsf{#1}}
+
+\begin{document}
+
+\pagestyle{empty}
+\section*{MAE3145: Systems Took Kit (STK)}
+\vspace*{-0.4cm}
+\noindent{November 12, 2014}%\\%\vspace*{0.5cm}
+
+\subsection{Spy on DC from a Molniya Satellite}
+
+\paragraph{Goal} Generate ground track for a satellite on a Molniya orbit, and determine how long/often it can observe DC.
+
+
+\paragraph{Create a New Scenario}
+\begin{list}{$\bullet$}
+{\setlength{\itemsep}{-3pt}\setlength{\leftmargin}{30pt}}
+\item Run STK
+\item Click  \emph{Create a New Scenario}
+\item At the \emph{STK: New Scenario Wizard}, type \emph{WatchDC} for \emph{Name} 
+\item[*] At the \emph{STK: New Scenario Wizard}, set \emph{Analysis Period} from \textcolor{red}{\emph{1 Jan 2014}} to \textcolor{red}{\emph{31 Jan 2014}}
+%Students tend to make a mistake here.
+\item Click \emph{Ok}, then the \emph{Insert STK Object} window appears
+\end{list}
+
+
+
+\paragraph{Model Spacecraft}
+
+\begin{list}{$\bullet$}
+{\setlength{\itemsep}{-3pt}\setlength{\leftmargin}{30pt}}
+\item Choose \emph{Satellite} and \emph{Orbit Wizard}
+\item Click \emph{Insert}, then the \emph{Orbit Wizard} window appears
+\item Choose \emph{Orbit Designer} at the \emph{Type} menu, and type \emph{SpySat} at \emph{Satellite Name}
+\item Choose \emph{Orbital Elements} as follows:
+\textcolor{red}{
+\begin{align*}
+a=26610.21\,\mathrm{km},\quad e=0.7,\quad i=63.4^\circ,\quad 
+\omega=270^\circ,\quad \Omega=230^\circ\,(\mbox{RAAN}),\quad \theta=0^\circ
+\end{align*}}\vspace*{-0.5cm}
+\item Click \emph{Okay} and close the \emph{Insert STK Object} window
+\item Click \emph{Start} at the tool bars and watch \emph{2D Graphics Window} and \emph{3D Graphics Window}
+\item At the \emph{3D Graphics Window,} drag to rotate the focal point, or drag while clicking the right button to zoom in/out.
+\end{list}
+
+\paragraph{Model Washington, DC}
+
+\begin{list}{$\bullet$}
+{\setlength{\itemsep}{-3pt}\setlength{\leftmargin}{30pt}}
+\item In the menu, click \emph{Insert} and \emph{New}, then the \emph{Insert STK Objects} window appears
+\item Choose \emph{Place} and \emph{Select From City Database}
+\item Click \emph{Insert}, then the \emph{Insert From City Database} window appears
+\item Type \emph{Washington} at City Name, and click \emph{Search}
+\item Select Washington DC and click \emph{Insert}
+\item Close the \emph{Insert STK Objects} window
+\item Find Washington from the \emph{2D Graphics Window} and the \emph{3D Graphics Window}
+\end{list}
+
+\paragraph{Analyze Observation Time}
+
+\begin{list}{$\bullet$}
+{\setlength{\itemsep}{-3pt}\setlength{\leftmargin}{30pt}}
+\item In the menu, click \emph{Analysis} and \emph{Access}, then the \emph{Access} window appears
+\item Check that the item for \emph{Access For} is your \emph{SpySat}
+\item Choose \emph{Washington} from \emph{Associated Objects} and click \emph{Compute}
+\item Click \emph{Close}
+\item Watch the \emph{2D Graphics Window} and the \emph{3D Graphics Window}
+\end{list}
+
+\paragraph{Create an Access Report}
+
+\begin{list}{$\bullet$}
+{\setlength{\itemsep}{-3pt}\setlength{\leftmargin}{30pt}}
+\item In the menu, click \emph{Analysis} and \emph{Access}, then the \emph{Access} window appears
+\item Click \emph{Access..} at the \emph{Reports} group, then the report window appears
+\item Click the icon for \emph{Global Access Units}, then the \emph{Units: Access} window appears
+\item Select \emph{Hours} and click \emph{Ok}
+\item Click the icon for \emph{Save As}, and type the file name and save it
+\item \textcolor{red}{Upload your txt report to Black Board }
+
+\end{list}
+
+\subsection{Hohmann Transfer}
+
+\paragraph{Goal} A satellite is on a circular orbit with the orbital radius of $r_P=7000\,\mathrm{km}$. We wish to design an impulsive maneuver such that the orbital radius is increased to $r_A=9000\,\mathrm{km}$. The required velocity changes are computed as follows:
+\begin{align*}
+\Delta v_P &= \sqrt{\frac{2\mu}{r_A+r_P}\frac{r_A}{r_P}} - \sqrt{\frac{\mu}{r_P}} = \text{\textcolor{red}{$0.4577\,\mathrm{km/s}$}},\\
+\Delta v_A &= \sqrt{\frac{\mu}{r_A}}- \sqrt{\frac{2\mu}{r_A+r_P}\frac{r_P}{r_A}}  = \text{\textcolor{red}{$0.4298\,\mathrm{km/s}$}}.
+\end{align*}
+
+The window for the previous example should be closed. Otherwise, there is an error for license.
+
+\paragraph{First Impulse}
+
+\begin{list}{$\bullet$}
+{\setlength{\itemsep}{-3pt}\setlength{\leftmargin}{30pt}}
+\item Download \emph{Hohmann.zip} from Black Board, and extract it to a folder.
+
+(\textcolor{red}{Note: You SHOULD EXTRACT all of the files to your folder!} Double-clicking the scenario file from the zip folder prevents loading predefined satellite.)
+
+\item Open \emph{Hohmann.sc}
+\item Double-click \emph{GWU\_Sat}, then the \emph{Basic Orbit} window appears
+\item Click the icon for \emph{Insert Segment}, then the \emph{Segment Section} window appears
+\item Select \emph{Maneuver} and click \emph{Ok}
+\item Type \textcolor{red}{\emph{0.4577}} at \emph{Delta V Magnitude} and click \emph{Apply}
+\item Click the icon for \emph{Insert Segment}, then the \emph{Segment Section} window appears
+\item Select \emph{Propagate} and click \emph{Ok}
+\item Uncheck \emph{Duration}
+\item Click \emph{Insert} and choose \emph{Apoapsis}
+\item Click the icon for \emph{Run Entire Mission Control Sequence}
+\item Watch the \emph{2D Graphics Window} and the \emph{3D Graphics Window}
+\end{list}
+
+\paragraph{Second Impulse}
+
+\begin{list}{$\bullet$}
+{\setlength{\itemsep}{-3pt}\setlength{\leftmargin}{30pt}}
+\item Double-click \emph{GWU\_Sat}, then the \emph{Basic Orbit} window appears
+\item Click the icon for \emph{Insert Segment}, then the \emph{Segment Section} window appears
+\item Select \emph{Maneuver} and click \emph{Ok}
+\item Type \textcolor{red}{\emph{0.4298}} at \emph{Delta V Magnitude} and click \emph{Apply}
+\item Click the icon for \emph{Insert Segment}, then the \emph{Segment Section} window appears
+\item Select \emph{Propagate} and click \emph{Ok}
+\item Click the icon for \emph{Run Entire Mission Control Sequence}
+\item Watch the \emph{2D Graphics Window} and the \emph{3D Graphics Window}
+\item Click the icon for \emph{Snap Frame} at the \emph{3D Graphics Window}, and type the file name and save it as jpg
+\item \textcolor{red}{Upload your jpg file to Black Board }
+\end{list}
+
+\end{document}
+
