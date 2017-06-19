@@ -1,0 +1,48 @@
+\documentclass[11pt, reqno]{article}    % use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{my_packages}
+\usepackage{tikz_packages}
+\usepackage[american,siunitx]{circuitikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
+\usepackage[explicit]{titlesec}
+
+% change the formatting for a section (which we're treating as a problem)
+\titleformat{\section}[runin]{\normalfont\bfseries}{}{0em}{#1\ \thesection}
+\crefformat{section}{problem #2#1#3}
+\Crefformat{section}{Problem #2#1#3}
+
+\title{MAE 3145: COMFIX}
+\author{Shankar Kulumani}
+\date{Fall 2017}                          % Activate to display a given date or no date
+
+\begin{document}
+\begin{center}
+{\Large \textbf{MAE 3145: COMFIX DESCRIPTION}}
+\end{center}
+
+Your first mission as an orbital analyst has reached your in-basket.
+Your task is to develop a program to convert radar observation data into Classical Orbital Elements (COEs).
+
+Each radar observation includes the trackin site geodetic latitude, longitude, and its altitude above sea level.
+The sites are equipped to measure vehicle range, pointing angles, Doppler shift, angular rates and record the observations in Universal Time (UTC).
+The tracking data is reported as:
+\begin{itemize}
+    \item \texbf{LINE 1}
+        \begin{itemize}
+            \item Site latitude ( North is positive and South is Negative) in degrees
+            \item Site longitude (East is positive and West is Negative) in degrees
+            \item Site altitude in meters
+            \item Observation time in UTC - \href{https://en.wikipedia.org/wiki/ISO_8601}{ISO 8601} format
+        \end{itemize}
+    \item \texbf{LINE 1}
+        \begin{itemize}
+            \item Satellite ID number - 4 digit integer
+            \item Vehicle range in kilometers
+            \item Vehicle azimuth in degrees
+            \item Vehicle elevation in degrees
+            \item Range rate in kilometers per second
+            \item Azimuth rate in degrees per second
+            \item Elevation rate in degrees per second \si{\degree\per\second}
+        \end{itemize}
+\end{itemize}
+\end{document}  
