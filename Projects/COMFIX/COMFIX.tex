@@ -6,10 +6,6 @@
 \pgfplotsset{compat=1.14}
 \usepackage[explicit]{titlesec}
 
-% change the formatting for a section (which we're treating as a problem)
-\titleformat{\section}[runin]{\normalfont\bfseries}{}{0em}{#1\ \thesection}
-\crefformat{section}{problem #2#1#3}
-\Crefformat{section}{Problem #2#1#3}
 
 \title{MAE 3145: COMFIX}
 \author{Shankar Kulumani}
@@ -17,9 +13,9 @@
 
 \begin{document}
 \begin{center}
-{\Large \textbf{MAE 3145: COMFIX DESCRIPTION}}
+{\Large \textbf{MAE3145: COMFIX}}
 \end{center}
-
+\subsection*{Description}
 Your first mission as an orbital analyst has reached your in-basket.
 Your task is to develop a program to convert radar observation data into Classical Orbital Elements (COEs).
 
@@ -27,14 +23,14 @@ Each radar observation includes the trackin site geodetic latitude, longitude, a
 The sites are equipped to measure vehicle range, pointing angles, Doppler shift, angular rates and record the observations in Universal Time (UTC).
 The tracking data is reported as:
 \begin{itemize}
-    \item \texbf{LINE 1}
+    \item \textbf{LINE 1}
         \begin{itemize}
             \item Site latitude ( North is positive and South is Negative) in degrees
             \item Site longitude (East is positive and West is Negative) in degrees
             \item Site altitude in meters
             \item Observation time in UTC - \href{https://en.wikipedia.org/wiki/ISO_8601}{ISO 8601} format
         \end{itemize}
-    \item \texbf{LINE 1}
+    \item \textbf{LINE 1}
         \begin{itemize}
             \item Satellite ID number - 4 digit integer
             \item Vehicle range in kilometers
@@ -44,5 +40,32 @@ The tracking data is reported as:
             \item Azimuth rate in degrees per second
             \item Elevation rate in degrees per second \si{\degree\per\second}
         \end{itemize}
+\end{itemize}
+
+\subsection*{Software Library}
+
+\subsection*{Algorithm}
+
+Write a structured algorithm that shows your approach to writing a computer program to perform all of the tasks described above.
+This should be a complete \textbf{sequential} list of the \textbf{equations and logic (including loop)} that you will use to write your program.
+The details of subalgorithms are only required for procedures that are new for this project, not those provided to you.
+Instead, just mention what procedure will be used and the inputs and outputs of the procedure, e.g. ``Calculate orbital elements given position and velocity vectors using \texttt{rv2coe}''.
+
+When completed, anyone should be able to write your code \textbf{solely} using the algorithm in \textbf{any} computer language of their choice.
+Thus, define all symbols before you use them, and do not write the equations and logic using any language specific terminology, i.e. Something like `` Find the length of the vector using \texttt{norm(x)} '' is unacceptable.
+
+Your algorithm must be \textbf{typed}, which will serve you well when you document your final code. 
+This is also a good opportunity to practice your technical writing skills in \LaTeX.
+
+\subsection*{Final COMFIX Deliverables}
+
+Your program must process the \texttt{COMFIX.DAT} data file and generate output that matches the orbital elements in \texttt{COMFIX.OUT} to at least four decimal places. 
+The input file, \texttt{COMFIX.DAT}, contains five observations, but your program should be able to process an arbitrary number of observations.
+
+Submit the following on the final due date:
+\begin{itemize}
+    \item Fully documented driver script
+    \item Each procedure which you wrote or modified, fully documented (no library routines)
+    \item Computer generated results which match \texttt{COMFIX.OUT}
 \end{itemize}
 \end{document}  
