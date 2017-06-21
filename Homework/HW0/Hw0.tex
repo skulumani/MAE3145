@@ -2,7 +2,7 @@
 \usepackage[letterpaper,text={6.5in,8.7in},centering]{geometry}
 \usepackage{amssymb,amsmath,times,url,subfigure,graphicx,theorem,alltt}
 %\usepackage[pdftex,urlcolor=blue,pdfpagemode=none,pdfstartview=FitH]{hyperref}
-
+\usepackage{tikz_packages}
 %% url smaller font.
 \makeatletter
 \def\url@leostyle{%
@@ -117,6 +117,33 @@ For the remaining parts (b)-(e), let $\vec a = [1,\,3,\,-2]^T$, $\vec b =[-4,\,-
 \item Compute the length $\| \vec a \times \vec b \|$ using \refeqn{cross3}, and show that it is equal to your second answer to (b).
 \item Find the angle between $\vec a$ and $\vec c$. 
 \end{subprob}
+\end{prob}
+
+\begin{prob}
+Write the law of cosines relating each of the three sides and one interior angle of a triangle.
+There should be three equations.
+\begin{figure}
+    \centering
+\begin{tikzpicture}
+    [
+    point/.style = {draw, circle, fill = black, inner sep = 1pt},
+    dot/.style = {draw, circle, fill = black, inner sep = 0.2pt}
+    ]
+    \pgfmathsetlengthmacro{\sidelength}{4cm}
+    \pgfmathsetlengthmacro{\arcradius}{0.8cm}
+    \pgfmathsetlengthmacro{\arclabelradius}{\arcradius + 5pt}
+    % three corners of the triangle
+    \node (l) at (0, 0) [point, label = {}] {};
+    \node (r) at (4, 0) [point, label = {}] {};
+    \node (t) at (2, 3.464) [point, label = {}] {};
+
+    \drawlabeledarcdelta{(l)}{0}{60}{\arcradius}{$\gamma$}{\arclabelradius};
+    \drawlabeledarcdelta{(r)}{120}{60}{\arcradius}{$\alpha$}{\arclabelradius};
+    \drawlabeledarcdelta{(t)}{240}{60}{\arcradius}{$\beta$}{\arclabelradius};
+
+    \draw (l) -- node [below] {$B$} (r) -- node [right] {$C$} (t) -- node [left] {$A$} (l);
+\end{tikzpicture}
+\end{figure}
 \end{prob}
 
 \begin{prob}
