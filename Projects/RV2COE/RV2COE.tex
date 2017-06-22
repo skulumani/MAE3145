@@ -32,6 +32,22 @@
 Your objective is to write a program which determines the classical orbital elements of an Earth-orbiting body given its position and velocity vectors in the Earth-Centered Inertial frame.
 It is also required to compute other orbital parameters including, radius of perigee, radius of apogee, energy and period.
 
+\subsection*{Project Requirements}
+After completing the project you must submit the hard copies of your work:
+\begin{itemize}
+    \item Complete algorithms for the main driver script as well as a seperate algorithm for each sub-function that you develop.
+        Someone totally unfamiliar with astrodynamics should be able to duplicate your program in any computer language.
+    \item Clear, concise and properly documented and tested code
+    \item Correct outputs from your program which matches the test cases
+    \item Any additional test cases you may have used. 
+        Explain why you did or did not use any additional test cases.
+\end{itemize}
+
+\subsection*{Authorized Resources}
+You may consult with your instructor, the course notes or other reference material, and other students. 
+However, you \textbf{MAY NOT} copy another student or any other individuals code. 
+The program you develop must be your own work.
+
 \subsection*{Program Specifications}
 The following is a description of the inputs and outputs you your program:
 
@@ -84,6 +100,115 @@ Each function should be well tested, with unit tests, and well-documented follow
 This function determines an objects six classical orbital elements from its position and velocity vectors.
 
 \noindent{\textbf{Input:}}
+\begin{itemize}
+    \item \( R \in \R^{3} \) - the components of the position vector in the Earth Centered Inertial frame given in kilometers (\si{\kilo\meter})
+    \item \( V \in \R^{3} \) - the components of the velocity vector in the Earth Centered Inertial frame given in kilometers per second ( \si{\kilo\meter\per\second})
+\end{itemize}
+
+\noindent \textbf{OUTPUTS:}
+\begin{itemize}
+    \item \( a \)  - semimajor axis in kilometers (\si{\kilo\meter})
+    \item \( e \) - eccentricity (unitless)
+    \item \( i \) - inclination in radians (\si{\radian})
+    \item \( \Omega \) - right ascension of the ascending node in radians (\si{\radian})
+    \item \( \omega \) - arguement of perigee in radians (\si{\radian})
+    \item \( \nu \) - true anomaly in radians (\si{\radian})
+\end{itemize}
+
+\subsection*{Optional Functions}
+The following functions may be useful in the development of your program. 
+It can allow you to further organize the code, but it is not required.
+
+\subsubsection*{\texttt{hnevec}}
+This function determines the angular momentum, ascending node, and eccentricity vectors given the position and velocity vectors.
+
+\noindent{\textbf{Input:}}
+\begin{itemize}
+    \item \( R \in \R^{3} \) - the components of the position vector in the Earth Centered Inertial frame given in kilometers (\si{\kilo\meter})
+    \item \( V \in \R^{3} \) - the components of the velocity vector in the Earth Centered Inertial frame given in kilometers per second ( \si{\kilo\meter\per\second})
+\end{itemize}
+
+\noindent \textbf{OUTPUTS:}
+\begin{itemize}
+    \item \( H \in \R^{3} \) - the components of specific angular momentum vector in the Earth Centered Inertial frame given in kilometers per second squared (\si{\kilo\meter\per\second\squared})
+    \item \( N \in \R^{3} \) - the components of the ascending node vector in the Earth Centered Inertial frame given in kilometers per second squared (\si{\kilo\meter\per\second\squared})
+    \item \( E \in \R^{3} \) - the components of the eccentricity vector in the Earth Centered Inertial frame (unitless)
+\end{itemize}
+
+\subsubsection*{\texttt{angles}}
+
+This function determines all of the angular orbital elements. 
+Ensure that you perform quadrant checks on all of the angles.
+
+\noindent{\textbf{Input:}}
+\begin{itemize}
+    \item \( R \in \R^{3} \) - the components of the position vector in the Earth Centered Inertial frame given in kilometers (\si{\kilo\meter})
+    \item \( V \in \R^{3} \) - the components of the velocity vector in the Earth Centered Inertial frame given in kilometers per second ( \si{\kilo\meter\per\second})
+    \item \( H \in \R^{3} \) - the components of specific angular momentum vector in the Earth Centered Inertial frame given in kilometers per second squared (\si{\kilo\meter\per\second\squared})
+    \item \( N \in \R^{3} \) - the components of the ascending node vector in the Earth Centered Inertial frame given in kilometers per second squared (\si{\kilo\meter\per\second\squared})
+    \item \( E \in \R^{3} \) - the components of the eccentricity vector in the Earth Centered Inertial frame (unitless)
+\end{itemize}
+
+\noindent \textbf{OUTPUTS:}
+\begin{itemize}
+    \item \( i \) - inclination in radians (\si{\radian})
+    \item \( \Omega \) - right ascension of the ascending node in radians (\si{\radian})
+    \item \( \omega \) - arguement of perigee in radians (\si{\radian})
+    \item \( \nu \) - true anomaly in radians (\si{\radian})
+\end{itemize}
+
+\subsubsection*{\texttt{orbitalparameters}}
+This function determines other useful orbital parameters associated with the orbit.
+
+\noindent \textbf{Input:}
+\begin{itemize}
+    \item \( a \)  - semimajor axis in kilometers (\si{\kilo\meter})
+    \item \( e \) - eccentricity (unitless)
+\end{itemize}
+
+\noindent \textbf{Outputs:}
+\begin{itemize}
+    \item \( r_p \) - radius of perigee in kilometer (\si{\kilo\meter})
+    \item \( r_a \) - radius of apogee in kilometer (\si{\kilo\meter})
+    \item \( sme \) - specific mechanical energy in kilometer (\si{\kilo\meter})
+    \item \( P \) - period of the orbit in seconds (\si{\second})
+\end{itemize}
+
+\subsubsection*{Input and Output}
+
+You may consider creating seperate functions which can read and write to various text files. 
+These are encouraged but are optional.
+
+\subsection*{Test Data}
+Two test cases are provided with this project. 
+There is a text file named \texttt{RV1.txt} which contains the position and velocity vectors of two spacecraft. 
+The data is copied below.
+\begin{verbatim}
+8840.0  646.0 5455.0  -0.695  5.25  -1.65
+-3084.7  30.0  6911.0   5.66  -4.07   3.84 
+\end{verbatim}
+The numbers on each line corresponds to the three elements of the position vector and the three elements of the velocity vector, i.e. \(\begin{bmatrix} x & y & z & \dot{x} & \dot{y} & \dot{z} \end{bmatrix}\).
+The solution for Case 1, the first line/spacecraft, is given below.
+\begin{verbatim}
+R (km)    =  8840.0000 I    646.0000 J   5455.0000 K    Mag= 10407.6866
+V (km/s)  =    -0.6950 I      5.2500 J     -1.6500 K    Mag=     5.5469
+
+Radius of Perigee           (km) =  6260.5311
+Radius of Apogee            (km) = 11134.4744
+Energy              (km^2/sec^2) =   -22.9147
+Period                   (hours) =     2.2423
+Semimajor Axis              (km) =  8697.5027
+Eccentricity                     =     0.2802
+
+Inclination                           (deg) =    33.9987
+Right Ascension of the Ascending Node (deg) =   250.0287
+Argument of Perigee                   (deg) =   255.5372
+True Anomaly                          (deg) =   214.8548
+\end{verbatim}
+
+Using your computer program, you should read the vectors, compute the appropriate values and write them to a seperate text file.
+Do not hardcode the data into your program, but rather read them from the file. 
+While only two cases are given here, your program should be able to convert an arbitrary amount of position and velocity vectors.
 
 
 \end{document}  
