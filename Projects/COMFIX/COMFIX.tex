@@ -16,10 +16,10 @@
 {\Large \textbf{MAE3145: COMFIX}}
 \end{center}
 \subsection*{Description}
-Your first mission as an orbital analyst has reached your in-basket.
+Your first mission as an orbital analyst has reached your capable hands.
 Your task is to develop a program to convert radar observation data into Classical Orbital Elements (COEs).
 
-Each radar observation includes the trackin site geodetic latitude, longitude, and its altitude above sea level.
+Each radar observation includes the tracking site geodetic latitude, longitude, and its altitude above sea level.
 The sites are equipped to measure vehicle range, pointing angles, Doppler shift, angular rates and record the observations in Universal Time (UTC).
 The tracking data is reported as:
 \begin{itemize}
@@ -42,7 +42,21 @@ The tracking data is reported as:
         \end{itemize}
 \end{itemize}
 
-\subsection*{Software Library}
+\subsection*{Project Requirements}
+After completing the project you must submit the hard copies of your work:
+\begin{itemize}
+    \item Complete algorithms for the main driver script as well as a seperate algorithm for each sub-function that you develop.
+        Someone totally unfamiliar with astrodynamics should be able to duplicate your program in any computer language.
+    \item Clear, concise and properly documented and tested code
+    \item Correct outputs from your program which matches the test cases
+    \item Any additional test cases you may have used. 
+        Explain why you did or did not use any additional test cases.
+\end{itemize}
+
+\subsection*{Authorized Resources}
+You may consult with your instructor, the course notes or other reference material, and other students. 
+However, you \textbf{MAY NOT} copy another student or any other individuals code. 
+The program you develop must be your own work.
 
 \subsection*{Algorithm}
 
@@ -62,10 +76,78 @@ This is also a good opportunity to practice your technical writing skills in \La
 Your program must process the \texttt{COMFIX.DAT} data file and generate output that matches the orbital elements in \texttt{COMFIX.OUT} to at least four decimal places. 
 The input file, \texttt{COMFIX.DAT}, contains five observations, but your program should be able to process an arbitrary number of observations.
 
-Submit the following on the final due date:
+Submit the following on the due date:
 \begin{itemize}
     \item Fully documented driver script
     \item Each procedure which you wrote or modified, fully documented (no library routines)
     \item Computer generated results which match \texttt{COMFIX.OUT}
+\end{itemize}
+
+\subsection*{Software Library}
+
+A library of support functions are provided for your use. 
+This library gives you a model for the structure of your project as well as several functions you can use in the development of your own programs.
+Furthermore, the library shows the standards used in this class for:
+\begin{itemize}
+    \item Proper documentation
+    \item Proper testing
+\end{itemize}
+
+\subsection*{Program Specifications}
+
+The following is a description of the required functions that your software program must include. 
+You will be making use of many of the functions that you have been developing over the course of the semester.
+
+\subsubsection*{\texttt{gstlst}}
+
+This function computes the Greenwich sidereal time and Local sidereal time at a specific site given a known Julian date.
+
+\noindent \textbf{Inputs: }
+\begin{itemize}
+    \item \( jd \) - Julian date
+    \item \( \lambda \) - site longitude in radians
+\end{itemize}
+
+\noindent \textbf{Output:}
+\begin{itemize}
+    \item \(gst \) - Greenwich sidereal time in radians
+    \item \(lst\) - Local sidereal time in radians
+\end{itemize}
+
+This function will make use of \texttt{gsttime0} which provides the Greenwich sidereal time at the beginning of the year. 
+
+\subsubsection*{\texttt{site}}
+This function computes the Earth Centered Inertial position vectors of an observation site on the Earth.
+
+\noindent \textbf{Inputs: }
+\begin{itemize}
+    \item \( \phi \) - site geodetic latitude in radians
+    \item \( \lambda \) - site longitude in radians
+    \item \( h \) - site altitude above mean sea level in kilometers
+\end{itemize}
+
+\noindent \textbf{Output:}
+\begin{itemize}
+    \item \( r_{eci} \in \R^{3 \times 1} \) - site position vector in the Earth centered inertial frame and given in kilometers
+\end{itemize}
+
+\subsubsection*{\texttt{rvtopos}}
+This function converts radar measurements to a range and range rate vector in the topocentric reference frame.
+
+\noindent \textbf{Input : }
+\begin{itemize}
+    \item \( \rho \) - range from the site to spacecraft in kilometers
+    \item \( \alpha \) - azimuth in topocentric reference frame in radians
+    \item \( \beta \) - elevation in topocentric reference frame in radians 
+    \item \( \dot{\rho} \) - range rate in kilometers per second
+    \item \( \dot{\alpha} \) - azimuth rate in radians per second
+    \item \( \dot{\beta} \) - elevation rate in radians per second
+\end{itemize}
+
+\noindent \textbf{Output: }
+
+\begin{itemize}
+    \item \( r_{sez} \) - position of spacecraft in topocentric reference frame in kilometers
+    \item \( v_{sez} \) - velocity of spacecraft in the topocentric reference frame in kilometers per second
 \end{itemize}
 \end{document}  
