@@ -82,16 +82,176 @@ Thus, define all symbols before you use them, and do not write the equations and
 Your algorithm must be \textbf{typed}, which will serve you well when you document your final code. 
 This is also a good opportunity to practice your technical writing skills in \LaTeX.
 
-\subsection*{Final COMFIX Deliverables}
+\subsection*{Final PREDICT Deliverables}
 
-Your program must process the \texttt{COMFIX.DAT} data file and generate output that matches the orbital elements in \texttt{COMFIX.OUT} to at least four decimal places. 
-The input file, \texttt{COMFIX.DAT}, contains five observations, but your program should be able to process an arbitrary number of observations.
+Your program must process the \texttt{PREDICT.DAT} data file and generate output that matches the orbital elements in \texttt{PREDICT.OUT} to at least four decimal places. 
 
 Submit the following on the due date:
 \begin{itemize}
     \item Fully documented driver script
     \item Each procedure which you wrote or modified, fully documented (no library routines)
-    \item Computer generated results which match \texttt{COMFIX.OUT}
+    \item Computer generated results which match \texttt{PREDICT.OUT}
 \end{itemize}
 
+\subsection*{Program Specifications}
+The following is a description of the required functions that your softwre program must include.
+You will be making use of many of the functions that you have been developing over the course of the semester.
+
+\subsubsection*{\texttt{J2Dragpert}}
+
+This procedure calculates the rates of change of the right ascension of the ascending node, argument of periapsis, and eccentricty.
+The perturbations considered are limited to \( J_2 \) and drag only.
+
+\noindent \textbf{Inputs: }
+\begin{itemize}
+    \item \( i_0 \) - initial inclination in radians
+    \item \( e_0 \) - initial eccentricty
+    \item \( n_0 \) - initial mean motion in radians per second
+    \item \( \frac{\dot{n}}{2} \) - mean motion rate divided by two in radians per second squared
+\end{itemize}
+
+\noindent\textbf{Output: }
+\begin{itemize}
+    \item \( \dot{\Omega} \) - nodal rate in radians per second
+    \item \( \dot{\omega} \) - argument of periapsis rate in radians per second
+    \item \( \dot{e} \) - eccentricity rate
+\end{itemize}
+
+\subsubsection*{Update}
+This procedure uses the method of general perturbations to update the classical elements from \( t_0 \) to \( t_1 = t_0 + \delta t \) for inclined elliptical orbits.
+It includes the effects due to first-order secular rates (second order for mean anomaly) caused by drag and Earth oblateness (\( J_2 \) ). 
+It will be necessary to call \texttt{newton} from this function to calculate the future value of eccentric anomaly and true anomaly.
+
+\noindent \textbf{Inputs: }
+\begin{itemize}
+    \item \( \delta t \) - elapsed time since \( t_0 \) in seconds
+    \item \( n_0 \) - mean motion at \( t_0 \)
+    \item \( \frac{\dot{n}}{2} \) - mean motion rate divided by 2
+    \item \( e_0 \) - eccentricty at \( t_0 \)
+    \item \( \dot{e} \) - eccentricity rate
+    \item \( \Omega_0 \) - right ascension of the ascending node at \( t_0 \)
+    \item \( \dot{\Omega}_0 \) - right ascension of the ascending node rate
+    \item \( \omega_0 \) - argument of periapsis at \( t_0 \)
+    \item \( \dot{\omega} \) - argument of periapsis rate
+    \item \( M_0 \) - mean anomaly at \( t_0 \)
+\end{itemize}
+
+\noindent \textbf{Outputs:}
+
+\begin{itemize}
+    \item \( n \) - mean motion at \( t_1 \)
+    \item \( e \) - eccentricty at \( t_1 \)
+    \item \( \Omega \) - right ascension of the ascending node at \( t_1 \)
+    \item \( \omega \) - arugment of periapsis at \( t_1 \)
+    \item \( \nu \) - true anomaly at \( t_1 \)
+\end{itemize}
+
+\subsubsection*{\textbf{coe2rv}}
+This function computes the spacecrafts position and velocity in the Earth centered inertial frame from the classical orbital elements.
+
+\noindent \textbf{Inputs: }
+\begin{itemize}
+    \item \( n \) - mean motion at \( t_1 \)
+    \item \( e \) - eccentricty at \( t_1 \)
+    \item \( \Omega \) - right ascension of the ascending node at \( t_1 \)
+    \item \( \omega \) - arugment of periapsis at \( t_1 \)
+    \item \( \nu \) - true anomaly at \( t_1 \)
+\end{itemize}
+
+\noindent \textbf{Outputs: }
+\begin{itemize}
+    \item \( r \) -  position vector in ECI
+    \item \( v \) - velocity vector in ECI
+\end{itemize}
+
+\subsubsection*{\textbf{visible} }
+This function will determine if the observer is in the dark.
+If so, it weill then compute the topocentric range, azimuth, and elevation of the satellite relative to the observer.
+If the elevation is greater than \SI{10}{\degree} and the range is less than \SI{1500}{\kilo\meter} then the function will check if the satellite is illuminated by the sun.
+If the satellite is visible then a flag will be set to true.
+
+\noindent \textbf{Inputs: }
+\begin{itemize}
+    \item \( r \) -  position of the satellite in the ECI frame
+    \item \( r_s \) - position of the observer in the ECI frame
+    \item \( \lambda \) - observer geodetic latitude
+    \item \( \theta \) - observer local sidereal time
+    \item \( JD \) - julian date at viewing time
+\end{itemize}
+
+\noindent \textbf{Optional Outputs: }
+\begin{itemize}
+    \item \( \rho \) - range 
+    \item \( \alpha \) - azimuth
+    \item \( \epsilon \) - elevation
+    \item \( d \) - flag for observer darkness
+    \item \( v \) - flag for visibility of satellite
+\end{itemize}
+
+These outputs are all optional. 
+You may decide to use this function to print your output data, or pass data to another function to output. 
+
+\subsubsection*{rhoazel}
+This function determines the topocentric range, azimuth, and elevation from the observation site to the satelite.
+
+\noindent \textbf{Inputs: }
+\begin{itemize}
+    \item \(r \) -  position of satellite in ECI frame
+    \item \( r_s \) - position of observer in ECI frame
+    \item \( \lambda \) - observer geodetic latitude
+    \item \( \theta \) - site local sidereal time
+\end{itemize}
+
+\noindent \textbf{Output: }
+\begin{itemize}
+    \item \( \rho \) - range
+    \item \( \alpha \) - azimuth
+    \item \( \epsilon \) - elevation
+\end{itemize}
+
+\subsection*{PREDICT Final Report}
+
+Your program must process a TLE file and generate topocentric data so you can view a satellite.
+You are required to summarize your project results and submit and engineering report (not to exceed \num{5} typed pages, excluding title page, table of contents and appendices) to your instructor.
+Your report should contain the following sections:
+\begin{enumerate}
+    \item \textbf{Intro and Assumptions} - Introduce and motivate the problem, then briefly discuss the assumptions that were required to solve the problem. 
+        You may simply list, without discussions, any assumptions being used that have been used in previous projects.
+    \item \textbf{Math Technique} - This section is a summary of the theory that ws used to solve the problem, with an emphasis on the math that is new since \texttt{COMFIX}. 
+        Be sure to address why each step was taken. 
+        Do not discuss your computer code here, i.e. `` Next I wrote \texttt{rsite}\ldots'' and don't simply refer to or regurgiitate your algorithm.
+    \item \textbf{Analysis/Discussion} - Introduce your code here and include a discussion of how it was validated, including options for validating.
+        discuss teh output you generated, including a summary of the data on the satellite, or satellites) you viewed, along with details of that viewing as compared to what was expected.
+    \item \textbf{Sources of Error/Recommendations} - Discuss any errors, that is, where your assumptions impacted your results. 
+        Include any recommendations for how to improve the results.
+    \item \textbf{Appendix A - Program Usage} - You must include instructions so a person can you your executable code to generate obsrevation data for any site, range of days, and any number of TLEs.
+        Write this section of your report as \textbf{if it were a page in a user's manual}.
+        Begin by briefly saying what your program does.
+        Describe how someone would use your program.
+        Are there any limits, e.g. matrix size or range of values?
+        Is there anything unique to your program?
+        Are there any data for which teh program will not work?
+        As an example here's a good format you can use:
+        \begin{itemize}
+            \item Program Name
+            \item Program function
+            \item Computer used/limits
+            \item Language and version
+            \item How to run it
+            \item Input
+                \begin{itemize}
+                    \item What are your inputs/units/limits?
+                    \item What method is used to input the data, i.e. how do you change the input data?
+                    \item Point out user interactive prompts if there are any.
+                \end{itemize}
+            \item Output
+                \begin{itemize}
+                    \item Explain the method used to output the data?
+                    \item What are your outputs/units?
+                \end{itemize}
+        \end{itemize}
+    \item \textbf{Appendix B - Results} - Program results for atleast 3 objects from teh TLEs (\textbf{NOT ALL 100+ please!}), over the time interval of your choice, to include when you observed a satellite.
+    \item \textbf{Appendix C - Bonus} - Pick a location more than \SI{100}{\kilo\meter} from DC and run your program. 
+        If you or any other person view a satellite based on your computer results, you will receive a bonus on your project
+\end{enumerate}
 \end{document}  
