@@ -51,6 +51,47 @@ There are many references for the TLE description available in textbooks or onli
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth, keepaspectratio]{figures/tle.jpeg}
-    \caption{TLE Format \label{fig:tle}}
+    \caption{TLE Format\label{fig:tle}}
 \end{figure}
+\subsection*{Project Requirements}
+After completing the project you must submit the hard copies of your work:
+\begin{itemize}
+    \item Complete algorithms for the main driver script as well as a seperate algorithm for each sub-function that you develop.
+        Someone totally unfamiliar with astrodynamics should be able to duplicate your program in any computer language.
+    \item Clear, concise and properly documented and tested code
+    \item Correct outputs from your program which matches the test cases
+    \item Any additional test cases you may have used. 
+        Explain why you did or did not use any additional test cases.
+\end{itemize}
+
+\subsection*{Authorized Resources}
+You may consult with your instructor, the course notes or other reference material, and other students. 
+However, you \textbf{MAY NOT} copy another student or any other individuals code. 
+The program you develop must be your own work.
+
+\subsection*{Algorithm}
+
+Write a structured algorithm that shows your approach to writing a computer program to perform all of the tasks described above.
+This should be a complete \textbf{sequential} list of the \textbf{equations and logic (including loop)} that you will use to write your program.
+The details of subalgorithms are only required for procedures that are new for this project, not those provided to you.
+Instead, just mention what procedure will be used and the inputs and outputs of the procedure, e.g. ``Calculate orbital elements given position and velocity vectors using \texttt{rv2coe}''.
+
+When completed, anyone should be able to write your code \textbf{solely} using the algorithm in \textbf{any} computer language of their choice.
+Thus, define all symbols before you use them, and do not write the equations and logic using any language specific terminology, i.e. Something like `` Find the length of the vector using \texttt{norm(x)} '' is unacceptable.
+
+Your algorithm must be \textbf{typed}, which will serve you well when you document your final code. 
+This is also a good opportunity to practice your technical writing skills in \LaTeX.
+
+\subsection*{Final COMFIX Deliverables}
+
+Your program must process the \texttt{COMFIX.DAT} data file and generate output that matches the orbital elements in \texttt{COMFIX.OUT} to at least four decimal places. 
+The input file, \texttt{COMFIX.DAT}, contains five observations, but your program should be able to process an arbitrary number of observations.
+
+Submit the following on the due date:
+\begin{itemize}
+    \item Fully documented driver script
+    \item Each procedure which you wrote or modified, fully documented (no library routines)
+    \item Computer generated results which match \texttt{COMFIX.OUT}
+\end{itemize}
+
 \end{document}  
