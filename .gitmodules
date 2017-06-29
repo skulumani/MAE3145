@@ -1,3 +1,6 @@
 [submodule "Library"]
 	path = Library
 	url = git@github.com:fdcl-gwu/MAE3145_library.git
+[submodule "Projects/solution/code/astro"]
+	path = Projects/solution/code/astro
+	url = git@github.com:skulumani/astro.git
