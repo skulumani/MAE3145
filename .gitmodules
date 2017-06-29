@@ -4,3 +4,6 @@
 [submodule "Projects/solution/code/astro"]
 	path = Projects/solution/code/astro
 	url = git@github.com:skulumani/astro.git
+[submodule "Projects/solution/code/kinematics"]
+	path = Projects/solution/code/kinematics
+	url = git@github.com:fdcl-gwu/kinematics.git
