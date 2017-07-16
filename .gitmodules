@@ -7,3 +7,6 @@
 [submodule "Projects/solution/code/kinematics"]
 	path = Projects/solution/code/kinematics
 	url = git@github.com:fdcl-gwu/kinematics.git
+[submodule "Programming"]
+	path = Programming
+	url = git@github.com:fdcl-gwu/scientific_python.git
