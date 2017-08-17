@@ -32,10 +32,41 @@
 \begin{document}
 
 \pagestyle{empty}
-\section*{MAE3145: Homework 0}
+\section*{MAE3145: Homework 0 - Skills Review}
 \vspace*{-0.4cm}
-\noindent{Due date: September 9, 2015}%\\%\vspace*{0.5cm}
+\noindent{Due date: August 28, 2017}%\\%\vspace*{0.5cm}
 
+\begin{prob}
+    The magnitude of a vector is defined as 
+    \begin{align*}
+        \norm{\vec a} = \sqrt{a_1^2 + a_2^2 + a_3^2} ,
+    \end{align*}
+    for the vector 
+    \begin{align*}
+        \vec a = \begin{bmatrix} a_1 & a_2 & a_3 . \end{bmatrix}
+    \end{align*}
+
+    \begin{subprob}
+        \item Find the magnitude of \( \norm{\vec a} \) where \( \vec{a} = \begin{bmatrix} \sqrt{5} & \sqrt{3} & 1 \end{bmatrix} \).
+        \item Find the magnitude of \( \norm{\vec b} \) where \( \vec{b} = \begin{bmatrix} -2 & 4 & -4 \end{bmatrix} \). 
+        \item Find the magnitude of \( \norm{\vec c} \) where \( \vec{c} = \begin{bmatrix} 0 & 0 & -9\end{bmatrix} \). 
+    \end{subprob}
+\end{prob}
+
+\begin{prob}
+    Consider two vectors defined as
+    \begin{align*}
+    \vec a &= \begin{bmatrix} 0 & 3000 & 0 \end{bmatrix} , \\
+        \vec b &= \begin{bmatrix} 4000 & 0 & 0 \end{bmatrix}.
+    \end{align*}
+
+    \begin{subprob}
+    \item Find \( \vec c = \vec a + \vec b \).
+    \item Find \( \norm{\vec c} \).
+    \item Find \( \norm{\vec a} + \norm{\vec b} \).
+    \item True or False. \( \norm{\vec a} + \norm{\vec b} > \norm{\vec c} \).
+    \end{subprob}
+\end{prob}
 
 \begin{prob}
 Two vectors $\vec a,\vec b\in\Re^3$ are given as follows:
@@ -54,7 +85,7 @@ Let $a=\sqrt{\vec a \cdot \vec a}$,\; $b=\sqrt{\vec b \cdot \vec b}$\; be the le
 \begin{subprob}
 \item Suppose that $\vec a\cdot\vec b =0$. What is the corresponding value of the angle $\theta$. (Assume that $\vec a\neq 0$, $\vec b\neq 0$, and $0\leq\theta < 2 \pi$.)
 %\item Suppose that $\vec a \cdot \vec b < 0$. What is the possible range of the angle $\theta$. (Assume $0\leq\theta < 2 \pi$.)
-\item Let $\vec a = [1,\,3,\,-2]^T$, $\vec b =[-4,\,-1,-2]^T$. Find $\vec a \cdot \vec b$ using \refeqn{dot1}.
+\item Let $\vec a = [1,\,3,\,-2]^T$, $\vec b =[-4,\,-1,-2]^T$. Find $\vec a \cdot \vec b$ using~\cref{eqn:dot1}.
 \item For $\vec a$ and $\vec b$ defined at (c), find the angle between those two vectors.
 \item Check that your answer of (d) is consistent with your answer to (b).
 \end{subprob}
@@ -88,15 +119,23 @@ and the direction of $\vec a \times \vec b$ is determined by the right-handed ru
 \end{subprob}
 For the remaining parts (b)-(e), let $\vec a = [1,\,3,\,-2]^T$, $\vec b =[-4,\,-1,-2]^T$. 
 \begin{subprob}\setcounter{enumi}{1}
-\item Show that $\vec c = \vec a \times \vec b=[-8,\,10,\,11]^T$ using \refeqn{cross1} or \refeqn{cross2}. Also compute its length using $c = \sqrt{\vec c \cdot \vec c}$.
-\item Compute the length $\| \vec a \times \vec b \|$ using \refeqn{cross3}, and show that it is equal to your second answer to (b).
+\item Show that $\vec c = \vec a \times \vec b=[-8,\,10,\,11]^T$ using~\cref{eqn:cross1} or~\cref{eqn:cross2}. Also compute its length using $c = \sqrt{\vec c \cdot \vec c}$.
+\item Compute the length $\| \vec a \times \vec b \|$ using~\cref{eqn:cross3}, and show that it is equal to your second answer to (b).
 \item Find the angle between $\vec a$ and $\vec c$. 
 \end{subprob}
 \end{prob}
 
 \begin{prob}
+    \hfill
+    \begin{subprob}
+    \item Plot a cosine curve by hand and label both axes as well as the minimum and maximum values.
+    \item Plot a sine curve by hand and label both axes as well as the minimum and maximum values.
+    \end{subprob}
+\end{prob}
+
+\begin{prob}
 Write the law of cosines relating each of the three sides and one interior angle of a triangle.
-There should be three equations.
+You should show three equations defining the relationships between each angle and the other sides of the triangle.
 \begin{figure}[h]
     \centering
 \begin{tikzpicture}
@@ -122,10 +161,23 @@ There should be three equations.
 \begin{subprob}
 \item Show that the law of cosines reduces to the well-known Ptyhagorean formula for a right triangle.
 \end{subprob}
+
+Consider three vectors defined as
+\begin{align*}
+    \vec a &= \begin{bmatrix} 3 & 4 & 5 \end{bmatrix}, \\
+    \vec b &= \begin{bmatrix} 0 & 4 & 0 \end{bmatrix}, \\
+    \vec c &= \begin{bmatrix} -3 & 0 & 4 \end{bmatrix}. 
+\end{align*}
+
+\begin{subprob}
+\item Find the angle between \( \vec a \) and \( \vec b\).
+\item Find the angle between \( \vec b \) and \( \vec c \).
+\item Find the angle between \( \vec a \) and \( \vec c\).
+\end{subprob}
 \end{prob}
 
 \begin{prob}
-    In the matrix formula, \( A x = b \), where \( b \in \R^{n\times1} \) is a column vector, what is are the dimensions of \( A \) and \(x \).
+    In the matrix formula, \( A x = b \), where \( b \in \R^{n\times1} \) is a column vector, what are the dimensions of \( A \) and \(x \).
 \end{prob}
 
 \begin{prob}
@@ -141,8 +193,8 @@ There should be three equations.
 \end{prob}
 
 \begin{prob}
-Convert the vector \( x = \begin{pmatrix} 6 & \frac{\pi}{2} & \pi \end{pmatrix}\) from spherical to rectangular coordinates.
-The spherical coordinates are defined as \( x = \begin{pmatrix} r & \phi & \theta \end{pmatrix}\) with the angles given in radians.
+Convert the vector \( x = \begin{bmatrix} 6 & \frac{\pi}{2} & \pi \end{bmatrix}\) from spherical to rectangular coordinates.
+The spherical coordinates are defined as \( x = \begin{bmatrix} r & \phi & \theta \end{bmatrix}\) with the angles given in radians.
     \begin{figure}[h]
         \centering
         \tdplotsetmaincoords{60}{110}
@@ -182,7 +234,7 @@ The spherical coordinates are defined as \( x = \begin{pmatrix} r & \phi & \thet
     \end{subprob}
 \end{prob}
 \begin{prob}
-The following vector identities will be used in this class later.
+The following vector identities will be used later in this class.
 \begin{gather}
 \vec x \cdot (\vec y \times \vec z) =
 \vec y \cdot (\vec z \times \vec x) =
@@ -191,7 +243,7 @@ The following vector identities will be used in this class later.
 (\vec x \cdot \vec z) \vec y - (\vec x\cdot \vec y) \vec z.
 \end{gather}
 \begin{subprob}
-\item Using \refeqn{iden1}, show that $\vec x$ is perpendicular to $\vec x\times \vec y$, i.e., show $\vec x\cdot (\vec x\times \vec y)=0$.
+\item Using~\cref{eqn:iden1}, show that $\vec x$ is perpendicular to $\vec x\times \vec y$, i.e., show $\vec x\cdot (\vec x\times \vec y)=0$.
 \item Suppose that $\vec q$ is a unit vector, i.e., $\|\vec q\|=1$. Show that $- \vec q \times (\vec q \times \vec x)$ is the orthogonal projection of $\vec x$ to the plane normal to $\hat q$, i.e., show that $- \vec q \times (\vec q \times \vec x)=\vec x - (\vec q\cdot \vec x) \vec q$.
 \end{subprob}
 
@@ -209,11 +261,36 @@ Sometime later, we observe that the satellite moved to the following position:
 \end{align*}
 
 \begin{subprob}
-\item Find the radius of the circular orbit. (Specify the unit!)
+\item Find the radius of the circular orbit. (Specify the units!)
 \item What is the rotation angle of the satellite on its circular orbit, i.e. find the angle between $\vec r_A$ and $\vec r_B$.
 \item Find a \textbf{unit} vector, namely $\hat h$ that is perpendicular to the orbital plane. (Hint: find any vector, say $\vec h$, that is perpendicular to both of $\vec r_A$ and $\vec r_B$, and normalize it with its length, i.e. $\hat h = \vec h / h$, where $h=\sqrt{\vec h \cdot \vec h}$).
 \end{subprob}
 
+\end{prob}
+
+\begin{prob}
+    The specific orbital energy is defined as
+    \begin{align}\label{eq:sme}
+        \varepsilon = \frac{v^2}{2} - \frac{\mu}{r} .
+    \end{align}
+    
+    \begin{subprob}
+        \item Using~\cref{eq:sme}, find an equation for \( v \).
+        \item Substitute \( \varepsilon = \frac{-\mu}{2 r} \) into the above expression for \( v \) and simplify.
+        \item Substitute \( \varepsilon = 0 \) into your original expression for \( v \) and simplify.
+        \item If \( r = \infty \) is substituted into~\cref{eq:sme}, what is the resulting expression for \( \epsilon \).
+        \item Suppose \( \varepsilon_1 = \varepsilon_2 \), this implies that
+            \begin{align*}
+                \frac{v_1^2}{2} - \frac{\mu}{r_1} = \frac{v_2^2}{2} - \frac{\mu}{r_2} .
+            \end{align*}
+            Given the following parameters, solve for \( v_2 \).
+            \begin{align*}
+                \mu &= \SI{398600.5}{\kilo\meter\cubed\per\second\squared} , \\
+                v_1 &= \SI{6.5}{\kilo\meter\second}, \\
+                r_1 &= \SI{20000}{\kilo\meter} , \\
+                r_2 &= \infty .
+            \end{align*}
+    \end{subprob}
 \end{prob}
 
 \begin{prob}
@@ -229,19 +306,33 @@ Regardless of your previous/future computing courses here at GWU, we will be usi
     \item Python is free and open - it costs nothing to use and you are free to commerically develop using Python
     \item Python is cross-platform - the skills you learn will apply to any operating system or platform. 
     \item Python is a general purpose language - everyone uses Python, from \href{https://www.tensorflow.org/}{Google}, \href{https://engineering.instagram.com/web-service-efficiency-at-instagram-with-python-4976d078e366}{Instagram}, \href{https://github.com/dropbox/dropbox-sdk-python}{Dropbox}.
+        \begin{itemize}
+            \item Google Tensorflow - \href{https://www.tensorflow.org/}{https://www.tensorflow.org/}
+            \item Instagram - \href{https://engineering.instagram.com/web-service-efficiency-at-instagram-with-python-4976d078e366}{https://engineering.instagram.com/web-service-efficiency-at-instagram-with-python-4976d078e366}
+            \item Dropbox - \href{https://github.com/dropbox/dropbox-sdk-python}{https://github.com/dropbox/dropbox-sdk-python}
+        \end{itemize}
     \item Python can do science - \href{https://www.python.org/about/success/usa/}{NASA} uses \href{https://www.scipy.org/}{SciPy} to easily enable mathematics, science, and engineering.
+        \begin{itemize}
+            \item NASA - \href{https://www.python.org/about/success/usa/}{https://www.python.org/about/success/usa/}
+            \item Scipy - \href{https://www.scipy.org/}{https://www.scipy.org/}
+        \end{itemize}
 \end{itemize}
 You will need to complete the following steps: 
 \begin{itemize}
     \item Install the latest \href{https://www.continuum.io/downloads}{Anaconda} onto your system. 
         This includes Python as well as a collection of related packages for science. 
+        \begin{itemize}
+            \item \href{https://www.continuum.io/downloads}{https://www.continuum.io/downloads}
+        \end{itemize}
+
     \item Use some/all of the following to learn a little about Python and SciPy.
         You do not need to complete all of them but you should familarize yourself with some of the concepts. 
         The internet is full of useful learning material.
         \begin{itemize}
-            \item \href{http://www.scipy-lectures.org/}{Scipy Lecture Notes}
-            \item \href{https://docs.scipy.org/doc/numpy-dev/user/numpy-for-matlab-users.html}{Numpy for Matlab Users}
-            \item \href{https://learnpythonthehardway.org/book/}{Learn Python the Hard Way}
+            \item \href{http://www.scipy-lectures.org/}{Scipy Lecture Notes} -  \href{http://www.scipy-lectures.org/}{http://www.scipy-lectures.org/}
+            \item \href{https://docs.scipy.org/doc/numpy-dev/user/numpy-for-matlab-users.html}{Numpy for Matlab Users} - \href{https://docs.scipy.org/doc/numpy-dev/user/numpy-for-matlab-users.html}{https://docs.scipy.org/doc/numpy-dev/user/numpy-for-matlab-users.html}
+            \item \href{https://learnpythonthehardway.org/book/}{Learn Python the Hard Way} - \href{https://learnpythonthehardway.org/book/}{https://learnpythonthehardway.org/book/}
+            \item \href{https://github.com/fdcl-gwu/scientific_python}{MAE3145 Python Introduction} - \href{https://github.com/fdcl-gwu/scientific_python}{https://github.com/fdcl-gwu/scientific\_python}
         \end{itemize}
     \item Install a real text editor, some options include \href{https://atom.io/}{Atom}, \href{https://www.sublimetext.com/}{Sublime}, \href{http://www.vim.org/download.php}{Vim}.
 \end{itemize}
@@ -249,7 +340,7 @@ You will need to complete the following steps:
 \end{prob}
 
 \begin{prob}
-Email a casual photo of yourself to \url{skulumani@gwu.edu} with your name. Please, make the email subject start with \texttt{MAE3145}.  This is NOT mandatory, but it would be very helpful to me memorize the name of the students. 
+Email a casual photo of yourself to \url{skulumani@gwu.edu} with your name. Please, make the email subject starts with \texttt{MAE3145}.  This is NOT mandatory, but it would be very helpful to me memorize the name of the students. 
 \end{prob}
 
 %\begin{alltt}\footnotesize\renewcommand{\baselinestretch}{1.2}\selectfont
