@@ -78,5 +78,43 @@
 \end{flalign*}
 
 \paragraph{COEs to RV}
+\begin{flalign*}
+    \bar r &= r \bracket{ \cos \nu \hat p + \sin nu \hat q} \\
+    \bar v &= \sqrt{\frac{\mu}{p}} \bracket{- \sin \nu \hat p + (e + \cos \nu) \hat q} \\
+    \bracket{\text{IJK}} &= ROT_3 (-\Omega) ROT_1 (-i) ROT_3(-\omega) \bracket{PQW} &
+\end{flalign*}
 
+\clearpage
+
+\paragraph{Perturbations}
+\begin{flalign*}
+    &\bar{n} = n_0 \bracket{ 1 + \frac{3}{2} J_2 \parenth{\frac{R_\oplus}{p_0}}^2 \sqrt{1 - e_0^2} \parenth{1 - \frac{3}{2} \sin^2 i_0}} \\
+    &n = n_0 + \dot{n}_0 \Delta t \\
+    &\dot{e}_{drag} = \frac{-2 (1 - e_0) \dot{n}_0}{3 \bar n} \\
+    &e = e_0 + \dot{e}_{drag} \Delta t \\
+    &\dot{\Omega}_{J_2} = \bracket{-\frac{3}{2} J_2 \parenth{\frac{R_\oplus}{p_0}}^2 \cos i_0} \bar n \\
+    &\Omega = \Omega_0 + \dot{\Omega}_{J_2} \Delta t \\
+    &\dot{\omega}_{J_2} = \bracket{\frac{3}{2} J_2 \parenth{\frac{R_\oplus}{p_0}}^2 \parenth{2 - \frac{2}{5} \sin^2 i_0}}\bar n \\
+    &\omega = \omega_0 + \dot{\omega}_{J_2} \Delta t \\
+    &M = M_0 + n_0 \Delta t + \frac{\dot{n}_0}{2} \Delta t^2 \\
+    &\bar a_{drag} = -\frac{1}{2} \rho \frac{C_D A}{m} v \bar v &
+\end{flalign*}
+
+\paragraph{Entry - \(p_0 = \SI{1.225}{\kilo\gram\per\meter\cubed}\)}
+\begin{flalign*}
+    & \dot{r} = v \sin \phi_E \\
+    & \dot{v} = \frac{\rho_0}{2 \Delta} v^2 \exp{-\beta h} \qquad \beta = \frac{1}{\SI{7.315}{\kilo\meter}} \\
+    & \Delta = \frac{m}{C_D A} \\
+    & v = v_e \exp{\frac{\rho_0}{2 \Delta \beta \sin \phi_E}\exp{(-\beta h)}} \\
+    & h_{max_g} = \frac{1}{\beta} \ln \parenth{\frac{-\rho_0}{\Delta \beta \sin \phi_E}} \\
+    & max_g = \frac{-\beta v_E^2 \sin \phi_E}{2 g_0 e} \\
+    & v_{max_g} = v_E \exp{(-0.5)} \approx 0.61 v_E
+\end{flalign*}
+
+\paragraph{Proximity Operations}
+\begin{flalign*}
+    & x(t) = \frac{\dot x_0}{\omega} \sin \omega t - \parenth{3 x_0 + \frac{2 \dot{y}_0}{\omega}} \cos \omega t + \parenth{4 x_0 + \frac{2 \dot{y}_0}{\omega}} \\
+    & \dot{x}(t) = \dot{x}_0 \cos \omega t + \frac{3 \omega x_0 + 2 \dot{y}_0} \sin \omega t \\
+    & y(t) = \parenth{6 x_0 + \frac{4 \dot{y}_0}{\omega}} \sin \omega t + \frac{2 \dot{x}_0}{\omega} \cos \omega t - \parenth{ 6 \omega x_0 + 3 \dot{y}_0} t + \parenth{ y_0 - \frac{2 \dot{x}_0}{\omega}}
+\end{flalign*}
 \end{document}
