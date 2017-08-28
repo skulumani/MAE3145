@@ -115,6 +115,31 @@
 \begin{flalign*}
     & x(t) = \frac{\dot x_0}{\omega} \sin \omega t - \parenth{3 x_0 + \frac{2 \dot{y}_0}{\omega}} \cos \omega t + \parenth{4 x_0 + \frac{2 \dot{y}_0}{\omega}} \\
     & \dot{x}(t) = \dot{x}_0 \cos \omega t + \frac{3 \omega x_0 + 2 \dot{y}_0} \sin \omega t \\
-    & y(t) = \parenth{6 x_0 + \frac{4 \dot{y}_0}{\omega}} \sin \omega t + \frac{2 \dot{x}_0}{\omega} \cos \omega t - \parenth{ 6 \omega x_0 + 3 \dot{y}_0} t + \parenth{ y_0 - \frac{2 \dot{x}_0}{\omega}}
+    & y(t) = \parenth{6 x_0 + \frac{4 \dot{y}_0}{\omega}} \sin \omega t + \frac{2 \dot{x}_0}{\omega} \cos \omega t - \parenth{ 6 \omega x_0 + 3 \dot{y}_0} t + \parenth{ y_0 - \frac{2 \dot{x}_0}{\omega}} \\
+    & \dot{y}(t) = \parenth{6 \omega x_0 + 4 \dot{y}_0} \cos \omega t - 2 \dot{x}_0 \sin \omega t - \parenth{6 \omega x_0 + 3 \dot{y}_0} \\
+    & z(t) = z_0 \cos \omega t + \frac{\dot{z}_0}{\omega} \sin \omega t \\
+    & \dot{z}(t) = - z_0 \omega \sin \omega t + \dot{z}_0 \cos \omega t
+\end{flalign*}
+
+\paragraph{Attitude Kinematics}
+\begin{flalign*}
+    ROT_1 &= 
+    \begin{bmatrix} 
+        1 & 0 & 0 \\
+        0 & \cos \alpha & \sin \alpha \\
+        0 & - \sin \alpha & \cos \alpha
+    \end{bmatrix} \\
+    ROT_2 &= 
+    \begin{bmatrix} 
+        \cos \beta & 0 & -\sin \beta \\
+        0 & 1 & 0 \\
+        \sin \beta & 0 & \cos \beta
+    \end{bmatrix} \\
+    ROT_3 &= 
+    \begin{bmatrix} 
+        \cos \gamma & \sin \gamma & 0 \\
+        -\sin \gamma & \cos \gamma & 0 \\
+        0 & 0 & 1
+    \end{bmatrix}
 \end{flalign*}
 \end{document}
