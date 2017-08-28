@@ -1,0 +1,32 @@
+\documentclass[10pt]{article}
+\usepackage{my_packages}
+\begin{document}
+\twocolumn
+\paragraph{Constants}
+\begin{align*}
+    \omega_\oplus &= \SI{15}{\degree\per\siderealhour} \\
+    \omega_\oplus &= \SI{0.000072921151467}{\radian\per\solarsec} \\
+    \mu_\oplus &= \SI{398600.5}{\kilo\meter\cubed\per\second\squared} \\
+    R_\oplus &= \SI{6378.137}{\kilo\meter} \\
+    e_\oplus &= \SI{0.0818191908426}{} \\
+    J_2 &= \SI{1.08263e-3}{} \\
+    \rho_o &= \SI{1.225}{\kilo\gram\per\meter\cubed}
+\end{align*}
+
+\paragraph{Satellites - Basics}
+\begin{align*}
+    0 &= \ddot{\bar r} + \frac{\mu}{r^3} \bar{r} \qquad r = \frac{a \parenth{1 - e^2}}{1 + e \cos \nu} \\
+    h &= r v \cos \phi = \sqrt{\mu a \parenth{1 - e^2}} \qquad \bar h = \bar r \times \bar v \\
+    a &= \frac{r_a + r_p}{2} \qquad e = \frac{2c}{2a} = \frac{r_a - r_p}{r_a + r_p} \\
+    r_p &= a \parenth{1-e} \qquad r_a = a \parenth{1+e} \\
+    p &= a \parenth{1 - e^2} = \frac{h^2}{\mu} \qquad \bar e = \frac{\bar v \times \bar h}{\mu} - \frac{\bar r}{r} \\
+    P &= s \pi \sqrt{\frac{a^3}{\mu}} \qquad \varepsilon = \frac{v^2}{2} - \frac{\mu}{r} = -\frac{\mu}{2a}
+\end{align*}
+
+\paragraph{Time}
+
+\begin{align*}
+    \theta_g &= \theta_{g_0} + 1.00273790935 \times 2 \pi * D \\
+    D &= \text{Day Num} - 1 + \frac{\text{HR}}{24} + \frac{\text{MIN}}{1440}
+\end{align*}
+\end{document}
