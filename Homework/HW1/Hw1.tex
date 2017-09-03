@@ -194,16 +194,7 @@ V_2 \\
 
 \begin{subprob}
 
-\item Write a Python function, namely \texttt{eomTBI} that returns $\dot x$ for given $(t,x)$. This function will be used by the \texttt{scipy.integrate.odeint} integrator.The first few lines and the last line of \texttt{eomTBI} are given as follows:
-\begin{verbatim}
-def eomTBI(state, t):
-    R1 = state[0:2]
-    V1 = state[3:5];
-    .
-    .
-    .
-    return np.array([R1_dot, V1_dot, R2_dot, V2_dot])
-\end{verbatim}
+\item Write a Python function, namely \texttt{eomTBI} that returns $\dot x$ for given $(t,x)$. This function will be used by the \texttt{scipy.integrate.odeint} integrator.
 
 You should test that your function is correct.
 Decide on a sequence of unit tests that will ensure your function is correct. 
