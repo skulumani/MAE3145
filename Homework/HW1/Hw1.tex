@@ -1,8 +1,8 @@
 \documentclass[10pt]{article}
-\usepackage[letterpaper,text={6.5in,8.7in},centering]{geometry}
-\usepackage{amssymb,amsmath,times,url,subfigure,graphicx,theorem,alltt}
+\usepackage{amssymb,amsmath,times,url,graphicx,amsthm,alltt}
 %\usepackage[pdftex,urlcolor=blue,pdfpagemode=none,pdfstartview=FitH]{hyperref}
-
+\usepackage{my_packages}
+\usepackage{tikz_packages}
 %% url smaller font.
 \makeatletter
 \def\url@leostyle{%
@@ -12,39 +12,13 @@
 
 %\usepackage[all,import]{xy}
 
-\newcommand{\norm}[1]{\ensuremath{\left\| #1 \right\|}}
-\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
-\newcommand{\bracket}[1]{\ensuremath{\left[ #1 \right]}}
-\newcommand{\braces}[1]{\ensuremath{\left\{ #1 \right\}}}
-\newcommand{\parenth}[1]{\ensuremath{\left( #1 \right)}}
-\newcommand{\ip}[1]{\ensuremath{\langle #1 \rangle}}
-\newcommand{\refeqn}[1]{(\ref{eqn:#1})}
-\newcommand{\reffig}[1]{Fig. \ref{fig:#1}}
-\newcommand{\tr}[1]{\mbox{tr}\ensuremath{\negthickspace\bracket{#1}}}
-\newcommand{\deriv}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
-\newcommand{\SO}{\ensuremath{\mathrm{SO(3)}}}
-\newcommand{\T}{\ensuremath{\mathrm{T}}}
-\newcommand{\so}{\ensuremath{\mathfrak{so}(3)}}
-\newcommand{\SE}{\ensuremath{\mathrm{SE(3)}}}
-\newcommand{\se}{\ensuremath{\mathfrak{se}(3)}}
-\renewcommand{\Re}{\ensuremath{\mathbb{R}}}
-\renewcommand{\S}{\ensuremath{\mathbb{S}}}
-\newcommand{\aSE}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&1\end{bmatrix}}}
-\newcommand{\ase}[2]{\ensuremath{\begin{bmatrix}#1&#2\\0&0\end{bmatrix}}}
-\newcommand{\D}{\ensuremath{\mathbf{D}}}
-\newcommand{\pair}[1]{\ensuremath{\left\langle #1 \right\rangle}}
-\newcommand{\met}[1]{\ensuremath{\langle\!\langle #1 \rangle\!\rangle}}
-\newcommand{\Ad}{\ensuremath{\mathrm{Ad}}}
-\newcommand{\ad}{\ensuremath{\mathrm{ad}}}
-\newcommand{\g}{\ensuremath{\mathfrak{g}}}
-
 \renewcommand{\baselinestretch}{1.2}
 \date{}
 
 \renewcommand{\thesubsection}{\arabic{subsection}. }
 \renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection} }
 
-\theoremstyle{plain}\theorembodyfont{\normalfont}
+\theoremstyle{definition}
 \newtheorem{prob}{Problem}[section]
 %\renewcommand{\theprob}{\arabic{section}.\arabic{prob}}
 \renewcommand{\theprob}{\arabic{prob}}
@@ -63,8 +37,97 @@
 \pagestyle{empty}
 \section*{MAE3145: Homework 1}
 \vspace*{-0.4cm}
-\noindent{Due date: September 21, 2016}%\\%\vspace*{0.5cm}
+\noindent{Due date: September 14, 2017}%\\%\vspace*{0.5cm}
 
+\begin{prob}
+    After a complex route to the vicinity of the moon, the two identical ARTEMIS spacecraft (P1 and P2) inserted into orbit near the Moon on August 23 and October 22, 2010, respectively. 
+    The spacecraft eventually insertied into lunar orbits on June 27 and July 17, 2011.
+    The trajectories in the lunar vicinity prior to the lunar orbit insertion were influenced significantly by the gravity fields of other bodies, particularly the Earth and the Sun. 
+    The P1 path from arrival to the lunar insertion point appears in~\cref{fig:artemis}.
+    Note that it is far from a classical elliptical orbit.
+    \begin{figure}[htbp]
+        \centering
+        \begin{subfigure}[htbp]{0.5\textwidth} 
+            \includegraphics[width=\textwidth, keepaspectratio]{figures/artemis_top.jpg} 
+            \caption{P1 Orbit top \label{fig:top_view}} 
+        \end{subfigure}~
+        \begin{subfigure}[htbp]{0.5\textwidth} 
+            \includegraphics[width=\textwidth, keepaspectratio]{figures/artemis_side.jpg} 
+            \caption{P1 Orbit side \label{fig:side_view}} 
+        \end{subfigure} 
+        \caption{ARTEMIS-P1 orbit~\label{fig:artemis}}
+    \end{figure}
+    
+    Define a system that is composed of five particles.
+    The law of gravity between each pair is the familiar \underline{inverse square law}.
+    Obviously, the planets are not truly aligned simulataneously, but \underline{assume} that the Sun, spacecraft (s/c), and other bodies are collinear and positioned as illustrated in~\cref{fig:planets}.
+    \begin{figure}[htbp]
+        \centering
+        \begin{tikzpicture}
+            [
+            point/.style = {draw, circle, fill = black, inner sep = 1pt},
+            dot/.style = {draw, circle, fill = black, inner sep = 0.2pt}
+            ]
+            % three corners of the triangle
+            \node (s) at (0, 0) [point, label = {Sun}] {};
+            \node (e) at (2, 0) [point, label = {Earth}] {};
+            \node (m) at (4, 0) [point, label = {Moon}] {};
+            \node (sc) at (6, 0) [point, label = {S/C}] {};
+            \node (j) at (8, 0) [point, label = {Jupiter}] {};
+
+            \draw (s) -- (e) -- (m) -- (sc) -- (j);
+        \end{tikzpicture}
+        \caption{Planet alignment~\label{fig:planets}}
+    \end{figure}
+    Assume that the spacecraft is instantaneously located such that the distance between the S/C and the Moon is \SI{150000}{\kilo\meter}.
+    The total mass of each ARTEMIS space is \SI{130}{\kilo\gram}.
+    The distances of the other planets from the Sun are assumed to be equal to the semi-major axis as listed on the constants handout shown on Blackboard.
+
+    \begin{subprob}
+    \item Locate the center of mass of the system. 
+        Identify it on a sketch.
+        Add unit vectors and the appropriate position vectors.
+    \item Write the vector differential equation of motion of the S/C with respect to teh center of mass, i.e. \( \bar r_i = \bar r_{s/c}\).
+        You should obtain an expression for the accelerations on the S/C, i.e. \( \ddot \bar r_{s/c} = \text{sum of four terms} \).
+        Assuming the alignment given in~\cref{fig:planets}, compute the accelerations on the S/C due to each of the other bodies.
+        Which body produces the largest accelerations on the S/C?
+        Smallest?
+        What is the descending order of the accelerations due to each body?
+        What is the net acceleration on the spacecraft in \si{\kilo\meter\per\second\squared}?
+    \item Cmopare the relative magnitude of the acceleration terms on the S/C?
+        Is the order of influence what you expected?
+        Which gravity term dominates?
+        Do the acceleration terms seem consistent with your expectations?
+    \end{subprob}
+\end{prob}
+
+\begin{prob}
+    Assume  that  a system is composed of three particles.
+    A Hubble Space Telescope image of Pluto, and its five moons appears in~\cref{fig:pluto}.
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[trim={10cm 50cm 10cm 20cm},clip,width=0.5\textwidth]{figures/pluto.jpg}
+        \caption{Pluto and moons~\label{fig:pluto}}
+    \end{figure}
+    Let the three particles be Pluto, Charon, and P5 (newly discovered in June 2012).
+    If we want to know the orbit of the new moon, we need to write the governing differential equations.
+    The law of gravitation is the familar \underline{inverse square law}.
+
+    \begin{subprob}
+        \item Write each of the vector equations of motion that govern \( \bar r_P, \bar r_C, \bar r_{P_5} \).
+            Include a sketch of the arbitrary position vectors.
+        \item Add together the three second-order vector equations of motion. 
+            Identify the individual terms that cancel; there should be no summation signes left in your expressions.
+            Integrate this result to define the linear momentum integrals \( \bar C_1 , \bar C_2 \) for this three-body  system.
+            Explain how this demonstrates that the velocity of the center of mass of this system is constant.
+        \item Apply the cross product of \( \bar r_P, \bar r_C, \bar r_{P_5} \) with each equation from (a), respectively. 
+            Then sum all the equations together and identify the terms that cancel. 
+            Can you integrate the result?
+            This procedure is the derivation of the angular moment integral \( \bar C_3\).
+    \end{subprob}
+
+    Note that the expressions for the integrals \( \bar C_1, \bar C_2, \bar C_3 \) are all functions of \( \bar r_P, \bar r_C, \bar r_{P_5} \) and \( \diff{\bar r_P}{t}, \diff{\bar r_C}{t}, \diff{\bar r_{P_5}}{t}\).
+\end{prob}
 \begin{prob}
 The motion of two point masses acting under their mutual gravity is described, with respect to an inertial frame, by the following set of ordinary differential equations.
 \begin{align}
