@@ -128,6 +128,41 @@
 
     Note that the expressions for the integrals \( \bar C_1, \bar C_2, \bar C_3 \) are all functions of \( \bar r_P, \bar r_C, \bar r_{P_5} \) and \( \diff{\bar r_P}{t}, \diff{\bar r_C}{t}, \diff{\bar r_{P_5}}{t}\).
 \end{prob}
+
+\begin{prob}
+    Assume that a system is composed of three particles.
+    This time, let the particles be the Sun, Earth, and Moon.
+
+    \begin{subprob}
+        \item Write the \textbf{relative} vector equations of motion for the motion of the Moon relative to the Earth.
+        \item Assume that the bodies are located such that they create a right triangle as shown in~\cref{fig:sem_3bp}.
+
+            \begin{figure}[htbp]
+                \centering
+                \begin{tikzpicture}
+                    [
+                    point/.style = {draw, circle, fill = black, inner sep = 1pt},
+                    dot/.style = {draw, circle, fill = black, inner sep = 0.2pt}
+                    ]
+
+                    \node (s) at (0, 0) [point, label = below:{Sun}] {};
+                    \node (e) at (2, 0) [point, label = below:{Earth}] {};
+                    \node (m) at (2, 2) [point, label = above:{Moon}] {};
+
+                    \draw (s) -- (e) -- (m) -- (s);
+                \end{tikzpicture}
+                \caption{Sun, Earth, Moon three body system~\label{fig:sem_3bp}}
+            \end{figure}
+
+            Compute the dominant and perturbing accelerations on the Moon.
+            Use the information provided in the table of constants on Blackboard. 
+            By comparing the magnitudes, is it reasonable to model the Moon's motion using only the gravity of the Earth (two body problem)?
+            Why or why not?
+            Will the solar gravity have a significant influence?
+
+        \item Is a two-body model (Earth and Moon) reasonable for the motion of the Moon?
+    \end{subprob}
+\end{prob}
 \begin{prob}
 The motion of two point masses acting under their mutual gravity is described, with respect to an inertial frame, by the following set of ordinary differential equations.
 \begin{align}
@@ -141,7 +176,7 @@ The initial conditions are given by
  R_1(0)&=[0,0,0]^T\,(\mathrm{m}), \qquad  V_1(0)=[0,0,0]^T\,(\mathrm{m/s}),\\
  R_2(0)&=[1,0,0]^T\,(\mathrm{m}), \qquad  V_2(0)=[1,1,0]^T\,(\mathrm{m/s}).
 \end{align*}
-We wish to compute the resulting trajectories of $m_1$ and $m_2$ using Matlab. 
+We wish to compute the resulting trajectories of $m_1$ and $m_2$ using Python. 
 
 
 First, we rewrite the equations of motion as the standard form of $\dot x = f(t,x)$. Let the state vector be $x=[R_1^T,\,V_1^T,\, R_2^T,\, V_2^T]\in\Re^{12}$. The equations of motion can be rewritten as
@@ -159,49 +194,26 @@ V_2 \\
 
 \begin{subprob}
 
-\item Write a Matlab m-file function, namely \texttt{eomTBI.m} that returns $\dot x$ for given $(t,x)$. The first few lines and the last line of \texttt{eomTBI.m} are given as follows:
-\begin{matlab}
-function X_dot = eomTBI(t,X)
-R1=X(1:3);
-V1=X(4:6);
-.
-.
-.
-X_dot = [R1_dot; V1_dot; R2_dot; V2_dot];
-\end{matlab}
-\textbf{Upload} your \texttt{eomTBI.m} file to Blackboard.
+\item Write a Python function, namely \texttt{eomTBI} that returns $\dot x$ for given $(t,x)$. This function will be used by the \texttt{scipy.integrate.odeint} integrator.The first few lines and the last line of \texttt{eomTBI} are given as follows:
+\begin{verbatim}
+def eomTBI(state, t):
+    R1 = state[0:2]
+    V1 = state[3:5];
+    .
+    .
+    .
+    return np.array([R1_dot, V1_dot, R2_dot, V2_dot])
+\end{verbatim}
 
-(You may verify the Matlab function \texttt{eomTBI.m} by checking its output when $t=0$. Type the following Matlab commands
-\begin{matlab}
-R10=[0 0 0]';
-R20=[1 0 0]';
-V10=[0 0 0]';
-V20=[1 1 0]';
-X0=[R10; V10; R20; V20];
-eomTBI(0,X0)
-\end{matlab}
-And, check that the results are given by
-\begin{matlab}
-ans =
-     0
-     0
-     0
-     1
-     0
-     0
-     1
-     1
-     0
-    -2
-     0
-     0
-\end{matlab}
-If the output of \texttt{eomTBI} is different from above, go back to part (b) and fix your code. You don't have to submit anything for this verification. )
+You should test that your function is correct.
+Decide on a sequence of unit tests that will ensure your function is correct. 
+For example, for the initial conditions given above, your function should return 
+\begin{align}
+    \dot{x} = \begin{bmatrix} 0 , 0 , 0 , 1 , 0 , 0 , 1 , 1 , 0 , -2 , 0 , 0 \end{bmatrix} .
+\end{align}
 
-\item Write a Matlab script \texttt{m}-file, entitled \texttt{simTBI.m} to obtain $R_1(t), R_2(t)$ using \texttt{ode45}, and plot the trajectories of $m_1$, $m_2$ together on a single $xy$ plane (The $x$ axis is for the $x$-component of $R_1,R_2$, and the $y$ axis is for their $y$ components. There is no need to plot the $z$-components, as they are identical to zero). The simulation time is $0\leq t \leq 10$ seconds.
 
-\textbf{Upload} your \texttt{simTBI.m} and the plot saved as \texttt{R1R2.PNG}.
-
+\item Write a Python script, entitled \texttt{simTBI.py} to obtain $R_1(t), R_2(t)$ using \texttt{scipy.integrate.odeint}, and plot the trajectories of $m_1$, $m_2$ together on a single $xy$ plane (The $x$ axis is for the $x$-component of $R_1,R_2$, and the $y$ axis is for their $y$ components. There is no need to plot the $z$-components, as they are identical to zero). The simulation time is $0\leq t \leq 10$ seconds.
 
 \item The position of the mass center of two point masses is given by
 \begin{align*}
@@ -209,7 +221,6 @@ If the output of \texttt{eomTBI} is different from above, go back to part (b) an
 \end{align*}
 Compute the trajectory of the mass center using the results of (d) and plot it on the $xy$ plane.
 
-\textbf{Upload} your plot saved as \texttt{RG.PNG}.
 
 %\item Since the acceleration of the mass center is zero, the position of the mass center can also be obtained by the following equation.
 %\begin{align*}
@@ -222,7 +233,6 @@ Compute the trajectory of the mass center using the results of (d) and plot it o
 \end{align*}
 Compute the trajectory of the relative motion, and plot it on the $xy$ plane.
 
-\textbf{Upload} your plot saved as \texttt{r.PNG}.
 \end{subprob}
 \end{prob}
 
