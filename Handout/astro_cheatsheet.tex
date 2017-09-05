@@ -20,7 +20,7 @@
     a &= \frac{r_a + r_p}{2} \qquad e = \frac{2c}{2a} = \frac{r_a - r_p}{r_a + r_p} \\
     r_p &= a \parenth{1-e} \qquad r_a = a \parenth{1+e} \\
     p &= a \parenth{1 - e^2} = \frac{h^2}{\mu} \qquad \bar e = \frac{\bar v \times \bar h}{\mu} - \frac{\bar r}{r} \\
-    P &= s \pi \sqrt{\frac{a^3}{\mu}} \qquad \varepsilon = \frac{v^2}{2} - \frac{\mu}{r} = -\frac{\mu}{2a} &
+    P &= 2 \pi \sqrt{\frac{a^3}{\mu}} \qquad \varepsilon = \frac{v^2}{2} - \frac{\mu}{r} = -\frac{\mu}{2a} &
 \end{flalign*}
 
 \paragraph{Time}
@@ -48,7 +48,7 @@
 
 \begin{flalign*}
     \bar r &= \bar \rho + \bar r_s \\
-    \bar v &= \dot \bar \rho + \bar \omega_\oplus \times \bar r \\
+    \bar v &= \dot{ \bar \rho} + \bar \omega_\oplus \times \bar r \\
     \bar v_2 &= -\Delta t_{32} \parenth{\frac{1}{\Delta t_{21} \Delta t_{31}} + \frac{\mu}{12 r_1^3}} \bar r_1 \\
              &+ \parenth{\Delta t_{32} - \Delta t_{21}} \parenth{\frac{1}{\Delta t_{21} \Delta t_{32}} +\frac{\mu}{12 r_2^3}} \bar r_2 \\
              &+ \Delta t_{21} \parenth{\frac{1}{\Delta t_{32} \Delta t_{31}} + \frac{\mu}{12 r_3^3}} \bar r_3 &
@@ -64,7 +64,7 @@
 \paragraph{Rendezvous}
 \begin{flalign*}
     &\text{TOF} = \pi \sqrt{\frac{a^3}{\mu}} \qquad \omega = \sqrt{\frac{\mu}{r_{circ}^3}} \\
-    &\alpha_{lead} = \omega_t \times \text{TOF} \qquad \phi_f = \phi - \alpha_{lead} \\
+    &\alpha_{lead} = \omega_t \times \text{TOF} \qquad \phi_f = \pi - \alpha_{lead} \\
     &\text{Wait time}_{coplanar} = \frac{\phi_f - \phi_i \pm 2 \pi n}{\omega_t - \omega_i} \\
     &\text{Wait time}_{noncoplanar} = \frac{\phi_f - \phi_i \pm 2 \pi n}{\omega_t} = \frac{\alpha_i - \alpha_f + 2 \pi n}{\omega_t} &
 \end{flalign*}
@@ -73,7 +73,7 @@
 \begin{flalign*}
     n &= \sqrt{\frac{\mu}{a ^3}} \qquad M_f = M_i + n \times \text{TOF} - 2 k \pi \\
     M &= E - e \sin E \\
-    \cos E &= \frac{e + \cos{\nu}}{1 + e \cos \nu} \qquad \cos \nu + \frac{\cos E - e}{1 - e \cos E} \\
+    \cos E &= \frac{e + \cos{\nu}}{1 + e \cos \nu} \qquad \cos \nu = \frac{\cos E - e}{1 - e \cos E} \\
     E_{n+1} &= E_{n} + \frac{M - E_n + e \sin E_n}{1 - e \cos E_n } &
 \end{flalign*}
 
@@ -105,16 +105,16 @@
     & \dot{r} = v \sin \phi_E \\
     & \dot{v} = \frac{\rho_0}{2 \Delta} v^2 \exp{-\beta h} \qquad \beta = \frac{1}{\SI{7.315}{\kilo\meter}} \\
     & \Delta = \frac{m}{C_D A} \\
-    & v = v_e \exp{\frac{\rho_0}{2 \Delta \beta \sin \phi_E}\exp{(-\beta h)}} \\
+    & v = v_e \exp{\parenth{\frac{\rho_0}{2 \Delta \beta \sin \phi_E}\exp{(-\beta h)}}} \\
     & h_{max_g} = \frac{1}{\beta} \ln \parenth{\frac{-\rho_0}{\Delta \beta \sin \phi_E}} \\
-    & max_g = \frac{-\beta v_E^2 \sin \phi_E}{2 g_0 e} \\
-    & v_{max_g} = v_E \exp{(-0.5)} \approx 0.61 v_E
+    & max_g = \frac{-\beta v_E^2 \sin \phi_E}{2 g_0 \exp{(1)}} \\
+    & v_{max_g} = v_E \exp{(-0.5)} \approx 0.61 v_E &
 \end{flalign*}
 
 \paragraph{Proximity Operations}
 \begin{flalign*}
     & x(t) = \frac{\dot x_0}{\omega} \sin \omega t - \parenth{3 x_0 + \frac{2 \dot{y}_0}{\omega}} \cos \omega t + \parenth{4 x_0 + \frac{2 \dot{y}_0}{\omega}} \\
-    & \dot{x}(t) = \dot{x}_0 \cos \omega t + \frac{3 \omega x_0 + 2 \dot{y}_0} \sin \omega t \\
+    & \dot{x}(t) = \dot{x}_0 \cos \omega t + \parenth{3 \omega x_0 + 2 \dot{y}_0} \sin \omega t \\
     & y(t) = \parenth{6 x_0 + \frac{4 \dot{y}_0}{\omega}} \sin \omega t + \frac{2 \dot{x}_0}{\omega} \cos \omega t - \parenth{ 6 \omega x_0 + 3 \dot{y}_0} t + \parenth{ y_0 - \frac{2 \dot{x}_0}{\omega}} \\
     & \dot{y}(t) = \parenth{6 \omega x_0 + 4 \dot{y}_0} \cos \omega t - 2 \dot{x}_0 \sin \omega t - \parenth{6 \omega x_0 + 3 \dot{y}_0} \\
     & z(t) = z_0 \cos \omega t + \frac{\dot{z}_0}{\omega} \sin \omega t \\
