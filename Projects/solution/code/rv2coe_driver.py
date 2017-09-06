@@ -9,7 +9,7 @@ import pdb
 
 
 
-def solution(infile='./data/RV1.txt', outfile='./data/RV1.out'):
+def solution(infile='./data/RV1.txt', outfile='./data/RV1_solution.txt'):
     """Generate the solution that the students should output
     
     """
