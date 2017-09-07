@@ -47,11 +47,11 @@
     \begin{figure}[htbp]
         \centering
         \begin{subfigure}[htbp]{0.5\textwidth} 
-            \includegraphics[width=\textwidth, keepaspectratio]{figures/juno.jpg} 
+            \includegraphics[height=5cm, keepaspectratio]{figures/juno.jpg} 
             \caption{Juno Spacecraft \label{fig:juno}} 
-        \end{subfigure}~ 
+        \end{subfigure}\hfill
         \begin{subfigure}[htbp]{0.5\textwidth} 
-            \includegraphics[width=\textwidth, keepaspectratio]{figures/trajectory.jpg} 
+            \includegraphics[height=5cm,keepaspectratio]{figures/trajectory.jpg} 
             \caption{Trajectory \label{fig:trajectory<`4`>}} 
         \end{subfigure} 
     \end{figure}
@@ -98,7 +98,15 @@
     
     \begin{figure}[htbp]
         \centering
-        \includegraphics[width=\textwidth]{figures/jupiter_orbit.jpg}
+        \begin{subfigure}[htbp]{0.7\textwidth} 
+            \includegraphics[width=\textwidth,keepaspectratio]{figures/jupiter_orbit.jpg} 
+            \caption{ Jupiter Orbits} 
+        \end{subfigure}
+
+        \begin{subfigure}[htbp]{0.7\textwidth} 
+            \includegraphics[width=\textwidth,keepaspectratio]{figures/jupiter_radiation.jpg} 
+            \caption{Radiation at Jupiter} 
+        \end{subfigure} 
         \caption{Juno orbits about Jupiter. The orbit plane is chosen to lie orthogonal to the Sun-Jupiter vector. In other words, the orbit angular momentum vector is designed such that it aligns with the direction to the Sun. This ensures that Juno is always illuminated and the polar orbits avoid the majority of the radiation environment at Jupiter.~\label{fig:jupiter_orbit}}
     \end{figure}
 \end{prob}
