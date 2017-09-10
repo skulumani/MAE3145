@@ -111,5 +111,61 @@
     \end{figure}
 \end{prob}
 
+\begin{prob}
+    Consider the \underline{relative two-body} problem of the Earth and an orbiting spacecraft.
+    An Earth-orbiting vehicle is tracked from ground stations: the spacecrat mass is \SI{500}{\kilo\gram}.
+    At a certain instant, \( t_0 \), the following position and velocity are obtained rellative to an inertial observer:
+    \begin{itemize}
+        \item Altitude is \SI{2000}{\kilo\meter} (remember that alititude above the Earth  \textbf{IS NOT} the same as distance from the Earth)
+        \item Radial component of relative velocity is \SI{-1.2}{\kilo\meter\per\sec}
+    \end{itemize}
+
+    Assume that our tracking system is perfect and these measurements are made without any error.
+    \begin{subprob}
+        \item Compute the total system angular momentum vector \( \bar C_3 \), specific angular momentum, total kinetic energy, total energy \( C_4 \), specific energy and area velocity.
+        \item Within the context of the relative two-body problem, determine the following orbital characteristics: \( p, e, a, P, \theta^* \)
+            Write the position vector in terms of the inertial unit vectors \( \hat e\) and \( \hat p \).
+        \item Compare this relative velocity to the circular relative velocity at this altitude.
+    \end{subprob}
+\end{prob}
+
+\begin{prob}
+    The Trojan asteroids are located at the vertex of an equilateral triangle with the Sun and Jupiter.
+    \begin{figure}
+        \centering
+        \subcaptionbox{Trojan Asteroids\label{fig:trojan_view}}{\includegraphics[width=0.5\textwidth,keepaspectratio]{figures/Trojans.jpg}}~
+        \subcaptionbox{Trojan Asteroid schematic}{
+        \begin{tikzpicture}
+            [
+            point/.style = {draw, circle, fill = black, inner sep = 1pt},
+            dot/.style = {draw, circle, fill = black, inner sep = 0.2pt}
+            ]
+            % three corners of the triangle
+            \node (s) at (0, 0) [point, label = {below:Sun}] {};
+            \node (ast) at (3, 5) [point, label = {Trojan Asteroid}] {};
+            \node (j) at (6, 0) [point, label = {below:Jupiter}] {};
+
+            \draw (s) -- (ast) node[pos=0.5, above left] {\(R\)}; 
+            \draw (ast) -- (j) node[pos=0.5, above right] {\(R\)}; 
+            \draw (j) -- (s) node[pos=0.5,below] {\(R\)};
+        \end{tikzpicture}
+        }
+    \end{figure}
+
+    \begin{subprob}
+        \item write an expression for the acceleration of a Trojan asteroid relative to the sun. 
+            Determine the dominant and the net perturbing accelrations.
+            Compare them in terms of both magnitude and directions.
+            Does Jupiter act to tdrive the asteroid closer to the Sun or further away.
+            Do you think the influence of the sun or Jupiter is more significant?
+            Why?
+        \item Reformulate the problem to determine the acceleration of a Trojan asteroid relative to Jupiter.
+            Now compute the dominant and the net perturbing accelerations. 
+            Does the sun drive the asteroid closer to Jupiter or away from the planet?
+            Is the Sun or Jupiter more significant?
+        \item Which of the two formulations is correct?
+            Why?
+    \end{subprob}
+\end{prob}
 \end{document}
 
