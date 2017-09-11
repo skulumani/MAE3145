@@ -54,11 +54,15 @@ def sim():
     traj_ax.plot(rcom[:, 0], rcom[:, 1], label=r'$r_c$')
     traj_ax.grid()
     traj_ax.set_title('Inertial Frame')
+    traj_ax.set_xlabel('X axis')
+    traj_ax.set_ylabel('Y axis')
     plt.legend()
 
     rel_fig, rel_ax = plt.subplots()
     rel_ax.plot(r[:, 0], r[:, 1])
     rel_ax.set_title('Relative motion of $m_2$ wrt $m_1$')
+    rel_ax.set_ylabel('Y axis')
+    rel_ax.set_xlabel('X axis')
     rel_ax.grid()
     plt.show()
 
