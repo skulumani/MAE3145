@@ -50,7 +50,8 @@ def generate_data(tle_file='./data/COMFIX_tle.txt', outfile='./data/COMFIX_tle.t
         sat.tle_update(jd_span)
         sat.visible_radar(site)
 
+        # 
 
-
+    pdb.set_trace()
 def solution():
     pass
