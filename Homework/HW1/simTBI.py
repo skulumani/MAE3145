@@ -60,6 +60,7 @@ def sim():
 
     rel_fig, rel_ax = plt.subplots()
     rel_ax.plot(r[:, 0], r[:, 1])
+    rel_ax.plot([0], [0], 'bo', markersize=20)
     rel_ax.set_title('Relative motion of $m_2$ wrt $m_1$')
     rel_ax.set_ylabel('Y axis')
     rel_ax.set_xlabel('X axis')
