@@ -10,3 +10,6 @@
 [submodule "Programming"]
 	path = Programming
 	url = git@github.com:fdcl-gwu/scientific_python.git
+[submodule "Homework/HW3/astro"]
+	path = Homework/HW3/astro
+	url = git@github.com:skulumani/astro.git
