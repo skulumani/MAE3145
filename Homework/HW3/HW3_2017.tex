@@ -1,0 +1,170 @@
+\documentclass[10pt]{article}
+\usepackage{amssymb,amsmath,times,url,graphicx,amsthm,alltt}
+%\usepackage[pdftex,urlcolor=blue,pdfpagemode=none,pdfstartview=FitH]{hyperref}
+\usepackage{my_packages}
+\usepackage{tikz_packages}
+%% url smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+%\usepackage[all,import]{xy}
+
+\renewcommand{\baselinestretch}{1.2}
+\date{}
+
+\renewcommand{\thesubsection}{\arabic{subsection}. }
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection} }
+
+\theoremstyle{definition}
+\newtheorem{prob}{Problem}[section]
+%\renewcommand{\theprob}{\arabic{section}.\arabic{prob}}
+\renewcommand{\theprob}{\arabic{prob}}
+
+\newenvironment{subprob}%
+{\renewcommand{\theenumi}{\alph{enumi}}\renewcommand{\labelenumi}{(\theenumi)}\begin{enumerate}}%
+{\end{enumerate}}%
+
+\newenvironment{matlab}
+{\begin{alltt}\small\renewcommand{\baselinestretch}{1.2}\selectfont}%
+{\end{alltt}}
+
+
+\begin{document}
+
+
+
+\setcounter{page}{1}
+\pagestyle{plain}
+\section*{MAE3145: Homework 3}
+\vspace*{-0.4cm}
+\noindent{Due date: \SI{2458031.1979166665}{\julianday} }%\\%\vspace*{0.5cm}
+
+%\begin{prob}
+%Consider a spacecraft moving in a potential field specified as $U(\norm{\vec r})$. The equation of motion is given by
+%\begin{align}
+%\ddot{\vec r} = -\deriv{U}{\vec r}.
+%\end{align}
+%\begin{subprob}
+%\item Show that the specific angular momentum $\vec h = \vec r \times \dot {\vec r}$ is still preserved.
+%\item Show that the energy $\mathcal{E}=\frac{1}{2}\dot{\vec r}\cdot \dot{\vec r} + U(\norm{\vec r})$ is preserved.
+%\end{subprob}
+%\end{prob}
+
+\begin{prob}
+The relative motion of the two-body problem is described by
+\begin{align}
+\ddot{\vec r} = -\frac{\mu}{r^3}\vec r.
+\end{align}
+The specific angular momentum $\vec h$ and the eccentricity $\vec e$ are defined as follows:
+\begin{align*}
+\vec h = \vec r \times \vec v,\quad \vec e = \frac{\vec v\times\vec h}{\mu}- \frac{\vec r}{r}.
+\end{align*}
+In class, we found that $\vec h$ is fixed, i.e. $\dot{\vec h}=0$. Here, we wish to show $\vec e$ is fixed according to the following steps:
+\begin{subprob}
+\item Using (1), show that $\dfrac{d}{dt}(\vec v\times\vec h) = -\dfrac{\mu}{r^3} \vec r\times \vec h$.
+\item Using the definition of $\vec h$, show that $\dfrac{1}{r^3}\vec r \times \vec h = \dfrac{\vec r \dot r - \dot{\vec r} r}{r^2}$.\\
+(Hint: $\vec a\times (\vec b \times \vec c) = (\vec a \cdot \vec c)\vec b - (\vec a \cdot \vec b)\vec c$,\; $\vec r \cdot \vec r = r^2$, and $\vec r \cdot \dot{\vec r} = r\dot r$).
+\item Show that $\dfrac{d}{dt}\dfrac{\vec r}{r} = -\dfrac{\vec r \dot r - \dot{\vec r} r}{r^2}$.
+\item By combining the results of parts (a), (b), and (c), show that $\dfrac{d}{dt}\vec e=0$, i.e, the eccentricity vector is fixed.
+\end{subprob}
+\end{prob}
+
+\begin{prob}
+A satellite is on an elliptic orbit around the Earth with a perigee radius of $r_p=7000\,\mathrm{km}$ and an apogee radius of $r_a=70000\,\mathrm{km}$. Assume that the gravitational parameter and the radius of the Earth are $\mu=398600\,\mathrm{km^3/s^2}$, and $R_E=6378\,\mathrm{km}$, respectively. Determine the following parameters (specify units in $\mathrm{km},\,\mathrm{sec},\,\mathrm{degree}$). 
+\begin{subprob}
+\item eccentricity $e$
+\item period $T$ 
+\item specific energy $\mathcal{E}$
+\item true anomaly $\theta$ at which the altitude is $1000\,\mathrm{km}$.
+\item velocity $v_r,v_\theta$ at the point found in part (d).
+\end{subprob}
+\end{prob}
+
+%\begin{prob}
+%Consider an elliptic orbit with the distance to the periapsis $r_p$ and the distance to the apoapsis $r_a$. Using the properties summarized at the third page, show that the velocity at the periapsis and the velocity at the apoapsis are given by
+%\begin{align*}
+%v_p = \sqrt{\frac{2\mu}{r_a+r_p}\frac{r_a}{r_p}}
+%,\quad
+%v_a = \sqrt{\frac{2\mu}{r_a+r_p}\frac{r_p}{r_a}}.
+%\end{align*}
+%
+%\end{prob}
+
+\clearpage\newpage
+\begin{prob}
+The specific energy and angular momentum of several asteroids heading toward the Earth have been measured as follows:
+
+\begin{center}
+\begin{tabular}{c|c|c}\hline
+Asteroid & $\mathcal{E}$ $(\mathrm{km^2/s^2})$ & $h$ $(\mathrm{km^2/s})$\\ \hline
+1 & $1$ & $1\times 10^5$\\
+2 & $100$ & $1\times 10^5$\\
+3 & $0$ & $7\times 10^4$\\
+4 & $0$ & $8\times 10^4$\\
+5 & $10$ & $8\times 10^4$\\\hline
+\end{tabular}
+\end{center}
+%
+We wish to determine whether any asteroid is likely to hit the Earth. The trajectory of an asteroid is assumed to be the solution of the two-body problem of the asteroid and the Earth, where $\mu_E=398600\,\mathrm{km^3/s^2}$.
+
+\begin{subprob}
+\item Using the fact that $\mathcal{E}$ and $h$ are conserved, show that the distance at the periapsis $r_p$ satisfies the following quadratic equation:
+\begin{gather}
+2\mathcal{E}\, r_p^2 + 2\mu_E\, r_p -h^2=0. 
+\end{gather}
+(Hint: at the periapsis, $h=rv$ since $\vec r$ is perpendicular to $\vec v$.)
+\item Calculate $r_p$ for all asteroids, and determine which asteroid will hit the surface of the Earth: an asteroid will hit the Earth if $r_p < R_E=6378\,\mathrm{km}$.\\
+(Hint: In Matlab, the quadratic equation $ax^2+bx+c=0$ can be solved by the command \texttt{roots([a b c])}.)
+\item For each asteroid that hits the surface of the Earth, calculate its impact velocity at the surface of the Earth.\\
+(Note: the impact velocity is not same as the velocity at the periapsis.)
+\item For each asteroid that does not hit the surface of the Earth, calculate its velocity when it is closest to the Earth.
+\end{subprob}
+\end{prob}
+
+\begin{prob}
+    Consider the point of intersection of an elliptical orbit with the \underline{semi-minor} axis.
+    \begin{subprob}
+    \item Prove that the following relationships are true:
+        \begin{align*}
+            r &= a \\
+            v &= \sqrt{\frac{\mu}{r}} \\
+            \theta &= \arccos \parenth{-e} 
+        \end{align*}
+        Hint: The first thing to try is to draw a picture. 
+        Next utilize the equation of a conic section to investigate the relationships.
+    \item Given the conic equation
+        \begin{align*}
+            r = \frac{p}{1 + e \cos \theta}
+        \end{align*}
+        find the derivative \(  \dot{r} \).
+    \item Prove that \( \dot{r} \) possesses a maximum magnitude at the ends of the semi-latus rectum. 
+    \item Show that this maximum magnitude corresponds to \( \pm e \sqrt{\frac{\mu}{p}} \).
+    \end{subprob}
+\end{prob}
+
+\clearpage\newpage
+\begin{prob}
+    At approximately \SI{2458011.99706}{\julianday}, Cassini orbiter completed its mission studying the Saturnian system and re-entered Saturn to avoid contamination of any possible exterrestrial life in the Saturn system.
+    Over the course of its nearly \SI{20}{\year} mission, Cassini studied the planet Saturn, its ring system, and numerous natural satellites. 
+    In order to reach Saturn, Cassini used several gravity assist manuevers of Venus, Earth and Jupiter, in order to increase its orbital velocity with respect to the Sun and gain enough energy to intercept Saturn. 
+    The Cassini mission remains the largest interplanetary vehicle launched by the United States, consisting of the Cassini Orbiter and Huygens lander.
+    The Huygens lander parachuted to a soft landing on Titan on \SI{2458011.99706}{\julianday} and remains the most distant interplanetary landing of any human-made vehicle.
+    \begin{figure}[htbp]
+        \centering
+        \subcaptionbox{Cassini Interplanetary Trajectory\label{fig:cassini_interplanetary}}{\includegraphics[width=0.6\textwidth]{figures/cassini_trajectory.jpg}}
+       \subcaptionbox{Cassini Orbiter\label{fig:cassini_orbiter}}{\includegraphics[width=0.8\textwidth]{figures/7754_CassiniPlungeInstrumentsLabeled.jpg}}
+       \caption{Cassini Mission} 
+    \end{figure}
+
+    Here we will investigate the orbit of Cassini 13 years ago on Sep 15, 2004, several months after entering orbit of Saturn.
+    On this date, the position and velocity of Cassini with respect to Saturn is given as 
+    \begin{align*}
+    \bar{r} &= \begin{bmatrix} -7546026.6144396 & -3717105.21901527 & -1515557.34280287\end{bmatrix} \si{\kilo\meter} \\
+    \bar{v} &= \begin{bmatrix}  0.89506649 & -0.33312074  & 0.21519571 \end{bmatrix} \si{\kilo\meter\per\second}
+    \end{align*}
+\end{prob}
+\end{document}
+
