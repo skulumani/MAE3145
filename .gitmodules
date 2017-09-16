@@ -13,3 +13,6 @@
 [submodule "Homework/HW3/astro"]
 	path = Homework/HW3/astro
 	url = git@github.com:skulumani/astro.git
+[submodule "Homework/HW3/kinematics"]
+	path = Homework/HW3/kinematics
+	url = git@github.com:fdcl-gwu/kinematics.git
