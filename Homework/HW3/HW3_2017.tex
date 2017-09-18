@@ -160,20 +160,45 @@ We wish to determine whether any asteroid is likely to hit the Earth. The trajec
     \end{figure}
 
     Here we will investigate the orbit of Cassini 13 years ago on Sep 15, 2004.
-    On this date, the position and velocity of Cassini with respect to Saturn is given as 
+    On this date, the position and velocity of Cassini with respect to Saturn barycenter are given as 
     \begin{align*}
     \bar{r} &= \begin{bmatrix} -7546026.6144396 & -3717105.21901527 & -1515557.34280287\end{bmatrix} \si{\kilo\meter} \\
     \bar{v} &= \begin{bmatrix}  0.89506649 & -0.33312074  & 0.21519571 \end{bmatrix} \si{\kilo\meter\per\second}
     \end{align*}
 
     \begin{subprob}
-        \item What kind of orbit is Cassini in?
-        \item Determine some characteristics of the orbit
-        \item Find the positon and velocity of Cassini in the orbital plane.
-        \item Assuming a two body system, generate a plot of one period of Cassini in its orbital plane.
+        \item Given this position and velocity vector, determine the type of orbit of Cassini.
+        \item Determine the period \( P \), angular momentum vector \( \bar h \), semi-latus rectum \( p \), specific mechanical energy \( \varepsilon \), eccentricity \( e \), true anomoly \( \nu \), and radius of periapsis and apoapsis \( r_p, r_a\).
+        \item How does the velocity of Cassini compare to the velocity of a circular orbit at this radius, i.e. compare \( v \) and \( \sqrt{2} v_c \)?
+            Should the velocity of Cassini be less than or greater than \( \sqrt{2} v_c \)? Why or why not?
+        \item By hand, or with Python, sketch a diagram of the orbital plane and the location of Cassini.
         \item Rings extend between (limits), does Cassini pass through the rings?
         \item Orbit of some moons are given as (moons), is there a risk of collision of CAssini and any of these bodies
     \end{subprob}
 \end{prob}
+
+\begin{prob}
+    In a chance meeting in the Science and Engineering hall, you've bumped into Elon Musk.
+    He is the CEO of Tesla Motors and SpaceX and is planning on sending missions to Mars.
+    Unfortunately, Mr.~Musk has never taken an astrodynamics class and is in need of your help to plan his latest mission.
+    \begin{subprob}
+    \item The Dragon capsule is in a circular parking orbit of the Earth, at an altitude of \SI{120}{\kilo\meter}.
+    To begin a voyage to Mars, what velocity does the satellite require to \underline{escape the Earth}.
+    \item Would your answer be different for an elliptical orbit ( \( e = 0.3\), \( \nu = \SI{145}{\degree} \), with \( a \) the same as the previous problem)?
+        Why or why not?
+    \item If you assume both burns are tangent to the existing velocity, what are the required increases in velocity for each of the previous cases?
+    \end{subprob}
+\end{prob}
+
+\begin{prob}
+    For the given orbital data below, identify the type of orbit (elliptical, circular, parabolic, or hyperbolic).
+
+    \begin{subprob}
+        \item \( \bar r = \begin{bmatrix} 6372.0 & 6372.0 & 0 \end{bmatrix}\si{\kilo\meter}\), \( \bar v = \begin{bmatrix} -4.7028 & 4.7028 & 0 \end{bmatrix} \si{\kilo\meter\per\second\squared} \)
+        \item \( \bar e = \begin{bmatrix} 0.07 & 0.02 & 0.021 \end{bmatrix} \)
+
+    \end{subprob}
+\end{prob}
 \end{document}
+
 
