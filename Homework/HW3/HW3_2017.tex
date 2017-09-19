@@ -108,7 +108,7 @@ Asteroid & $\mathcal{E}$ $(\mathrm{km^2/s^2})$ & $h$ $(\mathrm{km^2/s})$\\ \hlin
 \end{tabular}
 \end{center}
 %
-We wish to determine whether any asteroid is likely to hit the Earth. The trajectory of an asteroid is assumed to be the solution of the two-body problem of the asteroid and the Earth, where $\mu_E=398600\,\mathrm{km^3/s^2}$.
+We wish to determine whether any asteroid is likely to hit the Earth. The trajectory of an asteroid is assumed to be the solution of the two-body problem of the asteroid and the Earth, where \( \mu_\oplus \) is taken from the course constants sheet.
 
 \begin{subprob}
 \item Using the fact that $\mathcal{E}$ and $h$ are conserved, show that the distance at the periapsis $r_p$ satisfies the following quadratic equation:
@@ -116,8 +116,8 @@ We wish to determine whether any asteroid is likely to hit the Earth. The trajec
 2\mathcal{E}\, r_p^2 + 2\mu_E\, r_p -h^2=0. 
 \end{gather}
 (Hint: at the periapsis, $h=rv$ since $\vec r$ is perpendicular to $\vec v$.)
-\item Calculate $r_p$ for all asteroids, and determine which asteroid will hit the surface of the Earth: an asteroid will hit the Earth if $r_p < R_E=6378\,\mathrm{km}$.\\
-(Hint: In Matlab, the quadratic equation $ax^2+bx+c=0$ can be solved by the command \texttt{roots([a b c])}.)
+\item Calculate $r_p$ for all asteroids, and determine which asteroid will hit the surface of the Earth: an asteroid will hit the Earth if $r_p < R_\oplus = \SI{6378.137}{\kilo\meter}$.\\
+    (Hint: In Python/\texttt{numpy}, the quadratic equation $ax^2+bx+c=0$ can be solved by the command \texttt{np.roots([a, b, c])}.)
 \item For each asteroid that hits the surface of the Earth, calculate its impact velocity at the surface of the Earth.\\
 (Note: the impact velocity is not same as the velocity at the periapsis.)
 \item For each asteroid that does not hit the surface of the Earth, calculate its velocity when it is closest to the Earth.
@@ -154,7 +154,8 @@ We wish to determine whether any asteroid is likely to hit the Earth. The trajec
     The Huygens lander parachuted to a soft landing on Titan on \SI{2458011.99706}{\julianday} and remains the most distant interplanetary landing of any human-made vehicle.
     \begin{figure}[htbp]
         \centering
-        \subcaptionbox{Cassini Interplanetary Trajectory\label{fig:cassini_interplanetary}}{\includegraphics[width=0.6\textwidth]{figures/cassini_trajectory.jpg}}
+        \subcaptionbox{Cassini Interplanetary Trajectory\label{fig:cassini_interplanetary}}{\includegraphics[width=0.5\textwidth]{figures/cassini_trajectory.jpg}}~
+        \subcaptionbox{Cassini Trajectory 2004 to 2005\label{fig:cassini_traj}}{\includegraphics[width=0.5\textwidth]{figures/Figure_1.pdf}}\\
        \subcaptionbox{Cassini Orbiter\label{fig:cassini_orbiter}}{\includegraphics[width=0.8\textwidth]{figures/7754_CassiniPlungeInstrumentsLabeled.jpg}}
        \caption{Cassini Mission} 
     \end{figure}
@@ -168,18 +169,24 @@ We wish to determine whether any asteroid is likely to hit the Earth. The trajec
 
     \begin{subprob}
         \item Given this position and velocity vector, determine the type of orbit of Cassini.
-        \item Determine the period \( P \), angular momentum vector \( \bar h \), semi-latus rectum \( p \), specific mechanical energy \( \varepsilon \), eccentricity \( e \), true anomoly \( \nu \), and radius of periapsis and apoapsis \( r_p, r_a\).
+        \item Determine the period \( P \), angular momentum vector \( \bar h \), semi-latus rectum \( p \), specific mechanical energy \( \mathcal{E}\), eccentricity \( e \), true anomoly \( \nu \), and radius of periapsis and apoapsis \( r_p, r_a\).
         \item How does the velocity of Cassini compare to the velocity of a circular orbit at this radius, i.e. compare \( v \) and \( \sqrt{2} v_c \)?
             Should the velocity of Cassini be less than or greater than \( \sqrt{2} v_c \)? Why or why not?
-        \item By hand, or with Python, sketch a diagram of the orbital plane and the location of Cassini.
-        \item Rings extend between (limits), does Cassini pass through the rings?
-        \item Orbit of some moons are given as (moons), is there a risk of collision of CAssini and any of these bodies
+        \item Using Python, create a diagram of the orbital plane and the location of Cassini.
+            Mark the location of periapsis and the local horizontal/local vertical unit reference frame, \( \hat r, \hat \theta \) as well as the perifocal reference frame \( \hat p, \hat q \).
+        \item The major subdivisions of the Saturn ring system are copied below from \href{https://en.wikipedia.org/wiki/Rings_of_Saturn#Major_subdivisions}{Wikipedia}.
+            \begin{figure}[htbp]
+                \centering
+                \includegraphics[width=0.5\textwidth]{figures/ring_subdivisions.png}
+                \caption{Ring Subdivisions}
+            \end{figure}
+            Based on the current orbital properties, which ring subdivision does Cassini pass through.
     \end{subprob}
 \end{prob}
 
 \begin{prob}
     In a chance meeting in the Science and Engineering hall, you've bumped into Elon Musk.
-    He is the CEO of Tesla Motors and SpaceX and is planning on sending missions to Mars.
+    He is the CEO of Tesla Motors and SpaceX and is planning on sending manned missions to Mars.
     Unfortunately, Mr.~Musk has never taken an astrodynamics class and is in need of your help to plan his latest mission.
     \begin{subprob}
     \item The Dragon capsule is in a circular parking orbit of the Earth, at an altitude of \SI{120}{\kilo\meter}.
@@ -191,12 +198,41 @@ We wish to determine whether any asteroid is likely to hit the Earth. The trajec
 \end{prob}
 
 \begin{prob}
-    For the given orbital data below, identify the type of orbit (elliptical, circular, parabolic, or hyperbolic).
+    The data below are composed of postion, \( \bar r \) in \si{\kilo\meter}, and velocity, \( \bar v \) in \si{\kilo\meter\per\second} vectors in the Earth Centered Inertial frame. 
+    Each row corresponds to the state of a particular satellite in Earth orbit. 
+    The first three columns define the position vector \( \bar r = r_i \hat i + r_j \hat j + r_k \hat k \; \si{\kilo\meter} \) and the last three columns define the velocity vector \( \bar v = v_i \hat i + v_j \hat j + v_k \hat k \; \si{\kilo\meter\per\second} \).
+Units should be provided in degrees, seconds, and kilometers.
+
+There is also a text version of this data for your use to avoid copying data into your program manually. 
+    \begin{verbatim}
+ -2568.039216     -6547.314638     -3797.326891     6.458278    -2.209367    -0.076621
+ -1436.423824     -5431.538653     -4007.257672    -0.015594     4.517853    -6.106364
+  2984.202691      -176.720794      6508.528498    -4.795316     5.200641     2.349382
+  -219.841243     -6955.769665      1566.508699     2.057499    -1.655460    -6.993727
+ -6340.603015     -3677.405631       769.660350     1.884915    -1.940508     6.893215
+   983.782888      1404.894524     -6970.421237     0.707420    -7.294167    -1.366025
+ -4226.545784      3746.042884     -3754.276534    -1.669581    -6.154428    -4.256676
+-36907.139939    -20390.700208        31.019634     1.485986    -2.691551     0.000191
+ -4040.322336     -3817.380008      4609.308074     2.323401     4.297389     5.603866
+-42105.752864     -2109.705740        -1.757288     0.153815    -3.071269     0.000729
+   324.774908     -5123.791037     -4299.929506     7.462166    -0.943707     1.710663
+  2027.998510     -2854.859077      6288.292372    -5.467349     3.694938     3.441169
+    \end{verbatim}
+    For the given orbital data below, determine the following for each satellite.
 
     \begin{subprob}
-        \item \( \bar r = \begin{bmatrix} 6372.0 & 6372.0 & 0 \end{bmatrix}\si{\kilo\meter}\), \( \bar v = \begin{bmatrix} -4.7028 & 4.7028 & 0 \end{bmatrix} \si{\kilo\meter\per\second\squared} \)
-        \item \( \bar e = \begin{bmatrix} 0.07 & 0.02 & 0.021 \end{bmatrix} \)
-
+    \item Orbital properties
+    \begin{itemize}
+        \item Period -- \( P \) 
+        \item Specifc mechanical energy -- \( \mathcal{E} \) 
+        \item Eccentricity vector and magnitude -- \( \bar e\)
+        \item True anomaly -- \( \nu \)
+        \item Radius of periapsis and apoapsis -- \( r_p, r_a \)
+        \item Angular momentum vector and magnitude -- \( \bar h \)
+        \item Flight path angle -- \( \gamma \)
+    \end{itemize}
+\item Plot the orbital plane and mark the location of the satellite.
+    Mark the location and periapsis and apoapsis, the local horizontal/local vertical frame, and flight path angle.
     \end{subprob}
 \end{prob}
 \end{document}
