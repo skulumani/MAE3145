@@ -231,9 +231,62 @@ There is also a text version of this data for your use to avoid copying data int
         \item Angular momentum vector and magnitude -- \( \bar h \)
         \item Flight path angle -- \( \gamma \)
     \end{itemize}
+
+    The orbital properties of the last satellite, bottom row, is given below.
+    You should provide your hand calculations demonstrating the computation of the orbital properties for this case. 
+    This test case is used to verify your software is working correctly.
+    For the other cases, you can simply provide the output of your program.
 \item Plot the orbital plane and mark the location of the satellite.
     Mark the location and periapsis and apoapsis, the local horizontal/local vertical frame, and flight path angle.
     \end{subprob}
+
+Solution for last satellite:
+
+    \begin{verbatim}
+0 METOP-B 38771  
+
+Satellite State  
+Position and Velocity in LVLH frame                                  
+r_hat:         7197.61205237841 km rd_hat:    0.000384971542236516 km/sec
+t_hat:                        0 km td_hat:        7.44218488029298 km/sec
+h_hat:                        0 km hd_hat:                       0 km/sec
+
+Position and Velocity in EPH/PQW frame                               
+e_hat:         6597.28000494701 km ed_hat:       -2.97519497807265 km/sec
+p_hat:          2877.7622891527 km pd_hat:        6.82160763919443 km/sec
+h_hat:                        0 km hd_hat:                       0 km/sec
+
+Position and Velocity in IJK frame                                   
+i_hat:         2027.99850966934 km id_hat:       -5.46734944705212 km/sec
+j_hat:        -2854.85907707635 km jd_hat:        3.69493774585229 km/sec
+k_hat:         6288.29237165041 km kd_hat:        3.44116855425005 km/sec
+
+RAD_MAG   :     7197.61205237841 km = 4.81130650615441e-05 AU        
+VEL_MAG   :     7.44218489024994 km/sec                              
+
+Orbital Elements                  
+sma:           7198.46581949393 km raan:          321.364089112604 deg
+ecc:       0.000129393718755839    arg_p:         38.5452264914522 deg
+inc:                    98.7138 deg nu:           23.5670395276775 deg
+
+Elliptic Orbital Parameters       
+P         :     7198.46569897193 km = 4.81187713365968e-05 AU        
+ANG MOM   :     53565.9595904252 km^2/sec                            
+PERIOD    :     6078.14237801228 sec =     1.68837288278119 hr       
+ENGERGY   :    -27.6864897323373 km^2/sec^2                          
+RAD_PER   :     7197.53438323221 km = 4.81125458753671e-05 AU        
+RAD_APO   :     7199.39725575565 km =  4.8124998409106e-05 AU        
+
+VEL_CIRC  :     7.44174359291353 km/sec                              
+VEL_ESC   :     10.5242147168014 km/sec                              
+TRUE_ANOM :     23.5670395276775 deg                                 
+FPA       :  0.00296381303849746 deg                                 
+ECC_ANOM  :     23.5640755388789 deg                                 
+MEAN_ANOM :     23.5611117258625 deg                                 
+MEAN_MOT  :   0.0592286224327851 deg/sec                             
+
+T_PAST_PER:     397.799421261242 sec =    0.110499839239234 hr
+    \end{verbatim}
 \end{prob}
 \end{document}
 
