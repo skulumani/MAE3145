@@ -73,7 +73,7 @@ In class, we found that $\vec h$ is fixed, i.e. $\dot{\vec h}=0$. Here, we wish 
 \end{prob}
 
 \begin{prob}
-A satellite is on an elliptic orbit around the Earth with a perigee radius of $r_p=7000\,\mathrm{km}$ and an apogee radius of $r_a=70000\,\mathrm{km}$. Assume that the gravitational parameter and the radius of the Earth are $\mu=398600\,\mathrm{km^3/s^2}$, and $R_E=6378\,\mathrm{km}$, respectively. Determine the following parameters (specify units in $\mathrm{km},\,\mathrm{sec},\,\mathrm{degree}$). 
+A satellite is on an elliptic orbit around the Earth with a perigee radius of $r_p=7000\,\mathrm{km}$ and an apogee radius of $r_a=70000\,\mathrm{km}$. Assume that the gravitational parameter and the radius of the Earth are found on the constants sheet. Determine the following parameters (specify units in $\mathrm{km},\,\mathrm{sec},\,\mathrm{degree}$). 
 \begin{subprob}
 \item eccentricity $e$
 \item period $T$ 
@@ -197,95 +197,95 @@ We wish to determine whether any asteroid is likely to hit the Earth. The trajec
     \end{subprob}
 \end{prob}
 
+\clearpage\newpage
 \begin{prob}
-    The data below are composed of postion, \( \bar r \) in \si{\kilo\meter}, and velocity, \( \bar v \) in \si{\kilo\meter\per\second} vectors in the Earth Centered Inertial frame. 
+    The data below are composed of postion, \( \bar r \) in \si{\kilo\meter}, and velocity, \( \bar v \) in \si{\kilo\meter\per\second} vectors in the local vertical/local horizontal frame. 
     Each row corresponds to the state of a particular satellite in Earth orbit. 
-    The first three columns define the position vector \( \bar r = r_i \hat i + r_j \hat j + r_k \hat k \; \si{\kilo\meter} \) and the last three columns define the velocity vector \( \bar v = v_i \hat i + v_j \hat j + v_k \hat k \; \si{\kilo\meter\per\second} \).
-Units should be provided in degrees, seconds, and kilometers.
+    The first three columns define the position vector \( \bar r = r_1 \hat r + r_2 \hat \theta + r_3 \hat h \; \si{\kilo\meter} \) and the last three columns define the velocity vector \( \bar v = v_1 \hat r + v_2 \hat \theta + v_3 \hat h \; \si{\kilo\meter\per\second} \).
 
-There is also a text version of this data for your use to avoid copying data into your program manually. 
     \begin{verbatim}
- -2568.039216     -6547.314638     -3797.326891     6.458278    -2.209367    -0.076621
- -1436.423824     -5431.538653     -4007.257672    -0.015594     4.517853    -6.106364
-  2984.202691      -176.720794      6508.528498    -4.795316     5.200641     2.349382
-  -219.841243     -6955.769665      1566.508699     2.057499    -1.655460    -6.993727
- -6340.603015     -3677.405631       769.660350     1.884915    -1.940508     6.893215
-   983.782888      1404.894524     -6970.421237     0.707420    -7.294167    -1.366025
- -4226.545784      3746.042884     -3754.276534    -1.669581    -6.154428    -4.256676
--36907.139939    -20390.700208        31.019634     1.485986    -2.691551     0.000191
- -4040.322336     -3817.380008      4609.308074     2.323401     4.297389     5.603866
--42105.752864     -2109.705740        -1.757288     0.153815    -3.071269     0.000729
-   324.774908     -5123.791037     -4299.929506     7.462166    -0.943707     1.710663
-  2027.998510     -2854.859077      6288.292372    -5.467349     3.694938     3.441169
+6781.675224   0.000000   0.000000  -0.002574   7.667057   0.000000
+6696.872934   0.000000   0.000000  -0.014462   7.713667   0.000000
+7992.611957   0.000000   0.000000  -0.228803   6.822330   0.000000
+6900.944833   0.000000   0.000000  -0.006770   7.595977   0.000000
+7162.237022   0.000000   0.000000   0.008623   7.453942   0.000000
+7133.373067   0.000000   0.000000   0.014992   7.475684   0.000000
     \end{verbatim}
-    For the given orbital data below, determine the following for each satellite.
+For example, the first row of this data set corresponds to the position and velocity of the International Space Station
+\begin{align*}
+    \bar r &= 6781.675224 \, \hat r + 0 \, \hat \theta + 0 \, \hat h \, \si{\kilo\meter}, \\
+    \bar v &= -0.002574 \, \hat r + 7.667057 \, \hat \theta + h \, \hat h \, \si{\kilo\meter\per\second\squared}.
+\end{align*}
+    For the given orbital data determine the following for each satellite.
+    Units should be provided in seconds, degrees, and kilometers.
 
     \begin{subprob}
     \item Orbital properties
     \begin{itemize}
         \item Period -- \( P \) 
         \item Specifc mechanical energy -- \( \mathcal{E} \) 
-        \item Eccentricity vector and magnitude -- \( \bar e\)
-        \item True anomaly -- \( \nu \)
+        \item Semi-major axis, semi-latus rectum, eccentricity, true anomaly
         \item Radius of periapsis and apoapsis -- \( r_p, r_a \)
         \item Angular momentum vector and magnitude -- \( \bar h \)
         \item Flight path angle -- \( \gamma \)
+        \item Position and Velocity vectors in the perifocal reference frame
     \end{itemize}
 
-    The orbital properties of the last satellite, bottom row, is given below.
+    The orbital properties of the first satellite (first row) is given below.
     You should provide your hand calculations demonstrating the computation of the orbital properties for this case. 
     This test case is used to verify your software is working correctly.
     For the other cases, you can simply provide the output of your program.
-\item Plot the orbital plane and mark the location of the satellite.
-    Mark the location and periapsis and apoapsis, the local horizontal/local vertical frame, and flight path angle.
+\item Using Python, plot the orbit of each satellite in the perifocal reference frame and mark the location of the satellite.
+    Mark the location of periapsis and apoapsis on your plot as well as the local horizontal/local vertical frame, and flight path angle.
+    Most of these satellites are in nearly circular orbits so the difference between periapsis and apoapsis will be difficult to notice in your plots.
     \end{subprob}
 
 Solution for last satellite:
 
+\clearpage\newpage
     \begin{verbatim}
-0 METOP-B 38771  
+0 ISS (ZARYA) 25544                                                                                                                                                                           
+Satellite State                                                                                                                                                                               
+Position and Velocity in LVLH frame                                                                                                                                                           
+r_hat:          6781.6752240256 km rd_hat:    -0.00257359868086831 km/sec                                                                                      
+t_hat:                        0 km td_hat:        7.66705746939915 km/sec                                                                                                                     
+h_hat:                        0 km hd_hat:                       0 km/sec                                                                                                                     
+                                                                                                                                                                                              
+Position and Velocity in EPH/PQW frame                                                                                                                                                        
+e_hat:         2453.84042760766 km ed_hat:        7.14662603444703 km/sec                                                                                                                     
+p_hat:        -6322.16624267355 km pd_hat:        2.77660101315318 km/sec      
+h_hat:                        0 km hd_hat:                       0 km/sec      
+                                                                               
+Position and Velocity in IJK frame                                             
+i_hat:        -4226.54578373763 km id_hat:       -1.66958104755974 km/sec      
+j_hat:         3746.04288415422 km jd_hat:       -6.15442824782474 km/sec      
+k_hat:        -3754.27653379581 km kd_hat:       -4.25667580753874 km/sec      
+                                                                               
+RAD_MAG   :      6781.6752240256 km = 4.53326990820498e-05 AU                  
+VEL_MAG   :     7.66705790133865 km/sec                                        
+                                                                               
+Orbital Elements                                                               
+sma:           6782.55976540987 km raan:          286.709516148979 deg         
+ecc:       0.000360113803137797    arg_p:         293.694918634304 deg         
+inc:                     51.643 deg nu:            291.21286881209 deg         
+                                                                               
+Elliptic Orbital Parameters                                                    
+P         :     6782.55888583428 km = 4.53386059964241e-05 AU                  
+ANG MOM   :     51995.4936814046 km^2/sec                                      
+PERIOD    :     5559.06039988679 sec =       1.544183444413 hr                 
+ENGERGY   :    -29.3842231979148 km^2/sec^2
+RAD_PER   :     6780.11727201773 km = 4.53222848160721e-05 AU
+RAD_APO   :       6785.002258802 km = 4.53549389359755e-05 AU
 
-Satellite State  
-Position and Velocity in LVLH frame                                  
-r_hat:         7197.61205237841 km rd_hat:    0.000384971542236516 km/sec
-t_hat:                        0 km td_hat:        7.44218488029298 km/sec
-h_hat:                        0 km hd_hat:                       0 km/sec
+VEL_CIRC  :     7.66655800402987 km/sec
+VEL_ESC   :     10.8421503060191 km/sec
+TRUE_ANOM :      291.21286881209 deg
+FPA       :  -0.0192324549052291 deg
+ECC_ANOM  :     291.232102521087 deg
+MEAN_ANOM :     291.251334975467 deg
+MEAN_MOT  :    0.064759145269825 deg/sec
 
-Position and Velocity in EPH/PQW frame                               
-e_hat:         6597.28000494701 km ed_hat:       -2.97519497807265 km/sec
-p_hat:          2877.7622891527 km pd_hat:        6.82160763919443 km/sec
-h_hat:                        0 km hd_hat:                       0 km/sec
-
-Position and Velocity in IJK frame                                   
-i_hat:         2027.99850966934 km id_hat:       -5.46734944705212 km/sec
-j_hat:        -2854.85907707635 km jd_hat:        3.69493774585229 km/sec
-k_hat:         6288.29237165041 km kd_hat:        3.44116855425005 km/sec
-
-RAD_MAG   :     7197.61205237841 km = 4.81130650615441e-05 AU        
-VEL_MAG   :     7.44218489024994 km/sec                              
-
-Orbital Elements                  
-sma:           7198.46581949393 km raan:          321.364089112604 deg
-ecc:       0.000129393718755839    arg_p:         38.5452264914522 deg
-inc:                    98.7138 deg nu:           23.5670395276775 deg
-
-Elliptic Orbital Parameters       
-P         :     7198.46569897193 km = 4.81187713365968e-05 AU        
-ANG MOM   :     53565.9595904252 km^2/sec                            
-PERIOD    :     6078.14237801228 sec =     1.68837288278119 hr       
-ENGERGY   :    -27.6864897323373 km^2/sec^2                          
-RAD_PER   :     7197.53438323221 km = 4.81125458753671e-05 AU        
-RAD_APO   :     7199.39725575565 km =  4.8124998409106e-05 AU        
-
-VEL_CIRC  :     7.44174359291353 km/sec                              
-VEL_ESC   :     10.5242147168014 km/sec                              
-TRUE_ANOM :     23.5670395276775 deg                                 
-FPA       :  0.00296381303849746 deg                                 
-ECC_ANOM  :     23.5640755388789 deg                                 
-MEAN_ANOM :     23.5611117258625 deg                                 
-MEAN_MOT  :   0.0592286224327851 deg/sec                             
-
-T_PAST_PER:     397.799421261242 sec =    0.110499839239234 hr
+T_PAST_PER:     4497.45489632301 sec =     1.24929302675639 hr
     \end{verbatim}
 \end{prob}
 \end{document}
