@@ -68,13 +68,13 @@ r & = |\vec r|,\\
 \vec N & = \hat z \times \vec h,\\
 i & = \cos^{-1} \parenth{\frac{\vec h\cdot \hat z}{h}}\quad (0\leq i \leq \pi),\\
 \Omega & = \tan^{-1} \parenth{\frac{\hat y \cdot \vec N}{\hat x \cdot \vec N}}
-=\texttt{atan2(}{{\hat y \cdot \vec N}\texttt{,}{\hat x \cdot \vec N}}\texttt{)},\\
+=\texttt{numpy.arctan2(}{{\hat y \cdot \vec N}\texttt{,}{\hat x \cdot \vec N}}\texttt{)},\\
 \omega & = \tan^{-1} \parenth{\frac{\vec h \cdot (\vec N \times \vec e)}{h (\vec N \cdot \vec e)}}
-=\texttt{atan2(}{{\vec h \cdot (\vec N \times \vec e)}\texttt{,}{h (\vec N \cdot \vec e)}}\texttt{)},\\
-\theta & = \tan^{-1} \parenth{\frac{\vec h \cdot (\vec e \times \vec r)}{h (\vec e \cdot \vec r)}}=\texttt{atan2(}{{\vec h \cdot (\vec e \times \vec r)}\texttt{,}{h (\vec e \cdot \vec r)}}\texttt{)}.
+=\texttt{numpy.arctan2(}{{\vec h \cdot (\vec N \times \vec e)}\texttt{,}{h (\vec N \cdot \vec e)}}\texttt{)},\\
+\theta & = \tan^{-1} \parenth{\frac{\vec h \cdot (\vec e \times \vec r)}{h (\vec e \cdot \vec r)}}=\texttt{numpy.arctan2(}{{\vec h \cdot (\vec e \times \vec r)}\texttt{,}{h (\vec e \cdot \vec r)}}\texttt{)}.
 \end{align*}
 
-\noindent (Use the Matlab \texttt{atan2} function to compute $\tan^{-1}$, i.e. $\tan^{-1}(y/x) =\texttt{atan2(y,x)}$).\\
+\noindent (Use the Numpy \texttt{numpy.arctan2} function to compute $\tan^{-1}$, i.e. $\tan^{-1}(y/x) =\texttt{numpy.arctan2(y,x)}$).\\
 
 
 \subsubsection*{Given the orbital elements $(h,e,\theta,\Omega,i,\omega)$, find $(\vec r, \vec v)$}
