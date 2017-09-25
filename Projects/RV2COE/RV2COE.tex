@@ -30,7 +30,7 @@
 \subsection*{Description}
 
 Your objective is to write a program which determines the classical orbital elements of an Earth-orbiting body given its position and velocity vectors in the Earth-Centered Inertial frame.
-It is also required to compute other orbital parameters including, radius of perigee, radius of apogee, energy and period.
+It is also required to compute other orbital parameters including, radius of perigee, radius of apogee, specific mechanical energy and period.
 
 \subsection*{Project Requirements}
 After completing the project you must submit the hard copies of your work:
@@ -49,31 +49,31 @@ However, you \textbf{MAY NOT} copy another student or any other individuals code
 The program you develop must be your own work.
 
 \subsection*{Program Specifications}
-The following is a description of the inputs and outputs you your program:
+The following is a description of the inputs and outputs to your program:
 
 \noindent \textbf{INPUTS:}
 \begin{itemize}
-    \item \( R \in \R^{3} \) - the components of the position vector in the Earth Centered Inertial frame given in kilometers (\si{\kilo\meter})
-    \item \( V \in \R^{3} \) - the components of the velocity vector in the Earth Centered Inertial frame given in kilometers per second ( \si{\kilo\meter\per\second})
+    \item \( \bar r \in \R^{3} \) -- the components of the position vector in the Earth Centered Inertial frame given in kilometers (\si{\kilo\meter})
+    \item \( \bar v \in \R^{3} \) -- the components of the velocity vector in the Earth Centered Inertial frame given in kilometers per second ( \si{\kilo\meter\per\second})
 \end{itemize}
 
 \noindent \textbf{OUTPUTS:}
 \begin{itemize}
-    \item \( a \)  - semimajor axis in kilometers (\si{\kilo\meter})
-    \item \( e \) - eccentricity (unitless)
-    \item \( i \) - inclination in radians (\si{\radian})
-    \item \( \Omega \) - right ascension of the ascending node in radians (\si{\radian})
-    \item \( \omega \) - arguement of perigee in radians (\si{\radian})
-    \item \( \nu \) - true anomaly in radians (\si{\radian})
+    \item \( a \)  -- semimajor axis in kilometers (\si{\kilo\meter})
+    \item \( e \) -- eccentricity (unitless)
+    \item \( i \) -- inclination in radians (\si{\radian})
+    \item \( \Omega \) -- right ascension of the ascending node in radians (\si{\radian})
+    \item \( \omega \) -- argument of perigee in radians (\si{\radian})
+    \item \( \nu \) -- true anomaly in radians (\si{\radian})
 \end{itemize}
 Plus other outputs which are listed later in the description.
 
 \subsection*{Code Organization} 
-Your program should be modular in constructions. 
-This means you have seperate functions which perform \textbf{specific} tasks.
-Furthermore, each function should be tested and properly documented following the example shown in class.
+Your program should be modular in construction. 
+This means you should have separate functions which perform \textbf{specific} tasks.
+Furthermore, each function should be tested and properly documented following the examples shown in class.
 You \textbf{MAY NOT}  use global variables but rather must pass data between various functions.
-One suggested organization is given:
+One suggested organization is given below:
 
 \begin{tikzpicture}[->, >=stealth']
     \tikzstyle{arrow}=[draw, -Latex];
@@ -94,25 +94,25 @@ One suggested organization is given:
 \subsection*{Required Function Description}
 
 The following functions must be written and accept the given inputs and provide the required outputs. 
-Each function should be well tested, with unit tests, and well-documented following the class example.
+Each function should be well tested, with unit tests, and well-documented following the class examples.
 
 \subsubsection*{\texttt{RV2COE}}
 This function determines an objects six classical orbital elements from its position and velocity vectors.
 
 \noindent{\textbf{Input:}}
 \begin{itemize}
-    \item \( R \in \R^{3} \) - the components of the position vector in the Earth Centered Inertial frame given in kilometers (\si{\kilo\meter})
-    \item \( V \in \R^{3} \) - the components of the velocity vector in the Earth Centered Inertial frame given in kilometers per second ( \si{\kilo\meter\per\second})
+    \item \( \bar r \in \R^{3} \) -- the components of the position vector in the Earth Centered Inertial frame given in kilometers (\si{\kilo\meter})
+    \item \( \bar v \in \R^{3} \) -- the components of the velocity vector in the Earth Centered Inertial frame given in kilometers per second ( \si{\kilo\meter\per\second})
 \end{itemize}
 
 \noindent \textbf{OUTPUTS:}
 \begin{itemize}
-    \item \( a \)  - semimajor axis in kilometers (\si{\kilo\meter})
-    \item \( e \) - eccentricity (unitless)
-    \item \( i \) - inclination in radians (\si{\radian})
-    \item \( \Omega \) - right ascension of the ascending node in radians (\si{\radian})
-    \item \( \omega \) - arguement of perigee in radians (\si{\radian})
-    \item \( \nu \) - true anomaly in radians (\si{\radian})
+    \item \( a \)  -- semimajor axis in kilometers (\si{\kilo\meter})
+    \item \( e \) -- eccentricity (unitless)
+    \item \( i \) -- inclination in radians (\si{\radian})
+    \item \( \Omega \) -- right ascension of the ascending node in radians (\si{\radian})
+    \item \( \omega \) -- argument of perigee in radians (\si{\radian})
+    \item \( \nu \) -- true anomaly in radians (\si{\radian})
 \end{itemize}
 
 \subsection*{Optional Functions}
@@ -124,15 +124,15 @@ This function determines the angular momentum, ascending node, and eccentricity 
 
 \noindent{\textbf{Input:}}
 \begin{itemize}
-    \item \( R \in \R^{3} \) - the components of the position vector in the Earth Centered Inertial frame given in kilometers (\si{\kilo\meter})
-    \item \( V \in \R^{3} \) - the components of the velocity vector in the Earth Centered Inertial frame given in kilometers per second ( \si{\kilo\meter\per\second})
+    \item \( \bar r \in \R^{3} \) -- the components of the position vector in the Earth Centered Inertial frame given in kilometers (\si{\kilo\meter})
+    \item \( \bar v \in \R^{3} \) -- the components of the velocity vector in the Earth Centered Inertial frame given in kilometers per second ( \si{\kilo\meter\per\second})
 \end{itemize}
 
 \noindent \textbf{OUTPUTS:}
 \begin{itemize}
-    \item \( H \in \R^{3} \) - the components of specific angular momentum vector in the Earth Centered Inertial frame given in kilometers per second squared (\si{\kilo\meter\per\second\squared})
-    \item \( N \in \R^{3} \) - the components of the ascending node vector in the Earth Centered Inertial frame given in kilometers per second squared (\si{\kilo\meter\per\second\squared})
-    \item \( E \in \R^{3} \) - the components of the eccentricity vector in the Earth Centered Inertial frame (unitless)
+    \item \( \bar h \in \R^{3} \) -- the components of specific angular momentum vector in the Earth Centered Inertial frame 
+    \item \( \bar n \in \R^{3} \) -- the components of the ascending node vector in the Earth Centered Inertial frame 
+    \item \( \bar e \in \R^{3} \) -- the components of the eccentricity vector in the Earth Centered Inertial frame 
 \end{itemize}
 
 \subsubsection*{\texttt{angles}}
@@ -142,19 +142,19 @@ Ensure that you perform quadrant checks on all of the angles.
 
 \noindent{\textbf{Input:}}
 \begin{itemize}
-    \item \( R \in \R^{3} \) - the components of the position vector in the Earth Centered Inertial frame given in kilometers (\si{\kilo\meter})
-    \item \( V \in \R^{3} \) - the components of the velocity vector in the Earth Centered Inertial frame given in kilometers per second ( \si{\kilo\meter\per\second})
-    \item \( H \in \R^{3} \) - the components of specific angular momentum vector in the Earth Centered Inertial frame given in kilometers per second squared (\si{\kilo\meter\per\second\squared})
-    \item \( N \in \R^{3} \) - the components of the ascending node vector in the Earth Centered Inertial frame given in kilometers per second squared (\si{\kilo\meter\per\second\squared})
-    \item \( E \in \R^{3} \) - the components of the eccentricity vector in the Earth Centered Inertial frame (unitless)
+    \item \( \bar r \in \R^{3} \) -- the components of the position vector in the Earth Centered Inertial frame given in kilometers (\si{\kilo\meter})
+    \item \( \bar v \in \R^{3} \) -- the components of the velocity vector in the Earth Centered Inertial frame 
+    \item \( \hat h \in \R^{3} \) -- the components of specific angular momentum vector in the Earth Centered Inertial frame 
+    \item \( \hat n \in \R^{3} \) -- the components of the ascending node vector in the Earth Centered Inertial frame 
+    \item \( \hat e \in \R^{3} \) -- the components of the eccentricity vector in the Earth Centered Inertial frame 
 \end{itemize}
 
 \noindent \textbf{OUTPUTS:}
 \begin{itemize}
-    \item \( i \) - inclination in radians (\si{\radian})
-    \item \( \Omega \) - right ascension of the ascending node in radians (\si{\radian})
-    \item \( \omega \) - arguement of perigee in radians (\si{\radian})
-    \item \( \nu \) - true anomaly in radians (\si{\radian})
+    \item \( i \) -- inclination in radians (\si{\radian})
+    \item \( \Omega \) -- right ascension of the ascending node in radians (\si{\radian})
+    \item \( \omega \) -- argument of perigee in radians (\si{\radian})
+    \item \( \nu \) -- true anomaly in radians (\si{\radian})
 \end{itemize}
 
 \subsubsection*{\texttt{orbitalparameters}}
@@ -162,21 +162,21 @@ This function determines other useful orbital parameters associated with the orb
 
 \noindent \textbf{Input:}
 \begin{itemize}
-    \item \( a \)  - semimajor axis in kilometers (\si{\kilo\meter})
-    \item \( e \) - eccentricity (unitless)
+    \item \( a \)  -- semimajor axis in kilometers (\si{\kilo\meter})
+    \item \( e \) -- eccentricity (unitless)
 \end{itemize}
 
 \noindent \textbf{Outputs:}
 \begin{itemize}
-    \item \( r_p \) - radius of perigee in kilometer (\si{\kilo\meter})
-    \item \( r_a \) - radius of apogee in kilometer (\si{\kilo\meter})
-    \item \( sme \) - specific mechanical energy in kilometer (\si{\kilo\meter})
-    \item \( P \) - period of the orbit in seconds (\si{\second})
+    \item \( r_p \) -- radius of perigee in kilometer (\si{\kilo\meter})
+    \item \( r_a \) -- radius of apogee in kilometer (\si{\kilo\meter})
+    \item \( sme \) -- specific mechanical energy in kilometer (\si{\kilo\meter})
+    \item \( P \) -- period of the orbit in seconds (\si{\second})
 \end{itemize}
 
 \subsubsection*{Input and Output}
 
-You may consider creating seperate functions which can read and write to various text files. 
+You may consider creating separate functions which can read and write to various text files. 
 These are encouraged but are optional.
 
 \subsection*{Test Data}
@@ -215,9 +215,18 @@ Additional information is provided in this file which can aid in your debugging 
 \section*{Grading}
 Finally, there is a file \texttt{RV2COE\_tle\_rv.txt} which contains a large list of position and velocity vectors of several real spacecraft. 
 In addition, you'll notice that the values are provided with additional precision as compared to \texttt{RV1.txt}. 
-You will be graded on your correct answers to a random position, velocity pair from this file. 
 Furthermore, beyond simply arriving at the correct solution, a well developed algorithm and properly documented/tested code is the main goal of this project.
-
+Your project grade will consist of the following:
+\begin{itemize}
+    \item \( 50 \% \) -- complete algorithm demonstrating the process used to compute the various orbital elements. 
+        Your grade will be determined on the clarity of your writing and the algorithm presented. 
+        Remember, a person without any astrodynamics background should be able to duplicate your program in any language of their choice.
+    \item \( 25 \% \) -- properly documented and tested code. 
+        Your functions should be properly documented and each should have sufficient unit-testing to ensure the validity of the outputs. 
+        You will be graded on the coverage, i.e. does every function have a test, and your documentation, is it easy to use your function based on the documentation.
+    \item \( 10 \% \) -- provide output from your program which matches the provided test cases.
+    \item \( 15 \% \) -- able to match a random output from \texttt{RV2COE\_tle\_rv.txt}
+\end{itemize}
 
 
 \end{document}  
