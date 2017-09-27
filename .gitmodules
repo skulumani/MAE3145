@@ -1,21 +1,6 @@
 [submodule "Library"]
 	path = Library
 	url = git@github.com:fdcl-gwu/MAE3145_library.git
-[submodule "Projects/solution/code/astro"]
-	path = Projects/solution/code/astro
-	url = git@github.com:skulumani/astro.git
-[submodule "Projects/solution/code/kinematics"]
-	path = Projects/solution/code/kinematics
-	url = git@github.com:fdcl-gwu/kinematics.git
 [submodule "Programming"]
 	path = Programming
 	url = git@github.com:fdcl-gwu/scientific_python.git
-[submodule "Homework/HW3/astro"]
-	path = Homework/HW3/astro
-	url = git@github.com:skulumani/astro.git
-[submodule "Homework/HW3/kinematics"]
-	path = Homework/HW3/kinematics
-	url = git@github.com:fdcl-gwu/kinematics.git
-[submodule "Homework/HW2/astro"]
-	path = Homework/HW2/astro
-	url = git@github.com:skulumani/astro.git
