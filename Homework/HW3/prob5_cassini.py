@@ -41,6 +41,9 @@ print('Cassini pos: {} km'.format(initial_state[0:3]))
 print('Cassini vel: {} km/sec'.format(initial_state[3:6]))
 
 # compute some orbital elements of the vehicle
+mu = constants.saturn.mu
+p, a, ecc, inc, raan, arg_p, nu, m, arglat, truelon, lonper = kepler.rv2coe(initial_state[0:3], initial_state[3:6], mu)
+kepler.orbit_el(p, ecc, inc, raan, arg_p, nu, mu, print_flag=True) 
 
 # students should generate a plot of the orbit (conic equation)
 
