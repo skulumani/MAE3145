@@ -46,6 +46,16 @@ p, a, ecc, inc, raan, arg_p, nu, m, arglat, truelon, lonper = kepler.rv2coe(init
 kepler.orbit_el(p, ecc, inc, raan, arg_p, nu, mu, print_flag=True) 
 
 # students should generate a plot of the orbit (conic equation)
+pos_inertial, sat_inertial, pos_pqw, sat_pqw = kepler.conic_orbit(p, ecc, inc, raan, arg_p, nu, nu)
+rsaturn = constants.saturn.radius
+pqw_fig, pqw_ax = plt.subplots()
+pqw_ax.plot(pos_pqw[:, 0]/rsaturn, pos_pqw[:, 1]/rsaturn)
+pqw_ax.plot(sat_pqw[0]/rsaturn, sat_pqw[1]/rsaturn, 'bo', markersize=10)
+pqw_ax.plot(0, 0, 'bo', markersize=20)
+pqw_ax.set_xlabel(r'$\hat p (r_{\saturn})$')
+pqw_ax.set_ylabel(r'$\hat q (r_{\saturn})$')
+pqw_ax.set_title(r'Cassini Orbit in Perifocal Reference Frame')
+pqw_ax.grid()
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
