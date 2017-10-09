@@ -19,13 +19,13 @@
     },
 }
 
-\title{MAE 3145: COE PROPOGATE}
+\title{MAE 3145: COE PROPAGATE}
 \author{Shankar Kulumani}
 \date{Fall 2017}                          % Activate to display a given date or no date
 
 \begin{document}
 \begin{center}
-{\Large \textbf{MAE3145: PROPOGATE}}
+{\Large \textbf{MAE3145: PROPAGATE}}
 \end{center}
 \subsection*{Description}
 
@@ -36,7 +36,7 @@ Finally, your program should output these results to a text file for later print
 \subsection*{Project Requirements}
 After completing the project you must submit the hard copies of your work:
 \begin{itemize}
-    \item Complete algorithms for the main driver script as well as a seperate algorithm for each sub-function that you develop.
+    \item Complete algorithms for the main driver script as well as a separate algorithm for each sub-function that you develop.
         Someone totally unfamiliar with astrodynamics should be able to duplicate your program in any computer language.
     \item Clear, concise and properly documented and tested code
     \item Correct outputs from your program which matches the test cases
@@ -66,14 +66,14 @@ The following orbital elements are at the final time \( t_0 + \Delta t \).
     \item \( e \) - eccentricity (unitless)
     \item \( i \) - inclination in radians (\si{\radian})
     \item \( \Omega \) - right ascension of the ascending node in radians (\si{\radian})
-    \item \( \omega \) - arguement of perigee in radians (\si{\radian})
+    \item \( \omega \) - argument of perigee in radians (\si{\radian})
     \item \( \nu \) - true anomaly in radians (\si{\radian})
 \end{itemize}
 Plus other outputs which are listed later in the description.
 
 \subsection*{Code Organization} 
 Your program should be modular in constructions. 
-This means you have seperate functions which perform \textbf{specific} tasks.
+This means you have separate functions which perform \textbf{specific} tasks.
 Furthermore, each function should be tested and properly documented following the examples shown in class.
 You \textbf{MAY NOT}  use global variables but rather must pass data between various functions.
 One suggested organization is given:
@@ -165,10 +165,10 @@ This should provide another test with the final orbital elements equal to the in
 You are encouraged to create your own test cases to further verify you code. 
 For example, you could test your code using a time of flight of \( \frac{1}{4} \) orbital period, which should cause a change of the true anomaly by \SI{90}{\degree}.
 
-Finally, your code should be able to handle any arbitrary number of position/velocity vectors there is an additional input file \texttt{PROPOGATE\_tle.txt} that your program should be able to process.
+Finally, your code should be able to handle any arbitrary number of position/velocity vectors there is an additional input file \texttt{PROPAGATE\_tle\_rvt.txt} that your program should be able to process.
 
 \section*{Grading}
-Finally, there is a file \texttt{PROPOGATE\_tle.txt} which contains a large list of position and velocity vectors of several real spacecraft. 
+Finally, there is a file \texttt{PROPAGATE\_tle\_rvt.txt} which contains a large list of position and velocity vectors of several real spacecraft. 
 Furthermore, beyond simply arriving at the correct solution, a well developed algorithm and properly documented/tested code is the main goal of this project.
 Your project grade will consist of the following:
 \begin{itemize}
@@ -179,6 +179,6 @@ Your project grade will consist of the following:
         Your functions should be properly documented and each should have sufficient unit-testing to ensure the validity of the outputs. 
         You will be graded on the coverage, i.e. does every function have a test, and your documentation, is it easy to use your function based on the documentation.
     \item \( 10 \% \) -- provide output from your program which matches the provided test cases.
-    \item \( 15 \% \) -- able to match a random output from \texttt{PROPOGATE\_tle.txt}
+    \item \( 15 \% \) -- able to match a random output from \texttt{PROPAGATE\_tle\_rvt.txt}
 \end{itemize}
 \end{document}  
