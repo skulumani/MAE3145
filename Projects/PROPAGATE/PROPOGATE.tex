@@ -30,7 +30,7 @@
 \subsection*{Description}
 
 The objective for this project is to write a computer program which first determines the classical orbital elements of an Earth orbiting body given its current position and velocity vectors. 
-Using these orbital elements your program must then compute the future classical orbital elements given a time of flight using a function called \texttt{Update}, which uses the restricted 2-Body assumption.
+Using these orbital elements your program must then compute the future classical orbital elements given a time of flight using a function called \texttt{Update}, which uses the restricted two-body assumption.
 Finally, your program should output these results to a text file for later printing/analysis. 
 
 \subsection*{Project Requirements}
@@ -54,13 +54,13 @@ The following is a description of the inputs and outputs for your program:
 
 \noindent \textbf{INPUTS:}
 \begin{itemize}
-    \item \( R \in \R^{3} \) - the components of the position vector in the Earth Centered Inertial frame given in kilometers (\si{\kilo\meter})
-    \item \( V \in \R^{3} \) - the components of the velocity vector in the Earth Centered Inertial frame given in kilometers per second ( \si{\kilo\meter\per\second})
-    \item \( \delta t \in \R^{1} \) - the time of flight of the spacecraft in minutes (\si{\minute} )
+    \item \( \bar r_0 \in \R^{3} \) -- the components of the position vector in the Earth Centered Inertial frame given in kilometers (\si{\kilo\meter})
+    \item \( \bar v_0 \in \R^{3} \) -- the components of the velocity vector in the Earth Centered Inertial frame given in kilometers per second (\si{\kilo\meter\per\second})
+    \item \( \Delta t \in \R^{1} \) -- the time of flight of the spacecraft in minutes (\si{\minute})
 \end{itemize}
 
 \noindent \textbf{OUTPUTS:}
-The following orbital elements are at the final time \( t_0 + \delta t \).
+The following orbital elements are at the final time \( t_0 + \Delta t \).
 \begin{itemize}
     \item \( a \)  - semimajor axis in kilometers (\si{\kilo\meter})
     \item \( e \) - eccentricity (unitless)
@@ -74,7 +74,7 @@ Plus other outputs which are listed later in the description.
 \subsection*{Code Organization} 
 Your program should be modular in constructions. 
 This means you have seperate functions which perform \textbf{specific} tasks.
-Furthermore, each function should be tested and properly documented following the example shown in class.
+Furthermore, each function should be tested and properly documented following the examples shown in class.
 You \textbf{MAY NOT}  use global variables but rather must pass data between various functions.
 One suggested organization is given:
 
@@ -113,7 +113,7 @@ This function also calls \texttt{newton} which solves Kepler's problem using a N
     \item \( e_i \) - eccentricity (unitless)
     \item \( i_i \) - inclination in radians (\si{\radian})
     \item \( \Omega_i \) - right ascension of the ascending node in radians (\si{\radian})
-    \item \( \omega_i \) - arguement of perigee in radians (\si{\radian})
+    \item \( \omega_i \) - argument of perigee in radians (\si{\radian})
     \item \( \nu_i \) - true anomaly in radians (\si{\radian})
 \end{itemize}
 
@@ -123,7 +123,7 @@ This function also calls \texttt{newton} which solves Kepler's problem using a N
     \item \( e_i \) - eccentricity (unitless)
     \item \( i_i \) - inclination in radians (\si{\radian})
     \item \( \Omega_i \) - right ascension of the ascending node in radians (\si{\radian})
-    \item \( \omega_i \) - arguement of perigee in radians (\si{\radian})
+    \item \( \omega_i \) - argument of perigee in radians (\si{\radian})
     \item \( \nu_i \) - true anomaly in radians (\si{\radian})
 \end{itemize}
 
@@ -151,33 +151,13 @@ The data is copied below.
 8840.0  646.0 5455.0  -0.695  5.25  -1.65 0.0
 -3084.7  30.0  6911.0   5.66  -4.07   3.84 0.0
 \end{verbatim}
-The numbers on each line corresponds to the three elements of the position vector and the three elements of the velocity vector followed by the time of flight, i.e. \(\begin{bmatrix} x & y & z & \dot{x} & \dot{y} & \dot{z} & \delta t \end{bmatrix}\).
-The solution for Case 1, the first line/spacecraft, is given below.
-\begin{verbatim}
-R (km)    =  8840.0000 I    646.0000 J   5455.0000 K    Mag= 10407.6866
-V (km/s)  =    -0.6950 I      5.2500 J     -1.6500 K    Mag=     5.5469
-
-Radius of Perigee           (km) =  6260.5311
-Radius of Apogee            (km) = 11134.4744
-Energy              (km^2/sec^2) =   -22.9147
-Period                   (hours) =     2.2423
-Semimajor Axis              (km) =  8697.5027
-Eccentricity                     =     0.2802
-
-Inclination                           (deg) =    33.9987
-Right Ascension of the Ascending Node (deg) =   250.0287
-Argument of Perigee                   (deg) =   255.5372
-True Anomaly                          (deg) =   214.8548
-
-Time of Flight  (Minutes) =     0.0000
-Future True Anomaly (deg) =   214.8548 
-\end{verbatim}
-
+The numbers on each line corresponds to the three elements of the position vector and the three elements of the velocity vector followed by the time of flight, i.e. \(\begin{bmatrix} x & y & z & \dot{x} & \dot{y} & \dot{z} & \Delta t \end{bmatrix}\).
+The solution for Case 1, the first line/spacecraft, is also given in the course software library as \texttt{RV2\_solution.txt}
 The cases in \texttt{RV2.txt} have a time of flight of \SI{0}{\minute} which you should immediately convert to seconds. 
 In addition, since the time of flight is zero, the initial and final orbital elements should be identical.
 
-Using your computer program, you should read the vectors, compute the appropriate values and write them to a seperate text file.
-Do not hardcode the data into your program, but rather read them from the file. 
+Using your computer program, you should read the vectors, compute the appropriate values and write them to a separate text file.
+Do not hard code the data into your program, but rather read them from the file. 
 While only two cases are given here, your program should be able to convert an arbitrary amount of position and velocity vectors and time of flights.
 
 After verifying both cases shown in \texttt{RV2.txt}, modify the time of flight to one orbital period. 
@@ -185,27 +165,20 @@ This should provide another test with the final orbital elements equal to the in
 You are encouraged to create your own test cases to further verify you code. 
 For example, you could test your code using a time of flight of \( \frac{1}{4} \) orbital period, which should cause a change of the true anomaly by \SI{90}{\degree}.
 
-Finally, process the data from \texttt{RV3.txt} which should give the following
-\begin{verbatim}
-CASE 1:	 -4525.4103   -2600.2562   6147.2236   4.6461   2.6696   4.5560   300.0
+Finally, your code should be able to handle any arbitrary number of position/velocity vectors there is an additional input file \texttt{PROPOGATE\_tle.txt} that your program should be able to process.
 
-***************** Case    1 *****************
-R (km)    = -4525.4103 I   -2600.2562 J    6147.2236 K    Mag=   8064.0578
-V (km/s)  =     4.6461 I       2.6696 J       4.5560 K    Mag=      7.0335
-
-Radius of Perigee (km) =   8061.9974
-Radius of Apogee  (km) =   8079.4661
-Energy    (km^2/sec^2) =    -24.6942
-Period         (hours) =      2.0044
-Semimajor Axis    (km) =   8070.7317
-Eccentricity           =      0.0011
-
-Inclination                           (deg) =     90.0000
-Right Ascension of the Ascending Node (deg) =    209.8812
-Argument of Perigee                   (deg) =      9.4539
-True Anamaly                          (deg) =     40.2134
-
-Time of Flight  (Minutes) =    300.0000
-Future True Anamaly (deg) =    218.0948
-\end{verbatim}
+\section*{Grading}
+Finally, there is a file \texttt{PROPOGATE\_tle.txt} which contains a large list of position and velocity vectors of several real spacecraft. 
+Furthermore, beyond simply arriving at the correct solution, a well developed algorithm and properly documented/tested code is the main goal of this project.
+Your project grade will consist of the following:
+\begin{itemize}
+    \item \( 50 \% \) -- complete algorithm demonstrating the process used to compute the various orbital elements. 
+        Your grade will be determined on the clarity of your writing and the algorithm presented. 
+        Remember, a person without any astrodynamics background should be able to duplicate your program in any language of their choice.
+    \item \( 25 \% \) -- properly documented and tested code. 
+        Your functions should be properly documented and each should have sufficient unit-testing to ensure the validity of the outputs. 
+        You will be graded on the coverage, i.e. does every function have a test, and your documentation, is it easy to use your function based on the documentation.
+    \item \( 10 \% \) -- provide output from your program which matches the provided test cases.
+    \item \( 15 \% \) -- able to match a random output from \texttt{PROPOGATE\_tle.txt}
+\end{itemize}
 \end{document}  
