@@ -69,6 +69,12 @@ The following orbital elements are at the final time \( t_0 + \Delta t \).
     \item \( \omega \) - argument of perigee in radians (\si{\radian})
     \item \( \nu \) - true anomaly in radians (\si{\radian})
 \end{itemize}
+In addition, your program should also compute and output the future position and velocity vectors in the inertial frame at time \( t_0 + \Delta t \).
+\begin{itemize}
+    \item \( \bar r_f \in \R^3 \) -- the components of the position vector in the Earth Centered Inertial frame at the final time in kilometers.
+    \item \( \bar v_f \in \R^3 \) -- the components of the velocity vector in the Earth Centered Inertial frame at the final time in kilometers per second.
+\end{itemize}
+
 Plus other outputs which are listed later in the description.
 
 \subsection*{Code Organization} 
@@ -87,6 +93,7 @@ One suggested organization is given:
     \node[state, below = 1cm of RV2COE, anchor=center] (OrbParams) {\textbf{OrbParams}\\(R) Function};
     \node[state, below= 1cm of OrbParams, anchor=center] (Update) {\textbf{Update}\\(R) Function};
     \node[state, right = 2cm of Update, anchor =center] (Newton) {\textbf{Newton}\\(R) Function};
+    \node[state, below = 1cm of Newton, anchor=center] (COE2RV) {\textbf{COE2RV}\\(R) Function};
     \node[state, right = 2cm of RV2COE, anchor = center] (Output) {\textbf{Output} \\ (O) Function};
 
     \path [arrow] (Driver.south) -- (Constants.north);
@@ -95,6 +102,7 @@ One suggested organization is given:
     \path [arrow] (RV2COE.south) -- (OrbParams.north);
     \path [arrow] (Driver.south) -- (Output.north);
     \path [arrow] (OrbParams.south) -- (Update.north);
+    \path [arrow] (Newton.south) -- (COE2RV.north);
     \path [arrow] (Update.east) -- (Newton.west);
 \end{tikzpicture}
 
@@ -102,6 +110,8 @@ One suggested organization is given:
 
 The following functions must be written and accept the given inputs and provide the required outputs. 
 Each function should be well tested, with unit tests, and well-documented following the class example.
+Several functions are utilized from the previous project. 
+Those descriptions are not duplicated here.
 
 \subsubsection*{\texttt{Update}}
 This function ``updates'' the orbital elements given a time of flight using the restricted two-body assumptions.
@@ -109,38 +119,60 @@ This function also calls \texttt{newton} which solves Kepler's problem using a N
 
 \noindent{\textbf{Input:}}
 \begin{itemize}
-    \item \( a_i \)  - semimajor axis in kilometers (\si{\kilo\meter})
-    \item \( e_i \) - eccentricity (unitless)
-    \item \( i_i \) - inclination in radians (\si{\radian})
-    \item \( \Omega_i \) - right ascension of the ascending node in radians (\si{\radian})
-    \item \( \omega_i \) - argument of perigee in radians (\si{\radian})
-    \item \( \nu_i \) - true anomaly in radians (\si{\radian})
+    \item \( a_i \)  -- semimajor axis in kilometers (\si{\kilo\meter})
+    \item \( e_i \) -- eccentricity (unitless)
+    \item \( i_i \) -- inclination in radians (\si{\radian})
+    \item \( \Omega_i \) -- right ascension of the ascending node in radians (\si{\radian})
+    \item \( \omega_i \) -- argument of perigee in radians (\si{\radian})
+    \item \( \nu_i \) -- true anomaly in radians (\si{\radian})
 \end{itemize}
 
 \noindent \textbf{OUTPUTS:}
 \begin{itemize}
-    \item \( a_i \)  - semimajor axis in kilometers (\si{\kilo\meter})
-    \item \( e_i \) - eccentricity (unitless)
-    \item \( i_i \) - inclination in radians (\si{\radian})
-    \item \( \Omega_i \) - right ascension of the ascending node in radians (\si{\radian})
-    \item \( \omega_i \) - argument of perigee in radians (\si{\radian})
-    \item \( \nu_i \) - true anomaly in radians (\si{\radian})
+    \item \( a_i \)  -- semimajor axis in kilometers (\si{\kilo\meter})
+    \item \( e_i \) -- eccentricity (unitless)
+    \item \( i_i \) -- inclination in radians (\si{\radian})
+    \item \( \Omega_i \) -- right ascension of the ascending node in radians (\si{\radian})
+    \item \( \omega_i \) -- argument of perigee in radians (\si{\radian})
+    \item \( \nu_i \) -- true anomaly in radians (\si{\radian})
 \end{itemize}
 
-\subsubsection*{newton}
+\subsubsection*{\texttt{newton}}
 
 This function uses an iterative method to solve Kepler's problem.
 
-\noindent{\textbf{Input:}
+\noindent\textbf{Input:}
     \begin{itemize}
-        \item \( M \) - mean anomaly in radians ( \si{\radian} )
-        \item \( e \) - eccentricity of orbit 
+        \item \( M \) -- mean anomaly in radians ( \si{\radian} )
+        \item \( e \) -- eccentricity of orbit 
     \end{itemize}
 
 \noindent \textbf{Output:}
 \begin{itemize}
-    \item \( E \) - eccentric anomaly in radians (\si{\radian} )
-    \item \( \nu \) - true anomaly in radians ( \si{\radian} )
+    \item \( E \) -- eccentric anomaly in radians (\si{\radian} )
+    \item \( \nu \) -- true anomaly in radians ( \si{\radian} )
+\end{itemize}
+
+\subsubsection*{\texttt{COE2RV}}
+
+This function is the inverse of our previous \texttt{RV2COE}.
+It will convert the classical orbital elements to the equivalent position and velocity vector in the inertial frame.
+
+\noindent\textbf{Input:}
+\begin{itemize}
+    \item \( a \)  -- semimajor axis in kilometers (\si{\kilo\meter})
+    \item \( e \) -- eccentricity (unitless)
+    \item \( i \) -- inclination in radians (\si{\radian})
+    \item \( \Omega \) -- right ascension of the ascending node in radians (\si{\radian})
+    \item \( \omega \) -- argument of perigee in radians (\si{\radian})
+    \item \( \nu \) -- true anomaly in radians (\si{\radian})
+    \item \( \mu \) -- gravitational parameter of attracting body ( \si{\kilo\meter\cubed\per\second\squared})
+\end{itemize}
+
+\noindent\textbf{Output:}
+\begin{itemize}
+    \item \( \bar r \in \R^{3} \) -- the components of the position vector in the Earth Centered Inertial frame given in kilometers (\si{\kilo\meter})
+    \item \( \bar v \in \R^{3} \) -- the components of the velocity vector in the Earth Centered Inertial frame given in kilometers per second ( \si{\kilo\meter\per\second})
 \end{itemize}
 
 \subsection*{Test Data}
@@ -151,9 +183,9 @@ The data is copied below.
 8840.0  646.0 5455.0  -0.695  5.25  -1.65 0.0
 -3084.7  30.0  6911.0   5.66  -4.07   3.84 0.0
 \end{verbatim}
-The numbers on each line corresponds to the three elements of the position vector and the three elements of the velocity vector followed by the time of flight, i.e. \(\begin{bmatrix} x & y & z & \dot{x} & \dot{y} & \dot{z} & \Delta t \end{bmatrix}\).
+The numbers on each line corresponds to the three elements of the position vector and the three elements of the velocity vector followed by the time of flight (seconds), i.e. \(\begin{bmatrix} x & y & z & \dot{x} & \dot{y} & \dot{z} & \Delta t \end{bmatrix}\).
 The solution for Case 1, the first line/spacecraft, is also given in the course software library as \texttt{RV2\_solution.txt}
-The cases in \texttt{RV2.txt} have a time of flight of \SI{0}{\minute} which you should immediately convert to seconds. 
+The cases in \texttt{RV2.txt} have a time of flight of \SI{0}{\second}.
 In addition, since the time of flight is zero, the initial and final orbital elements should be identical.
 
 Using your computer program, you should read the vectors, compute the appropriate values and write them to a separate text file.
@@ -165,7 +197,7 @@ This should provide another test with the final orbital elements equal to the in
 You are encouraged to create your own test cases to further verify you code. 
 For example, you could test your code using a time of flight of \( \frac{1}{4} \) orbital period, which should cause a change of the true anomaly by \SI{90}{\degree}.
 
-Finally, your code should be able to handle any arbitrary number of position/velocity vectors there is an additional input file \texttt{PROPAGATE\_tle\_rvt.txt} that your program should be able to process.
+Finally, your code should be able to handle any arbitrary number of position/velocity vectors; there is an additional input file \texttt{PROPAGATE\_tle\_rvt.txt} that your program should be able to process.
 
 \section*{Grading}
 Finally, there is a file \texttt{PROPAGATE\_tle\_rvt.txt} which contains a large list of position and velocity vectors of several real spacecraft. 
