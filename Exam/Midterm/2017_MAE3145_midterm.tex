@@ -9,6 +9,11 @@
 %\usepackage[all,import]{xy}
 %\usepackage{eepic}
 \usepackage{my_packages}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
 \usepackage{tikz_packages}
 \renewcommand{\baselinestretch}{1.2}
 \date{}
@@ -28,16 +33,17 @@
 
 %1: Explain the Newtonian gravitational force and gravitational potential between particles
 %2: Analyze the characteristics of circular, elliptic, parabolic and hyperbolic orbits in a two-dimensional plane
-%3: Describe the geometry of an orbit in a three-dimensional space from orbital elements
-%4: Find an orbital position as a function of time
+%3: Apply numerical/analytical techniques to propogate orbits
+%4: Describe the geometry of an orbit in a three-dimensional space from orbital elements
 
 
 \begin{document}
 
 
+\setcounter{page}{0}
+
 \vspace*{1cm}
 
-\pagestyle{empty}
 \centerline{\LARGE{ MAE3145: Midterm Exam}}
 \vspace*{0.5cm}
 \centerline{\Large October 25, 2017}%\\%\vspace*{0.5cm}
@@ -53,22 +59,19 @@ Last Name & First Name & Student ID
 \vspace*{6cm}
 
 \centerline{
-\begin{tabular}{|c|c|c|c|c|c|}\hline
-Prob. 1 & Prob. 2 & Prob. 3 & Prob. 4 & Prob. 5 & Total \\
-(15) & (12) & (16) & (16) & (15) & (74)\\ \hline
-\hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.6cm} \\
-&&&&&\\
-&&&&&\\\hline
+\begin{tabular}{|c|c|c|c|c|}\hline
+Prob. 1 & Prob. 2 & Prob. 3 & Prob. 4 & Total \\
+(16) & (40) & (22) & (22) & (100)\\ \hline
+\hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm}\\
+                & & & & \\
+                & & & & \\
+\hline
 \end{tabular}}
 
-$ $\clearpage\newpage$ $
-
-\renewcommand{\thepage}{\arabic{page}/7}
-\clearpage\newpage\setcounter{page}{1}\pagestyle{plain}
-
+\clearpage\newpage
 % \renewcommand{\theprob}{\arabic{prob} \textit{(15pt)}}
 \begin{prob}
-    \textbf{20pt} Mark whether each statement written in \textit{italic font} is True or False.
+    \textbf{16pt} Mark whether each statement written in \textit{italic font} is True or False.
 \begin{subprob}
 
     \item The International space station (ISS) is on a circular orbit at the altitude of \SI{422}{\kilo\meter}, and GPS satellites are on circular orbits at the altitude of \SI{20200}{\kilo\meter}. \textit{The specific orbital energy of ISS is greater than GPS satellites, i.e. $\mathcal{E}_{ISS} > \mathcal{E}_{GPS}$}, [True, False]
@@ -78,22 +81,30 @@ $ $\clearpage\newpage$ $
     \item \textit{The orbital period of ISS is greater than GPS satellites, i.e. $\mathbb{P}_{ISS} > \mathbb{P}_{GPS}$}, [True, False]
 
 
-\vspace*{1cm}
-Write the name of the appropriate scientist who made the following statements.
+    \vspace*{1cm}
 
-    \item The force of gravity between two bodies is directly proportional to the product of their two masses and inversely proprtional to the square of the distance between them.
+    \item Who made this statement? The force of gravity between two bodies is directly proportional to the product of their two masses and inversely proprtional to the square of the distance between them.
 
     \vspace*{1cm}
 
-    \item The orbits of the planets are ellipses with the Sun at one focus.
+    \item Who made this statement? The orbits of the planets are ellipses with the Sun at one focus.
 
     \vspace*{1cm}
 
-    \item Defined the theory of epicycles, or described the apparent motion of the planets as composed of circular motion of the planet (epicycle) on a larger circle (deferent) centered on the Earth.
+    \item Who defined the theory of epicycles, or described the apparent motion of the planets as composed of circular motion of the planet (epicycle) on a larger circle (deferent) centered on the Earth.
 
     \vspace*{1cm}
-    
+     
     \item In your own words, write the three laws of planetary motion as described by Johaness Kepler.
+
+    \vspace*{1cm}
+
+    \item What is the equations of motion for the relative motion of two bodies under their mutual gravitational attraction?
+
+    \vspace*{1cm}
+
+    \item What is the analytical solution for the relative two-body problem?
+
 \end{subprob}
 \end{prob}
 
@@ -151,6 +162,7 @@ The distance along any edge is \( d\).
 
 \clearpage\newpage
 \begin{prob}
+    \textbf{22pt}
 Consider an elliptical  orbit.
 Define \( t_{outer} \) as the time required to move from a point on one end of the minor axis, through apoapsis, to a point on the other end of the minor axis.
 
@@ -162,6 +174,7 @@ Define \( t_{outer} \) as the time required to move from a point on one end of t
 
 \clearpage\newpage
 \begin{prob}
+    \textbf{22pt}
     Assume that a spacecraft is in the orbit about some planet of radius \( R\) and it is reasonable to model the orbit in terms of the two-body problem.
     The perifocal set of unit vectors are \( \hat p \) and \( \hat q \).
 
