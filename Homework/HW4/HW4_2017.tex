@@ -40,12 +40,12 @@
 \pagestyle{plain}
 \section*{MAE3145: Homework 4}
 \vspace*{-0.4cm}
-\noindent{Due date: \SI{2458038.1979166665}{\julianday} }%\\%\vspace*{0.5cm}
+\noindent{Due date: \SI{2458064.197916}{\julianday} }%\\%\vspace*{0.5cm}
 
 \begin{prob}
     Halley's comet last passed through perihelion on Feb 9, 1986.
-    The orbit is described with an eccentricity of \( e = 0.9671429\) and a semi-major axis of \( a = 17.834144 \si{\astronomicalunit} \).
-    In 1986, the European Space Agency spacecraft Giotto encountered and photographed teh nucleus of the comet as it approached the Sun.
+    The orbit is described with an eccentricity of \( e = 0.9671429\) and a semi-major axis of \( a = 17.834144 \si{\astronomicalunit} \), where \SI{1}{\astronomicalunit} (astronomical unit) is equal to the semi-major axis of the Earth, \SI{1.495898e8}{\kilo\meter}.
+    In 1986, the European Space Agency spacecraft Giotto encountered and photographed the nucleus of the comet as it approached the Sun.
     Data from Giotto's camera was used to generate the enhanced image shown in~\cref{fig:halley}.
     \begin{figure}[htbp]
         \centering
@@ -57,48 +57,23 @@
     \begin{subprob}
     \item On this date, determine the following additional orbital characteristics associated with Halley's orbit (assume a conic model):
         \begin{align*}
-            r, \quad v, \quad \nu, \quad \gamma, \quad \mathcal{E}, \quad h, \quad \mathsf{P}, \quad r_a, \quad r_p, \quad E
+            r, \quad v, \quad \nu, \quad \gamma, \quad \mathcal{E}, \quad h, \quad \mathbb{P}, \quad r_a, \quad r_p, \quad E, \quad (t_0 - T)
         \end{align*}
-        Ensure that you list all distances in astronomical units.
-    \end{subprob}
+        Ensure that you list all distances in astronomical units and times in a reasonable unit, seconds probably do not make sense for Halley's comet.
+        Note: \(\SI{1}{\astronomicalunit} = \text{semi-major axis of the Earth} = \SI{1.495898e8}{\kilo\meter}\)
 
     You can check the path of 1P/Halley at the JPL Small-Body Data Browser by going to the following \href{https://ssd.jpl.nasa.gov/sbdb.cgi?ID=c00001_0}{link}.
         Observers on Earth can pick up the comet when its true anomaly is approximately \SI{100}{\degree} prior perihelion.
-    \begin{subprob}
+
     \item Determine the same quantities shown in part (a) above, but at the time when the observers expect to pick up the next return.
     \item Determine the time required to go from the last perihelion passage to the location where Earth observers can again pick up the return of Halley's Comet.
         What is the approximate date?
         How old will you be?
     \item How many days until the comet passes through perihelion?
-\end{prob}
-
-\begin{prob}
-    A satellite is in orbit about the Earth. 
-    Assume that it is reasonable to model the behavior in terms of the relative two-body problem (Earth and Satellite).
-    The orbit is characterized by \( r_p = 1.5 R_{\bigoplus} \) and \( r_a = 6.2 R_{\bigoplus} \).
-    It is currently located, \( t_0 \), at the point in the orbit such that \( \nu = \SI{135}{\degree} \).
-
-    \begin{subprob}
-        \item Determine the following orbit paramterts and satellite state information:
-            \begin{align*}
-                a, \quad e, \quad p, \quad \mathsf{P}, \quad \mathcal{E}, \quad r_0, \quad v_0, \quad E_0, \quad \gamma_0, \quad \parenth{t_0 - T}.
-            \end{align*}
-            List the time in hours and all angles in degrees.
-        \item Write \( \bar r_0, \bar v_0 \) in terms of components in both the local vertical/local horizontal and perifocal reference frames.
-        \item Determine the value of true anomaly in exactly \SI{3}{\hour}.
-            Determine the satellite state at the new time, \( t_1 \).
-            \begin{align*}
-                r_1, \quad v_1, \quad E_1, \quad \gamma_1, \parenth{t_1 - T}
-            \end{align*}
-            Determine the \( \Delta \nu, \Delta E \) that corresponds to \( \Delta t = \SI{3}{\hour} \).
-        \item Write \( \bar r_1, \bar v_1 \) in terms of the local vertical/local horizontal and perifocal reference frames.
-        \item Plot the orbit using your skills from the previous homeworks.
-            By hand, mark on the plot the location of perigee and location of the satellite at \( t_0 \) and \( t_1 \). 
-            At each location indicate \( r, \nu, \bar v, E, \gamma \) also sketch the local horizon.
-            Add the auxillary circle and mark \( \Delta \nu \) and \( \Delta E \).
     \end{subprob}
 \end{prob}
 
+\clearpage\newpage
 \begin{prob}
     As part of some interplanetary mission, assume that a spacecraft departs the Earth vicinity along a hyperbola.
     The hyperbola is defined such that \( r_p = \SI{1000}{\kilo\meter} \) and \( e  = 1.05\).
@@ -145,6 +120,34 @@
         a, \quad e, \quad i, \quad \omega, \quad \Omega, \quad r, \quad v, \quad \gamma, \quad \nu, \quad M, \quad E, \quad \parenth{t - T}.
     \end{align*}
 \end{prob}
+
+% \clearpage\newpage
+% \begin{prob}
+%     A satellite is in orbit about the Earth. 
+%     Assume that it is reasonable to model the behavior in terms of the relative two-body problem (Earth and Satellite).
+%     The orbit is characterized by \( r_p = 1.5 R_{\bigoplus} \) and \( r_a = 6.2 R_{\bigoplus} \).
+%     It is currently located, \( t_0 \), at the point in the orbit such that \( \nu = \SI{135}{\degree} \).
+
+%     \begin{subprob}
+%         \item Determine the following orbit paramterts and satellite state information:
+%             \begin{align*}
+%                 a, \quad e, \quad p, \quad \mathbb{P}, \quad \mathcal{E}, \quad r_0, \quad v_0, \quad E_0, \quad \gamma_0, \quad \parenth{t_0 - T}.
+%             \end{align*}
+%             List the time in hours and all angles in degrees.
+%         \item Write \( \bar r_0, \bar v_0 \) in terms of components in both the local vertical/local horizontal and perifocal reference frames.
+%         \item Determine the value of true anomaly in exactly \SI{3}{\hour}.
+%             Determine the satellite state at the new time, \( t_1 \).
+%             \begin{align*}
+%                 r_1, \quad v_1, \quad E_1, \quad \gamma_1, \parenth{t_1 - T}
+%             \end{align*}
+%             Determine the \( \Delta \nu, \Delta E \) that corresponds to \( \Delta t = \SI{3}{\hour} \).
+%         \item Write \( \bar r_1, \bar v_1 \) in terms of the local vertical/local horizontal and perifocal reference frames.
+%         \item Plot the orbit using your skills from the previous homeworks.
+%             By hand, mark on the plot the location of perigee and location of the satellite at \( t_0 \) and \( t_1 \). 
+%             At each location indicate \( r, \nu, \bar v, E, \gamma \) also sketch the local horizon.
+%             Add the auxillary circle and mark \( \Delta \nu \) and \( \Delta E \).
+%     \end{subprob}
+% \end{prob}
 \end{document}
 
 
