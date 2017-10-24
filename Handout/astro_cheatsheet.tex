@@ -43,7 +43,7 @@
     \dot \rho_s &= - \dot \rho \cos \alpha \cos \beta+ \rho \dot \alpha \sin \alpha \cos \beta+ \rho \dot \beta\cos \alpha \sin \beta\\
     \dot \rho_e &= - \dot \rho \sin \alpha \cos \beta+ \rho \dot \alpha \cos \alpha \cos \beta- \rho \dot \beta\sin \alpha \sin \beta\\
     \dot \rho_z &=  \dot \rho \sin \beta + \rho \dot \beta \cos \beta \\
-    \bracket{\text{IJK}} &= ROT_3 (-\text{LST}) ROT_2(-\text{COLAT}) \bracket{\text{SEZ}}
+    \bracket{\text{IJK}} &= ROT_3 (\text{LST}) ROT_2(\text{COLAT}) \bracket{\text{SEZ}}
 \end{flalign*}
 
 \begin{flalign*}
@@ -81,7 +81,7 @@
 \begin{flalign*}
     \bar r &= r \bracket{ \cos \nu \hat p + \sin nu \hat q} \\
     \bar v &= \sqrt{\frac{\mu}{p}} \bracket{- \sin \nu \hat p + (e + \cos \nu) \hat q} \\
-    \bracket{\text{IJK}} &= ROT_3 (-\Omega) ROT_1 (-i) ROT_3(-\omega) \bracket{PQW} &
+    \bracket{\text{IJK}} &= ROT_3 (\Omega) ROT_1 (i) ROT_3(\omega) \bracket{PQW} &
 \end{flalign*}
 
 \clearpage
@@ -126,20 +126,22 @@
     ROT_1 &= 
     \begin{bmatrix} 
         1 & 0 & 0 \\
-        0 & \cos \alpha & \sin \alpha \\
-        0 & - \sin \alpha & \cos \alpha
+        0 & \cos \alpha & -\sin \alpha \\
+        0 & \sin \alpha & \cos \alpha
     \end{bmatrix} \\
     ROT_2 &= 
     \begin{bmatrix} 
-        \cos \beta & 0 & -\sin \beta \\
+        \cos \beta & 0 & \sin \beta \\
         0 & 1 & 0 \\
-        \sin \beta & 0 & \cos \beta
+        -\sin \beta & 0 & \cos \beta
     \end{bmatrix} \\
     ROT_3 &= 
     \begin{bmatrix} 
-        \cos \gamma & \sin \gamma & 0 \\
-        -\sin \gamma & \cos \gamma & 0 \\
+        \cos \gamma & -\sin \gamma & 0 \\
+        \sin \gamma & \cos \gamma & 0 \\
         0 & 0 & 1
     \end{bmatrix}
 \end{flalign*}
+
+Note: Assuming column vectors.
 \end{document}
