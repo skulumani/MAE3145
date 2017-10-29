@@ -41,4 +41,5 @@ date_obs_window = time.jd2date(jd_obs_window)
 # time to get from obs window to perihelion
 dt_obs2peri = kepler.tof_nu(p, ecc, nu_obs, 2*np.pi-1e-6, mu)
 
-
+print('Time to go nu=260 to perihelion: {} sec = {} days'.format(dt_obs2peri, dt_obs2peri/86400))
+print('Next obs window: {0}/{1}/{2}'.format(date_obs_window[0][0], date_obs_window[1], date_obs_window[2][0]))
