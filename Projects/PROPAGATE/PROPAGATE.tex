@@ -126,12 +126,12 @@ This function also calls \texttt{newton} which solves Kepler's problem using a N
 
 \noindent{\textbf{Input:}}
 \begin{itemize}
-    \item \( a_i \)  -- semimajor axis in kilometers (\si{\kilo\meter})
-    \item \( e_i \) -- eccentricity (unitless)
-    \item \( i_i \) -- inclination in radians (\si{\radian})
-    \item \( \Omega_i \) -- right ascension of the ascending node in radians (\si{\radian})
-    \item \( \omega_i \) -- argument of perigee in radians (\si{\radian})
-    \item \( \nu_i \) -- true anomaly in radians (\si{\radian})
+    \item \( a_0 \)  -- semimajor axis in kilometers (\si{\kilo\meter})
+    \item \( e_0 \) -- eccentricity (unitless)
+    \item \( i_0 \) -- inclination in radians (\si{\radian})
+    \item \( \Omega_0 \) -- right ascension of the ascending node in radians (\si{\radian})
+    \item \( \omega_0 \) -- argument of perigee in radians (\si{\radian})
+    \item \( \nu_0 \) -- true anomaly in radians (\si{\radian})
 \end{itemize}
 
 \noindent \textbf{OUTPUTS:}
@@ -179,7 +179,7 @@ It will convert the classical orbital elements to the equivalent position and ve
 \noindent\textbf{Output:}
 \begin{itemize}
     \item \( \bar r \in \R^{3} \) -- the components of the position vector in the Earth Centered Inertial frame given in kilometers (\si{\kilo\meter})
-    \item \( \bar v \in \R^{3} \) -- the components of the velocity vector in the Earth Centered Inertial frame given in kilometers per second ( \si{\kilo\meter\per\second})
+    \item \( \bar v \in \R^{3} \) -- the components of the velocity vector in the Earth Centered Inertial frame given in kilometers per second (\si{\kilo\meter\per\second})
 \end{itemize}
 
 In this function, you'll need to convert between various reference frames. 
