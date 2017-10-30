@@ -75,7 +75,14 @@ In addition, your program should also compute and output the future position and
     \item \( \bar v_f \in \R^3 \) -- the components of the velocity vector in the Earth Centered Inertial frame at the final time in kilometers per second.
 \end{itemize}
 
-Plus other outputs which are listed later in the description.
+In addition to the above your program should also compute and output the following orbital properties:
+
+\begin{itemize}
+    \item \( r_p \) -- radius of periapsis in kilometers (\si{\kilo\meter})
+    \item \( r_a \) -- radius of apoapsis in kilometers (\si{\kilo\meter})
+    \item \( \mathcal{E} \) -- specific mechanical energy (\si{\kilo\meter\squared\per\second\squared})
+    \item \( \mathbb{P} \) -- orbital period in seconds (\si{\second})
+\end{itemize}
 
 \subsection*{Code Organization} 
 Your program should be modular in constructions. 
@@ -175,6 +182,17 @@ It will convert the classical orbital elements to the equivalent position and ve
     \item \( \bar v \in \R^{3} \) -- the components of the velocity vector in the Earth Centered Inertial frame given in kilometers per second ( \si{\kilo\meter\per\second})
 \end{itemize}
 
+In this function, you'll need to convert between various reference frames. 
+In Python, you can define and perform matrix operations easily, an example is shown below for \( A x = b \):
+\begin{verbatim}
+import numpy as np
+A = np.array([[1, 0, 0],
+              [0, 1, 0],
+              [0, 0, 1]])
+x = np.array([1, 0, 0])
+
+b = A.dot(x)
+\end{verbatim}
 \subsection*{Test Data}
 Two test cases are provided with this project. 
 There is a text file named \texttt{RV2.txt} which contains the position and velocity vectors of two spacecraft. 
