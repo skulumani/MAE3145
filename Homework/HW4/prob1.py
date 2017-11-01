@@ -27,11 +27,13 @@ mu = constants.sun.mu
 
 # properties at perihelion
 print('Properties at Perihelion')
-kepler.orbit_el(p, ecc, inc, raan, argp, 0, mu, True)
+output = 'Properties at Perihelion\n'
+output += kepler.orbit_el(p, ecc, inc, raan, argp, 0, mu, True)
 
 # properties at next observation occurs at nu = 260 deg
 print('Properties at next Observations Window')
-kepler.orbit_el(p, ecc, inc, raan, argp, nu_obs, mu, True)
+output += "\nProperties at Next OBS window\n"
+output += kepler.orbit_el(p, ecc, inc, raan, argp, nu_obs, mu, True)
 
 # compute time to go from last perihelion to nu = 260 and then to perihelion
 dt_obs_window = kepler.tof_nu(p, ecc, 0, nu_obs, mu)
@@ -42,4 +44,9 @@ date_obs_window = time.jd2date(jd_obs_window)
 dt_obs2peri = kepler.tof_nu(p, ecc, nu_obs, 2*np.pi-1e-6, mu)
 
 print('Time to go nu=260 to perihelion: {} sec = {} days'.format(dt_obs2peri, dt_obs2peri/86400))
+output += "\nTime to go nu=260 to perihelion: {} sec = {} days\n".format(dt_obs2peri, dt_obs2peri/86400)
 print('Next obs window: {0}/{1}/{2}'.format(date_obs_window[0][0], date_obs_window[1], date_obs_window[2][0]))
+output += 'Next obs window: {0}/{1}/{2}'.format(date_obs_window[0][0], date_obs_window[1], date_obs_window[2][0])
+
+with open('prob1_sol.txt', 'w') as f:
+    f.write(output)

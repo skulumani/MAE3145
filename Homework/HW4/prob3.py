@@ -16,7 +16,7 @@ nu = np.deg2rad(235)
 
 mu = constants.earth.radius
 re = constants.earth.radius
-kepler.orbit_el(p, ecc, inc, raan, argp, nu, mu, True)
+output = kepler.orbit_el(p, ecc, inc, raan, argp, nu, mu, True)
 
 # generate a plot of orbit plane
 # plot the orbit
@@ -32,3 +32,5 @@ ax.set_ylabel(r'$\hat q$')
 plt.axis('equal')
 plt.show()
 
+with open('prob3_sol.txt', 'w') as f:
+    f.write(output)

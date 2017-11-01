@@ -13,7 +13,7 @@ v = np.array([-3.2, 2.0, 2.5])
 
 p, a, ecc, inc, raan, arg_p, nu, _, _, _ ,_ = kepler.rv2coe(r, v, mu)
 
-kepler.orbit_el(p, ecc, inc, raan, arg_p, nu, mu, True)
+output = kepler.orbit_el(p, ecc, inc, raan, arg_p, nu, mu, True)
 
 state_eci, state_pqw, state_lvlh, state_sat_eci, state_sat_pqw, state_sat_lvlh = kepler.conic_orbit(p, ecc, inc, raan, arg_p, nu, nu)
 
@@ -26,3 +26,6 @@ ax.set_xlabel(r'$\hat p$')
 ax.set_ylabel(r'$\hat q$')
 plt.axis('equal')
 plt.show()
+
+with open('prob4_sol.txt', 'w') as f:
+    f.write(output)
