@@ -3,6 +3,7 @@
 %\usepackage[pdftex,urlcolor=blue,pdfpagemode=none,pdfstartview=FitH]{hyperref}
 \usepackage{my_packages}
 \usepackage{tikz_packages}
+\usepackage{wasysym}
 %% url smaller font.
 \makeatletter
 \def\url@leostyle{%
@@ -109,6 +110,33 @@
         \end{align*}
     \item Determine the position and velocity at \( \nu = \SI{250}{\degree} \) in the new orbit and mark this location on the plot.
         Determine the amount of time to go from the maneuver to \( \nu = \SI{250}{\degree} \) in the new orbit.
+    \end{subprob}
+\end{prob}
+
+\begin{prob}
+    As part of of an interplanetary mission, a spacecraft is in the following orbit around Mars (relative to a Mars-centered inertial coordinate frame):
+    \begin{align*}
+        a = 5 R_{\mars} \quad e = 0.5 \quad i = \SI{30}{\degree} \quad \Omega = \SI{45}{\degree} \quad \omega = - \SI{60}{\degree}
+    \end{align*}
+
+    At \( \nu = \SI{120}{\degree} \), the following maneuver is implemented
+    \begin{align*}
+        \Delta \vec v = 0.1 \hat x - 0.25 \hat y + 0.2 \hat z \si{\kilo\meter\per\second} .
+    \end{align*}
+
+    \begin{subprob}
+    \item Transform the \( \Delta \vec v\) into the \( \hat r, \hat \theta, \hat h\) components corresponding to the original orbit.
+        How much of the \( \Delta \vec v \) is out of the plane?
+        Define this out of plane component as \( \Delta v_h \) and find the percentage as compared to the total \( \Delta \vec v \).
+    \item Define \( \Delta \vec v_{r\theta} \) as the projection of \( \Delta \vec v \) in the orbital plane. 
+        Determine \( \norm{\Delta \vec v_{r\theta}}, \beta, \phi \).
+        Determine  \( \alpha \)  between the velocity vector in the original orbit and \( \Delta \vec v_{r\theta}\).
+        Sketch this in-plane projection of components of the vector diagram.
+        Add the unit vectors \( \hat r, \hat \theta\) and \( \hat v, \hat c \) to the sketch.
+    \item To apply the maneuver, all position and velocities must be written in the same set of unit vectors, such as the inertial unit vectors \( \hat x, \hat y, \hat z \).
+        Determine the new \( \vec r^{+}, \vec v^{+} \) immediately after the manuever.
+    \item Determine the orbital elements of the new orbit.
+        Compare \( \hat r^- , \hat \theta^-, \hat h ^-\) ( pre-maneuver in the original orbit) and \( \hat r^+, \hat \theta^+, \hat h^+\) ( post-maneuver in the new orbit).
     \end{subprob}
 \end{prob}
 \end{document}
