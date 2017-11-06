@@ -41,7 +41,7 @@
 \pagestyle{plain}
 \section*{MAE3145: Homework 5}
 \vspace*{-0.4cm}
-\noindent{Due date: \SI{2458064.197916}{\julianday} }%\\%\vspace*{0.5cm}
+\noindent{Due date: \SI{2458071.2396}{\julianday} }%\\%\vspace*{0.5cm}
 
 \begin{prob}
     Observations at a certain instant indicate the following data for an Earth satellite:
@@ -54,10 +54,10 @@
         \begin{align*}
         a \quad e \quad \mathbb{P} \quad \mathcal{E} \quad r_p \quad r_a \quad \nu_c \quad E_c \quad \parenth{t_c - T}
         \end{align*}
-    \item In exactly \SI{8.5}{\hour}, a manuever will be implemented.
-        What are the orbital characteristics in \SI{8.5}{\hour} at the manuever point. 
+    \item In exactly \SI{8.5}{\hour}, a maneuver will be implemented.
+        What are the orbital characteristics in \SI{8.5}{\hour} at the maneuver point? 
         In other words, find the orbital properties, \( r_m, v_m^{-}, \gamma_m^{-} \) immediately before applying the maneuver.
-    \item The manuever is defined as \( \norm{\Delta v} = \SI{1200}{\meter\per\second} \) ( a very large manuever) directed such that \( \alpha = \SI{30}{\degree} \) with respect to the original velocity vector at the maneuver point.
+    \item The maneuver is defined as \( \norm{\Delta v} = \SI{1200}{\meter\per\second} \) (a very large maneuver) directed such that \( \alpha = \SI{30}{\degree} \) with respect to the original velocity vector at the maneuver point.
         Determine the following properties immediately after the impulsive maneuver:
         \begin{align*}
             a^{+} \quad e^{+} \quad \mathbb{P}^{+} \quad \mathcal{E}^{+} \quad r_p^{+} \quad r_a^{+} \quad \nu_c^{+} \quad E_c^{+} \quad \parenth{t_c - T}^{+} \quad \Delta \omega
@@ -65,20 +65,19 @@
         Ensure you draw a proper vector diagram!
     \item Create a plot with both the old and new orbit. 
         Mark the appropriate quantities on the plot.
-
     \end{subprob}
 \end{prob}
 
 \begin{prob}
     A vehicle has been successfully launched into an orbit such that \( e = 0.5 \) and \( a = 6.0 R_{\oplus} \). 
     Currently at \( t = t_0 \) the vehicle is located at perigee.
-    A single in-plane maneuver is employed to circularize the orbit at geosynchronous altitude \( r = 6.6 R_{\oplus} \).
+    A single in-plane maneuver is employed to circularize the orbit at geosynchronous \textbf{altitude} \( r = 6.6 R_{\oplus} \).
     \begin{subprob}
     \item Determine \( \vec r_1^{-} , \vec v_1^{-}, \gamma_1^{-} \)  at the maneuver point.
-        These are the conditions on the orbit prior to the manuever.
-        The manuever occurs at what value of \( \nu_1^{-} \)?
-        What is the ``wait time'' until the manuever, i.e. how long to go from perigee to the required manuever point?
-    \item Compute the required maneuver ( \( \norm{\Delta \vec v}, \alpha \).
+        These are the conditions on the orbit prior to the maneuver.
+        The maneuver occurs at what value of \( \nu_1^{-} \)?
+        What is the ``wait time'' until the maneuver, i.e. how long to go from perigee to the required maneuver point?
+    \item Compute the required maneuver \( \norm{\Delta \vec v}, \alpha \).
         Ensure you include a proper vector diagram.
         What are the conditions on the orbit immediately following the maneuver, i.e. find \( \vec r_1^{+} , \vec v_1^{+}, \gamma_1^{+} \)?
     \item Plot the old and new orbits (together).
@@ -97,16 +96,16 @@
 
     \begin{subprob}
     \item At what location \( \nu \) in the original orbit should the maneuver be implemented?
-        Determine \( \vec r_1, \vec v_1^{-}, \gamma_1^{-} \) at the manuever point.
-    \item Determine the manuever ( \( \norm{\Delta \vec v}, \alpha, \beta \)) to accomplish the objective.
+        Determine \( \vec r_1^-, \vec v_1^{-}, \gamma_1^{-} \) at the maneuver point.
+    \item Determine the maneuver (\( \norm{\Delta \vec v}, \alpha, \beta \)) to accomplish the objective.
         If there are two possibilities, \textbf{ALWAYS} choose the one with lowest cost. 
         Do not forget the vector diagrams!
         Can you deduce the lowest cost option  from the vector diagrams?
         What are the values of \( \vec v_1^{+}, \gamma^{+} \)?
-    \item Define the manuever in the VNC reference frame, i.e. write down the vector \( \Delta \vec v = a \hat v + b \hat n + c \hat c\).
+    \item Define the maneuver in the VNC reference frame, i.e. write down the vector \( \Delta \vec v = a \hat v + b \hat n + c \hat c\).
         Create a plot with the old and new orbit as well as the properties: 
         \begin{align*}
-            \vec r_0 \quad \vec r_1 \quad \vec v_1^{-} \quad \nu_1^{-} \quad \text{local horizon} \quad \gamma_1^{1} \quad \vec v_1^{+} \quad \gamma_1^{+} \quad \Delta \vec v \quad \alpha 
+            \vec r_0 \quad \vec r_1 \quad \vec v_1^{-} \quad \nu_1^{-} \quad \text{local horizon} \quad \gamma_1^{+} \quad \vec v_1^{+} \quad \gamma_1^{+} \quad \Delta \vec v \quad \alpha 
         \end{align*}
     \item Determine the position and velocity at \( \nu = \SI{250}{\degree} \) in the new orbit and mark this location on the plot.
         Determine the amount of time to go from the maneuver to \( \nu = \SI{250}{\degree} \) in the new orbit.
@@ -121,7 +120,7 @@
 
     At \( \nu = \SI{120}{\degree} \), the following maneuver is implemented
     \begin{align*}
-        \Delta \vec v = 0.1 \hat x - 0.25 \hat y + 0.2 \hat z \si{\kilo\meter\per\second} .
+        \Delta \vec v = 0.1 \hat x - 0.25 \hat y + 0.2 \hat z \si{\kilo\meter\per\second}.
     \end{align*}
 
     \begin{subprob}
@@ -134,9 +133,9 @@
         Sketch this in-plane projection of components of the vector diagram.
         Add the unit vectors \( \hat r, \hat \theta\) and \( \hat v, \hat c \) to the sketch.
     \item To apply the maneuver, all position and velocities must be written in the same set of unit vectors, such as the inertial unit vectors \( \hat x, \hat y, \hat z \).
-        Determine the new \( \vec r^{+}, \vec v^{+} \) immediately after the manuever.
+        Determine the new \( \vec r^{+}, \vec v^{+} \) immediately after the maneuver.
     \item Determine the orbital elements of the new orbit.
-        Compare \( \hat r^- , \hat \theta^-, \hat h ^-\) ( pre-maneuver in the original orbit) and \( \hat r^+, \hat \theta^+, \hat h^+\) ( post-maneuver in the new orbit).
+        Compare \( \hat r^- , \hat \theta^-, \hat h ^-\) (pre-maneuver in the original orbit) and \( \hat r^+, \hat \theta^+, \hat h^+\) (post-maneuver in the new orbit).
     \end{subprob}
 \end{prob}
 
