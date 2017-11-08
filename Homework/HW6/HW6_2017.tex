@@ -72,6 +72,7 @@
     \end{figure}
 \end{prob}
 
+\clearpage\newpage
 \begin{prob}
     In NASA's original plan for a crewed lunar base (Orion), a ground facility near the Moon's south pole was envisioned, necessitating a polar orbit.
     The lunar south pole offers areas of continual sunlight, which are ideal locations for continuous power generation, the so called ``peaks of eternal light''.
@@ -80,15 +81,90 @@
     Assume that the spacecraft arrives in the plane of the lunar equator and is currently in a circular orbit at \SI{100}{\kilo\meter} altitude.
     Two options existed for the plane change to the polar orbit.
     \begin{enumerate}
-        \item A signle maneuver at the current altitude to shift the orbit to an inclination of \SI{90}{\degree}.
-        \item A bi-elliptic strategety that includes three maneuvers: A maneuver to raise apoapsis to \SI{17000}{\kilo\meter}, followed by a plane change manuever at apoapsis, and a final maneuver to insert back into the \SI{100}{\kilo\meter} altitude polar orbit.
+        \item A single maneuver at the current altitude to shift the orbit to an inclination of \SI{90}{\degree}.
+        \item A bi-elliptic strategy that includes three maneuvers: A maneuver to raise apoapsis to \SI{17000}{\kilo\meter}, followed by a plane change maneuver at apoapsis, and a final maneuver to insert back into the \SI{100}{\kilo\meter} altitude polar orbit.
     \end{enumerate}
 
     \begin{subprob}
     \item Compute and compare the cost, i.e. \( \norm{\Delta \vec v} \), for a \SI{90}{\degree} plane change accomplished with the two approaches.
-        The single plane change is accomlished instantaneously. 
-        How much time (TOF) is devoted to the completion of the bi-elliptic option?
+        Assume the single plane change is accomplished instantaneously. 
+    \item How much time (TOF) is devoted to the completion of the bi-elliptic option? 
+        How does this compare with the single maneuver at the current altitude.
     \end{subprob}
+\end{prob}
+
+\begin{prob}
+    A vehicle is launched successfully into an orbit with \( e = 0.4\) and \( a = 6 R_{\oplus} \).
+    A single in-plane maneuver will be implemented when \( \nu = \SI{90}{\degree}\) (true anomaly).
+    Let the maneuver be defined as \( \norm{\Delta \vec v} = \SI{0.75}{\kilo\meter\per\second}\), and \( \alpha = -\SI{60}{\degree}\).
+
+    \begin{subprob}
+    \item Express the \( \Delta \vec v \) in terms of the rotating local vertical/local horizontal frame (\( \hat r, \hat \theta \)), perifocal frame (\( \hat p, \hat q \)), and VNC reference frames (\(\hat v, \hat c \)).
+    \item Determine the \( r, v, \gamma \) in the new orbit immediately after the maneuver.
+        Also compute the following characteristics of the new orbit:
+        \begin{align*}
+            a \quad e \quad \mathbb{P} \quad \mathcal{E} \quad r_p \quad r_a \quad \nu \quad E \quad (t - T) \quad p \quad \Delta \omega 
+        \end{align*}
+        Ensure you include a proper vector diagram.
+    \item Generate a plot of both the old and new orbits.
+        Mark on your plot the vector diagram associated with this maneuver.
+    \item As an alternative, wait until the vehicle reaches the end of the minor axis and is descending and then implement the same manuever.
+        What is the ``wait time'' to travel from \( \nu = \SI{90}{\degree} \) to the end of the minor axis?
+        \begin{subprob}
+
+            \item How do you determine the orbital characteristics at the manuever point, i.e. \( r^-, v^-, \gamma^- \).
+            \item Determine the following orbital characteristics immediately following the maneuver:
+                \begin{align*}
+                    a \quad e \quad \mathbb{P} \quad \mathcal{E} \quad r_p \quad r_a \quad \nu \quad E \quad (t - T) \quad p \quad \Delta \omega 
+                \end{align*}
+            \item Plot the old and new orbit and the appropriate quantities on the plot.
+        \end{subprob}
+    \end{subprob}
+\end{prob}
+
+
+\begin{prob}
+A spacecraft is returning from an interplanetary mission along a hyperbolic orbit and it is required to rendezvous with a space station already in Earth orbit.
+Currently, the spacecraft is at \( \nu = -\SI{90}{\degree} \) (before periapsis) in the hyperbolic orbit and approaching periapsis.
+The space station is located at point \( B\) in the desired final orbit.
+A figure illustrating the problem is shown below.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{scaletikzpicturetowidth}{0.5\textwidth}
+    \begin{tikzpicture}
+        \draw [<->, thick] (0, 3) node (yaxis) [above] {$y$} |- (3, 0) node (xaxis) [right] {$x$}; 
+    \end{tikzpicture}
+\end{scaletikzpicturetowidth}
+\end{figure}
+\begin{gather*}
+r_A=7000\,\mathrm{km},\quad r_B=14000\,\mathrm{km},\quad v_{A_1}=12\,\mathrm{km/s},\quad \mu =398600\,\mathrm{km^3/s^2}.
+\end{gather*}
+We wish to design an orbital maneuver of the spacecraft such that a rendezvous between the spacecraft and the space station occurs at the point B. The maneuver of the spacecraft is composed of the following orbits:
+
+\begin{center}\vspace*{-0.3cm}
+{\small\selectfont
+\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+& Description  & Periapsis & Apoapsis & Velocity at the beginning & Velocity at the end\\\hline
+Orbit & Hyperbolic return orbit & $A$ & - & - & $v_{A_1}$ ($t=0$)\\
+Orbit & Hohmann transfer from $A$ to $B$ & $A$ & $B$ & $v_{A_2}$  ($t=0$)& $v_{B_2}$  ($t=t_{1}$)\\
+Orbit & Phasing orbit from $B$ to $B$ & $C$ & $B$ & $v_{B_3}$ ($t=t_{1}$) & $v_{B_3}$ ($t=t_{2}$)\\
+Orbit & Target circular orbit (counter-clockwise) &$B$ & $B$ & $v_{B_4}$ ($t=t_{2}$)& - \\ \hline
+\end{tabular}}
+\end{center}
+
+
+\begin{subprob}
+\item Find the velocity change at point $A$, namely $\Delta V_{A}=v_{A_2}-v_{A_1}$, to transfer the spacecraft from Orbit to Orbit at $t=0$.
+\item Compute the absolute time $t_1$ when the spacecraft arrives at $B$ from Orbit 
+\item Find the location of the space station when $t=t_{1}$ (answer in terms of the angle measured from the $\vec x$ axis counter-clockwise). What is the \textit{absolute} time $t_2$ when the space station returns to $B$.
+\item The period of the phasing orbit should be $T_3=t_{2}-t_{1}$. Find the semi-major axis $a_3$, and distance to the apoapsis $r_C$ of the phasing orbit
+\item Find the velocity change at point $B$, namely $\Delta V_{B_1}=v_{B_3}-v_{B_2}$, to transfer the spacecraft from Orbit to Orbit at $t=t_{1}$.
+\item Find the velocity change at point $B$, namely $\Delta V_{B_2}=v_{B_4}-v_{B_3}$, to transfer the spacecraft from Orbit to Orbit at $t=t_{2}$.
+\item Show that the total velocity change is $\Delta V_{total} = |\Delta V_A| + |\Delta V_{B_1}| +|\Delta V_{B_2}|=4.2657\,\mathrm{km/s}$.
+\end{subprob}
+
+
 \end{prob}
 \end{document}
 
