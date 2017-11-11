@@ -122,45 +122,52 @@
     \end{subprob}
 \end{prob}
 
-
+\clearpage\newpage
 \begin{prob}
 A spacecraft is returning from an interplanetary mission along a hyperbolic orbit and it is required to rendezvous with a space station already in Earth orbit.
-Currently, the spacecraft is at \( \nu = -\SI{90}{\degree} \) (before periapsis) in the hyperbolic orbit and approaching periapsis.
+Currently, the spacecraft is at \( \nu = \SI{0}{\degree} \) (at periapsis) in the hyperbolic orbit and approaching periapsis.
 The space station is located at point \( B\) in the desired final orbit.
+Both spacecraft are moving in the same direction, such that the angular momentum vectors are aligned and along the \( z \) axis (out of the  page).
 A figure illustrating the problem is shown below.
 
 \begin{figure}[htbp]
     \centering
-    \begin{scaletikzpicturetowidth}{0.5\textwidth}
+    \begin{scaletikzpicturetowidth}{\textwidth}
     \begin{tikzpicture}
-        \draw [<->, thick] (0, 3) node (yaxis) [above] {$y$} |- (3, 0) node (xaxis) [right] {$x$}; 
+        \draw [<->, thick] (0, 4) node (yaxis) [above] {$y$} |- (4, 0) node (xaxis) [right] {$x$};
+        \draw [<-, thick] (-4, 0) {} -- (0, 0) {}; 
+        \draw[black, fill=black] (0, 0) circle (3mm);
+        \draw[black] (0, 0) circle (3cm);
+        \draw[black, fill=black] (3, 0) circle[radius=2pt] node (B) [below right] {$B$};
+
+        % hyperbolic orbit
+        \draw[black, fill=black] (-1.5, 0) circle[radius=2pt] node (A) [below left] {$A$};
+        \draw[bend left] (1, -3)  to (-1.5, 0);
+        \draw[bend left] (-1.5, 0) to (1, 3);
     \end{tikzpicture}
 \end{scaletikzpicturetowidth}
 \end{figure}
 \begin{gather*}
 r_A=7000\,\mathrm{km},\quad r_B=14000\,\mathrm{km},\quad v_{A_1}=12\,\mathrm{km/s},\quad \mu =398600\,\mathrm{km^3/s^2}.
 \end{gather*}
-We wish to design an orbital maneuver of the spacecraft such that a rendezvous between the spacecraft and the space station occurs at the point B. The maneuver of the spacecraft is composed of the following orbits:
+We wish to design an orbital maneuver of the spacecraft such that a rendezvous between the spacecraft and the space station occurs at point B. 
+The maneuver of the spacecraft is composed of the following orbits:
 
-\begin{center}\vspace*{-0.3cm}
-{\small\selectfont
-\begin{tabular}{|c|c|c|c|c|c|c|}\hline
-& Description  & Periapsis & Apoapsis & Velocity at the beginning & Velocity at the end\\\hline
-Orbit & Hyperbolic return orbit & $A$ & - & - & $v_{A_1}$ ($t=0$)\\
-Orbit & Hohmann transfer from $A$ to $B$ & $A$ & $B$ & $v_{A_2}$  ($t=0$)& $v_{B_2}$  ($t=t_{1}$)\\
-Orbit & Phasing orbit from $B$ to $B$ & $C$ & $B$ & $v_{B_3}$ ($t=t_{1}$) & $v_{B_3}$ ($t=t_{2}$)\\
-Orbit & Target circular orbit (counter-clockwise) &$B$ & $B$ & $v_{B_4}$ ($t=t_{2}$)& - \\ \hline
-\end{tabular}}
-\end{center}
-
+\begin{itemize}
+    \item Hohmann transfer from the hyperbolic orbit to the circular orbit
+    \item A phasing orbit to ensure a rendezvous at $B$ on the circular orbit
+\end{itemize}
 
 \begin{subprob}
-\item Find the velocity change at point $A$, namely $\Delta V_{A}=v_{A_2}-v_{A_1}$, to transfer the spacecraft from Orbit to Orbit at $t=0$.
-\item Compute the absolute time $t_1$ when the spacecraft arrives at $B$ from Orbit 
-\item Find the location of the space station when $t=t_{1}$ (answer in terms of the angle measured from the $\vec x$ axis counter-clockwise). What is the \textit{absolute} time $t_2$ when the space station returns to $B$.
-\item The period of the phasing orbit should be $T_3=t_{2}-t_{1}$. Find the semi-major axis $a_3$, and distance to the apoapsis $r_C$ of the phasing orbit
-\item Find the velocity change at point $B$, namely $\Delta V_{B_1}=v_{B_3}-v_{B_2}$, to transfer the spacecraft from Orbit to Orbit at $t=t_{1}$.
-\item Find the velocity change at point $B$, namely $\Delta V_{B_2}=v_{B_4}-v_{B_3}$, to transfer the spacecraft from Orbit to Orbit at $t=t_{2}$.
+\item Find the velocity change at point $A$, namely $\Delta V_{A}$, to transfer the spacecraft from the hyperbolic orbit to a transfer ellipse between $A$ and $B$.
+\item Compute the time required to transfer from $A$ to $B$ during the Hohmann transfer.
+\item Find the location of the space station when the spacecraft arrives at point $B$.
+    You can assume the true anomaly for the space station is measured from the positive \( x \) axis.
+   How much time is required for the space station to  return to $B$?
+\item Find the period of the phasing orbit such that both the spacecraft and space station will arrive at point \( B \) at the same time.
+    Find the semi-major axis $a_p$, and distance to the apoapsis $r_C$ of the phasing orbit.
+\item Find the velocity change at point $B$, namely $\Delta V_{B_1}$, to transfer the spacecraft from the Hohmann transfer ellipse to phasing orbit.
+\item Find the velocity change at point $B$, namely $\Delta V_{B_2}$, to transfer the spacecraft from the phasing orbit onto the target circular orbit.
 \item Show that the total velocity change is $\Delta V_{total} = |\Delta V_A| + |\Delta V_{B_1}| +|\Delta V_{B_2}|=4.2657\,\mathrm{km/s}$.
 \end{subprob}
 
