@@ -30,7 +30,7 @@ The tracking data is reported as:
             \item Site altitude in meters
             \item Observation time in UTC - \href{https://en.wikipedia.org/wiki/ISO_8601}{ISO 8601} format
         \end{itemize}
-    \item \textbf{LINE 1}
+    \item \textbf{LINE 2}
         \begin{itemize}
             \item Satellite ID number - 4 digit integer
             \item Vehicle range in kilometers
@@ -38,7 +38,7 @@ The tracking data is reported as:
             \item Vehicle elevation in degrees
             \item Range rate in kilometers per second
             \item Azimuth rate in degrees per second
-            \item Elevation rate in degrees per second \si{\degree\per\second}
+            \item Elevation rate in degrees per second
         \end{itemize}
 \end{itemize}
 
@@ -62,7 +62,7 @@ The program you develop must be your own work.
 
 Write a structured algorithm that shows your approach to writing a computer program to perform all of the tasks described above.
 This should be a complete \textbf{sequential} list of the \textbf{equations and logic (including loop)} that you will use to write your program.
-The details of subalgorithms are only required for procedures that are new for this project, not those provided to you.
+The details of sub-algorithms are only required for procedures that are new for this project, not those provided to you or from a previous project.
 Instead, just mention what procedure will be used and the inputs and outputs of the procedure, e.g. ``Calculate orbital elements given position and velocity vectors using \texttt{rv2coe}''.
 
 When completed, anyone should be able to write your code \textbf{solely} using the algorithm in \textbf{any} computer language of their choice.
@@ -104,20 +104,20 @@ This function computes the Greenwich sidereal time and Local sidereal time at a 
 
 \noindent \textbf{Inputs: }
 \begin{itemize}
-    \item \( jd \) - Julian date
+    \item \( \si{\julianday} \) - Julian date
     \item \( \lambda \) - site longitude in radians
 \end{itemize}
 
 \noindent \textbf{Output:}
 \begin{itemize}
-    \item \(gst \) - Greenwich sidereal time in radians
-    \item \(lst\) - Local sidereal time in radians
+    \item \(GST \) - Greenwich sidereal time in radians
+    \item \(LST\) - Local sidereal time in radians
 \end{itemize}
 
 This function will make use of \texttt{gsttime0} which provides the Greenwich sidereal time at the beginning of the year. 
 
-\subsubsection*{\texttt{site}}
-This function computes the Earth Centered Inertial position vectors of an observation site on the Earth.
+\subsubsection*{\texttt{lla2ecef}}
+This function transforms a ground station location to a vector in the Earth Centered Earth Fixed reference frame.
 
 \noindent \textbf{Inputs: }
 \begin{itemize}
@@ -128,8 +128,23 @@ This function computes the Earth Centered Inertial position vectors of an observ
 
 \noindent \textbf{Output:}
 \begin{itemize}
-    \item \( r_{eci} \in \R^{3 \times 1} \) - site position vector in the Earth centered inertial frame and given in kilometers
+    \item \( \vec r_{ecef} \in \R^{3 \times 1} \) - site position vector in the Earth centered Earth Fixed reference frame and given in kilometers
 \end{itemize}
+
+\subsubsection*{\texttt{ecef2eci}}
+This function will return the rotation matrix to transform a vector from the Earth Centered Earth fixed frame to the Earth Centered Inertial frame.
+
+\noindent \textbf{Inputs: }
+\begin{itemize}
+    \item \( \si{\julianday} \) - Julian Date for transformation
+\end{itemize}
+
+\noindent \textbf{Outputs: }
+\begin{itemize}
+    \item \( R \) -- rotation matrix from ECEF to ECI
+\end{itemize}
+
+This function will make use of \texttt{gstlst}.
 
 \subsubsection*{\texttt{rvtopos}}
 This function converts radar measurements to a range and range rate vector in the topocentric reference frame.
@@ -147,7 +162,23 @@ This function converts radar measurements to a range and range rate vector in th
 \noindent \textbf{Output: }
 
 \begin{itemize}
-    \item \( r_{sez} \) - position of spacecraft in topocentric reference frame in kilometers
-    \item \( v_{sez} \) - velocity of spacecraft in the topocentric reference frame in kilometers per second
+    \item \( \vec r_{sez} \) - position of spacecraft in topocentric reference frame in kilometers
+    \item \( \vec v_{sez} \) - velocity of spacecraft in the topocentric reference frame in kilometers per second
 \end{itemize}
+
+\subsubsection*{\texttt{sez2ecef}}
+This function will transform a vector in the topocentric reference frame to a vector in the Earth Centered Earth Fixed reference frame.
+
+\noindent\textbf{Inputs:}
+\begin{itemize}
+    \item \( \phi \) - site geodetic latitude in radians
+    \item \( \lambda \) - site longitude in radians
+    \item \( h \) - site altitude above mean sea level in kilometers
+\end{itemize}
+
+\noindent \textbf{Outputs:}
+\begin{itemize}
+    \item \( R\) - rotation matrix from the topocentric to ECEF reference frame
+\end{itemize}
+
 \end{document}  
