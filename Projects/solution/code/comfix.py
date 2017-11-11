@@ -5,8 +5,8 @@ import pdb
 
 def generate_data(tle_file='./data/COMFIX_tle.txt', outfile='./data/COMFIX_tle.txt'):
     # define a time span
-    jd_start, _ = time.date2jd(2017, 9, 1, 0, 0, 0)  # time in UTC
-    jd_end, _ = time.date2jd(2017, 9, 11, 0, 0, 0)
+    jd_start, _ = time.date2jd(2017, 12, 1, 0, 0, 0)  # time in UTC
+    jd_end, _ = time.date2jd(2017, 12, 11, 0, 0, 0)
     jd_step =  1 / (24 * 60)
     jd_span = np.arange(jd_start, jd_end, jd_step)
 
@@ -50,8 +50,11 @@ def generate_data(tle_file='./data/COMFIX_tle.txt', outfile='./data/COMFIX_tle.t
         sat.tle_update(jd_span)
         sat.visible_radar(site)
 
-        # 
+        # compute the measurements  from the radar site to the satellite
+
+        # write the observation to the text file
 
     pdb.set_trace()
+
 def solution():
     pass
