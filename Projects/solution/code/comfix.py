@@ -1,4 +1,4 @@
-from astro import tle, constants, kepler, geodetic, time, planets
+from astro import tle, constants, kepler, geodetic, time, planets, transform
 from collections import defaultdict
 import numpy as np
 import pdb
@@ -80,17 +80,47 @@ def generate_data(tle_file='./data/COMFIX_tle.txt', outfile='./data/COMFIX_tle_m
 
 def solution(meas_file='./data/COMFIX_tle_measurement.txt', outfile='./data/COMFIX_tle_solution.txt'):
     # read in the measurement data
+    fout = open(outfile, 'w')
 
-    # find satellite vector in SEZ
+    with open(meas_file, 'r') as f:
+        l0 = f.readline().split()
+        l0 = [float(x) for x in l0]
+        while l0:
+            l1 = f.readline().split()
+            l1 = [float(x) for x in l1]
+            latgd, lon, alt, jd = np.deg2rad(l0[0]), np.deg2rad(l0[1]), l0[2]/1e3, l0[3]
+            satnum, rho, az, el, drho, daz, dele = l1[0], l1[1], np.deg2rad(l1[2]), np.deg2rad(l1[3]), l1[4], np.deg2rad(l1[5]), np.deg2rad(l1[6])
+            
+            # find satellite vector in SEZ
+            rho_sez, drho_sez = geodetic.rhoazel2sez(rho, az, el, drho, daz, dele)
+            R_eci2ecef = geodetic.eci2ecef(jd)
+            R_ecef2eci = geodetic.ecef2eci(jd)
+            R_sez2ecef = transform.dcm_sez2ecef(latgd, lon, alt)
 
-    # find  site vector in ECEF/ECI
+            # find  site vector in ECEF/ECI
+            site_ecef = geodetic.lla2ecef(latgd, lon, alt)
+            site_eci = R_ecef2eci.dot(site_ecef)
 
-    # transform satellite vector from SEZ to ECI
+            # transform satellite vector from SEZ to ECI
+            rho_ecef = R_sez2ecef.dot(rho_sez)
+            rho_eci = R_ecef2eci.dot(rho_ecef)
 
-    # find orbital elements
+            drho_ecef = R_sez2ecef.dot(drho_sez)
+            drho_eci = R_ecef2eci.dot(drho_ecef)
 
-    # output to text file
-    pass
+            pos_eci = site_eci + rho_eci
+            vel_eci = drho_eci + np.cross(np.array([0, 0, constants.earth.omega]), pos_eci)
+            # find orbital elements
+            p, a, ecc, inc, raan, arg_p, nu, _, _, _, _ = kepler.rv2coe(pos_eci,vel_eci, constants.earth.mu) 
+
+            # compute orbit properties
+            prop_string = kepler.orbit_el(p, ecc, inc, raan, arg_p, nu, constants.earth.mu)
+             
+            l0 = f.readline().split()
+            l0 = [float(x) for x in l0]
+            # output to text file
+            fout.write('################COMFIX SATELLITE {}##################'.format(satnum))
+    
 
 if __name__ == '__main__':
     generate_data()
