@@ -79,6 +79,17 @@ def generate_data(tle_file='./data/COMFIX_tle.txt', outfile='./data/COMFIX_tle_m
     f.close()
 
 def solution(meas_file='./data/COMFIX_tle_measurement.txt', outfile='./data/COMFIX_tle_solution.txt'):
+    # read in the measurement data
+
+    # find satellite vector in SEZ
+
+    # find  site vector in ECEF/ECI
+
+    # transform satellite vector from SEZ to ECI
+
+    # find orbital elements
+
+    # output to text file
     pass
 
 if __name__ == '__main__':
