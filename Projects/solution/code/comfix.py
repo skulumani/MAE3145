@@ -120,7 +120,7 @@ def solution(meas_file='./data/COMFIX_tle_measurement.txt', outfile='./data/COMF
             l0 = [float(x) for x in l0]
             # output to text file
             fout.write('################COMFIX SATELLITE {}##################'.format(satnum))
-    
+            # TODO: Add extra outputs for the test solutions so they can debug   
 
 if __name__ == '__main__':
     generate_data()
