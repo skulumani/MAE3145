@@ -3,7 +3,7 @@ from collections import defaultdict
 import numpy as np
 import pdb
 
-def generate_data(tle_file='./data/COMFIX_tle.txt', outfile='./data/COMFIX_tle.txt'):
+def generate_data(tle_file='./data/COMFIX_tle.txt', outfile='./data/COMFIX_tle_measurement.txt'):
     # define a time span
     jd_start, _ = time.date2jd(2017, 12, 1, 0, 0, 0)  # time in UTC
     jd_end, _ = time.date2jd(2017, 12, 11, 0, 0, 0)
@@ -44,17 +44,42 @@ def generate_data(tle_file='./data/COMFIX_tle.txt', outfile='./data/COMFIX_tle.t
     
     # read some TLEs and get the state vector and write to a file
     sats = tle.get_tle(tle_file)
-
+    
+    f = open(outfile, 'w')
     for sat in sats:
         # propogate for several time periods and get the r, v vectors
         sat.tle_update(jd_span)
         sat.visible_radar(site)
+        
+        jd_vis = sat.jd_vis
+        rho_vis = sat.rho_vis
+        az_vis = sat.az_vis
+        el_vis = sat.el_vis
+        drho_vis = sat.drho_vis
+        daz_vis = sat.daz_vis
+        dele_vis = sat.dele_vis
 
-        # compute the measurements  from the radar site to the satellite
+        # write first line - site latgd, lon, alt (meters), JD obs time
+        f.write('{:9.6f} {:9.6f} {:9.6f} {:16.6f}\n'.format(
+        np.rad2deg(site['lat']),
+        np.rad2deg(site['lon']),
+        site['alt'] * 1e3,
+        jd_vis[0]))
 
-        # write the observation to the text file
+        # write second line rho, az, el, drho, daz, dele
+        f.write('{:5g} {:16.6f} {:16.6f} {:16.6f} {:16.6f} {:16.6f} {:16.6f}\n'.format(
+            sat.satnum,
+            rho_vis[0],
+            np.rad2deg(az_vis[0][0]),
+            np.rad2deg(el_vis[0]),
+            drho_vis[0],
+            np.rad2deg(daz_vis[0]),
+            np.rad2deg(dele_vis[0])))
 
-    pdb.set_trace()
+    f.close()
 
-def solution():
+def solution(meas_file='./data/COMFIX_tle_measurement.txt', outfile='./data/COMFIX_tle_solution.txt'):
     pass
+
+if __name__ == '__main__':
+    generate_data()
