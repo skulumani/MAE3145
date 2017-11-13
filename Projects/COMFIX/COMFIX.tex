@@ -48,9 +48,8 @@ After completing the project you must submit the hard copies of your work:
     \item Complete algorithms for the main driver script as well as a seperate algorithm for each sub-function that you develop.
         Someone totally unfamiliar with astrodynamics should be able to duplicate your program in any computer language.
     \item Clear, concise and properly documented and tested code
-    \item Correct outputs from your program which matches the test cases
-    \item Any additional test cases you may have used. 
-        Explain why you did or did not use any additional test cases.
+    \item Correct outputs from your program which matches the test cases given in \texttt{comfix.dat} and \texttt{comfix\_solution.txt}
+    \item Correct outputs which match the input data given in \texttt{COMFIX\_tle\_measurement.txt}
 \end{itemize}
 
 \subsection*{Authorized Resources}
@@ -98,23 +97,6 @@ Furthermore, the library shows the standards used in this class for:
 The following is a description of the required functions that your software program must include. 
 You will be making use of many of the functions that you have been developing over the course of the semester.
 
-\subsubsection*{\texttt{gstlst}}
-
-This function computes the Greenwich sidereal time and Local sidereal time at a specific site given a known Julian date.
-
-\noindent \textbf{Inputs: }
-\begin{itemize}
-    \item \( \si{\julianday} \) - Julian date
-    \item \( \lambda \) - site longitude in radians
-\end{itemize}
-
-\noindent \textbf{Output:}
-\begin{itemize}
-    \item \(GST \) - Greenwich sidereal time in radians
-    \item \(LST\) - Local sidereal time in radians
-\end{itemize}
-
-This function will make use of \texttt{gsttime0} which provides the Greenwich sidereal time at the beginning of the year. 
 
 \subsubsection*{\texttt{lla2ecef}}
 This function transforms a ground station location to a vector in the Earth Centered Earth Fixed reference frame.
