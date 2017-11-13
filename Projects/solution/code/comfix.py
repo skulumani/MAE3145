@@ -77,7 +77,6 @@ def generate_data(tle_file='./data/COMFIX_tle.txt', outfile='./data/COMFIX_tle_m
             np.rad2deg(dele_vis[0])))
 
     f.close()
-
 def solution(meas_file='./data/COMFIX_tle_measurement.txt', outfile='./data/COMFIX_tle_solution.txt'):
     # read in the measurement data
     fout = open(outfile, 'w')
