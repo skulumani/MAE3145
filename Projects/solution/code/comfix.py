@@ -91,6 +91,8 @@ def solution(meas_file='./data/COMFIX_tle_measurement.txt', outfile='./data/COMF
             latgd, lon, alt, jd = np.deg2rad(l0[0]), np.deg2rad(l0[1]), l0[2]/1e3, l0[3]
             satnum, rho, az, el, drho, daz, dele = l1[0], l1[1], np.deg2rad(l1[2]), np.deg2rad(l1[3]), l1[4], np.deg2rad(l1[5]), np.deg2rad(l1[6])
             
+            # GST, LST
+            gst, lst = time.gstlst(jd, lon)
             # find satellite vector in SEZ
             rho_sez, drho_sez = geodetic.rhoazel2sez(rho, az, el, drho, daz, dele)
             R_eci2ecef = geodetic.eci2ecef(jd)
@@ -119,8 +121,34 @@ def solution(meas_file='./data/COMFIX_tle_measurement.txt', outfile='./data/COMF
             l0 = f.readline().split()
             l0 = [float(x) for x in l0]
             # output to text file
-            fout.write('################COMFIX SATELLITE {}##################'.format(satnum))
-            # TODO: Add extra outputs for the test solutions so they can debug   
+            fout.write('#################### COMFIX SATELLITE {:g} ####################################\n\n'.format(satnum))
+            fout.write('------------------------ INPUT DATA -------------------------------------------\n\n')
+            fout.write('LAT (deg)    LON (deg)     ALT (m)       JD\n')
+            fout.write('{:<9.4f}    {:<9.4f}     {:<9.4f}      {:<16.6f}\n\n'.format(np.rad2deg(latgd), np.rad2deg(lon), alt*1e3, jd))
+            fout.write('RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (deg/s)   DEL (deg/s)\n')
+            fout.write('{:<9.4f}     {:<6.4f}    {:<6.4f}     {:<6.4f}     {:<6.4f}        {:<6.4f}\n'.format(rho, np.rad2deg(az), np.rad2deg(el), drho, np.rad2deg(daz), np.rad2deg(dele)))
 
+            fout.write('------------------------- WORKING DATA ----------------------------------------\n\n')
+            fout.write('LAT (deg)    LON (deg)     ALT (m)       JD\n')
+            fout.write('{:<9.4f}    {:<9.4f}     {:<9.4f}      {:<16.6f}\n\n'.format(latgd, lon, alt, jd))
+            fout.write('RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)\n')
+            fout.write('{:<9.4f}     {:<6.4f}    {:<6.4f}     {:<6.4f}     {:<6.4f}        {:<6.4f}\n\n'.format(rho, az, el, drho, daz, dele))
+            fout.write('GST  = {:16.9f} rad = {:16.9f} deg\n'.format(gst, np.rad2deg(gst)))
+            fout.write('LST  = {:16.9f} rad = {:16.9f} deg\n\n'.format(lst, np.rad2deg(lst)))
+
+            fout.write('---------------------------- VECTORS ------------------------------------------\n')
+            fout.write('{:9s} = {:13.4f} S {:13.4f} E {:13.4f} Z MAG = {:7.4f} km\n'.format('rho_sez', rho_sez[0], rho_sez[1], rho_sez[2], np.linalg.norm(rho_sez))) 
+            fout.write('{:9s} = {:13.4f} I {:13.4f} J {:13.4f} K MAG = {:7.4f} km\n'.format('rho_ecef', rho_ecef[0], rho_ecef[1], rho_ecef[2], np.linalg.norm(rho_ecef))) 
+            fout.write('{:9s} = {:13.4f} I {:13.4f} J {:13.4f} K MAG = {:7.4f} km\n'.format('rho_eci', rho_eci[0], rho_eci[1], rho_eci[2], np.linalg.norm( rho_eci))) 
+            fout.write('{:9s} = {:13.4f} S {:13.4f} E {:13.4f} Z MAG = {:7.4f} km/s\n'.format('drho_sez', drho_sez[0], drho_sez[1], drho_sez[2], np.linalg.norm(drho_sez))) 
+            fout.write('{:9s} = {:13.4f} I {:13.4f} J {:13.4f} K MAG = {:7.4f} km/s\n'.format('drho_ecef', drho_ecef[0], drho_ecef[1], drho_ecef[2], np.linalg.norm(drho_ecef))) 
+            fout.write('{:9s} = {:13.4f} I {:13.4f} J {:13.4f} K MAG = {:7.4f} km/s\n'.format('drho_eci', drho_eci[0], drho_eci[1], drho_eci[2], np.linalg.norm(drho_eci))) 
+            fout.write('{:9s} = {:13.4f} I {:13.4f} J {:13.4f} K MAG = {:7.4f} km\n'.format('site_ecef', site_ecef[0], site_ecef[1], site_ecef[2], np.linalg.norm( site_ecef))) 
+            fout.write('{:9s} = {:13.4f} I {:13.4f} J {:13.4f} K MAG = {:7.4f} km\n'.format('site_eci', site_eci[0], site_eci[1], site_eci[2], np.linalg.norm( site_eci))) 
+            fout.write('{:9s} = {:13.4f} I {:13.4f} J {:13.4f} K MAG = {:7.4f} km\n'.format('pos_eci', pos_eci[0], pos_eci[1], pos_eci[2], np.linalg.norm( pos_eci))) 
+            fout.write('{:9s} = {:13.4f} I {:13.4f} J {:13.4f} K MAG = {:7.4f} km/s\n'.format('vel_eci',vel_eci[0],vel_eci[1],vel_eci[2], np.linalg.norm(vel_eci))) 
+    
+            fout.write(prop_string + '\n')
+    fout.close()
 if __name__ == '__main__':
     generate_data()
