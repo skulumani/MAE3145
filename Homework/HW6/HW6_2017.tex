@@ -39,9 +39,9 @@
 
 \setcounter{page}{1}
 \pagestyle{plain}
-\section*{MAE3145: Homework 5}
+\section*{MAE3145: Homework 6}
 \vspace*{-0.4cm}
-\noindent{Due date: \SI{2458085.2395}{\julianday} }%\\%\vspace*{0.5cm}
+\noindent{Due date: \SI{0}{\julianday} }%\\%\vspace*{0.5cm}
 
 \begin{prob}
     Neptune is now the furthest ``planet'' in our solar system (since Pluto is classified as a dwarf planet).
@@ -175,40 +175,65 @@ The maneuver of the spacecraft is composed of the following orbits:
 \end{prob}
 
 \begin{prob}
-    Consider the following orbits
-
-
+    Consider the following orbits:
     \begin{figure}[htbp]
         \centering
         \begin{scaletikzpicturetowidth}{\textwidth}
             \begin{tikzpicture}[dot/.style={draw,fill,circle,inner sep=1pt}]
-                \def\a{4} % large half axis
-                \def\b{3} % small half axis
+                \def\a{4} % semi major axis
+                \def\b{2} % semi minor axis
+                \def\c{3} 
+                \def\d{2}
+                \def\fa{{sqrt(\a*\a-\b*\b)}}
+                \def\fb{{sqrt(\c*\c-\d*\d}}
                 \def\angle{-45} % angle at which X is placed
                 % define attracting focus
-                \node[dot] (earth) at (0, 0) {};
-                % Draw the ellipse
-                \draw (0,0) ellipse ({\a} and {\b});
+                \draw[fill=black] (0, 0) circle[radius=4pt] node (earth) {};
+                % Draw the large ellipse
+                \draw ($(earth) - (\fa, 0)$) ellipse ({\a} and {\b});
+                \draw ($(earth) + (\fb, 0)$) ellipse ({\c} and {\d});
                 % Draw the inner lines and labels
-                \draw (-\a,0) coordinate[label={left:$A$}] (A)
-                    -- (\a,0) coordinate[label={right:$B$}] (B);
-                \draw (0,-\b) coordinate[label={below:$D$}] (D)
-                    -- (0,\b) coordinate[label={above:$C$}] (C);
-                \coordinate[label={below right:$S(p,q)$}] (O) at (0,0);
-                % Nodes at the focal points
-                \node[dot,label={below:$F_1$}] (F1) at ({-sqrt(\a*\a-\b*\b)},0) {};
-                \node[dot,label={below:$F_2$}] (F2) at ({+sqrt(\a*\a-\b*\b)},0) {};
-                % Node on the rim, connected to foci
-                \node[dot,label={\angle:$X$}] (X) at (\angle:{\a} and {\b}) {};
-                \draw (F1) -- (X) (X) -- (F2);
-                % Brace
-                \draw[decorate,decoration=brace,draw=red] (C) -- (O);
-
-                \draw (F2) ellipse (4 and 3);
+                \draw[fill=black] ($(earth) -(\a, 0) - (\fa, 0)$) circle[radius=2pt] coordinate[label={left:$D$}] (D);
+                \draw[circle,fill=black] ($(earth) +(\a, 0) - (\fa, 0)$) circle[radius=2pt] coordinate[label={right:$C$}] (C);
+                \draw[circle,fill=black] ($(earth) + (\c, 0) + (\fb, 0)$) circle[radius=2pt] coordinate[label={right:$B$}] (B);
+                \draw[circle,fill=black] ($(earth) - (\c, 0) + (\fb, 0)$) circle[radius=2pt] coordinate[label={left:$A$}] (A);
             \end{tikzpicture}
     \end{scaletikzpicturetowidth}
     \end{figure}
+    with 
+    \begin{align*}
+        r_A = \SI{25000}{\kilo\meter} \quad r_B = \SI{40000}{\kilo\meter} \quad r_C = \SI{10000}{\kilo\meter} \quad r_D = \SI{55000}{\kilo\meter}
+    \end{align*}
+    \begin{subprob}
+        \item Find the minimum energy (\(\Delta V\)) transfer ellipse by comparing a transfer from \( A\) to \( C \) vs. a transfer from \( B \) to \(D\).
+        \item Sketch each transfer ellipse.
+        \item Calculate the time of flight for the minimum energy transfer.
+    \end{subprob}
 \end{prob}
+
+\begin{prob}
+    Given two circular coplanar orbits with \( r_i = \SI{8000}{\kilo\meter}\) and \( r_f = \SI{120000}{\kilo\meter}\), find the \( \Delta V \) required and time of flight for a bi-elliptic transfer with an intermediate radius of \( r_{int} = \SI{280000}{\kilo\meter}\). 
+    Compare this to the direct Hohmann Transfer manuever and discuss the trade-offs between the two methods.
+\end{prob}
+
+\begin{prob} 
+    Calculate the total \( \Delta V \), time of flight, and firing angles (\(\alpha\)) to transfer between circular coplanar orbits with \( r_i = \SI{10000}{\kilo\meter}\) and \( r_f = \SI{42160}{\kilo\meter}\) using a transfer ellipse having the parameters \( e = 0.75\) and \( p = \SI{15000}{\kilo\meter}\).
+\end{prob}
+
+\begin{prob}
+    Solve the following plane change problems.
+    \begin{subprob}
+    \item Show that the maximum obtainable simple plane change for a circular orbit where \( \Delta v = \Delta v_{escape} \) is \( \Delta i = \SI{23.5}{\degree}\).
+    \item Show that the maximum obtainable simple plane for a circular orbit with \( \Delta v = v_{circular}\) is \( \Delta i = \SI{60}{\degree}\).
+    \item Determine the minimum  \( \Delta v \) required to complete the following transfer:
+        \begin{align*}
+            r_i &= \SI{8000}{\kilo\meter} &r_f &= \SI{42160}{\kilo\meter} \\
+            e_i &= 0  &e_f &= 0 \\
+            i_i &= \SI{30}{\degree} &i_f&=\SI{0}{\degree}
+        \end{align*}
+    \end{subprob}
+\end{prob}
+
 \noindent The following problems should help you get started on the \texttt{COMFIX} project.
 All of the problems are referencing the first satellite obseravtion from \texttt{comfix.dat}.
 
