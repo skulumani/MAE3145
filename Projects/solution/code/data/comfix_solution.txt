@@ -1,9 +1,8 @@
 #################### COMFIX SATELLITE 1001 ####################################
 
---------------- INPUT DATA -----------------
+------------------------ INPUT DATA -------------------------------------------
 
-LAT (deg)     LON (deg)     ALT (m)        JD
-  LON (deg)     ALT (m)       JD
+LAT (deg)    LON (deg)     ALT (m)       JD
 77.7000      -68.5000      50.0000        2454154.637616  
 
 RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (deg/s)   DEL (deg/s)
