@@ -1,0 +1,132 @@
+Initial Orbital Elements
+
+Satellite State 
+Position and Velocity in LVLH frame 
+r_hat:                25512.548 km rd_hat:       -2.91825574797689 km/sec
+t_hat:                        0 km td_hat:        3.47784177176016 km/sec
+h_hat:                        0 km hd_hat:                       0 km/sec
+
+Position and Velocity in EPH/PQW frame 
+e_hat:        -8377.48621900577 km ed_hat:        4.24325558076028 km/sec
+p_hat:        -24097.8801993593 km pd_hat:        1.61442933457824 km/sec
+h_hat:                        0 km hd_hat:                       0 km/sec
+
+Position and Velocity in IJK frame 
+i_hat:        -8377.48621900577 km id_hat:        4.24325558076028 km/sec
+j_hat:        -24097.8801993593 km jd_hat:        1.61442933457824 km/sec
+k_hat:                        0 km kd_hat:                       0 km/sec
+
+RAD_MAG   :            25512.548 km = 0.000170540850615052 AU 
+VEL_MAG   :                 4.54 km/sec 
+
+Orbital Elements 
+sma:           37477.2179812508 km raan:                         0 deg
+ecc:          0.687739800828592    arg_p:                        0 deg
+inc:                          0 deg nu:           250.830293500232 deg
+
+Elliptic Orbital Parameters
+P         :     19751.0172962967 km =  0.00013202739648831 AU 
+ANG MOM   :     88728.6051384361 km^2/sec 
+PERIOD    :     72204.1177713576 sec =     20.0566993809327 hr
+ENGERGY   :    -5.31790406907221 km^2/sec^2 
+RAD_PER   :     11702.6435512156 km = 7.82273407449962e-05 AU 
+RAD_APO   :      63251.792411286 km = 0.000422812118991307 AU 
+
+VEL_CIRC  :     3.95268314807451 km/sec 
+VEL_ESC   :     5.58993811577055 km/sec 
+TRUE_ANOM :     250.830293500232 deg 
+FPA       :                  -40 deg 
+ECC_ANOM  :     297.658742127688 deg 
+MEAN_ANOM :     332.560493858385 deg 
+MEAN_MOT  :  0.00498586522641243 deg/sec 
+
+T_PAST_PER:     66700.6585129213 sec =     18.5279606980337 hr 
+
+Orbital Elements just before burn
+
+Satellite State 
+Position and Velocity in LVLH frame 
+r_hat:         59029.5126720355 km rd_hat:       0.780986341147941 km/sec
+t_hat:                        0 km td_hat:        1.50312277913265 km/sec
+h_hat:                        0 km hd_hat:                       0 km/sec
+
+Position and Velocity in EPH/PQW frame 
+e_hat:        -57112.4360236472 km ed_hat:       -1.13558403949721 km/sec
+p_hat:         14921.5621750141 km pd_hat:       -1.25688768131695 km/sec
+h_hat:                        0 km hd_hat:                       0 km/sec
+
+Position and Velocity in IJK frame 
+i_hat:        -57112.4360236472 km id_hat:       -1.13558403949721 km/sec
+j_hat:         14921.5621750141 km jd_hat:       -1.25688768131695 km/sec
+k_hat:                        0 km kd_hat:                       0 km/sec
+
+RAD_MAG   :     59029.5126720355 km = 0.000394587922087631 AU 
+VEL_MAG   :     1.69390606416268 km/sec 
+
+Orbital Elements 
+sma:           37477.2179812508 km raan:                         0 deg
+ecc:          0.687739800828592    arg_p:                        0 deg
+inc:                          0 deg nu:           165.357838322619 deg
+
+Elliptic Orbital Parameters
+P         :     19751.0172962967 km =  0.00013202739648831 AU 
+ANG MOM   :     88728.6051384361 km^2/sec 
+PERIOD    :     72204.1177713576 sec =     20.0566993809327 hr
+ENGERGY   :    -5.31790406907221 km^2/sec^2 
+RAD_PER   :     11702.6435512156 km = 7.82273407449962e-05 AU 
+RAD_APO   :      63251.792411286 km = 0.000422812118991307 AU 
+
+VEL_CIRC  :     2.59856940376349 km/sec 
+VEL_ESC   :      3.6749320935701 km/sec 
+TRUE_ANOM :     165.357838322619 deg 
+FPA       :     27.4553002598493 deg 
+ECC_ANOM  :     146.739358595831 deg 
+MEAN_ANOM :     125.127969786605 deg 
+MEAN_MOT  :  0.00498586522641243 deg/sec 
+
+T_PAST_PER:     25096.5407415637 sec =     6.97126131710103 hr 
+
+Orbital Elements after burn
+
+Satellite State 
+Position and Velocity in LVLH frame 
+r_hat:         59029.5126720355 km rd_hat:         1.7925527541048 km/sec
+t_hat:                        0 km td_hat:        2.14867168678999 km/sec
+h_hat:                        0 km hd_hat:                       0 km/sec
+
+Position and Velocity in EPH/PQW frame 
+e_hat:        -28626.1967189395 km ed_hat:       -2.74840014691788 km/sec
+p_hat:           51623.87265313 km pd_hat:       0.525672927097673 km/sec
+h_hat:                        0 km hd_hat:                       0 km/sec
+
+Position and Velocity in IJK frame 
+i_hat:        -57112.4360236472 km id_hat:       -2.27748098485728 km/sec
+j_hat:         14921.5621750141 km jd_hat:       -1.62576620627789 km/sec
+k_hat:                        0 km kd_hat:                       0 km/sec
+
+RAD_MAG   :     59029.5126720355 km = 0.000394587922087631 AU 
+VEL_MAG   :     2.79822004028662 km/sec 
+
+Orbital Elements 
+sma:           70236.8535102774 km raan:                         0 deg
+ecc:          0.652216801878363    arg_p:         46.3488253549185 deg
+inc:                          0 deg nu:           119.009012967701 deg
+
+Elliptic Orbital Parameters
+P         :      40359.026198068 km = 0.000269783428053273 AU 
+ANG MOM   :     126835.042563414 km^2/sec 
+PERIOD    :     185250.129533377 sec =     51.4583693148269 hr
+ENGERGY   :    -2.83754524924493 km^2/sec^2 
+RAD_PER   :     24427.1975398052 km = 0.000163285730871738 AU 
+RAD_APO   :      116046.50948075 km = 0.000775723006488994 AU 
+
+VEL_CIRC  :     2.59856940376349 km/sec 
+VEL_ESC   :      3.6749320935701 km/sec 
+TRUE_ANOM :     119.009012967701 deg 
+FPA       :     39.8369211046226 deg 
+ECC_ANOM  :     75.8388382620978 deg 
+MEAN_ANOM :     39.6051676089685 deg 
+MEAN_MOT  :  0.00194331847921941 deg/sec 
+
+T_PAST_PER:     20380.1734159792 sec =     5.66115928221645 hr 
+
