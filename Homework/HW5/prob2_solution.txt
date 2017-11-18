@@ -42,6 +42,8 @@ MEAN_MOT  :  0.00483196646112172 deg/sec
 
 T_PAST_PER:     20281.0916399333 sec =     5.63363656664815 hr 
 
+Delta V: 1.2642272076105507 km/sec
+Alpha: 84.50533326476899 deg, Beta: 95.49466673523101 deg
 Final Orbit after manuever
 
 Satellite State 

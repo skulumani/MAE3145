@@ -35,7 +35,8 @@ _,_, r2_pqw, v2_pqw= kepler.coe2rv(r_2, ecc_2, 0, 0, 0, nu_1[0], mu)
 delta_v, alpha, beta = manuever.delta_v_solve_planar(np.linalg.norm(v1_pqw),
                                                      np.linalg.norm(v2_pqw),
                                                      fpa1, 0)
-
+print('Delta V: {} km/sec'.format(delta_v))
+print('Alpha: {} deg, Beta: {} deg'.format(np.rad2deg(alpha), np.rad2deg(beta)))
 # final orbit properties
 print('Final Orbit after manuever')
 kepler.orbit_el(r_2, ecc_2, 0, 0, 0, nu_1[0], mu, 'True')
