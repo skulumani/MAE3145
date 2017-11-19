@@ -54,7 +54,7 @@ h_hat:                        0 km hd_hat:                       0 km/sec
 
 Position and Velocity in IJK frame 
 i_hat:        -54.2236816527054 km id_hat:        6.59174808896846 km/sec
-j_hat:        -7032.46430232225 km jd_hat:      0.0822317235618657 km/sec
+j_hat:        -7032.46430232225 km jd_hat:      0.0822317235618653 km/sec
 k_hat:         1045.27868064708 km kd_hat:        3.71444460022933 km/sec
 
 RAD_MAG   :     7109.92980916858 km = 4.75269454649895e-05 AU 
@@ -1272,7 +1272,7 @@ h_hat:                        0 km hd_hat:                       0 km/sec
 
 Position and Velocity in IJK frame 
 i_hat:        -3301.01614467105 km id_hat:       -6.25748458656102 km/sec
-j_hat:        -60.7334215253933 km jd_hat:       -2.53011454016814 km/sec
+j_hat:        -60.7334215253935 km jd_hat:       -2.53011454016814 km/sec
 k_hat:         6075.55593182471 km kd_hat:       -3.46261761294501 km/sec
 
 RAD_MAG   :      6914.6783017433 km = 4.62217697467437e-05 AU 
@@ -1440,7 +1440,7 @@ h_hat:                        0 km hd_hat:                       0 km/sec
 
 Position and Velocity in IJK frame 
 i_hat:        -5401.40482119023 km id_hat:        1.79756874861158 km/sec
-j_hat:         3957.27070949683 km jd_hat:     -0.0161752145930747 km/sec
+j_hat:         3957.27070949683 km jd_hat:     -0.0161752145930749 km/sec
 k_hat:         1310.21702586444 km kd_hat:        7.43538232648938 km/sec
 
 RAD_MAG   :      6822.8904553337 km = 4.56082058877823e-05 AU 
@@ -1482,7 +1482,7 @@ h_hat:                        0 km hd_hat:                       0 km/sec
 
 Position and Velocity in IJK frame 
 i_hat:        -1775.83551845744 km id_hat:        -6.0359775959354 km/sec
-j_hat:         115.136494758552 km jd_hat:        4.34784419594901 km/sec
+j_hat:         115.136494758553 km jd_hat:        4.34784419594901 km/sec
 k_hat:        -6601.64890034178 km kd_hat:         1.7127211132671 km/sec
 
 RAD_MAG   :     6837.29598631097 km = 4.57045009150931e-05 AU 
@@ -2069,7 +2069,7 @@ p_hat:        -4950.20563238819 km pd_hat:        5.24229919543431 km/sec
 h_hat:                        0 km hd_hat:                       0 km/sec
 
 Position and Velocity in IJK frame 
-i_hat:        -5430.85217556095 km id_hat:       -4.54103634666369 km/sec
+i_hat:        -5430.85217556095 km id_hat:       -4.54103634666368 km/sec
 j_hat:         2881.79093053961 km jd_hat:       -3.53184277807362 km/sec
 k_hat:        -2859.90226972216 km kd_hat:          5.070240767669 km/sec
 
@@ -2112,7 +2112,7 @@ h_hat:                        0 km hd_hat:                       0 km/sec
 
 Position and Velocity in IJK frame 
 i_hat:        -1065.65000102646 km id_hat:       -7.50047817530034 km/sec
-j_hat:         4305.66039020263 km jd_hat:      0.0256390983282328 km/sec
+j_hat:         4305.66039020263 km jd_hat:      0.0256390983282327 km/sec
 k_hat:        -5131.49479962633 km kd_hat:        1.58356143828575 km/sec
 
 RAD_MAG   :      6782.8135901733 km = 4.53403085897767e-05 AU 
@@ -2280,7 +2280,7 @@ h_hat:                        0 km hd_hat:                       0 km/sec
 
 Position and Velocity in IJK frame 
 i_hat:         6007.96285596666 km id_hat:        -2.6213491441493 km/sec
-j_hat:         91.1540584843775 km jd_hat:        5.33093519975416 km/sec
+j_hat:         91.1540584843774 km jd_hat:        5.33093519975416 km/sec
 k_hat:        -3152.64688626814 km kd_hat:        -4.8402306224957 km/sec
 
 RAD_MAG   :      6785.5072861614 km = 4.53583148353743e-05 AU 
@@ -2574,7 +2574,7 @@ h_hat:                        0 km hd_hat:                       0 km/sec
 
 Position and Velocity in IJK frame 
 i_hat:        -1954.07823464674 km id_hat:        7.27024758302134 km/sec
-j_hat:        -4973.83199483627 km jd_hat:      -0.893180434710193 km/sec
+j_hat:        -4973.83199483627 km jd_hat:      -0.893180434710194 km/sec
 k_hat:          4034.3726761118 km kd_hat:        2.40699674645198 km/sec
 
 RAD_MAG   :      6695.7889266116 km = 4.47585846416904e-05 AU 
@@ -2658,7 +2658,7 @@ h_hat:                        0 km hd_hat:                       0 km/sec
 
 Position and Velocity in IJK frame 
 i_hat:         -6653.7286904109 km id_hat:       0.708696918882317 km/sec
-j_hat:        -736.118785119162 km jd_hat:       -5.61844067205616 km/sec
+j_hat:        -736.118785119162 km jd_hat:       -5.61844067205617 km/sec
 k_hat:         120.027661471358 km kd_hat:        5.23281144773658 km/sec
 
 RAD_MAG   :     6695.40013672975 km = 4.47559857418408e-05 AU 
