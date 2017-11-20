@@ -132,7 +132,7 @@ A figure illustrating the problem is shown below.
 
 \begin{figure}[htbp]
     \centering
-    \begin{scaletikzpicturetowidth}{\textwidth}
+    \begin{scaletikzpicturetowidth}{0.3\textwidth}
     \begin{tikzpicture}
         \draw [<->, thick] (0, 4) node (yaxis) [above] {$y$} |- (4, 0) node (xaxis) [right] {$x$};
         \draw [<-, thick] (-4, 0) {} -- (0, 0) {}; 
@@ -173,6 +173,35 @@ The maneuver of the spacecraft is composed of the following orbits:
 
 
 \end{prob}
+
+
+\subsection*{COMFIX Hand Calculations}
+\noindent The following problems should help you get started on the \texttt{COMFIX} project.
+All of the problems are referencing the first satellite obseravtion from \texttt{comfix.dat}.
+
+\begin{prob}
+    Recall the radar site and obseration data for satellite \num{1001} from \texttt{comfix.dat}, i.e. latitude \( = \SI{77.7}{\degree} N\), longitude \( = \SI{68.5}{\degree} W\), altitude \( = \SI{50}{\meter} \), Observation time = \( \SI{ 2454154.6376157}{\julianday}\).
+    Using this observation (the first one from the file), complete the following.
+    \begin{itemize}
+        \item Compute Greenwich Sidereal Time - \( GST \)
+        \item Compute Local Sidereal Time - \( LST \)
+        \item Draw a sketch of the problem using a view from the north pole and identify the location of the inertial \( x \) axis and the angles \( GST, LST\).
+    \end{itemize}
+\end{prob}
+
+\begin{prob}
+    Using the same site and time information from the previous problem, compute the position of the obseration site \( \vec r_{site} \) in both the inertial frame (ECI) and the Earth centered Earth fixed frame (ECEF).
+\end{prob}
+
+\begin{prob}
+    Using the same site and observation data, find the vectors \( \vec \rho_{ECI}, \dot \vec \rho_{ECI} \) which define the position and velocity of the satellite relative to the observation site in the Earth Centered Inertial frame.
+\end{prob}
+
+\begin{prob}
+    Finally, compute the position and velocity of the satellite, \( \vec r_{ECI}, \vec v_{ECI} \), in the Inertial frame and compute the classical orbital elements for this satellite.
+\end{prob}
+
+\section*{Extra Credit}
 
 \begin{prob}
     Consider the following orbits:
@@ -233,31 +262,5 @@ The maneuver of the spacecraft is composed of the following orbits:
         \end{align*}
     \end{subprob}
 \end{prob}
-
-\noindent The following problems should help you get started on the \texttt{COMFIX} project.
-All of the problems are referencing the first satellite obseravtion from \texttt{comfix.dat}.
-
-\begin{prob}
-    Recall the radar site and obseration data for satellite \num{1001} from \texttt{comfix.dat}, i.e. latitude \( = \SI{77.7}{\degree} N\), longitude \( = \SI{68.5}{\degree} W\), altitude \( = \SI{50}{\meter} \), Observation time = \( \SI{ 2454154.6376157}{\julianday}\).
-    Using this observation (the first one from the file), complete the following.
-    \begin{itemize}
-        \item Compute Greenwich Sidereal Time - \( GST \)
-        \item Compute Local Sidereal Time - \( LST \)
-        \item Draw a sketch of the problem using a view from the north pole and identify the location of the inertial \( x \) axis and the angles \( GST, LST\).
-    \end{itemize}
-\end{prob}
-
-\begin{prob}
-    Using the same site and time information from the previous problem, compute the position of the obseration site \( \vec r_{site} \) in both the inertial frame (ECI) and the Earth centered Earth fixed frame (ECEF).
-\end{prob}
-
-\begin{prob}
-    Using the same site and observation data, find the vectors \( \vec \rho_{ECI}, \dot \vec \rho_{ECI} \) which define the position and velocity of the satellite relative to the observation site in the Earth Centered Inertial frame.
-\end{prob}
-
-\begin{prob}
-    Finally, compute the position and velocity of the satellite, \( \vec r_{ECI}, \vec v_{ECI} \), in the Inertial frame and compute the classical orbital elements for this satellite.
-\end{prob}
 \end{document}
-
 
