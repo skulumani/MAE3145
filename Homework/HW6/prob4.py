@@ -38,8 +38,11 @@ a_p, p_p, ecc_p = kepler.perapo2aecc(rc, rb)
 vt2 = maneuver.vel_mag(rb, a_t, mu)
 vp1 = maneuver.vel_mag(rb, a_p, mu)
 dvb1 = np.absolute(vp1 - vt2)
+# TODO: Add print statements adn orbit properties print outs
 
 # hohmann transfer from phasing orbit ot final orbit
 v2 = maneuver.vel_mag(rb, rb, mu)
 vp2 = maneuver.vel_mag(rb, a_p, mu)
 dvb2 = np.absolute(vp2 - v2)
+
+# TODO: Generate a plot of the transfer
