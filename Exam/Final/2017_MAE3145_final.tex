@@ -72,8 +72,8 @@ Prob. 1 & Prob. 2 & Prob. 3 & Prob. 4 & Total \\
 % \renewcommand{\theprob}{\arabic{prob} \textit{(15pt)}}
 
 \begin{prob}
-    Your spacecraft is currenlty in a circular orbit about Planet X with \( \Omega = \SI{90}{\degree}\) and \( i = \SI{30}{\degree} \) relative to an inertial reference frame defined by \( \hat{x}, \hat{y}, \hat{z} \).
-    At the descending node, the following maneuver is implemented:
+    Your spacecraft is currenlty in a \underline{circular} orbit about Planet X with \( \Omega = \SI{90}{\degree}\) and \( i = \SI{30}{\degree} \) relative to an inertial reference frame defined by \( \hat{x}, \hat{y}, \hat{z} \).
+    At the \underline{descending node}, the following maneuver is implemented:
     \begin{align*}
         \bar \Delta v = \frac{1}{\sqrt{2}} \hat{V} - \hat{C} + \sqrt{\frac{3}{2}} \hat{N} \si{\kilo\meter\per\second} .
     \end{align*}
@@ -87,4 +87,54 @@ Prob. 1 & Prob. 2 & Prob. 3 & Prob. 4 & Total \\
 \clearpage\newpage
 \null\newpage
 \null\newpage
+
+\begin{prob}
+    Assume that a spacecraft is moving in an orbit about the Earth characterized by \( e = 0.5\) and \( a = 4 R_\oplus\).
+    To meet some scientific objective, an \underline{in-plane} maneuver is planned to adjust the orbit.
+    The new orbit has exactly the same eccentricity and semi-major axis but periapsis will advance by \SI{90}{\degree}.
+    \begin{subprob}
+        \item The maneuver can be implemented at one of two values of true anomaly. 
+            Determine these two options.
+        \item Assume that the maneuver will be implemented at \( \theta = \SI{45}{\degree}\).
+            Determine the required maneuver in terms of \( \norm{\Delta \bar v} \) and \(\alpha\).
+    \end{subprob}
+    \vspace*{9cm} 
+    \begin{figure*}[hb]
+        \centering
+        \includegraphics[width=\textwidth]{prob2.png}
+    \end{figure*}
+\end{prob}
+
+\begin{prob}
+    A vehicle is in a circular orbit about the Earth with radius \( r_1 = 6 R_\oplus\).
+    A Hohmann transfer is employed to shift to a smaller, coplanar  circular orbit of \( r_2 = 2 R_\oplus\).
+    \begin{subprob}
+        \item Determine \( \Delta \bar v_{\text{total}}\) and the time of flight.
+        \item Indicate if each manuever increase or decreases the instaneous speed.
+    \end{subprob}
+\end{prob}
+
+
+\begin{prob}
+    Develop an algorithm to determine the \textbf{PERIOD OF THE PHASING ORBIT} for a non-coplanar rendezvous problem to deploy a satellite from an inclined circular low Earth orbit to a higher, circular equatorial orbit at the \textbf{first opportunity}.
+    The first  few steps have been outlined for you; complete the remaining algorithm.
+
+\noindent\textbf{GIVEN:} \\
+        Interceptor satellite COEs: \( a_{int}, i, \Omega, \theta\)\\
+        Target satellite COEs: \( a_{tgt}, \theta\)
+
+\noindent\textbf{FIND:} \\
+Period of phasing orbit : \( \mathbb{P}_{\text{phasing}}\)
+
+\begin{enumerate}
+\item Calculate the angular speed ( mean motion) for both interceptor and target.
+    \begin{align*}
+        \omega_{int} = \sqrt{\frac{\mu}{a_{int}^3}} \qquad \omega_{tgt} = \sqrt{\frac{\mu}{a_{tgt}^3}}
+    \end{align*}
+
+\item Calculate the TOF for the Hohmann transfer (complete the equation below).
+    \vspace*{2cm}
+\item Calculate ...
+\end{enumerate}
+\end{prob}
 \end{document}
