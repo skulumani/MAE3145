@@ -128,9 +128,9 @@ def solution(meas_file='./data/COMFIX_tle_measurement.txt', outfile='./data/COMF
             fout.write('{:<9.4f}     {:<6.4f}    {:<6.4f}     {:<6.4f}     {:<6.4f}        {:<6.4f}\n'.format(rho, np.rad2deg(az), np.rad2deg(el), drho, np.rad2deg(daz), np.rad2deg(dele)))
 
             fout.write('------------------------- WORKING DATA ----------------------------------------\n\n')
-            fout.write('LAT (deg)    LON (deg)     ALT (m)       JD\n')
+            fout.write('LAT (rad)    LON (rad)     ALT (m)       JD\n')
             fout.write('{:<9.4f}    {:<9.4f}     {:<9.4f}      {:<16.6f}\n\n'.format(latgd, lon, alt, jd))
-            fout.write('RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)\n')
+            fout.write('RHO (km)     AZ (rad)    EL (rad)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)\n')
             fout.write('{:<9.4f}     {:<6.4f}    {:<6.4f}     {:<6.4f}     {:<6.4f}        {:<6.4f}\n\n'.format(rho, az, el, drho, daz, dele))
             fout.write('GST  = {:16.9f} rad = {:16.9f} deg\n'.format(gst, np.rad2deg(gst)))
             fout.write('LST  = {:16.9f} rad = {:16.9f} deg\n\n'.format(lst, np.rad2deg(lst)))
