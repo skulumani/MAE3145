@@ -1,0 +1,9 @@
+Initial Orbit Velocity : 29.78544591774653 km/sec
+Final Orbit Velocity : 5.431669076417027 km/sec
+Transfer SMA : 2323919900.0 km Eccentricity : 0.9356303975881441
+Transfer Periapsis velocity : 41.43957791013828 km/sec
+Transfer Apoapsis velocity : 1.3780777350440716 km/sec
+Delta V1 : 11.654131992391754 km/sec
+Delta V2 : 4.053591341372963 km/sec
+TOF : 966109845.4311681 sec = 11181.826914712594 day = 30.61417362002079 yr
+Phase : 113.15962858746643 deg

@@ -1,7 +1,7 @@
 """HW6 2017 Problem 1
 """
 import numpy as np
-from astro import constants, manuever, kepler
+from astro import constants, maneuver, kepler
 import matplotlib.pyplot as plt
 
 mu = constants.sun.mu
@@ -24,7 +24,7 @@ sme_t = -mu / (2 * a_t)
 vt_1 = np.sqrt(2 * (sme_t + mu / a_e))
 vt_2 = np.sqrt(2 * (sme_t + mu / a_n))
 
-(dv_a, dv_b, tof, phase_angle) = manuever.hohmann(
+(dv_a, dv_b, tof, phase_angle) = maneuver.hohmann(
     a_e, a_n, ecc_e, ecc_n, 0, np.pi, mu)
 
 print('Initial Orbit Velocity : {} km/sec'.format(v_1))
@@ -36,6 +36,7 @@ print('Transfer Apoapsis velocity : {} km/sec'.format(vt_2))
 print('Delta V1 : {} km/sec'.format(dv_a))
 print('Delta V2 : {} km/sec'.format(dv_b))
 print('TOF : {} sec = {} day = {} yr'.format(tof, tof/86400, tof/86400/365.25))
+print('Phase : {} deg'.format(np.rad2deg(phase_angle)))
 
 # generate a plot of the orbit
 _, state_pqw1, _, _, sat_pqw1, _ = kepler.conic_orbit(a_e, 0, 0, 0, 0, 0, 0, mu)
@@ -51,5 +52,6 @@ ax.plot(state_pqw3[:, 0], state_pqw3[:, 1], label='Transfer')
 ax.set_title('Hohmann Transfer')
 ax.set_xlabel(r'$\hat p$')
 ax.set_ylabel(r'$\hat q$')
+plt.axis('equal')
 plt.legend()
 plt.show()
