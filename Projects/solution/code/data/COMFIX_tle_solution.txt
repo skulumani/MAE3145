@@ -9,10 +9,10 @@ RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (deg/s)   DEL (deg/s)
 3041.3023     173.9049    10.7470     -1.6971     -0.1205        0.0338
 ------------------------- WORKING DATA ----------------------------------------
 
-LAT (deg)    LON (deg)     ALT (m)       JD
+LAT (rad)    LON (rad)     ALT (m)       JD
 0.6789       -1.3448       0.0200         2458088.540278  
 
-RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
+RHO (km)     AZ (rad)    EL (rad)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
 3041.3023     3.0352    0.1876     -1.6971     -0.0021        0.0006
 
 GST  =      1.476268456 rad =     84.583951962 deg
@@ -83,10 +83,10 @@ RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (deg/s)   DEL (deg/s)
 1537.0150     124.9671    13.2866     -5.5500     -0.1752        0.1006
 ------------------------- WORKING DATA ----------------------------------------
 
-LAT (deg)    LON (deg)     ALT (m)       JD
+LAT (rad)    LON (rad)     ALT (m)       JD
 0.6789       -1.3448       0.0200         2458088.888194  
 
-RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
+RHO (km)     AZ (rad)    EL (rad)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
 1537.0150     2.1811    0.2319     -5.5500     -0.0031        0.0018
 
 GST  =      3.668274282 rad =    210.176634474 deg
@@ -157,10 +157,10 @@ RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (deg/s)   DEL (deg/s)
 2168.0261     286.3401    11.8582     -2.2519     -0.1859        0.0326
 ------------------------- WORKING DATA ----------------------------------------
 
-LAT (deg)    LON (deg)     ALT (m)       JD
+LAT (rad)    LON (rad)     ALT (m)       JD
 0.6789       -1.3448       0.0200         2458088.556250  
 
-RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
+RHO (km)     AZ (rad)    EL (rad)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
 2168.0261     4.9976    0.2070     -2.2519     -0.0032        0.0006
 
 GST  =      1.576898255 rad =     90.349614752 deg
@@ -231,10 +231,10 @@ RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (deg/s)   DEL (deg/s)
 2263.2130     349.1815    10.9860     -6.2568     0.0409        0.0875
 ------------------------- WORKING DATA ----------------------------------------
 
-LAT (deg)    LON (deg)     ALT (m)       JD
+LAT (rad)    LON (rad)     ALT (m)       JD
 0.6789       -1.3448       0.0200         2458088.846528  
 
-RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
+RHO (km)     AZ (rad)    EL (rad)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
 2263.2130     6.0944    0.1917     -6.2568     0.0007        0.0015
 
 GST  =      3.405762314 rad =    195.135806604 deg
@@ -305,10 +305,10 @@ RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (deg/s)   DEL (deg/s)
 3004.5716     111.6121    11.3225     -1.4752     -0.1320        0.0216
 ------------------------- WORKING DATA ----------------------------------------
 
-LAT (deg)    LON (deg)     ALT (m)       JD
+LAT (rad)    LON (rad)     ALT (m)       JD
 0.6789       -1.3448       0.0200         2458088.655556  
 
-RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
+RHO (km)     AZ (rad)    EL (rad)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
 3004.5716     1.9480    0.1976     -1.4752     -0.0023        0.0004
 
 GST  =      2.202564595 rad =    126.197655424 deg
@@ -379,10 +379,10 @@ RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (deg/s)   DEL (deg/s)
 2372.9929     259.9668    10.1483     -1.0967     0.1825        0.0152
 ------------------------- WORKING DATA ----------------------------------------
 
-LAT (deg)    LON (deg)     ALT (m)       JD
+LAT (rad)    LON (rad)     ALT (m)       JD
 0.6789       -1.3448       0.0200         2458088.527778  
 
-RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
+RHO (km)     AZ (rad)    EL (rad)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
 2372.9929     4.5373    0.1771     -1.0967     0.0032        0.0003
 
 GST  =      1.397513607 rad =     80.071631471 deg
@@ -453,10 +453,10 @@ RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (deg/s)   DEL (deg/s)
 1393.7660     331.3267    11.3910     -1.5874     0.3001        0.0280
 ------------------------- WORKING DATA ----------------------------------------
 
-LAT (deg)    LON (deg)     ALT (m)       JD
+LAT (rad)    LON (rad)     ALT (m)       JD
 0.6789       -1.3448       0.0200         2458088.516667  
 
-RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
+RHO (km)     AZ (rad)    EL (rad)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
 1393.7660     5.7827    0.1988     -1.5874     0.0052        0.0005
 
 GST  =      1.327509994 rad =     76.060719912 deg
@@ -527,10 +527,10 @@ RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (deg/s)   DEL (deg/s)
 37430.3654     181.4317    44.9629     -0.0015     0.0000        -0.0000
 ------------------------- WORKING DATA ----------------------------------------
 
-LAT (deg)    LON (deg)     ALT (m)       JD
+LAT (rad)    LON (rad)     ALT (m)       JD
 0.6789       -1.3448       0.0200         2458088.500000  
 
-RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
+RHO (km)     AZ (rad)    EL (rad)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
 37430.3654     3.1666    0.7848     -0.0015     0.0000        -0.0000
 
 GST  =      1.222501425 rad =     70.044172120 deg
@@ -601,10 +601,10 @@ RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (deg/s)   DEL (deg/s)
 2345.2262     28.8800    11.9121     -6.0237     0.0707        0.0856
 ------------------------- WORKING DATA ----------------------------------------
 
-LAT (deg)    LON (deg)     ALT (m)       JD
+LAT (rad)    LON (rad)     ALT (m)       JD
 0.6789       -1.3448       0.0200         2458088.858333  
 
-RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
+RHO (km)     AZ (rad)    EL (rad)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
 2345.2262     0.5041    0.2079     -6.0237     0.0012        0.0015
 
 GST  =      3.480138394 rad =    199.397242093 deg
@@ -675,10 +675,10 @@ RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (deg/s)   DEL (deg/s)
 38015.5876     218.6415    37.1829     0.0004     0.0000        0.0000
 ------------------------- WORKING DATA ----------------------------------------
 
-LAT (deg)    LON (deg)     ALT (m)       JD
+LAT (rad)    LON (rad)     ALT (m)       JD
 0.6789       -1.3448       0.0200         2458088.500000  
 
-RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
+RHO (km)     AZ (rad)    EL (rad)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
 38015.5876     3.8160    0.6490     0.0004     0.0000        0.0000
 
 GST  =      1.222501425 rad =     70.044172120 deg
@@ -749,10 +749,10 @@ RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (deg/s)   DEL (deg/s)
 1021.1064     299.7301    12.9614     -6.5225     0.1323        0.1434
 ------------------------- WORKING DATA ----------------------------------------
 
-LAT (deg)    LON (deg)     ALT (m)       JD
+LAT (rad)    LON (rad)     ALT (m)       JD
 0.6789       -1.3448       0.0200         2458088.519444  
 
-RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
+RHO (km)     AZ (rad)    EL (rad)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
 1021.1064     5.2313    0.2262     -6.5225     0.0023        0.0025
 
 GST  =      1.345006171 rad =     77.063177040 deg
@@ -823,10 +823,10 @@ RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (deg/s)   DEL (deg/s)
 2097.5778     148.2954    14.7018     -6.2612     -0.0501        0.1037
 ------------------------- WORKING DATA ----------------------------------------
 
-LAT (deg)    LON (deg)     ALT (m)       JD
+LAT (rad)    LON (rad)     ALT (m)       JD
 0.6789       -1.3448       0.0200         2458088.572222  
 
-RHO (km)     AZ (deg)    EL (deg)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
+RHO (km)     AZ (rad)    EL (rad)   DRHO (km/s)   DAZ (rad/s)   DEL (rad/s)
 2097.5778     2.5882    0.2566     -6.2612     -0.0009        0.0018
 
 GST  =      1.677528055 rad =     96.115277541 deg
