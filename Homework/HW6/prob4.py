@@ -63,7 +63,6 @@ print('DV2 : {} km/sec'.format(dvb1))
 print('\nTransfer from phasing orbit to final orbit')
 print('DV3 : {} km/sec'.format(dvb2))
 
-
 # generate a plot of the orbit
 _, state_pqw1, _, _, sat_pqw1, _ = kepler.conic_orbit(np.absolute(p_h), ecc_h, 0, 0, 0, -np.deg2rad(10), np.deg2rad(10), mu)
 _, state_pqw2, _, _, sat_pqw2, _ = kepler.conic_orbit(p_t, ecc_t, 0, 0, 0, 0, 0, mu)
