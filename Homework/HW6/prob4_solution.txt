@@ -1,0 +1,15 @@
+Transfer ellipse : a = 10499.999999999998 km, e = 0.3333333333333333
+VT1 : 8.713432432853587 km/sec
+V1 : 12 km/sec
+DV1 : 3.286567567146413 km/sec
+TOF : 5353.834004010886 sec = 1.487176112225246 hr
+
+Phasing Orbit
+Period Phasing : 11131.699347521157 sec
+Phasing orbit : a = 10775.406915076717 km, ecc = 0.29925487829248487
+
+Transfer from hohmann ellipse to phasing orbit
+DV2 : 0.10996484517633398 km/sec
+
+Transfer from phasing orbit to final orbit
+DV3 : 0.869184780574157 km/sec

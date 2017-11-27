@@ -4,6 +4,8 @@ HW6 2017 Problem 4
 """
 from astro import constants, kepler, maneuver
 import numpy as np
+import matplotlib.pyplot as plt
+
 import pdb
 ra = 7000
 rb =14000
@@ -45,4 +47,40 @@ v2 = maneuver.vel_mag(rb, rb, mu)
 vp2 = maneuver.vel_mag(rb, a_p, mu)
 dvb2 = np.absolute(vp2 - v2)
 
-# TODO: Generate a plot of the transfer
+# print some data
+print('Transfer ellipse : a = {} km, e = {}'.format(a_t, ecc_t))
+print('VT1 : {} km/sec'.format(vt1))
+print('V1 : {} km/sec'.format(va1))
+print('DV1 : {} km/sec'.format(np.absolute(dva1)))
+print('TOF : {} sec = {} hr'.format(toft, toft/3600))
+
+print('\nPhasing Orbit')
+print('Period Phasing : {} sec'.format(phasing_period))
+print('Phasing orbit : a = {} km, ecc = {}'.format(a_p, ecc_p))
+
+print('\nTransfer from hohmann ellipse to phasing orbit')
+print('DV2 : {} km/sec'.format(dvb1))
+print('\nTransfer from phasing orbit to final orbit')
+print('DV3 : {} km/sec'.format(dvb2))
+
+
+# generate a plot of the orbit
+_, state_pqw1, _, _, sat_pqw1, _ = kepler.conic_orbit(np.absolute(p_h), ecc_h, 0, 0, 0, -np.deg2rad(10), np.deg2rad(10), mu)
+_, state_pqw2, _, _, sat_pqw2, _ = kepler.conic_orbit(p_t, ecc_t, 0, 0, 0, 0, 0, mu)
+_, state_pqw3, _, _, sat_pqw3, _ = kepler.conic_orbit(rb, 0, 0, 0, 0, 0, 0, mu)
+_, state_pqw4, _, _, sat_pqw4, _ = kepler.conic_orbit(p_p, ecc_p, 0, 0, 0, 0, 0, mu)
+
+# rotate new orbit 
+fig, ax = plt.subplots()
+
+ax.plot(state_pqw1[:, 0], state_pqw1[:, 1], label='Initial')
+ax.plot(state_pqw2[:, 0], state_pqw2[:, 1], label='Transfer')
+ax.plot(state_pqw3[:, 0], state_pqw3[:, 1], label='Final')
+ax.plot(state_pqw4[:, 0], state_pqw4[:, 1], label='Phasing')
+
+ax.set_title('Hyperbolic Arrival and Rendezvous')
+ax.set_xlabel(r'$\hat p$')
+ax.set_ylabel(r'$\hat q$')
+plt.axis('equal')
+plt.legend()
+plt.show()
