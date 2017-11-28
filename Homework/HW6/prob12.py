@@ -18,3 +18,10 @@ v2 = maneuver.vel_mag(r2, r2, mu)
 
 dv1, alpha1, beta1 = maneuver.delta_v_solve_planar(v1, vt1, 0, 0)
 dv2, beta2, _ = maneuver.delta_v_solve_planar(vt2, v2, i1, 0)
+
+print('Combined plane change at apoapsis')
+print('V1 : {} , V2 : {} km/sec'.format(v1, v2))
+print('VT1 : {} , VT2 : {} km/sec'.format(vt1, vt2))
+print('DV1 : {} km/sec'.format(dv1))
+print('DV2 : {} km/sec'.format(dv2))
+print('Beta (outofplane) : {} deg'.format(np.rad2deg(beta2)))
