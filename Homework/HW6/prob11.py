@@ -15,6 +15,10 @@ ra = at * (1 + et)
 
 v1 = maneuver.vel_mag(r1, r1, mu)
 v2 = maneuver.vel_mag(r2, r2, mu)
+print('Transfer ellipse properties')
+print('a : {} km, ecc : {}'.format(at, et))
+print('V1 : {} km/sec'.format(v1))
+print('V2 : {} km/sec'.format(v2))
 
 # solve for first manuever
 nu1 = kepler.nu_solve(pt, et, r1)
@@ -24,6 +28,12 @@ fpa1 = kepler.fpa_solve(nu1[0], et)
 
 dv1, alpha1, beta1  = maneuver.delta_v_solve_planar(v1, vt1, 0, fpa1)
 
+print('\nFirst maneuver')
+print('True anomaly of transfer ellipse : {} deg'.format(np.rad2deg(nu1[0])))
+print('VT1 : {} km/sec'.format(vt1))
+print('FPAT1 : {} deg'.format(np.rad2deg(fpa1)))
+print('DV1 : {} km/sec'.format(dv1))
+print('alpha1 : {} deg'.format(np.rad2deg(alpha1)))
 # solve for second manuever
 nu2 = kepler.nu_solve(pt, et, r2)
 vt2 = maneuver.vel_mag(r2, at, mu)
@@ -32,9 +42,16 @@ fpa2 = kepler.fpa_solve(nu2[0], et)
 
 dv2, alpha2, beta2  = maneuver.delta_v_solve_planar(vt2, v2, fpa2, 0)
 
+print('\nSecond maneuver')
+print('True anomaly of transfer ellipse : {} deg'.format(np.rad2deg(nu2[0])))
+print('VT2 : {} km/sec'.format(vt2))
+print('FPAT2 : {} deg'.format(np.rad2deg(fpa2)))
+print('DV2 : {} km/sec'.format(dv2))
+print('alpha2 : {} deg'.format(np.rad2deg(alpha2)))
+
 # time of flight
 tof = kepler.tof_nu(pt, et, nu1[0], nu2[0], mu)
-
+print('\nTOF : {} sec = {} hr'.format(tof, tof/3600))
 # add plot
 _, state_pqw1, _, _, sat_pqw1, _ = kepler.conic_orbit(r1, 0, 0, 0, 0, 0, 0, mu)
 _, state_pqw2, _, _, sat_pqw2, _ = kepler.conic_orbit(r2, 0, 0, 0, 0, 0, 0, mu)
