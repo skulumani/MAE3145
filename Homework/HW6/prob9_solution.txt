@@ -1,0 +1,24 @@
+A to C hohmann transfer
+Semimajor axis : 17500.0 km
+Eccentricity : 0.42857142857142855 
+
+V1 at A : 4.429831738426329 km/sec
+VT1 at A : 3.01842153640418 km/sec
+DV1 : -1.4114102020221488 km/sec
+
+V2 at C : 8.213127859151424 km/sec
+VT2 at C : 7.54605384101045 km/sec
+DV2 : 0.6670740181409736 km/sec
+TOF : 11519.616631051744 sec
+B to D hohmann transfer
+Semimajor axis : 47500.0 km
+Eccentricity : 0.15789473684210525 
+
+V1 at B : 2.7686448365164558 km/sec
+VT1 at B : 3.3968272735474483 km/sec
+
+V2 at D : 1.4932959743911676 km/sec
+VT2 at D : 2.470419835307235 km/sec
+DV1 : 0.628182437030993 km/sec
+DV2 : -0.9771238609160668 km/sec
+TOF : 51513.53668204253 sec
