@@ -73,25 +73,27 @@ def generate_example_solution():
         sat.visible(site)
         sat.output(ofile)
 
-# TODO : Run predict without any extra help
-def generate_solution(ifile='./data/ALL_TLE.txt', ofile='./data/SAT_OUT.txt'):
+def generate_solution(ifile='./data/example_tle.txt', ofile='./data/SAT_OUT_EXAMPLE.txt'):
     ifile = os.path.abspath(ifile)
     ofile = os.path.abspath(ofile)
 
-    site_lat = float(raw_input("Site Latitude (38.925) : ") or "38.925")
-    site_lon = float(raw_input("Site Longitude (-77.057) : ") or "-77.057")
-    site_alt = float(raw_input("Site Altitude (0.054) : ") or "0.054")
+    site_lat = np.deg2rad(float(input("Site Latitude (38.925) : ") or "38.925"))
+    site_lon = np.deg2rad(float(input("Site Longitude (-77.057) : ") or "-77.057"))
+    site_alt = np.deg2rad(float(input("Site Altitude (0.054) : ") or "0.054"))
 
     site_ecef = geodetic.lla2ecef(site_lat, site_lon, site_alt)
     
     # timespan
-    jd_start, _ = time.date2jd(2017, 12, 1,  0, 0, 0)  # time in UTC
-    jd_end, _ = time.date2jd(2017, 12, 5, 0, 0, 0)
-    jd_step = 0.25 / (24 * 60)
-    jd_span = np.arange(jd_start, jd_end, jd_step)
+    date_start = [float(i) for i in (input('Start Date UTC (2017 12 1 0 0 0) : ') or "2017 12 1 0 0 0").split()]
+    date_end = [float(i) for i in (input('End Date UTC (2017 12 5 0 0 0) : ') or "2017 12 5 0 0 0").split()]
 
-    # get latest TLE for ISS
-    # tle.get_tle_spacetrack(ifile, 'testing')
+    jd_start, _ = time.date2jd(date_start[0], date_start[1], date_start[2], date_start[3],
+                               date_start[4], date_start[5])
+    jd_end, _ = time.date2jd(date_end[0], date_end[1], date_end[2], date_end[3],
+                               date_end[4], date_end[5])
+
+    jd_step = 2 / (24 * 60) # step size in minutes
+    jd_span = np.arange(jd_start, jd_end, jd_step)
 
     # loop over jd span
     site = defaultdict(list)
@@ -128,3 +130,7 @@ def generate_solution(ifile='./data/ALL_TLE.txt', ofile='./data/SAT_OUT.txt'):
         sat.tle_update(jd_span)
         sat.visible(site)
         sat.output(ofile)
+
+def update_tle():
+    # get latest TLE for ISS
+    tle.get_tle_spacetrack(ifile, 'testing')
