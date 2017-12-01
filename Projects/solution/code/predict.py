@@ -128,3 +128,13 @@ def generate_solution(ifile='./data/ALL_TLE.txt', ofile='./data/SAT_OUT.txt'):
         sat.tle_update(jd_span)
         sat.visible(site)
         sat.output(ofile)
+
+if __name__ == "__main__":
+
+    # parse inputs
+
+    # option to generate extra solution for students
+
+    # option to download spacetrack tle and then run predict
+
+    # option to use saved tle
