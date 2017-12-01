@@ -19,23 +19,26 @@ ee = constants.earth.ee
 
 # TODO : Generate solution for a known TLE. Also output some extra data like in tle_predict test_case.out
 def generate_example_solution():
-    # define the observing site
-    site_lat = 38.925 * deg2rad
-    site_lon = -77.057 * deg2rad
+    ifile = os.path.abspath(ifile)
+    ofile = os.path.abspath(ofile)
+
+    site_lat = np.deg2rad(38.925)
+    site_lon = np.deg2rad(-77.057)
     site_alt = 0.054
+
     site_ecef = geodetic.lla2ecef(site_lat, site_lon, site_alt)
-
+    
     # timespan
-    jd_start, _ = time.date2jd(2017, 12, 1,  0, 0, 0)  # time in UTC
-    jd_end, _ = time.date2jd(2017, 12, 5, 0, 0, 0)
-    jd_step = 0.25 / (24 * 60)
+    date_start = [2017, 12, 1, 0, 0, 0]
+    date_end = [2017, 12, 5, 0, 0, 0]
+
+    jd_start, _ = time.date2jd(date_start[0], date_start[1], date_start[2], date_start[3],
+                               date_start[4], date_start[5])
+    jd_end, _ = time.date2jd(date_end[0], date_end[1], date_end[2], date_end[3],
+                               date_end[4], date_end[5])
+
+    jd_step = 2 / (24 * 60) # step size in minutes
     jd_span = np.arange(jd_start, jd_end, jd_step)
-
-    ifile = os.path.abspath('ALL_TLE.txt')
-    ofile = os.path.abspath('SAT_OUT.txt')
-
-    # get latest TLE for ISS
-    tle.get_tle_spacetrack(ifile, 'testing')
 
     # loop over jd span
     site = defaultdict(list)
@@ -79,7 +82,7 @@ def generate_solution(ifile='./data/example_tle.txt', ofile='./data/SAT_OUT_EXAM
 
     site_lat = np.deg2rad(float(input("Site Latitude (38.925) : ") or "38.925"))
     site_lon = np.deg2rad(float(input("Site Longitude (-77.057) : ") or "-77.057"))
-    site_alt = np.deg2rad(float(input("Site Altitude (0.054) : ") or "0.054"))
+    site_alt = float(input("Site Altitude (0.054) : ") or "0.054")
 
     site_ecef = geodetic.lla2ecef(site_lat, site_lon, site_alt)
     
