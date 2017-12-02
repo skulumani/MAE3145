@@ -99,7 +99,7 @@ def generate_example_solution(ifile='./data/example_tle.txt', ofile='./data/SAT_
         sat.visible(site)
         sat.output(ofile)
 
-def generate_solution(ifile='./data/example_tle.txt', ofile='./data/SAT_OUT_EXAMPLE.txt'):
+def generate_solution(ifile='./data/example_tle.txt', ofile='./data/SAT_OUT.txt'):
     ifile = os.path.abspath(ifile)
     ofile = os.path.abspath(ofile)
     
