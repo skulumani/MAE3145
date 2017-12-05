@@ -72,7 +72,7 @@ Prob. 1 & Prob. 2 & Prob. 3 & Prob. 4 & Total \\
 % \renewcommand{\theprob}{\arabic{prob} \textit{(15pt)}}
 
 \begin{prob}
-    Your spacecraft is currenlty in a \underline{circular} orbit about Planet X with \( \Omega = \SI{90}{\degree}\) and \( i = \SI{30}{\degree} \) relative to an inertial reference frame defined by \( \hat{x}, \hat{y}, \hat{z} \).
+    Your spacecraft is currently in a \underline{circular} orbit about Planet X with \( \Omega = \SI{90}{\degree}\) and \( i = \SI{30}{\degree} \) relative to an inertial reference frame defined by \( \hat{x}, \hat{y}, \hat{z} \).
     At the \underline{descending node}, the following maneuver is implemented:
     \begin{align*}
         \bar \Delta v = \frac{1}{\sqrt{2}} \hat{V} - \hat{C} + \sqrt{\frac{3}{2}} \hat{N} \si{\kilo\meter\per\second} .
@@ -164,4 +164,70 @@ Period of phasing orbit : \( \mathbb{P}_{\text{phasing}}\)
     \end{subprob}
 \end{prob}
 
+\clearpage\newpage
+\null\newpage
+\null\newpage
+
+\begin{prob}
+    Draw a picture to explain why Greenwich Sidereal Time is approximately \SI{100}{\degree} at \num{0000} UTC on 1 January each year.
+    Recall that the Winter Solstice is in the third week of December annually.
+\end{prob}
+
+\begin{prob}
+    Given the total energy of a circular orbit, show that the orbital speed is constant and given by \( v_{circ} = \sqrt{\frac{\mu}{r}}\).
+\end{prob}
+
+\begin{prob}
+    The Molniya orbit is a highly eccentric orbit specifically designed such that the spacecraft spends the majority of time in the vicinity of apogee.
+    How would you determine the velocity of the Molniya orbit  at \underline{perigee}?
+    Assume you are given the semi-major axis, \( a \), and eccentricity, \( e\).
+    Express your solution in terms of \( a \) and \( e\).
+
+    \begin{subprob}
+        \item Determine the inclination required such that the argument of perigee remains constant?
+        \item At this inclination what is the rate of right ascnension of the ascending node?
+    \end{subprob}
+\end{prob}
+
+\clearpage\newpage
+\null\newpage
+\null\newpage
+\begin{prob}
+    To prepare for anti-satellite avoidance, US Space Command will require every satellite operator to generate a plot of total \( \Delta V \) versus time of flight (TOF) for their satellite to increase its altitude by \SI{25}{\kilo\meter}. 
+    Provide an algorithm to generate this plot assuming that the satellites are initially in a circular orbit and the final orbit is circular and in the same inclination as the initial orbit. 
+    Furthermore, assume that the first maneuver will be a tangential burn, while the second maneuver will be non-tangential ( a so called \textbf{One Tangent Burn}).
+
+    \begin{subprob}
+    \item Write your algorithm.
+        Please write neatly and legibly.
+        Furthermore, your algorithm should be in a logical sequence. 
+
+        \textbf{GIVEN:} \( r_i\) (initial radius of circular orbit) and \( \Delta \nu\) (change in true true anomaly along the transfer orbit) from \SIrange{0}{180}{\degree}.
+
+        \textbf{FIND:} Total \( \Delta V\) and TOF (time of flight)
+
+        \vspace{0.5\textheight}
+    \item Draw a vector diagram showing all three velocity vecotr involved in the second burn and label them correctly.
+        Include the change in flight path angle \( \Delta \gamma \) and firing angle \( \alpha \).
+    \end{subprob} 
+\end{prob}    
+
+\clearpage\newpage
+\null\newpage
+\null\newpage
+
+\begin{prob}
+    Your first job involves a boss who is aware of the SEZ frame but claims ``it doesn't make any sense''.
+    Your boss would instead like to use the \textbf{North West Zenith} reference frame because it makes more sense.
+
+    \begin{subprob}
+    \item Determine the rotation matrices to transform a vector from the \textbf{North West Zenith} reference frame to the \textbf{Earth Centered Inertial} reference frame.
+    \item From a site located at \SI{30}{\degree} North latitude and \SI{90}{\degree} West longitude, the range vector to a satellite is :
+        \begin{align*}
+            \bar \rho_{NWZ} = - 7000 \hat N - 500 \hat W + 500 \hat Z \si{\kilo\meter}
+        \end{align*}
+        at \( GST = 0600\) hours.
+        What is the \( \hat k = \hat z \) component of this vector, \( \bar \rho_{ECI}\), in the \textbf{Earth Centered Inertial} reference frame?
+    \end{subprob}
+\end{prob}
 \end{document}
