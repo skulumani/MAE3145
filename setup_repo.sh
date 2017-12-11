@@ -13,7 +13,6 @@ printf "FDCL: $fdcl_repo\n\n"
 git remote add origin $git_repo
 git remote set-url origin --push --add $bb_repo
 git remote set-url origin --push --add $git_repo
-git remote set-url origin --push --add $fdcl_repo
 
 printf "Finished! The new remotes are listed.\n"
 printf "\n"

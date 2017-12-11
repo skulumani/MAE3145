@@ -16,36 +16,35 @@
 {\Large \textbf{MAE3145: PREDICT}}
 \end{center}
 \subsection*{Description}
-You are tasked to support teh elite Space Surveillance Reconstitution Team (SSRT) as an orbital analyst.
-The SSRT will deploy to setup a remote space tracking capability when threat levels against the US indicate an attack in imminent.
-As a SSRT member, it is your responsibility to develop software to locate satellite fom an Earth location.
-In particular, SSRT's tacitcal terminal requires topocentric range, azimuth, and elevation to point its new secret tracking instruent.
-Your program must compute and output this information at \underline{two minute intervals} each time the tactical \underline{terminal is in darkness} and the \underline{satellite is above the terminal's local horizon at a reasonable range}.
-In addition, your program must determine if the statellite is visible to the tactical terminal, i.e. terminal in the dark, satellite illuminated by the sun, elevation angle greater than or equal to \SI{10}{\degree}, range less than \SI{1500}{\kilo\meter}.
-If the satellite is in sunlight, SSRT members can operate teh terminal's new pointing instrument in one of three classified modes.
+You are tasked to support the elite Space Surveillance Reconstitution Team (SSRT) as an orbital analyst.
+The SSRT will deploy to setup a remote space tracking capability when threat levels against the US indicate an attack is imminent.
+As a SSRT member, it is your responsibility to develop software to locate satellites form an Earth location.
+In particular, SSRTs tactical terminal requires topocentric range, azimuth, and elevation to point its new secret tracking instrument.
+Your program must compute and output this information at \underline{two minute intervals} each time the tactical \underline{terminal is in darkness} and the \underline{satellite is above the terminals local horizon at a reasonable range}.
+In addition, your program must determine if the satellite is visible to the tactical terminal, i.e. terminal in the dark, satellite illuminated by the sun, elevation angle greater than or equal to \SI{10}{\degree}, range less than \SI{1500}{\kilo\meter}.
+If the satellite is in sunlight, SSRT members can operate the terminal's new pointing instrument in one of three classified modes.
 
-The SSRT's existence must be kept secret.
+The SSRTs existence must be kept secret.
 Thus, to validate your software \textbf{you must} view a low Earth orbiting satellite based on your program results.
 In addition, if you know someone located at least \SI{100}{\kilo\meter} from our training site, and this person can be sworn to secrecy, give them your program results so they too can view a satellite.
 Another person viewing a satellite based on yoru results will serve as a independent validation of your work.
 
 As with all practical programming applications, there are three steps to this project:
 \begin{enumerate}
-    \item You will develop the correct algorithm and accomplish som hand calculations to provide a bsis to test your coded subroutines,
+    \item You will develop the correct algorithm and accomplish some hand calculations to provide a basis to test your coded subroutines,
     \item You will code all subroutines, checking their output with that of your hand calculations to validate each subroutine as you go, eventually putting together the complete program and matching a provided single satellite data file perfectly,
-    \item You will slightly alther this working program to accept a data file of hundres of real satellits, identify a viable vehicle to personally view, and go view it.
+    \item You will slightly alter this working program to accept a data file of hundred of real satellites, identify a viable vehicle to personally view, and go view it.
 \end{enumerate}
 
-The data required to run your program is located on \href{https://github.com/fdcl-gwu/MAE3145_library}{MAE3145: Astro Library}.
-I will update these files throughout the semester.
+The data required to run your program is located in the \href{https://github.com/fdcl-gwu/MAE3145_library}{MAE3145: Astro Library}.
 The data comes from JSPOC's Two-Line Element Sets (TLEs), which are typically found in terms of three lines of data.
 Each data set contains the 100+ brightest active payloads that JSPOC tracks.
 However, not all satellites will be visible to the naked eye.
 
-The TLE files are given in a very specifc format as shown in~\cref{fig:tle}. 
-The following describes each paramerter contained in the TLEs.
+The TLE files are given in a very specific format as shown in~\cref{fig:tle}. 
+The following describes each parameter contained in the TLEs.
 Some of these numbers will not be used in your program. 
-You may also get teh latest TLEs yourself at \href{www.clestrak.com}{celestrak.com}.
+You may also get the latest TLEs yourself at \href{www.clestrak.com}{celestrak.com}.
 There are many references for the TLE description available in textbooks or online, but one is available \href{https://goo.gl/W6MZb2}{https://goo.gl/W6MZb2}.
 
 \begin{figure}
@@ -97,24 +96,24 @@ Submit the following on the due date:
 The following is a description of the required functions that your softwre program must include.
 You will be making use of many of the functions that you have been developing over the course of the semester.
 
-\subsubsection*{\texttt{J2Dragpert}}
+\subsubsection*{\texttt{J2DragPert}}
 
-This procedure calculates the rates of change of the right ascension of the ascending node, argument of periapsis, and eccentricty.
+This procedure calculates the rates of change of the right ascension of the ascending node, argument of periapsis, and eccentricity.
 The perturbations considered are limited to \( J_2 \) and drag only.
 
 \noindent \textbf{Inputs: }
 \begin{itemize}
-    \item \( i_0 \) - initial inclination in radians
-    \item \( e_0 \) - initial eccentricty
-    \item \( n_0 \) - initial mean motion in radians per second
-    \item \( \frac{\dot{n}}{2} \) - mean motion rate divided by two in radians per second squared
+    \item \( i_0 \) -- initial inclination in radians
+    \item \( e_0 \) -- initial eccentricity
+    \item \( n_0 \) -- initial mean motion in radians per second
+    \item \( \frac{\dot{n}}{2} \) -- mean motion rate divided by two in radians per second squared
 \end{itemize}
 
 \noindent\textbf{Output: }
 \begin{itemize}
-    \item \( \dot{\Omega} \) - nodal rate in radians per second
-    \item \( \dot{\omega} \) - argument of periapsis rate in radians per second
-    \item \( \dot{e} \) - eccentricity rate
+    \item \( \dot{\Omega} \) -- nodal rate in radians per second
+    \item \( \dot{\omega} \) -- argument of periapsis rate in radians per second
+    \item \( \dot{e} \) -- eccentricity rate
 \end{itemize}
 
 \subsubsection*{Update}
@@ -124,26 +123,26 @@ It will be necessary to call \texttt{newton} from this function to calculate the
 
 \noindent \textbf{Inputs: }
 \begin{itemize}
-    \item \( \delta t \) - elapsed time since \( t_0 \) in seconds
-    \item \( n_0 \) - mean motion at \( t_0 \)
-    \item \( \frac{\dot{n}}{2} \) - mean motion rate divided by 2
-    \item \( e_0 \) - eccentricty at \( t_0 \)
-    \item \( \dot{e} \) - eccentricity rate
-    \item \( \Omega_0 \) - right ascension of the ascending node at \( t_0 \)
-    \item \( \dot{\Omega}_0 \) - right ascension of the ascending node rate
-    \item \( \omega_0 \) - argument of periapsis at \( t_0 \)
-    \item \( \dot{\omega} \) - argument of periapsis rate
-    \item \( M_0 \) - mean anomaly at \( t_0 \)
+    \item \( \delta t \) -- elapsed time since \( t_0 \) in seconds
+    \item \( n_0 \) -- mean motion at \( t_0 \)
+    \item \( \frac{\dot{n}}{2} \) -- mean motion rate divided by 2
+    \item \( e_0 \) -- eccentricity at \( t_0 \)
+    \item \( \dot{e} \) -- eccentricity rate
+    \item \( \Omega_0 \) -- right ascension of the ascending node at \( t_0 \)
+    \item \( \dot{\Omega}_0 \) -- right ascension of the ascending node rate
+    \item \( \omega_0 \) -- argument of periapsis at \( t_0 \)
+    \item \( \dot{\omega} \) -- argument of periapsis rate
+    \item \( M_0 \) -- mean anomaly at \( t_0 \)
 \end{itemize}
 
 \noindent \textbf{Outputs:}
 
 \begin{itemize}
-    \item \( n \) - mean motion at \( t_1 \)
-    \item \( e \) - eccentricty at \( t_1 \)
-    \item \( \Omega \) - right ascension of the ascending node at \( t_1 \)
-    \item \( \omega \) - arugment of periapsis at \( t_1 \)
-    \item \( \nu \) - true anomaly at \( t_1 \)
+    \item \( n \) -- mean motion at \( t_1 \)
+    \item \( e \) -- eccentricity at \( t_1 \)
+    \item \( \Omega \) -- right ascension of the ascending node at \( t_1 \)
+    \item \( \omega \) -- argument of periapsis at \( t_1 \)
+    \item \( \nu \) -- true anomaly at \( t_1 \)
 \end{itemize}
 
 \subsubsection*{\textbf{coe2rv}}
@@ -151,62 +150,62 @@ This function computes the spacecrafts position and velocity in the Earth center
 
 \noindent \textbf{Inputs: }
 \begin{itemize}
-    \item \( n \) - mean motion at \( t_1 \)
-    \item \( e \) - eccentricty at \( t_1 \)
-    \item \( \Omega \) - right ascension of the ascending node at \( t_1 \)
-    \item \( \omega \) - arugment of periapsis at \( t_1 \)
-    \item \( \nu \) - true anomaly at \( t_1 \)
+    \item \( n \) -- mean motion at \( t_1 \)
+    \item \( e \) -- eccentricity at \( t_1 \)
+    \item \( \Omega \) -- right ascension of the ascending node at \( t_1 \)
+    \item \( \omega \) -- argument of periapsis at \( t_1 \)
+    \item \( \nu \) -- true anomaly at \( t_1 \)
 \end{itemize}
 
 \noindent \textbf{Outputs: }
 \begin{itemize}
-    \item \( r \) -  position vector in ECI
-    \item \( v \) - velocity vector in ECI
+    \item \( r \) --  position vector in ECI
+    \item \( v \) -- velocity vector in ECI
 \end{itemize}
 
 \subsubsection*{\textbf{visible} }
 This function will determine if the observer is in the dark.
-If so, it weill then compute the topocentric range, azimuth, and elevation of the satellite relative to the observer.
+If so, it will then compute the topocentric range, azimuth, and elevation of the satellite relative to the observer.
 If the elevation is greater than \SI{10}{\degree} and the range is less than \SI{1500}{\kilo\meter} then the function will check if the satellite is illuminated by the sun.
 If the satellite is visible then a flag will be set to true.
 
 \noindent \textbf{Inputs: }
 \begin{itemize}
-    \item \( r \) -  position of the satellite in the ECI frame
-    \item \( r_s \) - position of the observer in the ECI frame
-    \item \( \lambda \) - observer geodetic latitude
-    \item \( \theta \) - observer local sidereal time
-    \item \( JD \) - julian date at viewing time
+    \item \( r \) --  position of the satellite in the ECI frame
+    \item \( r_s \) -- position of the observer in the ECI frame
+    \item \( \lambda \) -- observer geodetic latitude
+    \item \( \theta \) -- observer local sidereal time
+    \item \( JD \) -- Julian date at viewing time
 \end{itemize}
 
 \noindent \textbf{Optional Outputs: }
 \begin{itemize}
-    \item \( \rho \) - range 
-    \item \( \alpha \) - azimuth
-    \item \( \epsilon \) - elevation
-    \item \( d \) - flag for observer darkness
-    \item \( v \) - flag for visibility of satellite
+    \item \( \rho \) -- range 
+    \item \( \alpha \) -- azimuth
+    \item \( \epsilon \) -- elevation
+    \item \( d \) -- flag for observer darkness
+    \item \( v \) -- flag for visibility of satellite
 \end{itemize}
 
 These outputs are all optional. 
 You may decide to use this function to print your output data, or pass data to another function to output. 
 
 \subsubsection*{rhoazel}
-This function determines the topocentric range, azimuth, and elevation from the observation site to the satelite.
+This function determines the topocentric range, azimuth, and elevation from the observation site to the satellite.
 
 \noindent \textbf{Inputs: }
 \begin{itemize}
-    \item \(r \) -  position of satellite in ECI frame
-    \item \( r_s \) - position of observer in ECI frame
-    \item \( \lambda \) - observer geodetic latitude
-    \item \( \theta \) - site local sidereal time
+    \item \(r \) --  position of satellite in ECI frame
+    \item \( r_s \) -- position of observer in ECI frame
+    \item \( \lambda \) -- observer geodetic latitude
+    \item \( \theta \) -- site local sidereal time
 \end{itemize}
 
 \noindent \textbf{Output: }
 \begin{itemize}
-    \item \( \rho \) - range
-    \item \( \alpha \) - azimuth
-    \item \( \epsilon \) - elevation
+    \item \( \rho \) -- range
+    \item \( \alpha \) -- azimuth
+    \item \( \epsilon \) -- elevation
 \end{itemize}
 
 \subsection*{PREDICT Final Report}
@@ -215,16 +214,16 @@ Your program must process a TLE file and generate topocentric data so you can vi
 You are required to summarize your project results and submit and engineering report (not to exceed \num{5} typed pages, excluding title page, table of contents and appendices) to your instructor.
 Your report should contain the following sections:
 \begin{enumerate}
-    \item \textbf{Intro and Assumptions} - Introduce and motivate the problem, then briefly discuss the assumptions that were required to solve the problem. 
+    \item \textbf{Intro and Assumptions} -- Introduce and motivate the problem, then briefly discuss the assumptions that were required to solve the problem. 
         You may simply list, without discussions, any assumptions being used that have been used in previous projects.
-    \item \textbf{Math Technique} - This section is a summary of the theory that ws used to solve the problem, with an emphasis on the math that is new since \texttt{COMFIX}. 
+    \item \textbf{Math Technique} -- This section is a summary of the theory that we used to solve the problem, with an emphasis on the math that is new since \texttt{COMFIX}. 
         Be sure to address why each step was taken. 
-        Do not discuss your computer code here, i.e. `` Next I wrote \texttt{rsite}\ldots'' and don't simply refer to or regurgiitate your algorithm.
-    \item \textbf{Analysis/Discussion} - Introduce your code here and include a discussion of how it was validated, including options for validating.
-        discuss teh output you generated, including a summary of the data on the satellite, or satellites) you viewed, along with details of that viewing as compared to what was expected.
-    \item \textbf{Sources of Error/Recommendations} - Discuss any errors, that is, where your assumptions impacted your results. 
+        Do not discuss your computer code here, i.e. `` Next I wrote \texttt{rsite}\ldots'' and don't simply refer to or regurgitate your algorithm.
+    \item \textbf{Analysis/Discussion} -- Introduce your code here and include a discussion of how it was validated, including options for validating.
+        Discuss the output you generated, including a summary of the data on the satellite, or satellites you viewed, along with details of that viewing as compared to what was expected.
+    \item \textbf{Sources of Error/Recommendations} -- Discuss any errors, that is, where your assumptions impacted your results. 
         Include any recommendations for how to improve the results.
-    \item \textbf{Appendix A - Program Usage} - You must include instructions so a person can you your executable code to generate obsrevation data for any site, range of days, and any number of TLEs.
+    \item \textbf{Appendix A -- Program Usage} -- You must include instructions so a person can you your executable code to generate observation data for any site, range of days, and any number of TLEs.
         Write this section of your report as \textbf{if it were a page in a user's manual}.
         Begin by briefly saying what your program does.
         Describe how someone would use your program.
@@ -250,8 +249,8 @@ Your report should contain the following sections:
                     \item What are your outputs/units?
                 \end{itemize}
         \end{itemize}
-    \item \textbf{Appendix B - Results} - Program results for atleast 3 objects from teh TLEs (\textbf{NOT ALL 100+ please!}), over the time interval of your choice, to include when you observed a satellite.
-    \item \textbf{Appendix C - Bonus} - Pick a location more than \SI{100}{\kilo\meter} from DC and run your program. 
+    \item \textbf{Appendix B -- Results} -- Program results for at least 3 objects from the TLEs (\textbf{NOT ALL 100+ please!}), over the time interval of your choice, to include when you observed a satellite.
+    \item \textbf{Appendix C -- Bonus} -- Pick a location more than \SI{100}{\kilo\meter} from DC and run your program. 
         If you or any other person view a satellite based on your computer results, you will receive a bonus on your project
 \end{enumerate}
 \end{document}  

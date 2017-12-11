@@ -1,0 +1,20 @@
+Transfer ellipse properties
+a : 34285.71428571428 km, ecc : 0.75
+V1 : 6.3134816068473665 km/sec
+V2 : 3.0748123621805927 km/sec
+
+First maneuver
+True anomaly of transfer ellipse : 48.1896851042214 deg
+VT1 : 8.251924144303153 km/sec
+FPAT1 : 20.43931757325825 deg
+DV1 : 3.2120894230249433 km/sec
+alpha1 : 63.7847642878842 deg
+
+Second maneuver
+True anomaly of transfer ellipse : 149.19889612520493 deg
+VT2 : 2.6987208467291546 km/sec
+FPAT2 : 47.18728712054306 deg
+DV2 : 2.336401926366451 km/sec
+alpha2 : 105.1107332688757 deg
+
+TOF : [ 10856.40635347] sec = [ 3.01566843] hr

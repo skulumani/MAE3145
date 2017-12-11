@@ -1,0 +1,8 @@
+Simple plane change at current altitude
+DV : 2.3100608114032304 km/sec
+
+Bielliptical Plane change
+DV1 : 0.5610436476308001 km/sec
+DV2 : 0.3354514433852929 km/sec
+DV3 : 0.5610436476308001 km/sec
+TOF : 82025.27293115648 sec = 22.784798036432356 hr

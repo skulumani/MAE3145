@@ -1,0 +1,112 @@
+\documentclass[10pt]{article}
+\usepackage{amssymb,amsmath,times,url,graphicx,amsthm,alltt}
+%\usepackage[pdftex,urlcolor=blue,pdfpagemode=none,pdfstartview=FitH]{hyperref}
+\usepackage{my_packages}
+\usepackage{tikz_packages}
+\usepackage{wasysym}
+%% url smaller font.
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+%\usepackage[all,import]{xy}
+
+\renewcommand{\baselinestretch}{1.2}
+\date{}
+
+\renewcommand{\thesubsection}{\arabic{subsection}. }
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection} }
+
+\theoremstyle{definition}
+\newtheorem{prob}{Problem}[section]
+%\renewcommand{\theprob}{\arabic{section}.\arabic{prob}}
+\renewcommand{\theprob}{\arabic{prob}}
+
+\newenvironment{subprob}%
+{\renewcommand{\theenumi}{\alph{enumi}}\renewcommand{\labelenumi}{(\theenumi)}\begin{enumerate}}%
+{\end{enumerate}}%
+
+\newenvironment{matlab}
+{\begin{alltt}\small\renewcommand{\baselinestretch}{1.2}\selectfont}%
+{\end{alltt}}
+
+
+\begin{document}
+
+
+
+\setcounter{page}{1}
+\pagestyle{plain}
+\section*{MAE3145: Homework 6 Selected Answers}
+\vspace*{-0.4cm}
+\noindent{Due date: \SI{2456069.417}{\julianday} }%\\%\vspace*{0.5cm}
+
+\section*{Problem 1}
+\begin{itemize}
+    \item Total \( \Delta V  = \SI{15.707}{\kilo\meter\per\second}\)
+    \item Total time of flight \( TOF = 30.63 \) years
+    \item Actual Voyager 2 TOF \( TOF = 12.02 \) years
+\end{itemize}
+
+\section*{Problem 2}
+\begin{itemize}
+    \item Plane change at current altitude \( \Delta V = \SI{2.31006}{\kilo\meter\per\second}\)
+    \item Plane change using bielliptical transfer \( \Delta V = \SI{1.457}{\kilo\meter\per\second}\)
+\end{itemize}
+
+\section*{Problem 3}
+\begin{itemize}
+    \item \( \Delta V \) is all three reference frames for maneuver at \( \nu = \SI{90}{\degree}\)
+        \begin{verbatim}
+    DV : 0.3750000000000001 V -0.649519052838329 C 0.0 N km/sec
+    DV : -0.46379179721347064 R 0.5894040794204761 T 0.0 H km/sec
+    DV : -0.5894040794204761 P -0.4637917972134706 Q 0.0 W km/sec
+        \end{verbatim}
+    \item New orbit velocity - \( V_2 = \SI{4.21790}{\kilo\meter\per\second}\)
+    \item New orbit true anomaly - \( \nu = \SI{40.8}{\degree}\)
+    \item \( \Delta V \) is all three reference frames for maneuver at \( E = \SI{270}{\degree}\)
+        \begin{verbatim}
+    DV : 0.3750000000000001 V -0.649519052838329 C 0.0 N km/sec
+    DV : -0.7452940449895329 R 0.08388555598635647 T 0.0 H km/sec
+    DV : 0.37500000000000067 P 0.6495190528383287 Q 0.0 W km/sec
+        \end{verbatim}
+    \item New orbit velocity - \( V_2 = \SI{3.6}{\kilo\meter\per\second}\)
+    \item New orbit true anomaly - \( \nu = \SI{259.36}{\degree}\)
+\end{itemize}
+
+\section*{Problem 4}
+\begin{itemize}
+    \item Phasing orbit period \( \SI{11131.7}{\second}\)
+    \item Total \( \Delta V = \SI{4.2657}{\kilo\meter\per\second}\) 
+\end{itemize}
+
+\section*{Problem 5 to 8}
+\begin{itemize}
+    \item You can compare all of the answers with \texttt{comfix\_solution.txt} within the MAE3145\_Library
+\end{itemize}
+
+\section*{Problem 9}
+\begin{itemize}
+    \item A to C total \( \Delta V = \SI{2.078}{\kilo\meter\per\second}\)
+    \item B to D total \( \Delta V = \SI{1.605}{\kilo\meter\per\second}\)
+\end{itemize}
+
+\section*{Problem 10}
+\begin{itemize}
+    \item Total \( \Delta V = \SI{3.761}{\kilo\meter\per\second}\) and \(\Delta V = \SI{3.785}{\kilo\meter\per\second}\)
+    \item TOF \( TOF = \SI{199}{\hour}\) and \( TOF = \SI{22.38}{\hour}\)
+\end{itemize}
+
+\section*{Problem 11}
+
+\begin{itemize}
+    \item \( \Delta V_1 = \SI{3.212}{\kilo\meter\per\second}\)
+    \item \( \Delta V_2 = \SI{2.336}{\kilo\meter\per\second}\)
+\end{itemize}
+
+\section*{Problem 12}
+
+Extra credit
+\end{document}

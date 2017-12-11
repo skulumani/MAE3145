@@ -1,0 +1,94 @@
+Initial Mars Orbit
+
+Satellite State 
+Position and Velocity in LVLH frame 
+r_hat:                    16985 km rd_hat:       0.793968282983193 km/sec
+t_hat:                        0 km td_hat:        1.37519340572511 km/sec
+h_hat:                        0 km hd_hat:                       0 km/sec
+
+Position and Velocity in EPH/PQW frame 
+e_hat:        -8492.49999999999 km ed_hat:       -1.58793656596639 km/sec
+p_hat:         14709.4414832787 km pd_hat:    4.07139035292988e-16 km/sec
+h_hat:                        0 km hd_hat:                       0 km/sec
+
+Position and Velocity in IJK frame 
+i_hat:        -3002.55216961337 km id_hat:       -1.40355089236114 km/sec
+j_hat:         15012.7608480669 km jd_hat:       0.280710178472228 km/sec
+k_hat:         7354.72074163934 km kd_hat:       0.687596702862557 km/sec
+
+RAD_MAG   :                16985 km = 0.000113537712802996 AU 
+VEL_MAG   :     1.58793656596639 km/sec 
+
+Orbital Elements 
+sma:                      16985 km raan:                        45 deg
+ecc:                        0.5    arg_p:                      -60 deg
+inc:                         30 deg nu:                        120 deg
+
+Elliptic Orbital Parameters
+P         :             12738.75 km = 8.51532846022473e-05 AU 
+ANG MOM   :     23357.6599962411 km^2/sec 
+PERIOD    :     67206.6534203762 sec =     18.6685148389934 hr
+ENGERGY   :    -1.26077126876656 km^2/sec^2 
+RAD_PER   :               8492.5 km = 5.67688564014982e-05 AU 
+RAD_APO   :              25477.5 km = 0.000170306569204495 AU 
+
+VEL_CIRC  :     1.58793656596639 km/sec 
+VEL_ESC   :     2.24568142777782 km/sec 
+TRUE_ANOM :                  120 deg 
+FPA       :                   30 deg 
+ECC_ANOM  :                   90 deg 
+MEAN_ANOM :     61.3521102434588 deg 
+MEAN_MOT  :  0.00535661250305394 deg/sec 
+
+T_PAST_PER:     11453.5278048357 sec =     3.18153550134325 hr 
+
+Delta V : -0.15204599827201593 rhat 0.034690689107605074 that 0.2969487674645336 hhat km/sec
+Percentage out of plane : 88.53301731806333 %
+Delta V inplane magnitude : 0.15204599827201593 km/sec
+Beta (out of plane) : 62.88629553971101 deg
+Phi (angle from theta_hat) : -77.14744821643559 deg
+Alpha (angle from Vhat) : -107.14744821643559 deg
+Final Orbit
+
+Satellite State 
+Position and Velocity in LVLH frame 
+r_hat:                    16985 km rd_hat:       0.641922284711177 km/sec
+t_hat:                        0 km td_hat:        1.44081634199539 km/sec
+h_hat:                        0 km hd_hat:                       0 km/sec
+
+Position and Velocity in EPH/PQW frame 
+e_hat:        -7372.01633611597 km ed_hat:       -1.57664264038573 km/sec
+p_hat:         15301.7515383056 km pd_hat:     -0.0470524758893704 km/sec
+h_hat:                        0 km hd_hat:                       0 km/sec
+
+Position and Velocity in IJK frame 
+i_hat:        -3002.55216961337 km id_hat:       -1.30355089236114 km/sec
+j_hat:         15012.7608480669 km jd_hat:      0.0307101784722282 km/sec
+k_hat:         7354.72074163935 km kd_hat:       0.887596702862557 km/sec
+
+RAD_MAG   :                16985 km = 0.000113537712802996 AU 
+VEL_MAG   :     1.57734458853156 km/sec 
+
+Orbital Elements 
+sma:            16762.129680208 km raan:          62.1464270483275 deg
+ecc:          0.407145074139394    arg_p:           289.9384734766 deg
+inc:           37.2588316405192 deg nu:           115.723650175731 deg
+
+Elliptic Orbital Parameters
+P         :     13983.5198622752 km = 9.34740572327349e-05 AU 
+ANG MOM   :     24472.2655687917 km^2/sec 
+PERIOD    :     65888.2143277418 sec =      18.302281757706 hr
+ENGERGY   :    -1.27753456204822 km^2/sec^2 
+RAD_PER   :     9937.51114882559 km =   6.642815936367e-05 AU 
+RAD_APO   :     23586.7482115904 km = 0.000157667674089146 AU 
+
+VEL_CIRC  :     1.58793656596639 km/sec 
+VEL_ESC   :     2.24568142777782 km/sec 
+TRUE_ANOM :     115.723650175731 deg 
+FPA       :     24.0142530757261 deg 
+ECC_ANOM  :     91.8714305347672 deg 
+MEAN_ANOM :       68.55617857169 deg 
+MEAN_MOT  :  0.00546379961383207 deg/sec 
+
+T_PAST_PER:     12547.3449645068 sec =     3.48537360125189 hr 
+
