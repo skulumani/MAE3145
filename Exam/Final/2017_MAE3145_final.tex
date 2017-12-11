@@ -7,7 +7,7 @@
 \usepackage{alltt}
 %\usepackage{warmread}
 %\usepackage[all,import]{xy}
-%\usepackage{eepic}
+%s\usepackage{eepic}
 \usepackage{my_packages}
 \usepackage{lastpage}
 \usepackage{fancyhdr}
@@ -47,7 +47,7 @@
 
 \centerline{\LARGE{ MAE3145: Final Exam}}
 \vspace*{0.5cm}
-\centerline{\Large \SI{2458052.1979}{\julianday}}%\\%\vspace*{0.5cm}
+\centerline{\Large \SI{2458101.236}{\julianday}}%\\%\vspace*{0.5cm}
 
 \vspace*{6cm}
 
@@ -99,11 +99,6 @@ Last Name & First Name & Student ID
         \item Assume that the maneuver will be implemented at \( \theta = \SI{45}{\degree}\).
             Determine the required maneuver in terms of \( \norm{\Delta \bar v} \) and \(\alpha\).
     \end{subprob}
-    \vspace*{9cm} 
-    \begin{figure*}[hb]
-        \centering
-        \includegraphics[width=\textwidth]{prob2.png}
-    \end{figure*}
 \end{prob}
 
 \extrapage
@@ -113,10 +108,13 @@ Last Name & First Name & Student ID
 The following problems should be easy. 
 Do not spend large amounts of time here.
 \begin{subprob}
-\item Draw a picture to explain why Greenwich Sidereal Time is approximately \SI{100}{\degree} at \num{0000} UTC on 1 January each year.
+\item Draw a picture to explain why Greenwich Sidereal Time is approximately \SI{100}{\degree} at 0000 (midnight) UTC on 1 January each year.
     Recall that the Winter Solstice is in the third week of December annually.
 
+    \vspace{8cm}
 \item Given the total energy of a circular orbit, show that the orbital speed is constant and given by \( v_{circ} = \sqrt{\frac{\mu}{r}}\).
+
+    \vspace{5cm}
 
 \item The Molniya orbit is a highly eccentric orbit specifically designed such that the spacecraft spends the majority of time in the vicinity of apogee.
 
@@ -125,8 +123,14 @@ Do not spend large amounts of time here.
     \item How would you determine the velocity of the Molniya orbit  at \underline{perigee}?
     Assume you are given the semi-major axis, \( a \), and eccentricity, \( e\).
     Express your solution in terms of \( a \) and \( e\).
+
+    \vspace{4cm}
+
         \item Determine the inclination required such that the argument of perigee remains constant?
-        \item At this inclination what is the rate of right ascnension of the ascending node?
+
+            \vspace{5cm}
+        \item At this inclination what is the rate of right ascnension of the ascending node? 
+            You do not need to simplify your answer.
     \end{subprob}
 \end{subprob}
 \end{prob}
@@ -157,17 +161,19 @@ Do not spend large amounts of time here.
 \extrapage
 
 \begin{prob}
-    Your first job involves a boss who is aware of the SEZ frame but claims ``it doesn't make any sense''.
-    Your boss would instead like to use the \textbf{North West Zenith} reference frame because it makes more sense.
+    A radar tracking site is located at the following location: (assume a perfectly spherical Earth)
+    \begin{itemize}
+        \item Latitude: \SI{90}{\degree} North
+        \item Altitude: \SI{0}{\kilo\meter}
+        \item Greenwich Sidereal Time: \SI{180}{\degree}
+    \end{itemize}
 
+    A satellite is in a circular polar orbit with \( a = \SI{9020.5}{\kilo\meter}, \Omega = \SI{90}{\degree}, \theta = \SI{45}{\degree}\).
+
+    Determine the following:
     \begin{subprob}
-    \item Determine the rotation matrices to transform a vector from the \textbf{North West Zenith} reference frame to the \textbf{Earth Centered Inertial} reference frame.
-    \item From a site located at \SI{30}{\degree} North latitude and \SI{90}{\degree} West longitude, the range vector to a satellite is :
-        \begin{align*}
-            \bar \rho_{NWZ} = - 7000 \hat N - 500 \hat W + 500 \hat Z \si{\kilo\meter}
-        \end{align*}
-        at \( GST = 0600\) hours.
-        What is the \underline{ \( \hat k = \hat z \) component} of this vector, \( \bar \rho_{ECI}\), in the \textbf{Earth Centered Inertial} reference frame?
+    \item \textbf{Range-Vector} from the site to the satellite in the Earth Centered Inertial Reference frame.
+    \item \textbf{Elevation angle} and \textbf{Range} from the site to the satellite
     \end{subprob}
 \end{prob}
 
