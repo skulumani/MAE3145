@@ -227,102 +227,120 @@ Compute the trajectory of the relative motion, and plot it on the $xy$ plane.
 \end{subprob}
 \end{prob}
 
-\end{document}
-
-
-
 
 \begin{prob}
-The relative motion of two point masses acting under their mutual gravitational potential is described by the following ordinary differential equation.
-\begin{align}
-\ddot{ r} = -\mu \frac{ r}{r^3},
-\end{align}
-where $\mu=G(m_1+m_2)$.
-\begin{subprob}
-\item Write a Matlab code to solve this equation for $ r(t)$, and plot the relative trajectories on the $xy$ plane for the following initial conditions. The properties of two masses and the simulation time are the same as Problem 1.
-\begin{align*}
- r(0)=  R_2(0)- R_1(0) = [1,0,0]^T\,(\mathrm{m}), \qquad 
- v(0)=  V_2(0)- V_1(0) = [1,1,0]^T\,(\mathrm{m/s}).
-\end{align*}
-\item Check that your solution of \textbf{Problem 2}.(b) is consistent with \textbf{Problem 1}.(d).
-\end{subprob}
+    Consider the N-body problem
+
+    Create a simulation  of the solar system
+
+    Here are the initial conditions for the solar system at some epoch,
+
+    Here is where they should be in 1 year, find where they are in on your next birthday
+    
+    Show a plot and normalize by Earth orbit to get AU
 \end{prob}
 
+\begin{prob}
+    Some problems from BMW chapter 1, compute energy, angular moment, and other constants for orbiting bodies
 
-\clearpage\newpage
-\section*{MATLAB: Initial Value Problem for Ordinary Differential Equations}
-
-Consider an ordinary differential equation
-\begin{align}
-\dot x = f(t,x),\label{eqn:f}
-\end{align}
-where $x\in\Re^n$, $f:\Re\times\Re^n\rightarrow\Re^n$. An initial value problem is to find the solution $x(t)$ satisfying the ordinary differential equation and an initial condition $x(0)=x_0$. Matlab provides several solvers for initial value problems. Here, we show an example for a pendulum. 
-
-\paragraph{Pendulum Model} A pendulum is a point mass connected to a frictionless pivot point by a massless link acting under gravity. The motion of a pendulum is described by the following differential equation.
-\begin{align}
-\ddot \theta = - \frac{g}{l} \sin\theta,\label{eqn:ddottheta}
-\end{align}
-where $\theta$ is the angle of the link from the hanging position, $l$ is the length of the link, and $g$ is the gravitational acceleration.
-
-We will solve an initial value problem of this pendulum model using the Matlab \texttt{ode45} function. The initial conditions and the properties of the pendulum is given by
-\begin{align*}
-\theta(0)=\frac{\pi}{4},\quad \dot\theta(0)=0,\quad l=9.81\,\mathrm{m},\quad g=9.81\,\mathrm{m/s^2}.
-\end{align*}
-
-\paragraph{Step 1. Standard First-Order Form} The first step is to rewrite the differential equation \refeqn{ddottheta} into the standard first-order form \refeqn{f}. Define
-\begin{align}
-x_1=\theta,\quad x_2=\dot\theta.
-\end{align}
-Then, \refeqn{ddottheta} can be written as two-dimensional first-order differential equations of a state vector $x=[x_1,x_2]^T\in\Re^2$.
-\begin{align}
-\dot x_1 & = \dot\theta = x_2,\\
-\dot x_2 & = \ddot\theta = -\frac{g}{l}\sin\theta = -\frac{g}{l}\sin x_1.
-\end{align}
-These equations can be rewritten as
-\begin{align}
-\dot x = \begin{bmatrix} \dot x_1 \\ \dot x_2 \end{bmatrix}
-=\begin{bmatrix} x_2 \\ -\frac{g}{l} \sin x_1\end{bmatrix}=f(t,x),
-\end{align}
-which has the same form as \refeqn{f}.
-
-\paragraph{Step 2. Matlab Function for $f$} The next step is writing a Matlab function m-file for $f(t,x)$: the input of this function is a time $t$ and a state vector $x$, and the output is $\dot x$. The following Matlab m-file function represent the equation of motion for a pendulum. Note that it should be saved as \texttt{eomPend.m}.
-
-\begin{alltt}
-\footnotesize\renewcommand{\baselinestretch}{1.2}\selectfont
-function dotX=eomPend(t,X)
-g=9.81;
-l=9.81;
-
-theta=X(1);
-dottheta=X(2);
-
-ddottheta=-g/l*theta;
-
-dotX=[dottheta; ddottheta];
-\end{alltt}
-
-\paragraph{Step 3. Use \texttt{ode45} Function} The Matlab function \texttt{eomPend.m} is integrated by the Matlab initial value problem solver \texttt{ode45}. The syntax is as follows
-
-\begin{alltt}
-[t,X] = ode45(@odefun,tspan,X0);
-\end{alltt}
-where \texttt{@odefun} is the handle of the differential equation, \texttt{tspan=[t0 tf]} specifies the simulation time for the initial time \texttt{t0} and the terminal time \texttt{tf}. The initial condition is specified by \texttt{X0}. Then, it returns the column vector \texttt{t} of time points, and the solution array \texttt{X}, where each row in \texttt{X} corresponds to the solution at a time returned in the corresponding row of \texttt{t}.
-
-For our initial value problem for the pendulum, use the following Matlab script m-file.
-\begin{alltt}\footnotesize\renewcommand{\baselinestretch}{1.2}\selectfont
-clear all;
-close all;
-
-theta0=pi/4;
-dottheta0=0;
-X0=[theta0; dottheta0];
-
-[t,X]=ode45(@eomPend,[0 10],X0);
-
-theta=X(:,1);
-dottheta=X(:,2);
-
-plot(theta,dottheta);
-\end{alltt}
+    problems from vallado
+\end{prob}
 \end{document}
+
+
+
+
+% \begin{prob}
+% The relative motion of two point masses acting under their mutual gravitational potential is described by the following ordinary differential equation.
+% \begin{align}
+% \ddot{ r} = -\mu \frac{ r}{r^3},
+% \end{align}
+% where $\mu=G(m_1+m_2)$.
+% \begin{subprob}
+% \item Write a Matlab code to solve this equation for $ r(t)$, and plot the relative trajectories on the $xy$ plane for the following initial conditions. The properties of two masses and the simulation time are the same as Problem 1.
+% \begin{align*}
+%  r(0)=  R_2(0)- R_1(0) = [1,0,0]^T\,(\mathrm{m}), \qquad 
+%  v(0)=  V_2(0)- V_1(0) = [1,1,0]^T\,(\mathrm{m/s}).
+% \end{align*}
+% \item Check that your solution of \textbf{Problem 2}.(b) is consistent with \textbf{Problem 1}.(d).
+% \end{subprob}
+% \end{prob}
+
+
+% \clearpage\newpage
+% \section*{MATLAB: Initial Value Problem for Ordinary Differential Equations}
+
+% Consider an ordinary differential equation
+% \begin{align}
+% \dot x = f(t,x),\label{eqn:f}
+% \end{align}
+% where $x\in\Re^n$, $f:\Re\times\Re^n\rightarrow\Re^n$. An initial value problem is to find the solution $x(t)$ satisfying the ordinary differential equation and an initial condition $x(0)=x_0$. Matlab provides several solvers for initial value problems. Here, we show an example for a pendulum. 
+
+% \paragraph{Pendulum Model} A pendulum is a point mass connected to a frictionless pivot point by a massless link acting under gravity. The motion of a pendulum is described by the following differential equation.
+% \begin{align}
+% \ddot \theta = - \frac{g}{l} \sin\theta,\label{eqn:ddottheta}
+% \end{align}
+% where $\theta$ is the angle of the link from the hanging position, $l$ is the length of the link, and $g$ is the gravitational acceleration.
+
+% We will solve an initial value problem of this pendulum model using the Matlab \texttt{ode45} function. The initial conditions and the properties of the pendulum is given by
+% \begin{align*}
+% \theta(0)=\frac{\pi}{4},\quad \dot\theta(0)=0,\quad l=9.81\,\mathrm{m},\quad g=9.81\,\mathrm{m/s^2}.
+% \end{align*}
+
+% \paragraph{Step 1. Standard First-Order Form} The first step is to rewrite the differential equation \refeqn{ddottheta} into the standard first-order form \refeqn{f}. Define
+% \begin{align}
+% x_1=\theta,\quad x_2=\dot\theta.
+% \end{align}
+% Then, \refeqn{ddottheta} can be written as two-dimensional first-order differential equations of a state vector $x=[x_1,x_2]^T\in\Re^2$.
+% \begin{align}
+% \dot x_1 & = \dot\theta = x_2,\\
+% \dot x_2 & = \ddot\theta = -\frac{g}{l}\sin\theta = -\frac{g}{l}\sin x_1.
+% \end{align}
+% These equations can be rewritten as
+% \begin{align}
+% \dot x = \begin{bmatrix} \dot x_1 \\ \dot x_2 \end{bmatrix}
+% =\begin{bmatrix} x_2 \\ -\frac{g}{l} \sin x_1\end{bmatrix}=f(t,x),
+% \end{align}
+% which has the same form as \refeqn{f}.
+
+% \paragraph{Step 2. Matlab Function for $f$} The next step is writing a Matlab function m-file for $f(t,x)$: the input of this function is a time $t$ and a state vector $x$, and the output is $\dot x$. The following Matlab m-file function represent the equation of motion for a pendulum. Note that it should be saved as \texttt{eomPend.m}.
+
+% \begin{alltt}
+% \footnotesize\renewcommand{\baselinestretch}{1.2}\selectfont
+% function dotX=eomPend(t,X)
+% g=9.81;
+% l=9.81;
+
+% theta=X(1);
+% dottheta=X(2);
+
+% ddottheta=-g/l*theta;
+
+% dotX=[dottheta; ddottheta];
+% \end{alltt}
+
+% \paragraph{Step 3. Use \texttt{ode45} Function} The Matlab function \texttt{eomPend.m} is integrated by the Matlab initial value problem solver \texttt{ode45}. The syntax is as follows
+
+% \begin{alltt}
+% [t,X] = ode45(@odefun,tspan,X0);
+% \end{alltt}
+% where \texttt{@odefun} is the handle of the differential equation, \texttt{tspan=[t0 tf]} specifies the simulation time for the initial time \texttt{t0} and the terminal time \texttt{tf}. The initial condition is specified by \texttt{X0}. Then, it returns the column vector \texttt{t} of time points, and the solution array \texttt{X}, where each row in \texttt{X} corresponds to the solution at a time returned in the corresponding row of \texttt{t}.
+
+% For our initial value problem for the pendulum, use the following Matlab script m-file.
+% \begin{alltt}\footnotesize\renewcommand{\baselinestretch}{1.2}\selectfont
+% clear all;
+% close all;
+
+% theta0=pi/4;
+% dottheta0=0;
+% X0=[theta0; dottheta0];
+
+% [t,X]=ode45(@eomPend,[0 10],X0);
+
+% theta=X(:,1);
+% dottheta=X(:,2);
+
+% plot(theta,dottheta);
+% \end{alltt}
+% \end{document}
 
