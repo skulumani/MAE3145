@@ -42,8 +42,8 @@ def generate_data(tle_file='./data/RV2COE_tle.txt', outfile='./data/RV2COE_tle_r
     Uses a saved TLE file - can get more using tle.get_tle_spacetrack(outfile, 'rv2coe')
 
     """
-    jd_start, _ = time.date2jd(2017, 9, 1, 0, 0, 0)  # time in UTC
-    jd_end, _ = time.date2jd(2017, 9, 11, 0, 0, 0)
+    jd_start, _ = time.date2jd(2018, 10, 6, 0, 0, 0)  # time in UTC
+    jd_end, _ = time.date2jd(2018, 10, 13, 0, 0, 0)
     jd_step =  10 / (24 * 60)
     jd_span = np.arange(jd_start, jd_end, jd_step)
 
