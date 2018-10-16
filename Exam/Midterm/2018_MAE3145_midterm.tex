@@ -1,0 +1,232 @@
+\documentclass[10pt]{article}
+% \usepackage[letterpaper,text={6.5in,8.7in},centering]{geometry}
+\usepackage{curves}
+\usepackage{epic,eepic,color}
+%\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+% \usepackage{amssymb,amsmath,times,subfigure,graphicx,theorem}
+\usepackage{alltt}
+%\usepackage{warmread}
+%\usepackage[all,import]{xy}
+%\usepackage{eepic}
+\usepackage{my_packages}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\usepackage{tikz_packages}
+\renewcommand{\baselinestretch}{1.2}
+\date{}
+
+\renewcommand{\thesubsection}{\arabic{subsection}. }
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection} }
+
+\theoremstyle{definition}
+\newtheorem{prob}{Problem}[section]
+%\renewcommand{\theprob}{\arabic{section}.\arabic{prob}}
+\renewcommand{\theprob}{\arabic{prob}}
+
+\newenvironment{subprob}%
+{\renewcommand{\theenumi}{\alph{enumi}}\renewcommand{\labelenumi}{(\theenumi)}\begin{enumerate}}%
+{\end{enumerate}}%
+
+
+%1: Explain the Newtonian gravitational force and gravitational potential between particles
+%2: Analyze the characteristics of circular, elliptic, parabolic and hyperbolic orbits in a two-dimensional plane
+%3: Apply numerical/analytical techniques to propogate orbits
+%4: Describe the geometry of an orbit in a three-dimensional space from orbital elements
+
+
+\begin{document}
+
+
+\setcounter{page}{0}
+
+\vspace*{1cm}
+
+\centerline{\LARGE{ MAE3145: Midterm Exam}}
+\vspace*{0.5cm}
+\centerline{\Large \SI{2458416.465}{\julianday}}%\\%\vspace*{0.5cm}
+
+\vspace*{6cm}
+
+\centerline{
+\begin{tabular}{lll}
+\hspace*{5cm}, & \hspace*{5cm}. & \hspace*{4cm}\\\hline
+Last Name & First Name & Student ID
+\end{tabular}}
+
+\vspace*{6cm}
+
+\centerline{
+\begin{tabular}{|c|c|c|c|c|c|}\hline
+    Prob. 1 & Prob. 2 & Prob. 3 & Prob. 4 & Prob. 5 & Total \\
+    (20) & (20) & (20) & (20) & (20) & (100)\\ \hline
+    \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm}  & \hspace*{2.2cm} \\
+                    & & & & & \\
+                & & & & & \\
+\hline
+\end{tabular}}
+
+\clearpage\newpage
+% \renewcommand{\theprob}{\arabic{prob} \textit{(15pt)}}
+\begin{prob}
+    \textbf{20pt} 
+    
+    \textbf{Mark whether each statement written in \textit{italic font} is True or False.}
+\begin{subprob}
+
+    \item The International space station (ISS) is on a circular orbit at the altitude of \SI{422}{\kilo\meter}, and GPS satellites are on circular orbits at the altitude of \SI{20200}{\kilo\meter}. \textit{The specific mechanical energy of ISS is greater than GPS satellites, i.e. $\mathcal{E}_{ISS} > \mathcal{E}_{GPS}$}. [True, False]
+
+    \vspace*{1cm}
+
+\item \textit{The orbital period of the ISS is greater than that of GPS satellites, i.e. $\mathbb{P}_{ISS} > \mathbb{P}_{GPS}$.} [True, False]
+
+    \vspace*{1cm}
+    
+\item An Earth orbiting satellite has an apogee of \( r_a = \SI{25000}{\kilo\meter} \) and a perigee of \( r_p = \SI{8000}{\kilo\meter} \). 
+    \textit{The orbital velocity at perigee is less than that orbital velocity at apogee, i.e. \( v_p < v_a \).} [True, False]
+
+    \vspace*{1cm}
+\textbf{Answer the following short response questions.}
+
+    \item Who made this statement? The force of gravity between two bodies is directly proportional to the product of their two masses and inversely proprtional to the square of the distance between them.
+
+    \vspace*{1cm}
+
+    \item Who made this statement? The orbits of the planets are ellipses with the Sun at one focus.
+
+    \vspace*{1cm}
+
+    \item Who defined the theory of epicycles, or described the apparent motion of the planets as composed of circular motion of the planet (epicycle) on a larger circle (deferent) centered on the Earth.
+
+    \vspace*{1cm}
+     
+    \item In your own words, write the three laws of planetary motion as described by Johaness Kepler.
+
+    \vspace*{3cm}
+
+    \item What are the equations of motion for the relative motion of two bodies under their mutual gravitational attraction?
+
+    \vspace*{1cm}
+
+    \item What is the analytical solution for the relative two-body problem? What geometric shape does it define?
+
+\end{subprob}
+\end{prob}
+
+
+\clearpage\newpage
+\begin{prob}
+    \textbf{20pt} Worldwide, space agencies are considering missions to asteroids, even double and triple body systems. 
+    Assume we reach a triple system with three asteroids that possess the following gravitational mass parameters:
+
+    \begin{center}
+        \begin{tabular}{llr}  
+            \toprule
+            Body & (\( Gm\)) \\
+            \midrule
+            Spacecraft & \( \approx 0 \) \\
+            Alpha & \( 2 \mu \) \\
+            Beta & \( \mu \) \\
+            Gamma & \( \mu \) \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+
+At a certain instant of time, assume that the asteroids and spacecraft are positioned at the four corners of a square. 
+The distance along any edge is \( d\).
+\begin{figure}[htbp]
+    \centering
+\begin{tikzpicture}
+    [
+    point/.style = {draw, circle, fill = black, inner sep = 1pt},
+    dot/.style = {draw, circle, fill = black, inner sep = 0.2pt}
+    ]
+    % three corners of the triangle
+    [label={[label distance=1cm]30:label}]
+    \node (g) at (0, 0) [] {Gamma (\(\gamma\))};
+    \node (a) at (0, -4) [] {Alpha (\(\alpha\))};
+    \node (sc) at (4, 0) [] {S/C};
+    \node (b) at (4, -4) [] {Beta (\(\beta\))};
+
+    \draw (g) -- (a) -- (b) -- (sc) -- (g);
+\end{tikzpicture}
+\caption{System diagram}
+\end{figure}
+
+\begin{subprob}
+    \item Alpha is the primary asteroid; write the relative vector equations of motion for the spacecraft with respect to Alpha.
+    \item Determine the magnitudes and directions of the dominant acceleration (\(A_D\)), direct (\(A_{direct}\)), and indirect (\(A_{indirect}\)) accelerations on the spacecraft.
+    \item Calculate the magnitude and direction of the total acceleration on the spacecraft at this instant. 
+        What is the component parallel to the spacecraft--Alpha line.
+    \item Is the net perturbing acceleration on S/C instantaneously directed toward or away from the primary asteroid Alpha?
+
+    \item Is it reasonable to design the trajectory assuming relative two-body motion for the S/C and Alpha?
+        Why or why not?
+\end{subprob}
+\end{prob}
+\clearpage\newpage
+\null\newpage
+\null\newpage
+\begin{prob}
+    \textbf{20pt}
+Consider an elliptical  orbit.
+Define \( t_{outer} \) as the time required to move from a point on one end of the minor axis, through apoapsis, to a point on the other end of the minor axis.
+
+\begin{subprob}
+    \item Write an expression for the ratio of \( t_{outer} \) to the orbital period, i.e. \(\frac{t_{outer}}{\mathbb{P}}\).
+    \item If \( e = \frac{3}{4} \), the time spent in the outer half of the orbit is what percentage of the total period? In other words, find the ratio \( \frac{t_{outer}}{\mathbb{P}} \).
+\end{subprob}
+\end{prob}
+
+\clearpage\newpage
+\null\newpage
+\null\newpage
+\begin{prob}
+    \textbf{20pt}
+    Assume that a spacecraft is in the orbit about some planet of radius \( R\) and it is reasonable to model the orbit in terms of the two-body problem.
+    The perifocal set of unit vectors are \( \hat p \) and \( \hat q \).
+
+    At a given instant, the spacecraft is located at the end of the minor axis such that:
+    \begin{align*}
+        \bar r &= -4 R \hat p - 4 \sqrt{3} R \hat q \\
+        \norm{\bar v} &= \SI{3}{\radian\per\second}
+    \end{align*}
+
+\begin{subprob}
+\item Determine the following, where \( a \) is the semimajor axis, \( b \) is the semiminor axis, \( p \) is the semilatus rectum, \( e \) is eccentricity, \( \gamma \) is the flight path angle, \( \mathcal{E} \) is the specific mechanical energy, \( E \) is eccentric anomaly, and \( h \) is the specific angular momentum.
+        \begin{align*}
+            \frac{a}{R}, \quad \frac{b}{R}, \quad \frac{p}{R}, \quad e, \quad \gamma, \quad \nu, \quad E, \quad \mathcal{E}, \quad \frac{h}{R}
+        \end{align*}
+    \item Sketch the orbit and mark \( \bar r, \bar v , \gamma, \nu, E\) and the local horizontal and local vertical frame.
+\end{subprob}
+\end{prob}
+\clearpage\newpage
+\null\newpage
+\null\newpage
+
+\begin{prob}
+    \textbf{20pt}
+    The SpaceX Crew Dragon is on orbit and on its way to the International Space Station. 
+    Due to a computer failure at Mission Control SpaceX does not have a clear understanding of the current orbit. 
+    The last known position and velocity vectors of the spacecraft are given in the Earth Centered Inertial frame as:
+    \begin{align*}
+        \bar r = 0 \hat i - 26560 \hat j + 0 \hat k \, \si{\kilo\meter} ,\\
+        \bar v = 2.5 \hat i + 0 \hat j + 2.5 \hat k \, \si{\kilo\meter\per\second}.
+    \end{align*}
+    Using your knowledge of astrodynamics, determine the following classical orbital elements.
+    \begin{itemize}
+        \item Semi-major axis
+        \item Eccentricity vector and magnitude
+        \item Inclination
+        \item Right Ascension of the Ascending Node
+        \item Argument of Perigee
+        \item True Anomaly
+    \end{itemize}
+    NOTE: You can determine the angular elements without any calculation.
+\end{prob}
+\clearpage\newpage
+\null\newpage
+\null\newpage
+\end{document}
