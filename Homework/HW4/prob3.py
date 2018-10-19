@@ -14,7 +14,7 @@ raan = np.deg2rad(45)
 argp = np.deg2rad(90)
 nu = np.deg2rad(235)
 
-mu = constants.earth.radius
+mu = constants.earth.mu
 re = constants.earth.radius
 output = kepler.orbit_el(p, ecc, inc, raan, argp, nu, mu, True)
 
