@@ -2,8 +2,8 @@ Properties at nu=90 deg
 
 Satellite State 
 Position and Velocity in LVLH frame 
-r_hat:              15125.18085 km rd_hat:        5.39023786539628 km/sec
-t_hat:                        0 km td_hat:        5.13355987180598 km/sec
+r_hat:              15125.18085 km rd_hat:         5.2231721123519 km/sec
+t_hat:                        0 km td_hat:         5.3034492820916 km/sec
 h_hat:                        0 km hd_hat:                       0 km/sec
 
 Position and Velocity in EPH/PQW frame 
@@ -38,18 +38,18 @@ NU_INF    :     162.247209838053 deg
 VEL_CIRC  :     5.13355987180598 km/sec 
 VEL_ESC   :      7.2599499939623 km/sec 
 TRUE_ANOM :                   90 deg 
-FPA       :     46.3971810272964 deg 
-HYP_ANOM  :     18.0438594175852 deg 
-MEAN_ANOM :     1.21692029381318 deg 
+FPA       :     44.5630645691476 deg 
+HYP_ANOM  :     16.9570235574779 deg 
+MEAN_ANOM :     1.10891304872972 deg 
 MEAN_MOT  : 0.000638155454781177 deg/sec 
 
-T_PAST_PER:     1906.93393701454 sec =    0.529703871392928 hr 
+T_PAST_PER:     1737.68482337891 sec =    0.482690228716363 hr 
 Properties at nu=150 deg
 
 Satellite State 
 Position and Velocity in LVLH frame 
-r_hat:         166809.595642343 km rd_hat:        2.69511893269814 km/sec
-t_hat:                        0 km td_hat:       0.465476947931996 km/sec
+r_hat:         166809.595642343 km rd_hat:        2.54680099878035 km/sec
+t_hat:                        0 km td_hat:       0.997065455752763 km/sec
 h_hat:                        0 km hd_hat:                       0 km/sec
 
 Position and Velocity in EPH/PQW frame 
@@ -84,10 +84,10 @@ NU_INF    :     162.247209838053 deg
 VEL_CIRC  :     1.54581815914888 km/sec 
 VEL_ESC   :     2.18611700563095 km/sec 
 TRUE_ANOM :                  150 deg 
-FPA       :     80.2010512739565 deg 
-HYP_ANOM  :      76.405734006518 deg 
-MEAN_ANOM :     29.8040001869942 deg 
+FPA       :     68.6197960686713 deg 
+HYP_ANOM  :     41.0268508210089 deg 
+MEAN_ANOM :     5.82814533964543 deg 
 MEAN_MOT  : 0.000638155454781177 deg/sec 
 
-T_PAST_PER:     46703.3541180244 sec =     12.9731539216734 hr 
-Time of flight from 90 to 150 deg: 44796.420181009846 sec = 12.443450050280513 hrs
+T_PAST_PER:     9132.79874986557 sec =     2.53688854162932 hr 
+Time of flight from 90 to 150 deg: 7395.113926486658 sec = 2.0541983129129604 hrs
