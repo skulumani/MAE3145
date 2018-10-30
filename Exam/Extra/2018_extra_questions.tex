@@ -1,0 +1,114 @@
+\documentclass[10pt]{article}
+% \usepackage[letterpaper,text={6.5in,8.7in},centering]{geometry}
+\usepackage{curves}
+\usepackage{epic,eepic,color}
+%\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+% \usepackage{amssymb,amsmath,times,subfigure,graphicx,theorem}
+\usepackage{alltt}
+%\usepackage{warmread}
+%\usepackage[all,import]{xy}
+%\usepackage{eepic}
+\usepackage{my_packages}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\cfoot{\thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\usepackage{tikz_packages}
+\renewcommand{\baselinestretch}{1.2}
+\date{}
+
+\renewcommand{\thesubsection}{\arabic{subsection}. }
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection} }
+
+\theoremstyle{definition}
+\newtheorem{prob}{Problem}[section]
+%\renewcommand{\theprob}{\arabic{section}.\arabic{prob}}
+\renewcommand{\theprob}{\arabic{prob}}
+
+\newenvironment{subprob}%
+{\renewcommand{\theenumi}{\alph{enumi}}\renewcommand{\labelenumi}{(\theenumi)}\begin{enumerate}}%
+{\end{enumerate}}%
+
+
+%1: Explain the Newtonian gravitational force and gravitational potential between particles
+%2: Analyze the characteristics of circular, elliptic, parabolic and hyperbolic orbits in a two-dimensional plane
+%3: Apply numerical/analytical techniques to propogate orbits
+%4: Describe the geometry of an orbit in a three-dimensional space from orbital elements
+
+
+\begin{document}
+
+
+\setcounter{page}{0}
+
+\vspace*{1cm}
+
+\centerline{\LARGE{ MAE3145: Midterm Exam}}
+\vspace*{0.5cm}
+\centerline{\Large \SI{2458416.465}{\julianday}}%\\%\vspace*{0.5cm}
+
+\vspace*{6cm}
+
+\centerline{
+\begin{tabular}{lll}
+\hspace*{5cm}, & \hspace*{5cm}. & \hspace*{4cm}\\\hline
+Last Name & First Name & Student ID
+\end{tabular}}
+
+\vspace*{6cm}
+
+\centerline{
+\begin{tabular}{|c|c|c|c|c|c|}\hline
+    Prob. 1 & Prob. 2 & Prob. 3 & Prob. 4 & Prob. 5 & Total \\
+    (20) & (20) & (20) & (20) & (20) & (100)\\ \hline
+    \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm}  & \hspace*{2.2cm} \\
+                    & & & & & \\
+                & & & & & \\
+\hline
+\end{tabular}}
+
+\clearpage\newpage
+% \renewcommand{\theprob}{\arabic{prob} \textit{(15pt)}}
+
+
+
+\begin{prob}
+    \textbf{20pt}
+Consider an elliptical  orbit.
+Define \( t_{outer} \) as the time required to move from a point on one end of the minor axis, through apoapsis, to a point on the other end of the minor axis.
+
+\begin{subprob}
+    \item Write an expression for the ratio of \( t_{outer} \) to the orbital period, i.e. \(\frac{t_{outer}}{\mathbb{P}}\).
+    \item If \( e = \frac{3}{4} \), the time spent in the outer half of the orbit is what percentage of the total period? In other words, find the ratio \( \frac{t_{outer}}{\mathbb{P}} \).
+\end{subprob}
+\end{prob}
+
+\clearpage\newpage
+\null\newpage
+\null\newpage
+\begin{prob}
+    \textbf{20pt}
+    Assume that a spacecraft is in the orbit about some planet of radius \( R\) and it is reasonable to model the orbit in terms of the two-body problem.
+    The perifocal set of unit vectors are \( \hat p \) and \( \hat q \).
+
+    At a given instant, the spacecraft is located at the end of the minor axis such that:
+    \begin{align*}
+        \bar r &= -4 R \hat p - 4 \sqrt{3} R \hat q \\
+        \norm{\bar v} &= \SI{3}{\radian\per\second}
+    \end{align*}
+
+\begin{subprob}
+\item Determine the following, where \( a \) is the semimajor axis, \( b \) is the semiminor axis, \( p \) is the semilatus rectum, \( e \) is eccentricity, \( \gamma \) is the flight path angle, \( \mathcal{E} \) is the specific mechanical energy, \( E \) is eccentric anomaly, and \( h \) is the specific angular momentum.
+        \begin{align*}
+            \frac{a}{R}, \quad \frac{b}{R}, \quad \frac{p}{R}, \quad e, \quad \gamma, \quad \nu, \quad E, \quad \mathcal{E}, \quad \frac{h}{R}
+        \end{align*}
+    \item Sketch the orbit and mark \( \bar r, \bar v , \gamma, \nu, E\) and the local horizontal and local vertical frame.
+\end{subprob}
+\end{prob}
+\clearpage\newpage
+\null\newpage
+\null\newpage
+
+
+\end{document}
