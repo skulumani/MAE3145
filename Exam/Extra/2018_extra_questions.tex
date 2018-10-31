@@ -46,7 +46,7 @@
 
 \centerline{\LARGE{ MAE3145: Midterm Exam}}
 \vspace*{0.5cm}
-\centerline{\Large \SI{2458416.465}{\julianday}}%\\%\vspace*{0.5cm}
+% \centerline{\Large \SI{2458416.465}{\julianday}}%\\%\vspace*{0.5cm}
 
 \vspace*{6cm}
 
@@ -58,15 +58,15 @@ Last Name & First Name & Student ID
 
 \vspace*{6cm}
 
-\centerline{
-\begin{tabular}{|c|c|c|c|c|c|}\hline
-    Prob. 1 & Prob. 2 & Prob. 3 & Prob. 4 & Prob. 5 & Total \\
-    (20) & (20) & (20) & (20) & (20) & (100)\\ \hline
-    \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm}  & \hspace*{2.2cm} \\
-                    & & & & & \\
-                & & & & & \\
-\hline
-\end{tabular}}
+% \centerline{
+% \begin{tabular}{|c|c|c|c|c|c|}\hline
+%     Prob. 1 & Prob. 2 & Prob. 3 & Prob. 4 & Prob. 5 & Total \\
+%     (20) & (20) & (20) & (20) & (20) & (100)\\ \hline
+%     \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm} & \hspace*{2.2cm}  & \hspace*{2.2cm} \\
+%                     & & & & & \\
+%                 & & & & & \\
+% \hline
+% \end{tabular}}
 
 \clearpage\newpage
 % \renewcommand{\theprob}{\arabic{prob} \textit{(15pt)}}
@@ -75,12 +75,29 @@ Last Name & First Name & Student ID
 
 \begin{prob}
     \textbf{20pt}
-Consider an elliptical  orbit.
-Define \( t_{outer} \) as the time required to move from a point on one end of the minor axis, through apoapsis, to a point on the other end of the minor axis.
+    Due to your extensive orbital mechanics training at the George Washington University, you have been hand selected to lead the Washington DC small body defense system. 
+    The goal of the small body defense system is to intercept incoming bodies before they strike our nations capital. 
+    On your first day at work a large body is on course to strike the District. 
+    At your disposal is a single ground launched missile which you can use to intercept and destroy the body. 
+    Use your skills in astrodynamics to save the District. 
+
+    Ground based measurements provided the following orbital properties for the incoming body:
+    \begin{align}
+        r_p = \SI{1000}{\kilo\meter}, \quad e = 1.2.
+    \end{align}
+    Your launch system can deliver a missile onto an orbit defined by the following:
+    \begin{align}
+        r_p = \SI{2000}{\kilo\meter}, \quad r_a = \SI{6500}{\kilo\meter} .
+    \end{align}
 
 \begin{subprob}
-    \item Write an expression for the ratio of \( t_{outer} \) to the orbital period, i.e. \(\frac{t_{outer}}{\mathbb{P}}\).
-    \item If \( e = \frac{3}{4} \), the time spent in the outer half of the orbit is what percentage of the total period? In other words, find the ratio \( \frac{t_{outer}}{\mathbb{P}} \).
+    \item Currently, the incoming body is at an altitude of \SI{36000}{\kilo\meter}.
+        In order to plan the evacuation, in case your calculations are incorrect, the District needs to determine the amount of time remaining before impact.
+        Determine the amount of time for the incoming body to travel from its current altitude to the surface.
+    \item In order to intercept the body, you need to determine the time of flight of the missile from the launch site to apogee. 
+        You can assume that the launch site is located at sea level, i.e. the radius of the launch site is \( r_l = \SI{6378.137}{\kilo\meter}\).
+    \item Assuming you can intercept the body at apogee, \( r = \SI{6500}{\kilo\meter} \), what would be the magnitude of the closing velocity at impact.
+        In other words, determine the velocity of the missile and body as the intercept radius.
 \end{subprob}
 \end{prob}
 
@@ -89,21 +106,23 @@ Define \( t_{outer} \) as the time required to move from a point on one end of t
 \null\newpage
 \begin{prob}
     \textbf{20pt}
-    Assume that a spacecraft is in the orbit about some planet of radius \( R\) and it is reasonable to model the orbit in terms of the two-body problem.
-    The perifocal set of unit vectors are \( \hat p \) and \( \hat q \).
-
-    At a given instant, the spacecraft is located at the end of the minor axis such that:
-    \begin{align*}
-        \bar r &= -4 R \hat p - 4 \sqrt{3} R \hat q \\
-        \norm{\bar v} &= \SI{3}{\radian\per\second}
-    \end{align*}
-
+    An orbital vehicle about the Earth has the following classical orbital elements:
+    \begin{align}
+        p = 0.23 R_{E}, \quad e = 0.82, \quad i = \SI{90}{\degree}, \\
+        \Omega = \SI{180}{\degree}, \quad \omega = \SI{260}{\degree}, \quad \nu = \SI{190}{\degree}.
+    \end{align}
+   
 \begin{subprob}
-\item Determine the following, where \( a \) is the semimajor axis, \( b \) is the semiminor axis, \( p \) is the semilatus rectum, \( e \) is eccentricity, \( \gamma \) is the flight path angle, \( \mathcal{E} \) is the specific mechanical energy, \( E \) is eccentric anomaly, and \( h \) is the specific angular momentum.
-        \begin{align*}
-            \frac{a}{R}, \quad \frac{b}{R}, \quad \frac{p}{R}, \quad e, \quad \gamma, \quad \nu, \quad E, \quad \mathcal{E}, \quad \frac{h}{R}
-        \end{align*}
-    \item Sketch the orbit and mark \( \bar r, \bar v , \gamma, \nu, E\) and the local horizontal and local vertical frame.
+    \item Determine the position and velocity vector in the inertial frame.
+    \item Determine the following orbital properties of the vehicle.
+        \begin{itemize}
+            \item Radius of periapsis
+            \item Radius of apoapsis
+            \item Specific Mechanical Energy
+            \item Flight Path angle
+            \item Eccentric anomaly
+            \item Specific Mechanical Energy
+        \end{itemize}
 \end{subprob}
 \end{prob}
 \clearpage\newpage
