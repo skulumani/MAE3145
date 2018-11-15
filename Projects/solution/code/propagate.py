@@ -42,8 +42,8 @@ def generate_data(tle_file='./data/PROPAGATE_tle.txt', outfile='./data/PROPOGATE
 
     Uses a saved TLE  file - get more using tle.get_tle_spacetrack(outfile, 'rv2coe')
     """
-    jd_start, _ = time.date2jd(2017, 10, 9, 0, 0, 0)
-    jd_end, _ = time.date2jd(2017, 10, 16, 0, 0, 0)
+    jd_start, _ = time.date2jd(2018, 11, 14, 0, 0, 0)
+    jd_end, _ = time.date2jd(2018, 11, 27, 0, 0, 0)
     jd_step = 100 / (24 * 60)
     jd_span = np.arange(jd_start, jd_end, jd_step)
 
