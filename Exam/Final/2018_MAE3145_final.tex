@@ -124,13 +124,6 @@ Do not spend large amounts of time here.
     Assume you are given the semi-major axis, \( a \), and eccentricity, \( e\).
     Express your solution in terms of \( a \) and \( e\).
 
-    \vspace{4cm}
-
-        \item Determine the inclination required such that the argument of perigee remains constant assuming the only pertubation is due to the Earth oblateness?
-
-            \vspace{5cm}
-        \item At this inclination, what is the rate of right ascnension of the ascending node, again assuming that the only pertubation is due to the Earth oblateness? 
-            You \underline{do not} need to simplify your answer.
     \end{subprob}
 \end{subprob}
 \end{prob}
@@ -177,6 +170,44 @@ Do not spend large amounts of time here.
     \item Draw a sketch of the orbit, Earth, observation site, and the relative vector \( \vec \rho \) from the site to the satellite.
         On your sketch, ensure you label the following vectors, \( \vec r_{site} \), \( \vec r_{sat} \), and \( \vec \rho \).
     \end{subprob}
+\end{prob}
+
+\extrapage
+\extrapage
+
+\begin{prob}
+    A vehicle is in a circular orbit about the Earth with radius \( r_1 = 6 R_\oplus\).
+    A Hohmann transfer is employed to shift to a smaller, coplanar  circular orbit of \( r_2 = 2 R_\oplus\).
+    \begin{subprob}
+        \item Determine \( \Delta \bar v_{\text{total}}\) and the time of flight.
+        \item Indicate if each manuever increase or decreases the instaneous speed.
+    \end{subprob}
+\end{prob}
+
+\extrapage
+\extrapage
+
+\begin{prob}
+    Develop an algorithm to determine the \textbf{PERIOD OF THE PHASING ORBIT} for a non-coplanar rendezvous problem to deploy a satellite from an inclined circular low Earth orbit to a higher, circular equatorial orbit at the \textbf{first opportunity}.
+    The first  few steps have been outlined for you; complete the remaining algorithm.
+
+\noindent\textbf{GIVEN:} \\
+        Interceptor satellite COEs: \( a_{int}, i, \Omega, \theta\)\\
+        Target satellite COEs: \( a_{tgt}, \theta\)
+
+\noindent\textbf{FIND:} \\
+Period of phasing orbit : \( \mathbb{P}_{\text{phasing}}\)
+
+\begin{enumerate}
+\item Calculate the angular speed (mean motion) for both interceptor and target.
+    \begin{align*}
+        \omega_{int} = \sqrt{\frac{\mu}{a_{int}^3}} \qquad \omega_{tgt} = \sqrt{\frac{\mu}{a_{tgt}^3}}
+    \end{align*}
+
+\item Calculate the TOF for the Hohmann transfer (complete the equation below).
+    \vspace*{2cm}
+\item Calculate ...
+\end{enumerate}
 \end{prob}
 
 \extrapage
